@@ -15,22 +15,18 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 13, DIF_PX(36), DIF_PX(36))];
-        [self.imageView.layer setCornerRadius:5];
-        [self.imageView.layer setMasksToBounds:YES];
-        [self.imageView.layer setBorderWidth:1];
-        [self.imageView.layer setBorderColor:DIF_HEXCOLOR(@"dedede").CGColor];
+        self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, DIF_PX(174), DIF_PX(116))];
+        [self.imageView setCenterX:DIF_SCREEN_WIDTH/2/2];
         [self.contentView addSubview:self.imageView];
         
-        self.titleLab = [[UILabel alloc] initWithFrame:CGRectMake(self.imageView.right+13, self.imageView.top, self.width-self.imageView.right-13, DIF_PX(18))];
-        [self.titleLab setTextColor:DIF_HEXCOLOR(@"#333333")];
-        [self.titleLab setFont:DIF_DIFONTOFSIZE(13)];
-        [self.contentView addSubview:self.titleLab];
+        UIView *grayView = [[UIView alloc] initWithFrame:CGRectMake(self.imageView.left, self.imageView.bottom-DIF_PX(24), self.imageView.width, DIF_PX(24))];
+        [grayView setBackgroundColor:DIF_HEXCOLOR_ALPHA(@"000000", .57)];
+        [self.contentView addSubview:grayView];
         
-        self.detailLab = [[UILabel alloc] initWithFrame:CGRectMake(self.titleLab.left, self.titleLab.bottom, self.titleLab.width, DIF_PX(18))];
-        [self.detailLab setTextColor:DIF_HEXCOLOR(@"#999999")];
-        [self.detailLab setFont:DIF_DIFONTOFSIZE(10)];
-        [self.contentView addSubview:self.detailLab];
+        self.titleLab = [[UILabel alloc] initWithFrame:CGRectMake(DIF_PX(20), 0, grayView.width-DIF_PX(20), DIF_PX(24))];
+        [self.titleLab setTextColor:DIF_HEXCOLOR(@"#ffffff")];
+        [self.titleLab setFont:DIF_DIFONTOFSIZE(13)];
+        [grayView addSubview:self.titleLab];
     }
     return self;
 }

@@ -15,24 +15,26 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.width-DIF_PX(160))/2, 13,
-                                                                       DIF_PX(160), DIF_PX(100))];
-        [self.contentView addSubview:self.imageView];
+        UIView *grayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DIF_PX(88), DIF_PX(140))];
+        [grayView setBackgroundColor:DIF_HEXCOLOR_ALPHA(@"#F9F9F9", 1)];
+        [grayView setCenterX:DIF_SCREEN_WIDTH/4/2];
+        [self.contentView addSubview:grayView];
         
-        self.titleLab = [[UILabel alloc] initWithFrame:CGRectMake(12, self.imageView.bottom+DIF_PX(5), self.width-24, DIF_PX(20))];
-        [self.titleLab setTextColor:DIF_HEXCOLOR(@"#017aff")];
-        [self.titleLab setFont:DIF_DIFONTOFSIZE(13)];
-        [self.contentView addSubview:self.titleLab];
+        self.titleLab = [[UILabel alloc] initWithFrame:CGRectMake(0, DIF_PX(14), grayView.width, DIF_PX(27))];
+        [self.titleLab setTextColor:DIF_HEXCOLOR(@"#FC7940")];
+        [self.titleLab setFont:DIF_DIFONTOFSIZE(14)];
+        [self.titleLab setTextAlignment:NSTextAlignmentCenter];
+        [grayView addSubview:self.titleLab];
         
-        self.detailLab = [[UILabel alloc] initWithFrame:CGRectMake(self.titleLab.left, self.titleLab.bottom+DIF_PX(4), self.titleLab.width, DIF_PX(15))];
-        [self.detailLab setTextColor:DIF_HEXCOLOR(@"#999999")];
-        [self.detailLab setFont:DIF_DIFONTOFSIZE(10)];
-        [self.contentView addSubview:self.detailLab];
+        self.detailLab = [[UILabel alloc] initWithFrame:CGRectMake(self.titleLab.left, self.titleLab.bottom, self.titleLab.width, DIF_PX(20))];
+        [self.detailLab setTextColor:DIF_HEXCOLOR(@"#666666")];
+        [self.detailLab setFont:DIF_DIFONTOFSIZE(12)];
+        [self.detailLab setTextAlignment:NSTextAlignmentCenter];
+        [grayView addSubview:self.detailLab];
         
-        self.moneyLab = [[UILabel alloc] initWithFrame:CGRectMake(self.detailLab.left, self.detailLab.bottom+DIF_PX(4), self.detailLab.width, DIF_PX(15))];
-        [self.moneyLab setTextColor:DIF_HEXCOLOR(@"#ff5000")];
-        [self.moneyLab setFont:DIF_DIFONTOFSIZE(10)];
-        [self.contentView addSubview:self.moneyLab];
+        self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.detailLab.bottom+DIF_PX(5), DIF_PX(74), DIF_PX(68))];
+        [self.imageView setCenterX:grayView.width/2];
+        [grayView addSubview:self.imageView];
     }
     return self;
 }

@@ -28,28 +28,26 @@
     if (self)
     {
         m_noticeIndex = 0;
-        m_ContentArr = @[@"贷款",@"保险",@"车险",@"违章代缴",@"信用卡"];
-        self.loanSpeciesList = @[@[@"保单贷",@"保单贷"],@[@"私家车",@"私家车"],@[@"房产",@"房产"],
-                                @[@"代发工资",@"代发工资"],@[@"公积金",@"公积金"]];
+        m_ContentArr = @[@"热门资讯",@"我要读刊",@"远程问诊",@"供求信息",@"我的投稿"];
         [self createCollectionViewW];
     }
     return self;
 }
 
+#pragma mark - notice Lable View
 - (UIButton *)noticeLabWithleft:(CGFloat)left
 {
     if (!m_NoticeBtn)
     {
         m_NoticeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [m_NoticeBtn setFrame:CGRectMake(left+DIF_PX(10), 0, self.width-DIF_PX(14*2), DIF_PX(42))];
+        [m_NoticeBtn setFrame:CGRectMake(left+DIF_PX(10), 0, self.width-DIF_PX(14*2), DIF_PX(50))];
         [m_NoticeBtn setBackgroundColor:DIF_HEXCOLOR(@"")];
         [m_NoticeBtn setTitle:@"" forState:UIControlStateNormal];
-        [m_NoticeBtn addTarget:self action:@selector(noticeButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
         
-        m_NoticeLab = [[UILabel alloc] initWithFrame:CGRectMake(left+DIF_PX(10), DIF_PX(12), self.width-DIF_PX(14*2), DIF_PX(42))];
+        m_NoticeLab = [[UILabel alloc] initWithFrame:CGRectMake(left+DIF_PX(10), 0, self.width-DIF_PX(14*2), DIF_PX(50))];
         [m_NoticeLab setBackgroundColor:DIF_HEXCOLOR(@"")];
-        [m_NoticeLab setFont:DIF_DIFONTOFSIZE(13)];
-        [m_NoticeLab setTextColor:DIF_HEXCOLOR(@"333333") ];
+        [m_NoticeLab setFont:DIF_DIFONTOFSIZE(14)];
+        [m_NoticeLab setTextColor:DIF_HEXCOLOR(@"666666") ];
         [m_NoticeLab setText:@"" ];
     }
     return m_NoticeBtn;
@@ -58,9 +56,7 @@
 - (void)runNoticeLab
 {
     [m_NoticeLab setAlpha:0];
-    RootNoticeListModel *model = [RootNoticeListModel mj_objectWithKeyValues:self.noticeListArr[m_noticeIndex]];
-    [m_NoticeLab setText:model.noticeTitle];
-    m_noticeIndex = ++m_noticeIndex >= self.noticeListArr.count?0:m_noticeIndex;
+    [m_NoticeLab setText:@"这次的黑锅，农药表示不背！木耳打药视频"];
     DIF_WeakSelf(self)
     [UIView animateWithDuration:2 animations:^{
         DIF_StrongSelf
@@ -90,33 +86,21 @@
     }];
 }
 
--(void)noticeButtonEvent:(UIButton *)btn
-{
-    if (self.selectBlock && self.noticeListArr.count > 0)
-    {
-        RootNoticeListModel *model = [RootNoticeListModel mj_objectWithKeyValues:self.noticeListArr[m_noticeIndex]];
-        self.selectBlock([NSIndexPath indexPathForRow:9 inSection:9], model);
-    }
-}
-
 - (UIView *)createNoticeView
 {
     if (!m_NoticeView)
     {
-        m_NoticeView = [[UIView alloc] initWithFrame:CGRectMake(0, DIF_PX(150), self.width, DIF_PX(42))];
+        m_NoticeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.width, DIF_PX(50))];
         [m_NoticeView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
-        [m_NoticeView setTag:999];
         
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"消息喇叭"]];
-        [imageView setLeft:DIF_PX(12)];
-        [imageView setCenterY:m_NoticeView.height/2];
-        [m_NoticeView addSubview:imageView];
-        [m_NoticeView addSubview:[self noticeLabWithleft:imageView.right]];
+        UILabel *titleLab = [[UILabel alloc] initWithFrame:CGRectMake(DIF_PX(6), DIF_PX(0), DIF_PX(100), DIF_PX(50))];
+        [titleLab setBackgroundColor:DIF_HEXCOLOR(@"")];
+        [titleLab setFont:DIF_DIFONTOFSIZE(16)];
+        [titleLab setTextColor:DIF_HEXCOLOR(@"666666") ];
+        [titleLab setText:@"最新资讯" ];
+        [m_NoticeView addSubview:titleLab];
+        [m_NoticeView addSubview:[self noticeLabWithleft:titleLab.right]];
         [m_NoticeView addSubview:m_NoticeLab];
-        
-        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, m_NoticeView.height-1, m_NoticeView.width, 1)];
-        [line setBackgroundColor:DIF_HEXCOLOR(@"dedede")];
-        [m_NoticeView addSubview:line];
     }
     
     return m_NoticeView;
@@ -135,74 +119,14 @@
     [self addSubview:m_ContentView];
     [m_ContentView setDelegate:self];
     [m_ContentView setDataSource:self];
-    [m_ContentView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
-}
-
-- (void)setArticleListArr:(NSArray *)articleListArr
-{
-    _articleListArr = articleListArr;
-//    [m_ContentView reloadData];
-}
-
-- (void)setInsuranceListArr:(NSArray *)insuranceListArr
-{
-    _insuranceListArr = insuranceListArr;
-//    [m_ContentView reloadData];
-}
-
-- (void)setNoticeListArr:(NSArray *)noticeListArr
-{
-    _noticeListArr = noticeListArr;
-}
-
-- (void)setMovePictures:(NSArray *)movePictures
-{
-    _movePictures = movePictures;
-//    [m_ContentView reloadData];
-}
-
-- (void)setLoanListArr:(NSArray *)loanListArr
-{
-    _loanListArr = loanListArr;
-    [m_ContentView reloadData];
-}
-
-- (void)setLoanSpeciesList:(NSArray *)loanSpeciesList
-{
-    if (loanSpeciesList)
-    {
-        if ([loanSpeciesList.firstObject isKindOfClass:[NSDictionary class]])
-        {
-            NSArray *imageTitles = @[@"保单贷",@"私家车",@"房产",@"代发工资",@"公积金",@"其他",@"pos"];
-            NSMutableArray *muArr = [NSMutableArray array];
-            for (NSDictionary *dic in loanSpeciesList)
-            {
-//                for (NSString *title in imageTitles)
-//                {
-//                    if ([dic[@"speciesName"] rangeOfString:title].location != NSNotFound )
-//                    {
-//                        [muArr addObject:@[dic[@"speciesName"],title]];
-//                        break;
-//                    }
-//                }
-                [muArr addObject:@[dic[@"speciesName"],dic[@"speciesUrl"]]];
-            }
-            _loanSpeciesList = muArr;
-            
-            [m_ContentView reloadData];
-        }
-        else
-        {
-            _loanSpeciesList = loanSpeciesList;
-        }
-    }
+    [m_ContentView setContentInset:UIEdgeInsetsMake(0, 0, 30, 0)];
 }
 
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 5;
+    return 6;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -212,13 +136,15 @@
         case 0:
             return m_ContentArr.count;
         case 1:
-            return self.loanSpeciesList.count;
+            return 1;
         case 2:
-            return self.loanListArr.count;
+            return 2;
         case 3:
-            return self.insuranceListArr.count;
+            return 4;
+        case 4:
+            return 4;
         default:
-            return self.articleListArr.count;
+            return 2;
     }
 }
 
@@ -233,24 +159,22 @@
             RootViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
             NSString *contentTitle = m_ContentArr[indexPath.row];
             [cell.titleLab setText:contentTitle];
-            [cell.imageView setImage:[UIImage imageNamed:contentTitle]];
+            NSArray *imageArr = @[@"https://free.modao.cc/uploads3/images/2500/25009955/raw_1536659848.png",
+                                  @"https://free.modao.cc/uploads3/images/2525/25250935/raw_1537178890.png",
+                                  @"https://free.modao.cc/uploads3/images/2501/25010023/raw_1536659911.png",
+                                  @"https://free.modao.cc/uploads3/images/2501/25010240/raw_1536660128.png",
+                                  @"https://free.modao.cc/uploads3/images/2526/25267543/raw_1537238154.png"];
+            NSArray *imageColor = @[@"ff8181", @"#69D48C", @"#97ECC0", @"#A5ADF6", @"#92D8FF"];
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageArr[indexPath.row]]];
+            [cell.imageView setBackgroundColor:DIF_HEXCOLOR(imageColor[indexPath.row])];
             [cell.charLab setHidden:YES];
-            if (indexPath.row == 0)
-            {
-                [cell.charLab setHidden:NO];
-            }
             return cell;
         }
         case 1:
         {
-            static NSString *cellIdentifier = @"RootViewSecondFloorCell_CELLIDENTIFIER";
-            [m_ContentView registerClass:[RootViewSecondFloorCell class] forCellWithReuseIdentifier:cellIdentifier];
-            RootViewSecondFloorCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-            NSArray *contentTitle = self.loanSpeciesList[indexPath.row];
-            [cell.titleLab setText:contentTitle.firstObject];
-//            [cell.imageView setImage:[UIImage imageNamed:contentTitle.lastObject]];
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:contentTitle.lastObject] placeholderImage:nil];
-            [cell.charLab setHidden:YES];
+            static NSString *cellIdentifier = @"RootOnlyPictureCell_CELLIDENTIFIER";
+            [m_ContentView registerClass:[RootOnlyPictureCell class] forCellWithReuseIdentifier:cellIdentifier];
+            RootOnlyPictureCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
             return cell;
         }
         case 2:
@@ -258,10 +182,11 @@
             static NSString *cellIdentifier = @"RootViewLoanCell_CELLIDENTIFIER";
             [m_ContentView registerClass:[RootViewLoanCell class] forCellWithReuseIdentifier:cellIdentifier];
             RootViewLoanCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-            RootLoanDetailModel *model = [RootLoanDetailModel mj_objectWithKeyValues:self.loanListArr[indexPath.row]];
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:model.productUrl] placeholderImage:nil];
-            [cell.titleLab setText:model.productName];
-            [cell.detailLab setText:model.summary];
+            NSArray *imageArr = @[@"https://free.modao.cc/uploads3/images/2500/25004387/raw_1536656531.jpeg",
+                                  @"https://free.modao.cc/uploads3/images/2513/25133271/raw_1536889527.jpeg"];
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageArr[indexPath.row]]];
+            NSArray *titleArr = @[@"农家新鲜芋头香芋香芋", @"云南小土豆8斤包邮包"];
+            [cell.titleLab setText:titleArr[indexPath.row]];
             return cell;
         }
         case 3:
@@ -269,49 +194,36 @@
             static NSString *cellIdentifier = @"RootViewHotCell_CELLIDENTIFIER";
             [m_ContentView registerClass:[RootViewHotCell class] forCellWithReuseIdentifier:cellIdentifier];
             RootViewHotCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-            RootRecommendInsuranceModel *model = [RootRecommendInsuranceModel mj_objectWithKeyValues:self.insuranceListArr[indexPath.row]];
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:model.titlePictureUrl] placeholderImage:nil];
-            [cell.titleLab setText:model.prodName];
-            [cell.detailLab setText:model.coverage];
-            [cell.moneyLab setText:[NSString stringWithFormat:@"推广奖励：%@元",model.promotionRewards]];
+            [cell.titleLab setText:@"今日特惠"];
+            [cell.detailLab setText:@"优惠专场"];
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2500/25002185/raw_1536657898.png"]];
             return cell;
         }
+        case 4:
+        {
+            static NSString *cellIdentifier = @"RooViewNewsCell_CELLIDENTIFIER";
+            [m_ContentView registerClass:[RooViewNewsCell class] forCellWithReuseIdentifier:cellIdentifier];
+            RooViewNewsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+            NSArray *imageArr = @[@"https://free.modao.cc/uploads3/images/2513/25136087/raw_1536891606.png",
+                                  @"https://free.modao.cc/uploads3/images/2513/25136428/raw_1536891821.jpeg",
+                                  @"https://free.modao.cc/uploads3/images/2513/25136428/raw_1536891821.jpeg",
+                                  @"https://free.modao.cc/uploads3/images/2513/25136087/raw_1536891606.png"];
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageArr[indexPath.row]]];
+            [cell.titleLab setText:@"中国农业科学技术出版社（农业农村部主管）"];
+            [cell.detailLab setText:@"2018年8月10日    阅读量：8888"];
+            return cell;
+        }
+            break;
         default:
         {
-            RootRecommnedArticleModel *model = [RootRecommnedArticleModel mj_objectWithKeyValues:self.articleListArr[indexPath.row]];
-            if (model.imgUrlList.count == 1)
-            {
-                static NSString *cellIdentifier = @"RooViewNewsCell_CELLIDENTIFIER";
-                [m_ContentView registerClass:[RooViewNewsCell class] forCellWithReuseIdentifier:cellIdentifier];
-                RooViewNewsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-                [cell.imageView sd_setImageWithURL:[NSURL URLWithString:model.imgUrl] placeholderImage:nil];
-                [cell.titleLab setText:model.title];
-                [cell.detailLab setText:model.summary];
-                [cell.companyLab setText:model.author];
-                [cell.readNumLab setText:[NSString stringWithFormat:@"%@阅读",model.hits]];
-                return cell;
-            }
-            if (model.imgUrlList.count > 1)
-            {
-                static NSString *cellIdentifier = @"RooViewNewsMoreImageCell_CELLIDENTIFIER";
-                [m_ContentView registerClass:[RooViewNewsMoreImageCell class] forCellWithReuseIdentifier:cellIdentifier];
-                RooViewNewsMoreImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-                [cell.title setText:model.title];
-                [cell.pic1 sd_setImageWithURL:[NSURL URLWithString:model.imgUrlList[0]] placeholderImage:nil];
-                [cell.pic2 sd_setImageWithURL:[NSURL URLWithString:model.imgUrlList[1]] placeholderImage:nil];
-                if (model.imgUrlList.count > 2)
-                {
-                    [cell.pic3 sd_setImageWithURL:[NSURL URLWithString:model.imgUrlList[2]] placeholderImage:nil];
-                }
-                [cell.company setText:[NSString stringWithFormat:@"%@阅读",model.hits]];
-                return cell;
-            }
-            static NSString *cellIdentifier = @"RooViewNewsTextCell_CELLIDENTIFIER";
-            [m_ContentView registerClass:[RooViewNewsTextCell class] forCellWithReuseIdentifier:cellIdentifier];
-            RooViewNewsTextCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-            [cell.title setText:model.title];
-            [cell.detail setText:model.summary];
-            [cell.company setText:[NSString stringWithFormat:@"%@阅读",model.hits]];
+            static NSString *cellIdentifier = @"RootVideoViewCell_CELLIDENTIFIER";
+            [m_ContentView registerClass:[RootVideoViewCell class] forCellWithReuseIdentifier:cellIdentifier];
+            RootVideoViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+            NSArray *imageArr = @[@"https://free.modao.cc/uploads3/images/2513/25136428/raw_1536891821.jpeg",
+                                  @"https://free.modao.cc/uploads3/images/2527/25274463/raw_1537242416.jpeg"];
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageArr[indexPath.row]]];
+            NSArray *titleArr = @[@"农民种植茶叶，这位农民", @"最新型粮食收割机已就位"];
+            [cell.titleLab setText:titleArr[indexPath.row]];
             return cell;
         }
     }
@@ -323,147 +235,153 @@
     if (kind == UICollectionElementKindSectionHeader)
     {
         reusableview = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+        for (int i = 0; i < 6; i++)
+        {
+            if ([reusableview viewWithTag:1000+i] && i != indexPath.section)
+            {
+                [[reusableview viewWithTag:1000+i] removeFromSuperview];
+            }
+        }
+        UIView *titleView = nil;
+        if ([reusableview viewWithTag:1000+indexPath.section])
+        {
+            titleView = [reusableview viewWithTag:1000+indexPath.section];
+        }
         switch (indexPath.section)
         {
             case 0:
             {
-                for (int i = 0; i < 2; i++)
+                if (!titleView)
                 {
-                    if ([reusableview viewWithTag:1001+i])
-                    {
-                        [[reusableview viewWithTag:1001+i] removeFromSuperview];
-                    }
-                }
-                CommonADAutoView *adView;
-                if ([reusableview viewWithTag:1000])
-                {
-                    adView = (CommonADAutoView *)[reusableview viewWithTag:1000];
-                    [adView removeFromSuperview];
-                    adView = nil;
-                }                
-                adView = [[CommonADAutoView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(150))];
-                [adView setTag:1000];
-                [adView setBackgroundColor:DIF_HEXCOLOR(@"017aff")];
-                [reusableview addSubview:adView];
-                [adView setSelectBlock:^(NSInteger page) {
-                    if (self.selectBlock)
-                    {
-                        RootMovePictureModel *model = [RootMovePictureModel mj_objectWithKeyValues:self.movePictures[page]];
-                        self.selectBlock(nil, model);
-                    }
-                }];
-                NSMutableArray *picArr = [NSMutableArray array];
-                for (NSDictionary *dic in self.movePictures)
-                {
-                    RootMovePictureModel *model = [RootMovePictureModel mj_objectWithKeyValues:dic];
-                    [picArr addObject:model.pictureUrl];
-                }
-                adView.picArr = picArr;
-                [m_NoticeView removeFromSuperview];
-                [reusableview addSubview:[self createNoticeView]];
-                if(self.noticeListArr.count > 0)
-                {
-                    [m_NoticeLab.layer removeAllAnimations];
-                    [self runNoticeLab];
+                    titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(150))];
+                    [titleView setTag:1000+indexPath.section];
+                    [titleView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
+                    [reusableview addSubview:titleView];
+                    
+                    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, DIF_PX(0), DIF_SCREEN_WIDTH, DIF_PX(150))];
+                    [contentView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
+                    [titleView addSubview:contentView];
+                    
+                    CommonADAutoView *adView = [[CommonADAutoView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(150))];
+                    [adView setBackgroundColor:DIF_HEXCOLOR(@"017aff")];
+                    [contentView addSubview:adView];
+                    [adView setSelectBlock:^(NSInteger page) {
+                    }];
+                    NSMutableArray *picArr = [NSMutableArray array];
+                    [picArr addObject:@"https://free.modao.cc/uploads3/images/2498/24986507/raw_1536656385.jpeg"];
+                    adView.picArr = picArr;
                 }
             }
                 break;
             case 1:
             {
-                UIView *titleView;
-                if ([reusableview viewWithTag:999])
-                {
-                    [[reusableview viewWithTag:999] removeFromSuperview];
-                }
-                if ([reusableview viewWithTag:1000])
-                {
-                    [[reusableview viewWithTag:1000] removeFromSuperview];
-                }
-                if ([reusableview viewWithTag:1000+(indexPath.section==1?2:1)])
-                {
-                    [[reusableview viewWithTag:1000+(indexPath.section==1?2:1)] removeFromSuperview];
-                }
-                if ([reusableview viewWithTag:1000+(indexPath.section==2?3:2)])
-                {
-                    [[reusableview viewWithTag:1000+(indexPath.section==2?3:2)] removeFromSuperview];
-                }
-                if ([reusableview viewWithTag:1000+(indexPath.section==3?4:3)])
-                {
-                    [[reusableview viewWithTag:1000+(indexPath.section==3?4:3)] removeFromSuperview];
-                }
-            }
-                break;
-            default:
-            {
-                UIView *titleView;
-                if ([reusableview viewWithTag:999])
-                {
-                    [[reusableview viewWithTag:999] removeFromSuperview];
-                }
-                if ([reusableview viewWithTag:1000])
-                {
-                    [[reusableview viewWithTag:1000] removeFromSuperview];
-                }
-                if ([reusableview viewWithTag:1000+(indexPath.section==1?2:1)])
-                {
-                    [[reusableview viewWithTag:1000+(indexPath.section==1?2:1)] removeFromSuperview];
-                }
-                if ([reusableview viewWithTag:1000+(indexPath.section==2?3:2)])
-                {
-                    [[reusableview viewWithTag:1000+(indexPath.section==2?3:2)] removeFromSuperview];
-                }
-                if ([reusableview viewWithTag:1000+(indexPath.section==3?4:3)])
-                {
-                    [[reusableview viewWithTag:1000+(indexPath.section==3?4:3)] removeFromSuperview];
-                }
-                if ([reusableview viewWithTag:1000+indexPath.section])
-                {
-                    titleView = [reusableview viewWithTag:1000+indexPath.section];
-                }
-                else
+                if (!titleView)
                 {
                     titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(60))];
                     [titleView setTag:1000+indexPath.section];
-                    [titleView setBackgroundColor:DIF_HEXCOLOR(@"f4f4f4")];
+                    [titleView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
                     [reusableview addSubview:titleView];
-                    
-                    UIView *lineT = [[UIView alloc] initWithFrame:CGRectMake(0, 0, titleView.width, 1)];
-                    [lineT setBackgroundColor:DIF_HEXCOLOR(@"dedede")];
-                    [titleView addSubview:lineT];
-                    
-                    UIView *lineC = [[UIView alloc] initWithFrame:CGRectMake(0, 10, titleView.width, 1)];
-                    [lineC setBackgroundColor:DIF_HEXCOLOR(@"dedede")];
-                    [titleView addSubview:lineC];
                     
                     UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, DIF_PX(10), DIF_SCREEN_WIDTH, DIF_PX(50))];
                     [contentView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
                     [titleView addSubview:contentView];
                     
-                    NSArray *titleArr = @[@"贷款分类", @"热门贷款",@"精选保险",@"精选头条"];
-                    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(12, 0, contentView.width-24, contentView.height)];
-                    [title setText:titleArr[indexPath.section-1]];
+                    [m_NoticeView removeFromSuperview];
+                    m_NoticeView = nil;
+                    [contentView addSubview:[self createNoticeView]];
+                    [m_NoticeLab.layer removeAllAnimations];
+                    [self runNoticeLab];
+                }
+            }
+                break;
+            case 2:
+            {
+                if (!titleView)
+                {
+                    titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(60))];
+                    [titleView setTag:1000+indexPath.section];
+                    [titleView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
+                    [reusableview addSubview:titleView];
+                    
+                    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, DIF_PX(10), DIF_SCREEN_WIDTH, DIF_PX(50))];
+                    [contentView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
+                    [titleView addSubview:contentView];
+                    
+                    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(12, 0, contentView.width-24, DIF_PX(50))];
+                    [title setText:@"新品上新"];
                     [title setFont:DIF_UIFONTOFSIZE(18)];
-                    [title setTextColor:DIF_HEXCOLOR(@"333333")];
+                    [title setTextColor:DIF_HEXCOLOR(@"fc7940")];
+                    [title setTextAlignment:NSTextAlignmentCenter];
+                    [contentView addSubview:title];
+                }
+            }
+                break;
+            case 3:
+            {
+                [[reusableview viewWithTag:1000+3] removeFromSuperview];
+            }
+                break;
+            case 4:
+            {
+                if (!titleView)
+                {
+                    titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(150))];
+                    [titleView setTag:1000+indexPath.section];
+                    [titleView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
+                    [reusableview addSubview:titleView];
+                    
+                    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, DIF_PX(10), DIF_SCREEN_WIDTH, DIF_PX(140))];
+                    [contentView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
+                    [titleView addSubview:contentView];
+                    
+                    UIImageView *headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(80))];
+                    [headerImageView sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2496/24967896/raw_1536655865.jpeg"]];
+                    [contentView addSubview:headerImageView];
+                    
+                    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(12, headerImageView.bottom, contentView.width-12*3-40, DIF_PX(60))];
+                    [title setText:@"新品上新"];
+                    [title setFont:DIF_UIFONTOFSIZE(18)];
+                    [title setTextColor:DIF_HEXCOLOR(@"fc7940")];
                     [contentView addSubview:title];
                     
-                    UIImageView *right = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"更多箭头"]];
-                    [right setRight:contentView.width-DIF_PX(12)];
-                    [right setCenterY:contentView.height/2];
-                    [contentView addSubview:right];
-                    
                     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-                    [btn setFrame:CGRectMake(12, 0, right.left-22, contentView.height)];
+                    [btn setFrame:CGRectMake(0, title.top, 40, DIF_PX(60))];
+                    [btn setRight:contentView.width-DIF_PX(12)];
                     [btn setTitle:@"更多" forState:UIControlStateNormal];
-                    [btn setTitleColor:DIF_HEXCOLOR(@"999999") forState:UIControlStateNormal];
+                    [btn setTitleColor:DIF_HEXCOLOR(@"333333") forState:UIControlStateNormal];
                     [btn.titleLabel setFont:DIF_UIFONTOFSIZE(15)];
                     [btn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
-                    [btn addTarget:self action:@selector(headerViewMoreButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
                     [contentView addSubview:btn];
+                }
+            }
+                break;
+            default:
+            {
+                if (!titleView)
+                {
+                    titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(60))];
+                    [titleView setTag:1000+indexPath.section];
+                    [titleView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
+                    [reusableview addSubview:titleView];
                     
-                    UIView *lineB = [[UIView alloc] initWithFrame:CGRectMake(0, titleView.height-1, titleView.width, 1)];
-                    [lineB setBackgroundColor:DIF_HEXCOLOR(@"dedede")];
-                    [titleView addSubview:lineB];
+                    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, DIF_PX(10), DIF_SCREEN_WIDTH, DIF_PX(50))];
+                    [contentView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
+                    [titleView addSubview:contentView];
                     
+                    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(12, 0, contentView.width-24, contentView.height)];
+                    [title setText:@"最新视频"];
+                    [title setFont:DIF_UIFONTOFSIZE(18)];
+                    [title setTextColor:DIF_HEXCOLOR(@"fc7940")];
+                    [contentView addSubview:title];
+                    
+                    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                    [btn setFrame:CGRectMake(0, title.top, 40, DIF_PX(60))];
+                    [btn setRight:contentView.width-DIF_PX(12)];
+                    [btn setTitle:@"更多" forState:UIControlStateNormal];
+                    [btn setTitleColor:DIF_HEXCOLOR(@"333333") forState:UIControlStateNormal];
+                    [btn.titleLabel setFont:DIF_UIFONTOFSIZE(15)];
+                    [btn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+                    [contentView addSubview:btn];
                 }
             }
         }
@@ -473,78 +391,13 @@
 
 - (void)headerViewMoreButtonEvent:(UIButton *)btn
 {
-    UIView *titleView = btn.superview.superview;
-    if (titleView.tag - 1000 == 4)
-    {
-        [DIF_TabBar setSelectedIndex:1];
-    }
-    if (titleView.tag -1000 == 1 || titleView.tag -1000 == 2 || titleView.tag -1000 == 3)
-    {
-        if (self.selectBlock)
-        {
-            self.selectBlock([NSIndexPath indexPathForRow:titleView.tag -1000 == 3?1:0 inSection:0], nil);
-        }
-    }
 }
 
 #pragma mark - UICollecrtionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.selectBlock)
-    {
-        switch (indexPath.section)
-        {
-            case 0:
-            {
-                switch (indexPath.row)
-                {
-                    case 0:
-                    case 1:
-                    case 2:
-                    {
-                        if (self.selectBlock)
-                        {
-                            self.selectBlock(indexPath, nil);
-                        }
-                    }
-                        break;
-                    default:
-                        [CommonAlertView showAlertViewOneBtnWithTitle:@"温馨提示"
-                                                              Message:@"功能还未开通\n敬请期待！"
-                                                          ButtonTitle:nil];
-                        break;
-                }
-            }
-                break;
-            case 1:
-            {
-                if (self.selectBlock)
-                {
-                    self.selectBlock(indexPath, nil);
-                }
-            }
-                break;
-            case 2:
-            {
-                RootLoanDetailModel *model = [RootLoanDetailModel mj_objectWithKeyValues:self.loanListArr[indexPath.row]];
-                self.selectBlock(indexPath, model);
-            }
-                break;
-            case 3:
-            {
-                RootRecommendInsuranceModel *model = [RootRecommendInsuranceModel mj_objectWithKeyValues:self.insuranceListArr[indexPath.row]];
-                self.selectBlock(indexPath, model);
-            }
-                break;
-            default:
-            {
-                RootRecommnedArticleModel *model = [RootRecommnedArticleModel mj_objectWithKeyValues:self.articleListArr[indexPath.row]];
-                self.selectBlock(indexPath, model);
-            }
-                break;
-        }
-    }
+    
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -555,55 +408,38 @@
     {
         case 0:
         {
-//            CGFloat widht = (DIF_SCREEN_WIDTH-6*DIF_PX(12))/5;
             CGFloat widht = (DIF_SCREEN_WIDTH)/5;
             return CGSizeMake(widht, DIF_PX(100));
         }
         case 1:
         {
-            CGFloat widht = (DIF_SCREEN_WIDTH)/5;
-            return CGSizeMake(widht, DIF_PX(95));
+            return CGSizeMake(DIF_SCREEN_WIDTH, DIF_PX(80));
         }
         case 2:
         {
-            CGFloat widht = (DIF_SCREEN_WIDTH-4*DIF_PX(12))/2;
-            return CGSizeMake(widht, DIF_PX(70));
+            CGFloat widht = (DIF_SCREEN_WIDTH)/2;
+            return CGSizeMake(widht, DIF_PX(116));
         }
         case 3:
         {
-            CGFloat widht = (DIF_SCREEN_WIDTH-4*DIF_PX(12))/2;
-            return CGSizeMake(widht, DIF_PX(190));
+            CGFloat widht = (DIF_SCREEN_WIDTH)/4;
+            return CGSizeMake(widht, DIF_PX(140));
+        }
+        case 4:
+        {
+            return CGSizeMake(DIF_SCREEN_WIDTH, DIF_PX(95));
         }
         default:
         {
-            RootRecommnedArticleModel *model = [RootRecommnedArticleModel mj_objectWithKeyValues:self.articleListArr[indexPath.row]];
-            if (model.imgUrlList.count > 1)
-            {
-                return CGSizeMake(DIF_SCREEN_WIDTH, DIF_PX(140));
-            }
-            if (model.imgUrlList.count == 0)
-            {
-                return CGSizeMake(DIF_SCREEN_WIDTH, DIF_PX(145));
-            }
-            return CGSizeMake(DIF_SCREEN_WIDTH, DIF_PX(95));
+            CGFloat widht = (DIF_SCREEN_WIDTH)/2;
+            return CGSizeMake(widht, DIF_PX(130));
         }
     }
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    switch (section)
-    {
-        case 0:
-            return UIEdgeInsetsMake(DIF_PX(0), DIF_PX(0), DIF_PX(0), DIF_PX(0));
-        case 1:
-            return UIEdgeInsetsMake(DIF_PX(0), DIF_PX(0), DIF_PX(0), DIF_PX(0));
-        case 2:
-        case 3:
-            return UIEdgeInsetsMake(DIF_PX(0), DIF_PX(12), DIF_PX(0), DIF_PX(12));
-        default:
-            return UIEdgeInsetsMake(DIF_PX(0), DIF_PX(0), DIF_PX(0), DIF_PX(0));
-    }
+    return UIEdgeInsetsMake(DIF_PX(0), DIF_PX(0), DIF_PX(0), DIF_PX(0));
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
@@ -621,9 +457,15 @@
     switch (section)
     {
         case 0:
-            return CGSizeMake(DIF_SCREEN_WIDTH, DIF_PX(192));
+            return CGSizeMake(DIF_SCREEN_WIDTH, DIF_PX(150));
         case 1:
+            return CGSizeMake(DIF_SCREEN_WIDTH, DIF_PX(60));
+        case 3:
             return CGSizeMake(DIF_SCREEN_WIDTH, DIF_PX(0));
+        case 4:
+            return CGSizeMake(DIF_SCREEN_WIDTH, DIF_PX(150));
+        case 5:
+            return CGSizeMake(DIF_SCREEN_WIDTH, DIF_PX(60));
         default:
             return CGSizeMake(DIF_SCREEN_WIDTH, DIF_PX(60));
     }

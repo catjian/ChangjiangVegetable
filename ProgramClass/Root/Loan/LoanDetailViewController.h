@@ -8,11 +8,9 @@
 
 #import "BaseViewController.h"
 #import "LoanProductDetailModel.h"
-#import "RootLoanDetailModel.h"
 
 @interface LoanDetailViewController : BaseViewController
 
-@property (nonatomic, strong) RootLoanDetailModel *listDetailModel;
 @property (nonatomic, strong) LoanProductDetailModel *detailModel;
 
 @end

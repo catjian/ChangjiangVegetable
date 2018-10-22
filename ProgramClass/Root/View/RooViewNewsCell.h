@@ -7,14 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RootRecommnedArticleModel.h"
 
 @interface RooViewNewsCell : UICollectionViewCell
 
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UILabel *titleLab;
 @property (nonatomic, strong) UILabel *detailLab;
-@property (nonatomic, strong) UILabel *companyLab;
-@property (nonatomic, strong) UILabel *readNumLab;
 
 @end

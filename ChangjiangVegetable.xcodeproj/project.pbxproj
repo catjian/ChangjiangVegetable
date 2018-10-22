@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F2BB057217E1E3A0082BB25 /* RootOnlyPictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2BB056217E1E3A0082BB25 /* RootOnlyPictureCell.m */; };
+		7F2BB05A217E2BA30082BB25 /* RootVideoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2BB059217E2BA30082BB25 /* RootVideoViewCell.m */; };
 		7F2E84A5217ADC7100C92C8C /* VideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E84A4217ADC7100C92C8C /* VideoListViewController.m */; };
 		7F2E84A8217ADC9A00C92C8C /* VideoListBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E84A7217ADC9A00C92C8C /* VideoListBaseView.m */; };
 		7F88DB05217A0D550081DF97 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F88DB04217A0D550081DF97 /* AppDelegate.m */; };
@@ -267,21 +269,12 @@
 		7FA8A5B4217A33F3000BB44A /* LoanScreenBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A432217A33F1000BB44A /* LoanScreenBaseView.m */; };
 		7FA8A5B5217A33F3000BB44A /* LoanScreenBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A434217A33F1000BB44A /* LoanScreenBaseViewCell.m */; };
 		7FA8A5B6217A33F3000BB44A /* LoanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A436217A33F1000BB44A /* LoanTableViewCell.m */; };
-		7FA8A5B7217A33F3000BB44A /* RootLoanDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A439217A33F1000BB44A /* RootLoanDetailModel.m */; };
-		7FA8A5B8217A33F3000BB44A /* RootMovePictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A43B217A33F1000BB44A /* RootMovePictureModel.m */; };
-		7FA8A5B9217A33F3000BB44A /* RootNoticeDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A43D217A33F1000BB44A /* RootNoticeDetailModel.m */; };
-		7FA8A5BA217A33F3000BB44A /* RootNoticeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A43F217A33F1000BB44A /* RootNoticeListModel.m */; };
-		7FA8A5BB217A33F3000BB44A /* RootRecommendInsuranceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A441217A33F1000BB44A /* RootRecommendInsuranceModel.m */; };
-		7FA8A5BC217A33F3000BB44A /* RootRecommnedArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A443217A33F1000BB44A /* RootRecommnedArticleModel.m */; };
 		7FA8A5BD217A33F3000BB44A /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A445217A33F1000BB44A /* RootViewController.m */; };
 		7FA8A5BE217A33F3000BB44A /* RootBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A448217A33F1000BB44A /* RootBaseView.m */; };
 		7FA8A5BF217A33F3000BB44A /* RootViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A44A217A33F1000BB44A /* RootViewCell.m */; };
 		7FA8A5C0217A33F3000BB44A /* RootViewHotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A44C217A33F1000BB44A /* RootViewHotCell.m */; };
 		7FA8A5C1217A33F3000BB44A /* RootViewLoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A44E217A33F1000BB44A /* RootViewLoanCell.m */; };
-		7FA8A5C2217A33F3000BB44A /* RootViewSecondFloorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A450217A33F1000BB44A /* RootViewSecondFloorCell.m */; };
 		7FA8A5C3217A33F3000BB44A /* RooViewNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A452217A33F1000BB44A /* RooViewNewsCell.m */; };
-		7FA8A5C4217A33F3000BB44A /* RooViewNewsMoreImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A454217A33F1000BB44A /* RooViewNewsMoreImageCell.m */; };
-		7FA8A5C5217A33F3000BB44A /* RooViewNewsTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A456217A33F1000BB44A /* RooViewNewsTextCell.m */; };
 		7FA8A5C6217A33F3000BB44A /* ArticleclassifyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A45A217A33F1000BB44A /* ArticleclassifyModel.m */; };
 		7FA8A5C7217A33F3000BB44A /* SpecialNewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A45C217A33F1000BB44A /* SpecialNewsDetailViewController.m */; };
 		7FA8A5C8217A33F3000BB44A /* SpecialNewsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A45D217A33F1000BB44A /* SpecialNewsDetailViewController.xib */; };
@@ -341,6 +334,10 @@
 
 /* Begin PBXFileReference section */
 		460720354A36434ACA672A13 /* Pods-ChangjiangVegetable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChangjiangVegetable.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChangjiangVegetable/Pods-ChangjiangVegetable.release.xcconfig"; sourceTree = "<group>"; };
+		7F2BB055217E1E3A0082BB25 /* RootOnlyPictureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootOnlyPictureCell.h; sourceTree = "<group>"; };
+		7F2BB056217E1E3A0082BB25 /* RootOnlyPictureCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootOnlyPictureCell.m; sourceTree = "<group>"; };
+		7F2BB058217E2BA30082BB25 /* RootVideoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootVideoViewCell.h; sourceTree = "<group>"; };
+		7F2BB059217E2BA30082BB25 /* RootVideoViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootVideoViewCell.m; sourceTree = "<group>"; };
 		7F2E84A3217ADC7100C92C8C /* VideoListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoListViewController.h; sourceTree = "<group>"; };
 		7F2E84A4217ADC7100C92C8C /* VideoListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoListViewController.m; sourceTree = "<group>"; };
 		7F2E84A6217ADC9A00C92C8C /* VideoListBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoListBaseView.h; sourceTree = "<group>"; };
@@ -795,18 +792,6 @@
 		7FA8A434217A33F1000BB44A /* LoanScreenBaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanScreenBaseViewCell.m; sourceTree = "<group>"; };
 		7FA8A435217A33F1000BB44A /* LoanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanTableViewCell.h; sourceTree = "<group>"; };
 		7FA8A436217A33F1000BB44A /* LoanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanTableViewCell.m; sourceTree = "<group>"; };
-		7FA8A438217A33F1000BB44A /* RootLoanDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootLoanDetailModel.h; sourceTree = "<group>"; };
-		7FA8A439217A33F1000BB44A /* RootLoanDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootLoanDetailModel.m; sourceTree = "<group>"; };
-		7FA8A43A217A33F1000BB44A /* RootMovePictureModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootMovePictureModel.h; sourceTree = "<group>"; };
-		7FA8A43B217A33F1000BB44A /* RootMovePictureModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootMovePictureModel.m; sourceTree = "<group>"; };
-		7FA8A43C217A33F1000BB44A /* RootNoticeDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNoticeDetailModel.h; sourceTree = "<group>"; };
-		7FA8A43D217A33F1000BB44A /* RootNoticeDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNoticeDetailModel.m; sourceTree = "<group>"; };
-		7FA8A43E217A33F1000BB44A /* RootNoticeListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNoticeListModel.h; sourceTree = "<group>"; };
-		7FA8A43F217A33F1000BB44A /* RootNoticeListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNoticeListModel.m; sourceTree = "<group>"; };
-		7FA8A440217A33F1000BB44A /* RootRecommendInsuranceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootRecommendInsuranceModel.h; sourceTree = "<group>"; };
-		7FA8A441217A33F1000BB44A /* RootRecommendInsuranceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootRecommendInsuranceModel.m; sourceTree = "<group>"; };
-		7FA8A442217A33F1000BB44A /* RootRecommnedArticleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootRecommnedArticleModel.h; sourceTree = "<group>"; };
-		7FA8A443217A33F1000BB44A /* RootRecommnedArticleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootRecommnedArticleModel.m; sourceTree = "<group>"; };
 		7FA8A444217A33F1000BB44A /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		7FA8A445217A33F1000BB44A /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		7FA8A447217A33F1000BB44A /* RootBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootBaseView.h; sourceTree = "<group>"; };
@@ -817,14 +802,8 @@
 		7FA8A44C217A33F1000BB44A /* RootViewHotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewHotCell.m; sourceTree = "<group>"; };
 		7FA8A44D217A33F1000BB44A /* RootViewLoanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewLoanCell.h; sourceTree = "<group>"; };
 		7FA8A44E217A33F1000BB44A /* RootViewLoanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewLoanCell.m; sourceTree = "<group>"; };
-		7FA8A44F217A33F1000BB44A /* RootViewSecondFloorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewSecondFloorCell.h; sourceTree = "<group>"; };
-		7FA8A450217A33F1000BB44A /* RootViewSecondFloorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewSecondFloorCell.m; sourceTree = "<group>"; };
 		7FA8A451217A33F1000BB44A /* RooViewNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RooViewNewsCell.h; sourceTree = "<group>"; };
 		7FA8A452217A33F1000BB44A /* RooViewNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RooViewNewsCell.m; sourceTree = "<group>"; };
-		7FA8A453217A33F1000BB44A /* RooViewNewsMoreImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RooViewNewsMoreImageCell.h; sourceTree = "<group>"; };
-		7FA8A454217A33F1000BB44A /* RooViewNewsMoreImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RooViewNewsMoreImageCell.m; sourceTree = "<group>"; };
-		7FA8A455217A33F1000BB44A /* RooViewNewsTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RooViewNewsTextCell.h; sourceTree = "<group>"; };
-		7FA8A456217A33F1000BB44A /* RooViewNewsTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RooViewNewsTextCell.m; sourceTree = "<group>"; };
 		7FA8A459217A33F1000BB44A /* ArticleclassifyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleclassifyModel.h; sourceTree = "<group>"; };
 		7FA8A45A217A33F1000BB44A /* ArticleclassifyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleclassifyModel.m; sourceTree = "<group>"; };
 		7FA8A45B217A33F1000BB44A /* SpecialNewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialNewsDetailViewController.h; sourceTree = "<group>"; };
@@ -1945,7 +1924,6 @@
 				7FA8A3AA217A33F1000BB44A /* CarInsurance */,
 				7FA8A3C8217A33F1000BB44A /* Insurance */,
 				7FA8A417217A33F1000BB44A /* Loan */,
-				7FA8A437217A33F1000BB44A /* Model */,
 				7FA8A444217A33F1000BB44A /* RootViewController.h */,
 				7FA8A445217A33F1000BB44A /* RootViewController.m */,
 				7FA8A446217A33F1000BB44A /* View */,
@@ -2301,25 +2279,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		7FA8A437217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A438217A33F1000BB44A /* RootLoanDetailModel.h */,
-				7FA8A439217A33F1000BB44A /* RootLoanDetailModel.m */,
-				7FA8A43A217A33F1000BB44A /* RootMovePictureModel.h */,
-				7FA8A43B217A33F1000BB44A /* RootMovePictureModel.m */,
-				7FA8A43C217A33F1000BB44A /* RootNoticeDetailModel.h */,
-				7FA8A43D217A33F1000BB44A /* RootNoticeDetailModel.m */,
-				7FA8A43E217A33F1000BB44A /* RootNoticeListModel.h */,
-				7FA8A43F217A33F1000BB44A /* RootNoticeListModel.m */,
-				7FA8A440217A33F1000BB44A /* RootRecommendInsuranceModel.h */,
-				7FA8A441217A33F1000BB44A /* RootRecommendInsuranceModel.m */,
-				7FA8A442217A33F1000BB44A /* RootRecommnedArticleModel.h */,
-				7FA8A443217A33F1000BB44A /* RootRecommnedArticleModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		7FA8A446217A33F1000BB44A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -2331,14 +2290,12 @@
 				7FA8A44C217A33F1000BB44A /* RootViewHotCell.m */,
 				7FA8A44D217A33F1000BB44A /* RootViewLoanCell.h */,
 				7FA8A44E217A33F1000BB44A /* RootViewLoanCell.m */,
-				7FA8A44F217A33F1000BB44A /* RootViewSecondFloorCell.h */,
-				7FA8A450217A33F1000BB44A /* RootViewSecondFloorCell.m */,
 				7FA8A451217A33F1000BB44A /* RooViewNewsCell.h */,
 				7FA8A452217A33F1000BB44A /* RooViewNewsCell.m */,
-				7FA8A453217A33F1000BB44A /* RooViewNewsMoreImageCell.h */,
-				7FA8A454217A33F1000BB44A /* RooViewNewsMoreImageCell.m */,
-				7FA8A455217A33F1000BB44A /* RooViewNewsTextCell.h */,
-				7FA8A456217A33F1000BB44A /* RooViewNewsTextCell.m */,
+				7F2BB055217E1E3A0082BB25 /* RootOnlyPictureCell.h */,
+				7F2BB056217E1E3A0082BB25 /* RootOnlyPictureCell.m */,
+				7F2BB058217E2BA30082BB25 /* RootVideoViewCell.h */,
+				7F2BB059217E2BA30082BB25 /* RootVideoViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2752,7 +2709,6 @@
 				7FA8A59B217A33F3000BB44A /* InsuranceTypesViewController.m in Sources */,
 				7FA8A51E217A33F3000BB44A /* IncomeListModel.m in Sources */,
 				7FA8A5CB217A33F3000BB44A /* SpecialNewsViewImageCell.m in Sources */,
-				7FA8A5BC217A33F3000BB44A /* RootRecommnedArticleModel.m in Sources */,
 				7FA8A575217A33F3000BB44A /* MyBaseViewCell.m in Sources */,
 				7FA8A554217A33F3000BB44A /* MyPerformanceMemberModel.m in Sources */,
 				7FA8A5C7217A33F3000BB44A /* SpecialNewsDetailViewController.m in Sources */,
@@ -2792,7 +2748,6 @@
 				7FA8A572217A33F3000BB44A /* UserInfoViewController.m in Sources */,
 				7FA8A4C3217A33F2000BB44A /* CommonImage.m in Sources */,
 				7FA8A5EF217A33F3000BB44A /* UITabbar+badge.m in Sources */,
-				7FA8A5BA217A33F3000BB44A /* RootNoticeListModel.m in Sources */,
 				7FA8A524217A33F3000BB44A /* MyIncomeListBaseView.m in Sources */,
 				7FA8A53B217A33F3000BB44A /* CarInformationView.m in Sources */,
 				7FA8A4C0217A33F2000BB44A /* CommonHttpAdapter.m in Sources */,
@@ -2848,7 +2803,6 @@
 				7FA8A4D3217A33F2000BB44A /* CommonPopShareView.m in Sources */,
 				7FEE8E78217CE87300ECF9AA /* MySetTableViewCell.m in Sources */,
 				7FF62ECA217CCD81009190F0 /* WebShopBaseView.m in Sources */,
-				7FA8A5C2217A33F3000BB44A /* RootViewSecondFloorCell.m in Sources */,
 				7F2E84A8217ADC9A00C92C8C /* VideoListBaseView.m in Sources */,
 				7FA8A5F4217A33F3000BB44A /* UIViewExt.m in Sources */,
 				7FA8A52C217A33F3000BB44A /* MyLevelViewController.m in Sources */,
@@ -2887,7 +2841,6 @@
 				7FA8A520217A33F3000BB44A /* IncomeListBaseViewCell.m in Sources */,
 				7FA8A5C1217A33F3000BB44A /* RootViewLoanCell.m in Sources */,
 				7FA8A579217A33F3000BB44A /* CarInsuranceBusinessViewController.m in Sources */,
-				7FA8A5B8217A33F3000BB44A /* RootMovePictureModel.m in Sources */,
 				7FA8A4FE217A33F3000BB44A /* IMReciveViewCell.m in Sources */,
 				7FA8A5D9217A33F3000BB44A /* NSObject+Null.m in Sources */,
 				7FA8A56B217A33F3000BB44A /* FeedBackViewController.m in Sources */,
@@ -2913,12 +2866,11 @@
 				7FA8A58F217A33F3000BB44A /* InsuranceDetailViewController.m in Sources */,
 				7FA8A4FB217A33F3000BB44A /* TIMManagerObject.m in Sources */,
 				7FA8A574217A33F3000BB44A /* MyBaseView.m in Sources */,
+				7F2BB05A217E2BA30082BB25 /* RootVideoViewCell.m in Sources */,
 				7FA8A5ED217A33F3000BB44A /* UIImageView+CornerRadius.m in Sources */,
-				7FA8A5BB217A33F3000BB44A /* RootRecommendInsuranceModel.m in Sources */,
 				7FA8A4DE217A33F2000BB44A /* AJPhotoTapDetectingImageView.m in Sources */,
 				7FA8A519217A33F3000BB44A /* InviteListViewCell.m in Sources */,
 				7FA8A5EE217A33F3000BB44A /* UILabel+CallPhoneExtension.m in Sources */,
-				7FA8A5C5217A33F3000BB44A /* RooViewNewsTextCell.m in Sources */,
 				7FA8A586217A33F3000BB44A /* InsuranceAgeViewController.m in Sources */,
 				7FA8A533217A33F3000BB44A /* MyLoanOrderDetailViewController.m in Sources */,
 				7FA8A4CC217A33F2000BB44A /* CommonContentSubView.m in Sources */,
@@ -2935,7 +2887,6 @@
 				7FA8A4FF217A33F3000BB44A /* IMSendViewCell.m in Sources */,
 				7FA8A5D1217A33F3000BB44A /* BaseTabBarController.m in Sources */,
 				7FA8A525217A33F3000BB44A /* MyIncomeListBaseViewCell.m in Sources */,
-				7FA8A5C4217A33F3000BB44A /* RooViewNewsMoreImageCell.m in Sources */,
 				7FA8A5B1217A33F3000BB44A /* LoanproductModel.m in Sources */,
 				7FA8A5D3217A33F3000BB44A /* BaseTableViewCell.m in Sources */,
 				7FA8A522217A33F3000BB44A /* MyIncomeListViewController.m in Sources */,
@@ -2957,9 +2908,9 @@
 				7FA8A4D1217A33F2000BB44A /* CommonPickerView.m in Sources */,
 				7FA8A599217A33F3000BB44A /* InsuranceOrderWaitViewController.m in Sources */,
 				7FA8A4E0217A33F2000BB44A /* AJTapDetectingView.m in Sources */,
+				7F2BB057217E1E3A0082BB25 /* RootOnlyPictureCell.m in Sources */,
 				7FA8A589217A33F3000BB44A /* InsuranceCommitViewController.m in Sources */,
 				7FA8A583217A33F3000BB44A /* CarInsuranceListModel.m in Sources */,
-				7FA8A5B7217A33F3000BB44A /* RootLoanDetailModel.m in Sources */,
 				7FA8A5EA217A33F3000BB44A /* UIImage+CornerRadius.m in Sources */,
 				7FA8A55B217A33F3000BB44A /* MyPerformanceSafeViewCell.m in Sources */,
 				7FA8A5E3217A33F3000BB44A /* NSString+TransformToPinYin.m in Sources */,
@@ -2974,7 +2925,6 @@
 				7FA8A5CF217A33F3000BB44A /* BaseLable.m in Sources */,
 				7FA8A561217A33F3000BB44A /* PresentAccountBaseView.m in Sources */,
 				7FA8A5D4217A33F3000BB44A /* BaseViewController.m in Sources */,
-				7FA8A5B9217A33F3000BB44A /* RootNoticeDetailModel.m in Sources */,
 				7FA8A529217A33F3000BB44A /* PaymentListBaseView.m in Sources */,
 				7FA8A5F3217A33F3000BB44A /* UIView+SDAutoLayout.m in Sources */,
 				7FA8A4C6217A33F2000BB44A /* CommonVerify.m in Sources */,

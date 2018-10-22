@@ -17,6 +17,8 @@
     {
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.width-DIF_PX(42))/2, 21,
                                                                        DIF_PX(42), DIF_PX(42))];
+        [self.imageView.layer setCornerRadius:5];
+        [self.imageView.layer setMasksToBounds:YES];
         [self.contentView addSubview:self.imageView];
         
         self.titleLab = [[UILabel alloc] initWithFrame:CGRectMake(0, self.imageView.bottom+DIF_PX(12), self.width, DIF_PX(15))];

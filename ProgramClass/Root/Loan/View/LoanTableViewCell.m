@@ -74,13 +74,5 @@
     [redBag addSubview:m_rightImage];
 }
 
-- (void)loadData:(RootLoanDetailModel *)model
-{
-    [m_leftImage sd_setImageWithURL:[NSURL URLWithString:model.productUrl]];
-    [m_topTitle setText:model.productName];
-    [m_firDetail setText:model.summary];
-    [m_rightImage setText:[model.generalizeAmount stringByAppendingString:@"元"]];
-}
-
 
 @end

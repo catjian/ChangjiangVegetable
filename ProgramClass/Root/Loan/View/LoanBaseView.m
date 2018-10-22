@@ -244,10 +244,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RootLoanDetailModel *model = [RootLoanDetailModel mj_objectWithKeyValues:self.loanProModelArr[indexPath.row]];
     LoanTableViewCell *cell = [BaseTableViewCell cellClassName:@"LoanTableViewCell"
                                                    InTableView:tableView
-                                               forContenteMode:model];
+                                               forContenteMode:nil];
     return cell;
 }
 
@@ -256,8 +255,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.selectBlock)
     {
-        RootLoanDetailModel *model = [RootLoanDetailModel mj_objectWithKeyValues:self.loanProModelArr[indexPath.row]];
-        self.selectBlock(indexPath, model);
     }
 }
 

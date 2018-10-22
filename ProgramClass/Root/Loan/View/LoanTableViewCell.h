@@ -7,7 +7,6 @@
 //
 
 #import "BaseTableViewCell.h"
-#import "RootLoanDetailModel.h"
 #import "LoanproductModel.h"
 
 @interface LoanTableViewCell : BaseTableViewCell

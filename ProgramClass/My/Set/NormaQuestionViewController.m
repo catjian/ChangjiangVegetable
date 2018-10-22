@@ -7,7 +7,6 @@
 //
 
 #import "NormaQuestionViewController.h"
-#import "RootRecommnedArticleModel.h"
 #import "SpecialNewsDetailViewController.h"
 
 @interface NormaQuestionViewCell : BaseTableViewCell
@@ -85,11 +84,9 @@
         DIF_WeakSelf(self)
         [m_BaseView setRefreshBlock:^{
             DIF_StrongSelf
-            [strongSelf httpRequestCommonProblemListWithParameters:@{@"pageNum":@"1",@"pageSize":@"10"}];
         }];
         [m_BaseView setLoadMoreBlock:^(NSInteger page) {
             DIF_StrongSelf
-            [strongSelf httpRequestCommonProblemListWithParameters:@{@"pageNum":[@(page+1) stringValue],@"pageSize":@"10"}];
         }];
     }
 }
@@ -144,8 +141,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NormaQuestionViewCell *cell = [BaseTableViewCell cellClassName:@"NormaQuestionViewCell" InTableView:tableView forContenteMode:nil];
-    RootRecommnedArticleModel *contentModel = [RootRecommnedArticleModel mj_objectWithKeyValues:m_listArrModel[indexPath.row]];
-    [cell.titleLab setText:contentModel.title];
     return cell;
 }
 
@@ -153,8 +148,6 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    RootRecommnedArticleModel *contentModel = [RootRecommnedArticleModel mj_objectWithKeyValues:m_listArrModel[indexPath.row]];
-    [self httpRequestArticleDetailWithDetailModel:contentModel];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -171,86 +164,6 @@
     [view addSubview:lintB];
     
     return view;
-}
-
-
-#pragma mark - Http Request
-
-- (void)httpRequestCommonProblemListWithParameters:(NSDictionary *)parms
-{
-    __block NSDictionary *weakParms = parms;
-    DIF_WeakSelf(self)
-    [DIF_CommonHttpAdapter
-     httpRequestCommonProblemListWithParameters:parms
-     ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
-         DIF_StrongSelf
-         [strongSelf->m_BaseView endRefresh];
-         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
-         {
-             [CommonHUD hideHUD];
-             strongSelf->m_NoDataImageName = @"无记录";
-             strongSelf->m_listModel = [ArticleListModel mj_objectWithKeyValues:responseModel[@"data"]];
-             if ([weakParms[@"pageNum"] integerValue] == 1)
-             {
-                 strongSelf->m_listArrModel = strongSelf->m_listModel.list;
-             }
-             else if (strongSelf->m_listModel.list.count > 0)
-             {
-                 NSMutableArray *nowList = [NSMutableArray arrayWithArray:strongSelf->m_listArrModel];
-                 [nowList addObjectsFromArray:strongSelf->m_listModel.list];
-                 strongSelf->m_listArrModel = nowList;
-             }
-             [strongSelf->m_BaseView reloadData];
-         }
-         else
-         {
-             if ([responseModel[@"message"] rangeOfString:@"网络连接失败"].location != NSNotFound )
-             {
-                 strongSelf->m_NoDataImageName = @"网络走丢了";
-             }
-             else
-             {
-                 strongSelf->m_NoDataImageName = @"数据错误";
-             }
-             [strongSelf->m_BaseView reloadData];
-             [CommonHUD delayShowHUDWithMessage:responseModel[@"message"]];
-         }
-     } FailedBlcok:^(NSError *error) {
-         DIF_StrongSelf
-         if ([error.userInfo[NSLocalizedDescriptionKey] rangeOfString:@"offline"].location != NSNotFound)
-         {
-             strongSelf->m_NoDataImageName = @"网络走丢了";
-             [strongSelf->m_BaseView reloadData];
-         }
-         if ([error.userInfo[NSLocalizedDescriptionKey] rangeOfString:@"timed out"].location != NSNotFound)
-         {
-             strongSelf->m_NoDataImageName = @"已超时";
-             [strongSelf->m_BaseView reloadData];
-         }
-         [strongSelf->m_BaseView endRefresh];
-         [CommonHUD delayShowHUDWithMessage:DIF_Request_NET_ERROR];
-     }];
-}
-
-- (void)httpRequestArticleDetailWithDetailModel:(RootRecommnedArticleModel *)model
-{
-    DIF_WeakSelf(self)
-    [DIF_CommonHttpAdapter
-     httpRequestArticleDetailWithParameters:@{@"articleId":model.articleId}
-     ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
-         DIF_StrongSelf
-         if(type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
-         {
-             SpecialNewsDetailViewController *vc = [strongSelf loadViewController:@"SpecialNewsDetailViewController" hidesBottomBarWhenPushed:YES];
-             vc.detailModel = [ArticleDetailModel mj_objectWithKeyValues:responseModel[@"data"]];
-         }
-         else
-         {
-             [CommonHUD delayShowHUDWithMessage:responseModel[@"message"]];
-         }
-     } FailedBlcok:^(NSError *error) {
-         [CommonHUD delayShowHUDWithMessage:DIF_Request_NET_ERROR];
-     }];
 }
 
 @end

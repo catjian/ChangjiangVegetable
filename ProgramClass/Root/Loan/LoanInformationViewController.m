@@ -222,7 +222,6 @@
         return;
     }
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:self.listDetailModel.productId forKey:@"loanProductId"];
     for (LoanScreenModel *model in m_SpeciesArray)
     {
         if ([self.speciesBtn.titleLabel.text isEqualToString:model.speciesName])

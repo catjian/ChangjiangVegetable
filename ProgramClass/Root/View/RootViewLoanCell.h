@@ -7,12 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RootLoanDetailModel.h"
 
 @interface RootViewLoanCell : UICollectionViewCell
 
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UILabel *titleLab;
-@property (nonatomic, strong) UILabel *detailLab;
 
 @end

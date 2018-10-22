@@ -80,7 +80,6 @@
         }];
         [m_BaseView setSelectBlock:^(NSIndexPath *indexPath, id model) {
             DIF_StrongSelf
-            [strongSelf httpRequestLoanproductDetailWithListModel:model];
         }];
     }
     [m_BaseView uploadTopButtonStatusWithType:(m_parmsSpeciesId.length>0)
@@ -164,31 +163,6 @@
          }
          [CommonHUD delayShowHUDWithMessage:DIF_Request_NET_ERROR];
      }];
-}
-
-- (void)httpRequestLoanproductDetailWithListModel:(RootLoanDetailModel *)model
-{
-    LoanDetailViewController *vc = [self loadViewController:@"LoanDetailViewController" hidesBottomBarWhenPushed:YES];
-    vc.listDetailModel = model;
-//    [CommonHUD showHUD];
-//    DIF_WeakSelf(self)
-//    [DIF_CommonHttpAdapter
-//     httpRequestLoanproductDetailWithParameters:@{@"prodId":model.productId}
-//     ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
-//         DIF_StrongSelf
-//         if(type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
-//         {
-//             [CommonHUD hideHUD];
-//             LoanDetailViewController *vc = [strongSelf loadViewController:@"LoanDetailViewController" hidesBottomBarWhenPushed:YES];
-//             vc.detailModel = [LoanProductDetailModel mj_objectWithKeyValues:responseModel[@"data"]];
-//         }
-//         else
-//         {
-//             [CommonHUD delayShowHUDWithMessage:responseModel[@"message"]];
-//         }
-//     } FailedBlcok:^(NSError *error) {
-//         [CommonHUD delayShowHUDWithMessage:DIF_Request_NET_ERROR];
-//     }];
 }
 
 //贷款资质（name=speciesId）列表：http://localhost:40002/api/loanproduct/species

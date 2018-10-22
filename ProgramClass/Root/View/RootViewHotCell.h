@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RootRecommendInsuranceModel.h"
 
 @interface RootViewHotCell : UICollectionViewCell
 

@@ -31,8 +31,6 @@
     NSArray *m_InsuranceListArr;
     NSArray *m_LoanListArr;
     NSArray *m_LoanSpeciesList;
-    RootNoticeListModel *m_NoticeListModel;
-    RootMovePictureModel *m_MovePictureModel;
 }
 
 - (void)viewWillAppear:(BOOL)animated
