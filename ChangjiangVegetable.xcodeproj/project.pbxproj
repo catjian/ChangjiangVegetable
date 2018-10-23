@@ -15,6 +15,9 @@
 		7F88DB0D217A0D550081DF97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F88DB0C217A0D550081DF97 /* Assets.xcassets */; };
 		7F88DB10217A0D550081DF97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F88DB0E217A0D550081DF97 /* LaunchScreen.storyboard */; };
 		7F88DB13217A0D550081DF97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F88DB12217A0D550081DF97 /* main.m */; };
+		7FA80F88217F7B7000CD213F /* WebShopTwoPictureViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA80F87217F7B7000CD213F /* WebShopTwoPictureViewCell.m */; };
+		7FA80F8B217F7C9D00CD213F /* WebShopOnePictureMoneyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA80F8A217F7C9D00CD213F /* WebShopOnePictureMoneyViewCell.m */; };
+		7FA80F8E217F8AF600CD213F /* WebShowViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA80F8D217F8AF600CD213F /* WebShowViewCell.m */; };
 		7FA8A4B9217A33F2000BB44A /* CommonCurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A217217A33F0000BB44A /* CommonCurrentUser.m */; };
 		7FA8A4BA217A33F2000BB44A /* CommonMemonyCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A219217A33F0000BB44A /* CommonMemonyCache.m */; };
 		7FA8A4BB217A33F2000BB44A /* CommonAchieveModelValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A21C217A33F0000BB44A /* CommonAchieveModelValue.m */; };
@@ -322,6 +325,8 @@
 		7FA8A5F2217A33F3000BB44A /* UIView+CornerSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A4B4217A33F2000BB44A /* UIView+CornerSquare.m */; };
 		7FA8A5F3217A33F3000BB44A /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A4B6217A33F2000BB44A /* UIView+SDAutoLayout.m */; };
 		7FA8A5F4217A33F3000BB44A /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A4B8217A33F2000BB44A /* UIViewExt.m */; };
+		7FD4D61C217F5BB4007DA159 /* VideoListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4D61B217F5BB4007DA159 /* VideoListViewCell.m */; };
+		7FD4D61F217F77A0007DA159 /* WebShopLeftOnePictureViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4D61E217F77A0007DA159 /* WebShopLeftOnePictureViewCell.m */; };
 		7FEE8E78217CE87300ECF9AA /* MySetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE8E77217CE87300ECF9AA /* MySetTableViewCell.m */; };
 		7FF62EC7217CCD56009190F0 /* WebShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF62EC6217CCD56009190F0 /* WebShopViewController.m */; };
 		7FF62ECA217CCD81009190F0 /* WebShopBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF62EC9217CCD81009190F0 /* WebShopBaseView.m */; };
@@ -349,6 +354,12 @@
 		7F88DB0F217A0D550081DF97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F88DB11217A0D550081DF97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F88DB12217A0D550081DF97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7FA80F86217F7B7000CD213F /* WebShopTwoPictureViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebShopTwoPictureViewCell.h; sourceTree = "<group>"; };
+		7FA80F87217F7B7000CD213F /* WebShopTwoPictureViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebShopTwoPictureViewCell.m; sourceTree = "<group>"; };
+		7FA80F89217F7C9D00CD213F /* WebShopOnePictureMoneyViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebShopOnePictureMoneyViewCell.h; sourceTree = "<group>"; };
+		7FA80F8A217F7C9D00CD213F /* WebShopOnePictureMoneyViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebShopOnePictureMoneyViewCell.m; sourceTree = "<group>"; };
+		7FA80F8C217F8AF600CD213F /* WebShowViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebShowViewCell.h; sourceTree = "<group>"; };
+		7FA80F8D217F8AF600CD213F /* WebShowViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebShowViewCell.m; sourceTree = "<group>"; };
 		7FA8A216217A33F0000BB44A /* CommonCurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonCurrentUser.h; sourceTree = "<group>"; };
 		7FA8A217217A33F0000BB44A /* CommonCurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonCurrentUser.m; sourceTree = "<group>"; };
 		7FA8A218217A33F0000BB44A /* CommonMemonyCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMemonyCache.h; sourceTree = "<group>"; };
@@ -898,6 +909,10 @@
 		7FA8A4B7217A33F2000BB44A /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		7FA8A4B8217A33F2000BB44A /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
 		7FA8A5F6217A3446000BB44A /* ChangjiangVegetable-PCH.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChangjiangVegetable-PCH.pch"; sourceTree = "<group>"; };
+		7FD4D61A217F5BB4007DA159 /* VideoListViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoListViewCell.h; sourceTree = "<group>"; };
+		7FD4D61B217F5BB4007DA159 /* VideoListViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoListViewCell.m; sourceTree = "<group>"; };
+		7FD4D61D217F77A0007DA159 /* WebShopLeftOnePictureViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebShopLeftOnePictureViewCell.h; sourceTree = "<group>"; };
+		7FD4D61E217F77A0007DA159 /* WebShopLeftOnePictureViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebShopLeftOnePictureViewCell.m; sourceTree = "<group>"; };
 		7FEE8E76217CE87300ECF9AA /* MySetTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySetTableViewCell.h; sourceTree = "<group>"; };
 		7FEE8E77217CE87300ECF9AA /* MySetTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySetTableViewCell.m; sourceTree = "<group>"; };
 		7FF62EC5217CCD56009190F0 /* WebShopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebShopViewController.h; sourceTree = "<group>"; };
@@ -958,6 +973,8 @@
 			children = (
 				7F2E84A6217ADC9A00C92C8C /* VideoListBaseView.h */,
 				7F2E84A7217ADC9A00C92C8C /* VideoListBaseView.m */,
+				7FD4D61A217F5BB4007DA159 /* VideoListViewCell.h */,
+				7FD4D61B217F5BB4007DA159 /* VideoListViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2445,6 +2462,8 @@
 			children = (
 				7FF62ECE217CCDF6009190F0 /* WebShowBaseView.h */,
 				7FF62ECF217CCDF6009190F0 /* WebShowBaseView.m */,
+				7FA80F8C217F8AF600CD213F /* WebShowViewCell.h */,
+				7FA80F8D217F8AF600CD213F /* WebShowViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2454,6 +2473,12 @@
 			children = (
 				7FF62EC8217CCD81009190F0 /* WebShopBaseView.h */,
 				7FF62EC9217CCD81009190F0 /* WebShopBaseView.m */,
+				7FD4D61D217F77A0007DA159 /* WebShopLeftOnePictureViewCell.h */,
+				7FD4D61E217F77A0007DA159 /* WebShopLeftOnePictureViewCell.m */,
+				7FA80F86217F7B7000CD213F /* WebShopTwoPictureViewCell.h */,
+				7FA80F87217F7B7000CD213F /* WebShopTwoPictureViewCell.m */,
+				7FA80F89217F7C9D00CD213F /* WebShopOnePictureMoneyViewCell.h */,
+				7FA80F8A217F7C9D00CD213F /* WebShopOnePictureMoneyViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2716,7 +2741,9 @@
 				7FA8A50E217A33F3000BB44A /* BuyMemberPayViewController.m in Sources */,
 				7FA8A4C5217A33F2000BB44A /* CommonTool.m in Sources */,
 				7FA8A536217A33F3000BB44A /* MyLoanViewCell.m in Sources */,
+				7FD4D61C217F5BB4007DA159 /* VideoListViewCell.m in Sources */,
 				7FA8A4D9217A33F2000BB44A /* CommonNumberKeyboardView.m in Sources */,
+				7FA80F8B217F7C9D00CD213F /* WebShopOnePictureMoneyViewCell.m in Sources */,
 				7F88DB13217A0D550081DF97 /* main.m in Sources */,
 				7FA8A5EC217A33F3000BB44A /* UIImageView+CircleImage.m in Sources */,
 				7FA8A577217A33F3000BB44A /* PopTowBtnMessageAlertView.m in Sources */,
@@ -2767,6 +2794,7 @@
 				7FA8A588217A33F3000BB44A /* InsuranceAgeViewCell.m in Sources */,
 				7FA8A5E5217A33F3000BB44A /* UIAlertController+CustomAlert.m in Sources */,
 				7FA8A5AF217A33F3000BB44A /* LoadCommitOrderModel.m in Sources */,
+				7FA80F88217F7B7000CD213F /* WebShopTwoPictureViewCell.m in Sources */,
 				7FA8A4BD217A33F2000BB44A /* CommonAnimation.m in Sources */,
 				7FA8A4CD217A33F2000BB44A /* CommonCustomButtonView.m in Sources */,
 				7FA8A4C9217A33F2000BB44A /* CommonADAutoView.m in Sources */,
@@ -2781,6 +2809,7 @@
 				7FA8A55D217A33F3000BB44A /* AddBankAccountViewController.m in Sources */,
 				7FA8A4CA217A33F2000BB44A /* CommonBottomPopView.m in Sources */,
 				7FA8A5E7217A33F3000BB44A /* UIButton+ImageTitleStyle.m in Sources */,
+				7FD4D61F217F77A0007DA159 /* WebShopLeftOnePictureViewCell.m in Sources */,
 				7FA8A547217A33F3000BB44A /* MyOrderCarListModel.m in Sources */,
 				7FA8A59E217A33F3000BB44A /* InsuranceTypesViewCell.m in Sources */,
 				7FA8A510217A33F3000BB44A /* OpenAlipaysViewController.m in Sources */,
@@ -2806,6 +2835,7 @@
 				7F2E84A8217ADC9A00C92C8C /* VideoListBaseView.m in Sources */,
 				7FA8A5F4217A33F3000BB44A /* UIViewExt.m in Sources */,
 				7FA8A52C217A33F3000BB44A /* MyLevelViewController.m in Sources */,
+				7FA80F8E217F8AF600CD213F /* WebShowViewCell.m in Sources */,
 				7FA8A5B3217A33F3000BB44A /* LoanBaseView.m in Sources */,
 				7FF62ED0217CCDF6009190F0 /* WebShowBaseView.m in Sources */,
 				7FA8A535217A33F3000BB44A /* MyLoanBaseView.m in Sources */,

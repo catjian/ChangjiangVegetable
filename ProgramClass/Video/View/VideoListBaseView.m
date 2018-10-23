@@ -7,6 +7,7 @@
 //
 
 #import "VideoListBaseView.h"
+#import "VideoListViewCell.h"
 
 @interface VideoListBaseView() <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -14,13 +15,7 @@
 
 @implementation VideoListBaseView
 {
-    UIButton *m_NoticeBtn;
-    UILabel *m_NoticeLab;
     BaseCollectionView *m_ContentView;
-    NSArray *m_ContentArr;
-    UIView *m_NoticeView;
-    NSInteger m_noticeIndex;
-    NSInteger m_SegmentIndex;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -28,126 +23,35 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        m_noticeIndex = 0;
+        [self createPageController];
     }
     return self;
 }
 
 - (void)createPageController
 {
-    NSMutableArray *titles = [NSMutableArray array];
-//    for (NSDictionary *dic in self.classifyArr)
-//    {
-//        ArticleclassifyModel *model = [ArticleclassifyModel mj_objectWithKeyValues:dic];
-//        [titles addObject:model.classifyName];
-//    }
-    CommonPageControlView *pageView = [[CommonPageControlView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(60))
-                                                                            titles:titles];
+    CommonPageControlView *pageView = [[CommonPageControlView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH-34, 40)
+                                                                            titles:@[@"品种导航",@"庄稼医生",@"菜园机械",@"栽培技术"]
+                                                                          oneWidth:(DIF_SCREEN_WIDTH-34)/4-12];
     [self addSubview:pageView];
-    UIView *lineT = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, 1)];
-    [lineT setBackgroundColor:DIF_HEXCOLOR(@"dedede")];
-    [self addSubview:lineT];
-    UIView *lineB = [[UIView alloc] initWithFrame:CGRectMake(0, pageView.height-1, DIF_SCREEN_WIDTH, 1)];
-    [lineB setBackgroundColor:DIF_HEXCOLOR(@"dedede")];
-    [self addSubview:lineB];
     DIF_WeakSelf(self)
     [pageView setSelectBlock:^(NSInteger page) {
         DIF_StrongSelf
     }];
-    [self createCollectionViewW];
-}
-
-- (UIButton *)noticeLabWithleft:(CGFloat)left
-{
-    if (!m_NoticeBtn)
-    {
-        m_NoticeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [m_NoticeBtn setFrame:CGRectMake(left+DIF_PX(10), 0, self.width-DIF_PX(14*2), DIF_PX(42))];
-        [m_NoticeBtn setBackgroundColor:DIF_HEXCOLOR(@"")];
-        [m_NoticeBtn setTitle:@"" forState:UIControlStateNormal];
-        [m_NoticeBtn addTarget:self action:@selector(noticeButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
-        
-        m_NoticeLab = [[UILabel alloc] initWithFrame:CGRectMake(left+DIF_PX(10), DIF_PX(12), self.width-DIF_PX(14*2), DIF_PX(42))];
-        [m_NoticeLab setBackgroundColor:DIF_HEXCOLOR(@"")];
-        [m_NoticeLab setFont:DIF_DIFONTOFSIZE(13)];
-        [m_NoticeLab setTextColor:DIF_HEXCOLOR(@"333333") ];
-        [m_NoticeLab setText:@"" ];
-    }
-    return m_NoticeBtn;
-}
-
-- (void)runNoticeLab
-{
-    [m_NoticeLab setAlpha:0];
-//    RootNoticeListModel *model = [RootNoticeListModel mj_objectWithKeyValues:self.noticeListArr[m_noticeIndex]];
-//    [m_NoticeLab setText:model.noticeTitle];
-//    m_noticeIndex = ++m_noticeIndex >= self.noticeListArr.count?0:m_noticeIndex;
-    DIF_WeakSelf(self)
-    [UIView animateWithDuration:2 animations:^{
-        DIF_StrongSelf
-        [strongSelf->m_NoticeLab setAlpha:1];
-        [strongSelf->m_NoticeLab setTop:DIF_PX(0)];
-    } completion:^(BOOL finished) {
-        if (!finished)
-        {
-            return ;
-        }
-        [UIView animateWithDuration:2
-                              delay:4
-                            options:UIViewAnimationOptionCurveEaseInOut
-                         animations:^{
-                             DIF_StrongSelf
-                             [strongSelf->m_NoticeLab setAlpha:0];
-                             [strongSelf->m_NoticeLab setTop:-DIF_PX(12)];
-                         } completion:^(BOOL finished) {
-                             DIF_StrongSelf
-                             [strongSelf->m_NoticeLab setText:@""];
-                             [strongSelf->m_NoticeLab setTop:DIF_PX(12)];
-                             if (finished)
-                             {
-                                 [strongSelf runNoticeLab];
-                             }
-                         }];
-    }];
-}
-
--(void)noticeButtonEvent:(UIButton *)btn
-{
-//    if (self.selectBlock && self.noticeListArr.count > 0)
-//    {
-//        RootNoticeListModel *model = [RootNoticeListModel mj_objectWithKeyValues:self.noticeListArr[m_noticeIndex]];
-//        self.selectBlock([NSIndexPath indexPathForRow:9 inSection:9], model);
-//    }
-}
-
-- (UIView *)createNoticeView
-{
-    if (!m_NoticeView)
-    {
-        m_NoticeView = [[UIView alloc] initWithFrame:CGRectMake(0, DIF_PX(150), self.width, DIF_PX(42))];
-        [m_NoticeView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
-        [m_NoticeView setTag:999];
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"消息喇叭"]];
-        [imageView setLeft:DIF_PX(12)];
-        [imageView setCenterY:m_NoticeView.height/2];
-        [m_NoticeView addSubview:imageView];
-        [m_NoticeView addSubview:[self noticeLabWithleft:imageView.right]];
-        [m_NoticeView addSubview:m_NoticeLab];
-        
-        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, m_NoticeView.height-1, m_NoticeView.width, 1)];
-        [line setBackgroundColor:DIF_HEXCOLOR(@"dedede")];
-        [m_NoticeView addSubview:line];
-    }
     
-    return m_NoticeView;
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setFrame:CGRectMake(pageView.right+6, 0, 22, 40)];
+    [btn setTitle:@"E" forState:UIControlStateNormal];
+    [btn setTitleColor:DIF_HEXCOLOR(@"808080") forState:UIControlStateNormal];
+    [self addSubview:btn];
+    [self createCollectionView];
 }
 
-- (void)createCollectionViewW
+- (void)createCollectionView
 {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    m_ContentView = [[BaseCollectionView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height)
+    m_ContentView = [[BaseCollectionView alloc] initWithFrame:CGRectMake(0, 40, self.width, self.height)
                                               ScrollDirection:UICollectionViewScrollDirectionVertical
                                                 CellClassName:@"RootViewCell"];
     [m_ContentView registerClass:[UICollectionReusableView class]
@@ -156,14 +60,14 @@
     [self addSubview:m_ContentView];
     [m_ContentView setDelegate:self];
     [m_ContentView setDataSource:self];
-    [m_ContentView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+    [m_ContentView setContentInset:UIEdgeInsetsMake(0, 0, 50, 0)];
 }
 
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 0;
+    return 2;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -171,22 +75,21 @@
     switch (section)
     {
         case 0:
-            return 0;
+            return 4;
         default:
-            return 0;
+            return 6;
     }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    static NSString *cellIdentifier = @"RooViewNewsTextCell_CELLIDENTIFIER";
-//    [m_ContentView registerClass:[RooViewNewsTextCell class] forCellWithReuseIdentifier:cellIdentifier];
-//    RooViewNewsTextCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-//    [cell.title setText:model.title];
-//    [cell.detail setText:model.summary];
-//    [cell.company setText:[NSString stringWithFormat:@"%@阅读",model.hits]];
-//    return cell;
-    return nil;
+    static NSString *cellIdentifier = @"VideoListViewCell_CELLIDENTIFIER";
+    [m_ContentView registerClass:[VideoListViewCell class] forCellWithReuseIdentifier:cellIdentifier];
+    VideoListViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2527/25278364/raw_1537249493.jpeg"]];
+    [cell.titleLab setText:@"农民种植茶叶，这位农民..."];
+    [cell.detailLab setText:@"⚯ 888  👍 888"];
+    return cell;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -195,99 +98,130 @@
     if (kind == UICollectionElementKindSectionHeader)
     {
         reusableview = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+        for (int i = 0; i < 6; i++)
+        {
+            if ([reusableview viewWithTag:1000+i] && i != indexPath.section)
+            {
+                [[reusableview viewWithTag:1000+i] removeFromSuperview];
+            }
+        }
+        UIView *titleView = nil;
+        if ([reusableview viewWithTag:1000+indexPath.section])
+        {
+            titleView = [reusableview viewWithTag:1000+indexPath.section];
+        }
+        switch (indexPath.section)
+        {
+            case 0:
+            {
+                if (!titleView)
+                {
+                    titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(200))];
+                    [titleView setTag:1000+indexPath.section];
+                    [titleView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
+                    [reusableview addSubview:titleView];
+                    
+                    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, DIF_PX(0), DIF_SCREEN_WIDTH, DIF_PX(200))];
+                    [contentView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
+                    [titleView addSubview:contentView];
+                    
+                    CommonADAutoView *adView = [[CommonADAutoView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(150))];
+                    [adView setBackgroundColor:DIF_HEXCOLOR(@"017aff")];
+                    [contentView addSubview:adView];
+                    [adView setSelectBlock:^(NSInteger page) {
+                    }];
+                    NSMutableArray *picArr = [NSMutableArray array];
+                    [picArr addObject:@"https://free.modao.cc/uploads3/images/2498/24986507/raw_1536656385.jpeg"];
+                    adView.picArr = picArr;
+                    
+                    
+                    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(12, 0, 24, 24)];
+                    [titleImage sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2599/25992702/v2_pgf11t.png"]];
+                    [contentView addSubview:titleImage];
+                    
+                    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(titleImage.right+2, adView.bottom, contentView.width-38-12-40, DIF_PX(50))];
+                    [title setText:@"热门推荐"];
+                    [title setFont:DIF_UIFONTOFSIZE(18)];
+                    [title setTextColor:DIF_HEXCOLOR(@"fc7940")];
+                    [contentView addSubview:title];
+                    [titleImage setCenterY:title.centerY];
+                    
+                    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                    [btn setFrame:CGRectMake(0, title.top, 40, DIF_PX(60))];
+                    [btn setRight:contentView.width-DIF_PX(12)];
+                    [btn setTitle:@"更多" forState:UIControlStateNormal];
+                    [btn setTitleColor:DIF_HEXCOLOR(@"333333") forState:UIControlStateNormal];
+                    [btn.titleLabel setFont:DIF_UIFONTOFSIZE(15)];
+                    [btn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+                    [contentView addSubview:btn];
+                }
+            }
+                break;
+            default:
+            {
+                if (!titleView)
+                {
+                    titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(150))];
+                    [titleView setTag:1000+indexPath.section];
+                    [titleView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
+                    [reusableview addSubview:titleView];
+                    
+                    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, DIF_PX(10), DIF_SCREEN_WIDTH, DIF_PX(140))];
+                    [contentView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
+                    [titleView addSubview:contentView];
+                    
+                    UIImageView *headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(80))];
+                    [headerImageView sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2499/24991066/raw_1536658218.jpeg"]];
+                    [contentView addSubview:headerImageView];
+                    
+                    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(12, 0, 24, 24)];
+                    [titleImage sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2599/25992803/v2_pgf14l.png"]];
+                    [contentView addSubview:titleImage];
+                    
+                    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(titleImage.right+2, headerImageView.bottom, contentView.width-38-12-40, DIF_PX(60))];
+                    [title setText:@"新品上新"];
+                    [title setFont:DIF_UIFONTOFSIZE(18)];
+                    [title setTextColor:DIF_HEXCOLOR(@"fc7940")];
+                    [contentView addSubview:title];
+                    [titleImage setCenterY:title.centerY];
+                    
+                    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                    [btn setFrame:CGRectMake(0, title.top, 40, DIF_PX(60))];
+                    [btn setRight:contentView.width-DIF_PX(12)];
+                    [btn setTitle:@"更多" forState:UIControlStateNormal];
+                    [btn setTitleColor:DIF_HEXCOLOR(@"333333") forState:UIControlStateNormal];
+                    [btn.titleLabel setFont:DIF_UIFONTOFSIZE(15)];
+                    [btn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+                    [contentView addSubview:btn];
+                }
+            }
+                break;
+        }
     }
     return reusableview;
 }
 
 - (void)headerViewMoreButtonEvent:(UIButton *)btn
 {
-    UIView *titleView = btn.superview.superview;
-    if (titleView.tag - 1000 == 4)
-    {
-        [DIF_TabBar setSelectedIndex:1];
-    }
-    if (titleView.tag -1000 == 1 || titleView.tag -1000 == 2 || titleView.tag -1000 == 3)
-    {
-    }
 }
 
 #pragma mark - UICollecrtionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (indexPath.section)
-    {
-        case 0:
-        {
-            switch (indexPath.row)
-            {
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                default:
-                    [CommonAlertView showAlertViewOneBtnWithTitle:@"温馨提示"
-                                                          Message:@"功能还未开通\n敬请期待！"
-                                                      ButtonTitle:nil];
-                    break;
-            }
-        }
-            break;
-        default:
-        {
-        }
-            break;
-    }
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (indexPath.section)
-    {
-        case 0:
-        {
-            //            CGFloat widht = (DIF_SCREEN_WIDTH-6*DIF_PX(12))/5;
-            CGFloat widht = (DIF_SCREEN_WIDTH)/5;
-            return CGSizeMake(widht, DIF_PX(100));
-        }
-        case 1:
-        {
-            CGFloat widht = (DIF_SCREEN_WIDTH)/5;
-            return CGSizeMake(widht, DIF_PX(95));
-        }
-        case 2:
-        {
-            CGFloat widht = (DIF_SCREEN_WIDTH-4*DIF_PX(12))/2;
-            return CGSizeMake(widht, DIF_PX(70));
-        }
-        case 3:
-        {
-            CGFloat widht = (DIF_SCREEN_WIDTH-4*DIF_PX(12))/2;
-            return CGSizeMake(widht, DIF_PX(190));
-        }
-        default:
-        {
-            return CGSizeMake(DIF_SCREEN_WIDTH, DIF_PX(95));
-        }
-    }
+    CGFloat widht = (DIF_SCREEN_WIDTH)/2;
+    return CGSizeMake(widht, DIF_PX(150));
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    switch (section)
-    {
-        case 0:
-            return UIEdgeInsetsMake(DIF_PX(0), DIF_PX(0), DIF_PX(0), DIF_PX(0));
-        case 1:
-            return UIEdgeInsetsMake(DIF_PX(0), DIF_PX(0), DIF_PX(0), DIF_PX(0));
-        case 2:
-        case 3:
-            return UIEdgeInsetsMake(DIF_PX(0), DIF_PX(12), DIF_PX(0), DIF_PX(12));
-        default:
-            return UIEdgeInsetsMake(DIF_PX(0), DIF_PX(0), DIF_PX(0), DIF_PX(0));
-    }
+    return UIEdgeInsetsMake(DIF_PX(0), DIF_PX(0), DIF_PX(0), DIF_PX(0));
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
@@ -305,11 +239,9 @@
     switch (section)
     {
         case 0:
-            return CGSizeMake(DIF_SCREEN_WIDTH, DIF_PX(192));
-        case 1:
-            return CGSizeMake(DIF_SCREEN_WIDTH, DIF_PX(0));
+            return CGSizeMake(DIF_SCREEN_WIDTH, DIF_PX(200));
         default:
-            return CGSizeMake(DIF_SCREEN_WIDTH, DIF_PX(60));
+            return CGSizeMake(DIF_SCREEN_WIDTH, DIF_PX(150));
     }
 }
 

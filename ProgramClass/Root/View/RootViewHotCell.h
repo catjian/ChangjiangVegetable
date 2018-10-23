@@ -13,6 +13,5 @@
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UILabel *titleLab;
 @property (nonatomic, strong) UILabel *detailLab;
-@property (nonatomic, strong) UILabel *moneyLab;
 
 @end

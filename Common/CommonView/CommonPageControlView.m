@@ -64,7 +64,7 @@
         label.textAlignment = NSTextAlignmentCenter;
         if (i == 0)
         {
-            label.textColor = DIF_HEXCOLOR(@"#017aff");
+            label.textColor = DIF_HEXCOLOR(@"#FF3E45");
             CGRect attrsRect = [[data firstObject] boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 9999)
                                                   options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
                                                attributes:@{NSFontAttributeName : label.font}
@@ -76,7 +76,7 @@
         }
         else
         {
-            label.textColor = DIF_HEXCOLOR(@"#333333");
+            label.textColor = DIF_HEXCOLOR(@"#666666");
         }
         label.userInteractionEnabled = YES;
         [label addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelAction:)]];
@@ -105,7 +105,7 @@
             if (label.tag == index) {
                 UIView *indicatorView = [m_scrollView viewWithTag:10];
                 [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                    label.textColor = DIF_HEXCOLOR(@"#017aff");
+                    label.textColor = DIF_HEXCOLOR(@"#FF3E45");
                     CGRect attrsRect = [label.text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 9999)
                                                                 options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
                                                              attributes:@{NSFontAttributeName : label.font}
@@ -116,7 +116,7 @@
                 } completion:NULL];
             } else {
                 [UIView animateWithDuration:0.3 animations:^{
-                    label.textColor = DIF_HEXCOLOR(@"#333333");
+                    label.textColor = DIF_HEXCOLOR(@"#666666");
                 }];
             }
         }
@@ -130,7 +130,7 @@
     {
         _indicatorView = [UIView new];
         _indicatorView.tag = 10;
-        _indicatorView.backgroundColor = DIF_HEXCOLOR(@"#017aff");
+        _indicatorView.backgroundColor = DIF_HEXCOLOR(@"#FF3E45");
     }
     return _indicatorView;
 }

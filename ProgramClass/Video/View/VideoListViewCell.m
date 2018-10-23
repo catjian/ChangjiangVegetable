@@ -1,14 +1,14 @@
 //
-//  RootVideoViewCell.m
+//  VideoListViewCell.m
 //  ChangjiangVegetable
 //
 //  Created by jian zhang on 2018/10/23.
 //  Copyright © 2018年 jian zhang. All rights reserved.
 //
 
-#import "RootVideoViewCell.h"
+#import "VideoListViewCell.h"
 
-@implementation RootVideoViewCell
+@implementation VideoListViewCell
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -31,6 +31,19 @@
         [self.titleLab setTextColor:DIF_HEXCOLOR(@"#666666")];
         [self.titleLab setFont:DIF_DIFONTOFSIZE(14)];
         [self.contentView addSubview:self.titleLab];
+        
+        self.detailLab = [[UILabel alloc] initWithFrame:CGRectMake(self.titleLab.left, self.titleLab.bottom+DIF_PX(4), self.titleLab.width-DIF_PX(20), 16)];
+        [self.detailLab setTextColor:DIF_HEXCOLOR(@"#666666")];
+        [self.detailLab setFont:DIF_DIFONTOFSIZE(12)];
+        [self.contentView addSubview:self.detailLab];
+        
+        UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [closeBtn setFrame:CGRectMake(self.imageView.right-DIF_PX(16), self.detailLab.top, 16,16)];
+        [closeBtn setBackgroundColor:DIF_HEXCOLOR(@"")];
+        [closeBtn setTitle:@"♡" forState:UIControlStateNormal];
+        [closeBtn setTitleColor:DIF_HEXCOLOR(@"999999") forState:UIControlStateNormal];
+        [closeBtn.titleLabel setFont:DIF_UIFONTOFSIZE(12)];
+        [self.contentView addSubview:closeBtn];
     }
     return self;
 }

@@ -19,12 +19,12 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        [self createCollectionViewW];
+        [self createCollectionView];
     }
     return self;
 }
 
-- (void)createCollectionViewW
+- (void)createCollectionView
 {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];

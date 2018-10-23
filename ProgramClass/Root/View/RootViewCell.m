@@ -15,6 +15,7 @@
     self = [super initWithFrame:frame];
     if (self)
     {
+        [self setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.width-DIF_PX(42))/2, 21,
                                                                        DIF_PX(42), DIF_PX(42))];
         [self.imageView.layer setCornerRadius:5];

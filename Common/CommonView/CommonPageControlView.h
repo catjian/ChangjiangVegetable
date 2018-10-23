@@ -20,6 +20,7 @@ typedef void(^CommonPageControlViewSelectBlock)(NSInteger);
 
 @property (nonatomic,weak) id<CommonPageControlViewDelegate> delegate;
 @property (nonatomic, copy) CommonPageControlViewSelectBlock selectBlock;
+@property (nonatomic) CGFloat oneWidth;
 
 - (instancetype)initWithFrame:(CGRect)frame titles:(NSArray<NSString *> *)titles;
 - (instancetype)initWithFrame:(CGRect)frame titles:(NSArray<NSString *> *)titles oneWidth:(CGFloat)width;

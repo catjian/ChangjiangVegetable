@@ -83,14 +83,17 @@
     [camaraBtn setTitle:@"相机" forState:UIControlStateNormal];
     [userDetailView addSubview:camaraBtn];
     
-    UIImageView *userIcon = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 97, 107)];
+    UIImageView *userIcon = [[UIImageView alloc] initWithFrame:CGRectMake(10, 15, 98, 98)];
+    [userIcon.layer setCornerRadius:userIcon.width/2];
+    [userIcon setBackgroundColor:DIF_HEXCOLOR(@"ffbb42")];
+    [userIcon sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2506/25060666/raw_1536743782.jpeg"]];
     [userDetailView addSubview:userIcon];
     
     UILabel *pointsLab = [[UILabel alloc] initWithFrame:CGRectMake(userIcon.left, userIcon.bottom+1, userIcon.width, 22)];
     [pointsLab setFont:DIF_UIFONTOFSIZE(14)];
     [pointsLab setTextColor:DIF_HEXCOLOR(@"666666")];
     [pointsLab setTextAlignment:NSTextAlignmentCenter];
-    [pointsLab setText:[NSString stringWithFormat:@"积分: %@",@""]];
+    [pointsLab setText:[NSString stringWithFormat:@"积分: %@",@"888"]];
     [userDetailView addSubview:pointsLab];
     
     UILabel *vipLab = [[UILabel alloc] initWithFrame:CGRectMake(userIcon.right+10, 48, 22, 24)];
@@ -100,14 +103,16 @@
     [vipLab setFont:DIF_UIFONTOFSIZE(14)];
     [userDetailView addSubview:vipLab];
     
-    UILabel *nameLab = [[UILabel alloc] initWithFrame:CGRectMake(vipLab.right+2, vipLab.top, DIF_SCREEN_WIDTH-vipLab.right-4-36, vipLab.top)];
+    UILabel *nameLab = [[UILabel alloc] initWithFrame:CGRectMake(vipLab.right+2, vipLab.top, DIF_SCREEN_WIDTH-vipLab.right-4-36, vipLab.height)];
     [nameLab setTextColor:DIF_HEXCOLOR(@"666666")];
     [nameLab setFont:DIF_UIFONTOFSIZE(16)];
+    [nameLab setText:@"蘑菇小鬼头"];
     [userDetailView addSubview:nameLab];
     
     UILabel *levelLab = [[UILabel alloc] initWithFrame:CGRectMake(nameLab.right+2, nameLab.top, 30, nameLab.height)];
     [levelLab setTextColor:DIF_HEXCOLOR(@"666666")];
     [levelLab setFont:DIF_UIFONTOFSIZE(12)];
+    [levelLab setText:@"70级"];
     [userDetailView addSubview:levelLab];
     
     UIProgressView * progress = [[UIProgressView alloc]initWithProgressViewStyle:UIProgressViewStyleDefault];

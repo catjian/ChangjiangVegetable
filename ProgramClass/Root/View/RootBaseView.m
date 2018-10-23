@@ -29,7 +29,7 @@
     {
         m_noticeIndex = 0;
         m_ContentArr = @[@"热门资讯",@"我要读刊",@"远程问诊",@"供求信息",@"我的投稿"];
-        [self createCollectionViewW];
+        [self createCollectionView];
     }
     return self;
 }
@@ -106,7 +106,7 @@
     return m_NoticeView;
 }
 
-- (void)createCollectionViewW
+- (void)createCollectionView
 {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
@@ -119,7 +119,7 @@
     [self addSubview:m_ContentView];
     [m_ContentView setDelegate:self];
     [m_ContentView setDataSource:self];
-    [m_ContentView setContentInset:UIEdgeInsetsMake(0, 0, 30, 0)];
+//    [m_ContentView setContentInset:UIEdgeInsetsMake(0, 0, 30, 0)];
 }
 
 #pragma mark - UICollectionViewDataSource
