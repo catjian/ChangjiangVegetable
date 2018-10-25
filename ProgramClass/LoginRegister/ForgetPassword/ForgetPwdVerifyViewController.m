@@ -1,23 +1,24 @@
 //
-//  RegisterViewController.m
+//  ForgetPwdVerifyViewController.m
 //  ChangjiangVegetable
 //
 //  Created by jian zhang on 2018/10/26.
 //  Copyright © 2018年 jian zhang. All rights reserved.
 //
 
-#import "RegisterViewController.h"
+#import "ForgetPwdVerifyViewController.h"
 
-@interface RegisterViewController ()
+@interface ForgetPwdVerifyViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *nextBtn;
 @property (weak, nonatomic) IBOutlet UIButton *verifyBtn;
-@property (weak, nonatomic) IBOutlet UITextField *phoneTF;
+@property (weak, nonatomic) IBOutlet UILabel *phoneLab;
 @property (weak, nonatomic) IBOutlet UITextField *verifyTF;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTF;
 
 @end
 
-@implementation RegisterViewController
+@implementation ForgetPwdVerifyViewController
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -33,7 +34,7 @@
     [self.navigationController setNavigationBarHidden:NO];
     // Do any additional setup after loading the view from its nib.
     [self.view setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
-    [self setNavTarBarTitle:@"注册"];
+    [self setNavTarBarTitle:@"忘记密码"];
     [self setLeftItemWithContentName:@"back"];
     [self.nextBtn.layer setCornerRadius:21];
     [self.verifyBtn.layer setCornerRadius:5];
@@ -43,13 +44,20 @@
 
 #pragma mark - Button Events
 
-- (IBAction)getVerifyButtonEvent:(id)sender
-{
-}
-
 - (IBAction)nextButtonEvent:(id)sender
 {
-    [self loadViewController:@"RegisterSetPwdViewController"];
+    UIViewController *vc = nil;
+    for (UIViewController *navc in self.navigationController.viewControllers)
+    {
+        if ([NSStringFromClass(navc.class) isEqualToString:@"LoginViewController"])
+        {
+            vc = navc;
+        }
+    }
+    if (vc)
+    {
+        [self.navigationController popToViewController:vc animated:YES];
+    }
 }
 
 @end

@@ -1,0 +1,23 @@
+//
+//  HotInformationThreePictureCell.h
+//  ChangjiangVegetable
+//
+//  Created by jian zhang on 2018/10/25.
+//  Copyright © 2018年 jian zhang. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface HotInformationThreePictureCell : UICollectionViewCell
+
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIImageView *imageView2;
+@property (nonatomic, strong) UIImageView *imageView3;
+@property (nonatomic, strong) UILabel *titleLab;
+@property (nonatomic, strong) UILabel *detailLab;
+
+@end
+
+NS_ASSUME_NONNULL_END

@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MySetBaseView : BaseTableView
 
+@property (nonatomic, copy) tableViewSelectRowAtIndexPathBlock selectBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

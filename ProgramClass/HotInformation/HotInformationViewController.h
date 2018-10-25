@@ -1,8 +1,8 @@
 //
-//  RegisterViewController.h
+//  HotInformationViewController.h
 //  ChangjiangVegetable
 //
-//  Created by jian zhang on 2018/10/26.
+//  Created by jian zhang on 2018/10/25.
 //  Copyright © 2018年 jian zhang. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RegisterViewController : BaseViewController
+@interface HotInformationViewController : BaseViewController
 
 @end
 

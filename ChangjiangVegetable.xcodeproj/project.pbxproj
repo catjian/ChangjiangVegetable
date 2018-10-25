@@ -15,6 +15,22 @@
 		7F88DB0D217A0D550081DF97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F88DB0C217A0D550081DF97 /* Assets.xcassets */; };
 		7F88DB10217A0D550081DF97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F88DB0E217A0D550081DF97 /* LaunchScreen.storyboard */; };
 		7F88DB13217A0D550081DF97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F88DB12217A0D550081DF97 /* main.m */; };
+		7F8B69EB21820A3700F08519 /* HotInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B69EA21820A3700F08519 /* HotInformationViewController.m */; };
+		7F8B69EE21820A4500F08519 /* HotInformationBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B69ED21820A4500F08519 /* HotInformationBaseView.m */; };
+		7F8B69F121820B7D00F08519 /* HotInformationNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B69F021820B7D00F08519 /* HotInformationNormalCell.m */; };
+		7F8B69F421820B9200F08519 /* HotInformationThreePictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B69F321820B9200F08519 /* HotInformationThreePictureCell.m */; };
+		7F8B69FA2182167600F08519 /* HotVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B69F92182167600F08519 /* HotVideoListViewController.m */; };
+		7F8B69FD2182168600F08519 /* HotVideoListBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B69FC2182168600F08519 /* HotVideoListBaseView.m */; };
+		7F8B6A0121821E7B00F08519 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B69FF21821E7B00F08519 /* LoginViewController.m */; };
+		7F8B6A0221821E7B00F08519 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8B6A0021821E7B00F08519 /* LoginViewController.xib */; };
+		7F8B6A062182266C00F08519 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B6A042182266C00F08519 /* RegisterViewController.m */; };
+		7F8B6A072182266C00F08519 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8B6A052182266C00F08519 /* RegisterViewController.xib */; };
+		7F8B6A0B218228CB00F08519 /* RegisterSetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B6A09218228CB00F08519 /* RegisterSetPwdViewController.m */; };
+		7F8B6A0C218228CB00F08519 /* RegisterSetPwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8B6A0A218228CB00F08519 /* RegisterSetPwdViewController.xib */; };
+		7F8B6A1121822B6900F08519 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B6A0F21822B6900F08519 /* ForgetPasswordViewController.m */; };
+		7F8B6A1221822B6900F08519 /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8B6A1021822B6900F08519 /* ForgetPasswordViewController.xib */; };
+		7F8B6A1621822C9C00F08519 /* ForgetPwdVerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B6A1421822C9C00F08519 /* ForgetPwdVerifyViewController.m */; };
+		7F8B6A1721822C9C00F08519 /* ForgetPwdVerifyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8B6A1521822C9C00F08519 /* ForgetPwdVerifyViewController.xib */; };
 		7FA80F88217F7B7000CD213F /* WebShopTwoPictureViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA80F87217F7B7000CD213F /* WebShopTwoPictureViewCell.m */; };
 		7FA80F8B217F7C9D00CD213F /* WebShopOnePictureMoneyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA80F8A217F7C9D00CD213F /* WebShopOnePictureMoneyViewCell.m */; };
 		7FA80F8E217F8AF600CD213F /* WebShowViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA80F8D217F8AF600CD213F /* WebShowViewCell.m */; };
@@ -91,122 +107,6 @@
 		7FA8A4FF217A33F3000BB44A /* IMSendViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A299217A33F1000BB44A /* IMSendViewCell.m */; };
 		7FA8A500217A33F3000BB44A /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A29D217A33F1000BB44A /* ModifyPasswordViewController.m */; };
 		7FA8A501217A33F3000BB44A /* ModifyPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A29E217A33F1000BB44A /* ModifyPasswordViewController.xib */; };
-		7FA8A502217A33F3000BB44A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2A1217A33F1000BB44A /* LoginViewController.m */; };
-		7FA8A503217A33F3000BB44A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A2A2217A33F1000BB44A /* LoginViewController.xib */; };
-		7FA8A504217A33F3000BB44A /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2A5217A33F1000BB44A /* RegisterViewController.m */; };
-		7FA8A505217A33F3000BB44A /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A2A6217A33F1000BB44A /* RegisterViewController.xib */; };
-		7FA8A506217A33F3000BB44A /* SMSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2A9217A33F1000BB44A /* SMSLoginViewController.m */; };
-		7FA8A507217A33F3000BB44A /* SMSLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A2AA217A33F1000BB44A /* SMSLoginViewController.xib */; };
-		7FA8A508217A33F3000BB44A /* MessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2AD217A33F1000BB44A /* MessageDetailViewController.m */; };
-		7FA8A509217A33F3000BB44A /* MessageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A2AE217A33F1000BB44A /* MessageDetailViewController.xib */; };
-		7FA8A50A217A33F3000BB44A /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2B0217A33F1000BB44A /* MessageViewController.m */; };
-		7FA8A50B217A33F3000BB44A /* MessageNoticeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2B3217A33F1000BB44A /* MessageNoticeListModel.m */; };
-		7FA8A50C217A33F3000BB44A /* MessageBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2B6217A33F1000BB44A /* MessageBaseView.m */; };
-		7FA8A50D217A33F3000BB44A /* MessageBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2B8217A33F1000BB44A /* MessageBaseViewCell.m */; };
-		7FA8A50E217A33F3000BB44A /* BuyMemberPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2BD217A33F1000BB44A /* BuyMemberPayViewController.m */; };
-		7FA8A50F217A33F3000BB44A /* BuyMemberPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A2BE217A33F1000BB44A /* BuyMemberPayViewController.xib */; };
-		7FA8A510217A33F3000BB44A /* OpenAlipaysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2C0217A33F1000BB44A /* OpenAlipaysViewController.m */; };
-		7FA8A511217A33F3000BB44A /* BuyMemberSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2C3217A33F1000BB44A /* BuyMemberSuccessViewController.m */; };
-		7FA8A512217A33F3000BB44A /* BuyMemberSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A2C4217A33F1000BB44A /* BuyMemberSuccessViewController.xib */; };
-		7FA8A513217A33F3000BB44A /* BuyMemeberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2C6217A33F1000BB44A /* BuyMemeberViewController.m */; };
-		7FA8A514217A33F3000BB44A /* BuyMemeberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A2C7217A33F1000BB44A /* BuyMemeberViewController.xib */; };
-		7FA8A515217A33F3000BB44A /* MemberLevelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2CA217A33F1000BB44A /* MemberLevelModel.m */; };
-		7FA8A516217A33F3000BB44A /* InviteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2CD217A33F1000BB44A /* InviteListViewController.m */; };
-		7FA8A517217A33F3000BB44A /* InviteListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2D0217A33F1000BB44A /* InviteListModel.m */; };
-		7FA8A518217A33F3000BB44A /* InviteListBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2D3217A33F1000BB44A /* InviteListBaseView.m */; };
-		7FA8A519217A33F3000BB44A /* InviteListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2D5217A33F1000BB44A /* InviteListViewCell.m */; };
-		7FA8A51A217A33F3000BB44A /* BrokerInfoDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2D8217A33F1000BB44A /* BrokerInfoDataModel.m */; };
-		7FA8A51B217A33F3000BB44A /* MyViewDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2DA217A33F1000BB44A /* MyViewDataModel.m */; };
-		7FA8A51C217A33F3000BB44A /* IncomeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2DE217A33F1000BB44A /* IncomeListViewController.m */; };
-		7FA8A51D217A33F3000BB44A /* IncomeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A2DF217A33F1000BB44A /* IncomeListViewController.xib */; };
-		7FA8A51E217A33F3000BB44A /* IncomeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2E2217A33F1000BB44A /* IncomeListModel.m */; };
-		7FA8A51F217A33F3000BB44A /* IncomeListBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2E5217A33F1000BB44A /* IncomeListBaseView.m */; };
-		7FA8A520217A33F3000BB44A /* IncomeListBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2E7217A33F1000BB44A /* IncomeListBaseViewCell.m */; };
-		7FA8A521217A33F3000BB44A /* MyIncomeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2EB217A33F1000BB44A /* MyIncomeListModel.m */; };
-		7FA8A522217A33F3000BB44A /* MyIncomeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2ED217A33F1000BB44A /* MyIncomeListViewController.m */; };
-		7FA8A523217A33F3000BB44A /* MyIncomeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A2EE217A33F1000BB44A /* MyIncomeListViewController.xib */; };
-		7FA8A524217A33F3000BB44A /* MyIncomeListBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2F1217A33F1000BB44A /* MyIncomeListBaseView.m */; };
-		7FA8A525217A33F3000BB44A /* MyIncomeListBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2F3217A33F1000BB44A /* MyIncomeListBaseViewCell.m */; };
-		7FA8A526217A33F3000BB44A /* PaymentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2F7217A33F1000BB44A /* PaymentListModel.m */; };
-		7FA8A527217A33F3000BB44A /* PaymentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2F9217A33F1000BB44A /* PaymentListViewController.m */; };
-		7FA8A528217A33F3000BB44A /* PaymentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A2FA217A33F1000BB44A /* PaymentListViewController.xib */; };
-		7FA8A529217A33F3000BB44A /* PaymentListBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2FD217A33F1000BB44A /* PaymentListBaseView.m */; };
-		7FA8A52A217A33F3000BB44A /* PaymentListBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A2FF217A33F1000BB44A /* PaymentListBaseViewCell.m */; };
-		7FA8A52B217A33F3000BB44A /* MyLevelDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A302217A33F1000BB44A /* MyLevelDataModel.m */; };
-		7FA8A52C217A33F3000BB44A /* MyLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A304217A33F1000BB44A /* MyLevelViewController.m */; };
-		7FA8A52D217A33F3000BB44A /* MyLevelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A305217A33F1000BB44A /* MyLevelViewController.xib */; };
-		7FA8A52E217A33F3000BB44A /* MyloadListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A309217A33F1000BB44A /* MyloadListModel.m */; };
-		7FA8A52F217A33F3000BB44A /* MyLoadOrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A30B217A33F1000BB44A /* MyLoadOrderDetailModel.m */; };
-		7FA8A530217A33F3000BB44A /* MyLoanListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A30D217A33F1000BB44A /* MyLoanListViewController.m */; };
-		7FA8A531217A33F3000BB44A /* MyLoanOrderDetailFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A30F217A33F1000BB44A /* MyLoanOrderDetailFinishViewController.m */; };
-		7FA8A532217A33F3000BB44A /* MyLoanOrderDetailFinishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A310217A33F1000BB44A /* MyLoanOrderDetailFinishViewController.xib */; };
-		7FA8A533217A33F3000BB44A /* MyLoanOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A312217A33F1000BB44A /* MyLoanOrderDetailViewController.m */; };
-		7FA8A534217A33F3000BB44A /* MyLoanOrderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A313217A33F1000BB44A /* MyLoanOrderDetailViewController.xib */; };
-		7FA8A535217A33F3000BB44A /* MyLoanBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A316217A33F1000BB44A /* MyLoanBaseView.m */; };
-		7FA8A536217A33F3000BB44A /* MyLoanViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A318217A33F1000BB44A /* MyLoanViewCell.m */; };
-		7FA8A537217A33F3000BB44A /* CarOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A31D217A33F1000BB44A /* CarOrderDetailViewController.m */; };
-		7FA8A538217A33F3000BB44A /* CarOrderWaitReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A31F217A33F1000BB44A /* CarOrderWaitReviewViewController.m */; };
-		7FA8A539217A33F3000BB44A /* CarOrderWaitReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A320217A33F1000BB44A /* CarOrderWaitReviewViewController.xib */; };
-		7FA8A53A217A33F3000BB44A /* MyOrderCarDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A323217A33F1000BB44A /* MyOrderCarDetailModel.m */; };
-		7FA8A53B217A33F3000BB44A /* CarInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A326217A33F1000BB44A /* CarInformationView.m */; };
-		7FA8A53C217A33F3000BB44A /* CarOrderCancelButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A328217A33F1000BB44A /* CarOrderCancelButtonView.m */; };
-		7FA8A53D217A33F3000BB44A /* CarOrderCommissionInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A32A217A33F1000BB44A /* CarOrderCommissionInputView.m */; };
-		7FA8A53E217A33F3000BB44A /* CarOrderCommissionInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A32B217A33F1000BB44A /* CarOrderCommissionInputView.xib */; };
-		7FA8A53F217A33F3000BB44A /* CarOrderDateStyleOneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A32D217A33F1000BB44A /* CarOrderDateStyleOneView.m */; };
-		7FA8A540217A33F3000BB44A /* CarOrderDateStyleTwoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A32F217A33F1000BB44A /* CarOrderDateStyleTwoView.m */; };
-		7FA8A541217A33F3000BB44A /* CarOrderManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A331217A33F1000BB44A /* CarOrderManagerView.m */; };
-		7FA8A542217A33F3000BB44A /* CarOrderMoneyButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A333217A33F1000BB44A /* CarOrderMoneyButtonView.m */; };
-		7FA8A543217A33F3000BB44A /* CarOrderMoneyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A335217A33F1000BB44A /* CarOrderMoneyView.m */; };
-		7FA8A544217A33F3000BB44A /* CarOrderStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A337217A33F1000BB44A /* CarOrderStateView.m */; };
-		7FA8A545217A33F3000BB44A /* CarOrderThreeLineContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A339217A33F1000BB44A /* CarOrderThreeLineContentView.m */; };
-		7FA8A546217A33F3000BB44A /* CarOrderTowButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A33B217A33F1000BB44A /* CarOrderTowButtonView.m */; };
-		7FA8A547217A33F3000BB44A /* MyOrderCarListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A33E217A33F1000BB44A /* MyOrderCarListModel.m */; };
-		7FA8A548217A33F3000BB44A /* MyOrderInsuranceListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A340217A33F1000BB44A /* MyOrderInsuranceListModel.m */; };
-		7FA8A549217A33F3000BB44A /* MyOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A342217A33F1000BB44A /* MyOrderListViewController.m */; };
-		7FA8A54A217A33F3000BB44A /* MyOrderListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A343217A33F1000BB44A /* MyOrderListViewController.xib */; };
-		7FA8A54B217A33F3000BB44A /* MyOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A346217A33F1000BB44A /* MyOrderDetailViewController.m */; };
-		7FA8A54C217A33F3000BB44A /* MyOrderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A347217A33F1000BB44A /* MyOrderDetailViewController.xib */; };
-		7FA8A54D217A33F3000BB44A /* MyOrderInsuranceDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A349217A33F1000BB44A /* MyOrderInsuranceDetailModel.m */; };
-		7FA8A54E217A33F3000BB44A /* MyOrderListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A34C217A33F1000BB44A /* MyOrderListView.m */; };
-		7FA8A54F217A33F3000BB44A /* MyOrderListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A34E217A33F1000BB44A /* MyOrderListViewCell.m */; };
-		7FA8A550217A33F3000BB44A /* MyPerformanceCreditModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A353217A33F1000BB44A /* MyPerformanceCreditModel.m */; };
-		7FA8A551217A33F3000BB44A /* MyPerformanceCreditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A355217A33F1000BB44A /* MyPerformanceCreditViewController.m */; };
-		7FA8A552217A33F3000BB44A /* MyPerformaceCreditViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A358217A33F1000BB44A /* MyPerformaceCreditViewCell.m */; };
-		7FA8A553217A33F3000BB44A /* MyPerformanceCreditBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A35A217A33F1000BB44A /* MyPerformanceCreditBaseView.m */; };
-		7FA8A554217A33F3000BB44A /* MyPerformanceMemberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A35E217A33F1000BB44A /* MyPerformanceMemberModel.m */; };
-		7FA8A555217A33F3000BB44A /* MyPerformanceMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A360217A33F1000BB44A /* MyPerformanceMemberViewController.m */; };
-		7FA8A556217A33F3000BB44A /* MyPerformaceMemberViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A363217A33F1000BB44A /* MyPerformaceMemberViewCell.m */; };
-		7FA8A557217A33F3000BB44A /* MyPerformanceMemberBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A365217A33F1000BB44A /* MyPerformanceMemberBaseView.m */; };
-		7FA8A558217A33F3000BB44A /* MyPerformanceSafeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A369217A33F1000BB44A /* MyPerformanceSafeModel.m */; };
-		7FA8A559217A33F3000BB44A /* MyPerformanceSafeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A36B217A33F1000BB44A /* MyPerformanceSafeViewController.m */; };
-		7FA8A55A217A33F3000BB44A /* MyPerformanceSafeBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A36E217A33F1000BB44A /* MyPerformanceSafeBaseView.m */; };
-		7FA8A55B217A33F3000BB44A /* MyPerformanceSafeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A370217A33F1000BB44A /* MyPerformanceSafeViewCell.m */; };
-		7FA8A55C217A33F3000BB44A /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A372217A33F1000BB44A /* MyViewController.m */; };
-		7FA8A55D217A33F3000BB44A /* AddBankAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A376217A33F1000BB44A /* AddBankAccountViewController.m */; };
-		7FA8A55E217A33F3000BB44A /* AddBankAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A377217A33F1000BB44A /* AddBankAccountViewController.xib */; };
-		7FA8A55F217A33F3000BB44A /* PresentAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A37A217A33F1000BB44A /* PresentAccountModel.m */; };
-		7FA8A560217A33F3000BB44A /* PresentAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A37C217A33F1000BB44A /* PresentAccountViewController.m */; };
-		7FA8A561217A33F3000BB44A /* PresentAccountBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A37F217A33F1000BB44A /* PresentAccountBaseView.m */; };
-		7FA8A562217A33F3000BB44A /* PresentAccountViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A381217A33F1000BB44A /* PresentAccountViewCell.m */; };
-		7FA8A563217A33F3000BB44A /* PresentEventResponseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A384217A33F1000BB44A /* PresentEventResponseViewController.m */; };
-		7FA8A564217A33F3000BB44A /* PresentEventResponseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A385217A33F1000BB44A /* PresentEventResponseViewController.xib */; };
-		7FA8A565217A33F3000BB44A /* PresentEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A387217A33F1000BB44A /* PresentEventViewController.m */; };
-		7FA8A566217A33F3000BB44A /* PresentEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A388217A33F1000BB44A /* PresentEventViewController.xib */; };
-		7FA8A567217A33F3000BB44A /* AboutOurViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A38B217A33F1000BB44A /* AboutOurViewController.m */; };
-		7FA8A568217A33F3000BB44A /* AboutOurViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A38C217A33F1000BB44A /* AboutOurViewController.xib */; };
-		7FA8A569217A33F3000BB44A /* FeedBackResponseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A38E217A33F1000BB44A /* FeedBackResponseViewController.m */; };
-		7FA8A56A217A33F3000BB44A /* FeedBackResponseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A38F217A33F1000BB44A /* FeedBackResponseViewController.xib */; };
-		7FA8A56B217A33F3000BB44A /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A391217A33F1000BB44A /* FeedBackViewController.m */; };
-		7FA8A56C217A33F3000BB44A /* FeedBackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A392217A33F1000BB44A /* FeedBackViewController.xib */; };
-		7FA8A56D217A33F3000BB44A /* NormaQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A394217A33F1000BB44A /* NormaQuestionViewController.m */; };
-		7FA8A56E217A33F3000BB44A /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A396217A33F1000BB44A /* SetViewController.m */; };
-		7FA8A56F217A33F3000BB44A /* SetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A397217A33F1000BB44A /* SetViewController.xib */; };
-		7FA8A570217A33F3000BB44A /* EditPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A39A217A33F1000BB44A /* EditPhoneViewController.m */; };
-		7FA8A571217A33F3000BB44A /* EditPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A39B217A33F1000BB44A /* EditPhoneViewController.xib */; };
-		7FA8A572217A33F3000BB44A /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A39D217A33F1000BB44A /* UserInfoViewController.m */; };
-		7FA8A573217A33F3000BB44A /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A39E217A33F1000BB44A /* UserInfoViewController.xib */; };
-		7FA8A574217A33F3000BB44A /* MyBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3A1217A33F1000BB44A /* MyBaseView.m */; };
-		7FA8A575217A33F3000BB44A /* MyBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3A3217A33F1000BB44A /* MyBaseViewCell.m */; };
 		7FA8A576217A33F3000BB44A /* OnlyWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3A5217A33F1000BB44A /* OnlyWebViewController.m */; };
 		7FA8A577217A33F3000BB44A /* PopTowBtnMessageAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3A7217A33F1000BB44A /* PopTowBtnMessageAlertView.m */; };
 		7FA8A578217A33F3000BB44A /* PopTowBtnMessageAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A3A8217A33F1000BB44A /* PopTowBtnMessageAlertView.xib */; };
@@ -354,6 +254,33 @@
 		7F88DB0F217A0D550081DF97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F88DB11217A0D550081DF97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F88DB12217A0D550081DF97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7F8B69E921820A3700F08519 /* HotInformationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotInformationViewController.h; sourceTree = "<group>"; };
+		7F8B69EA21820A3700F08519 /* HotInformationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotInformationViewController.m; sourceTree = "<group>"; };
+		7F8B69EC21820A4500F08519 /* HotInformationBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotInformationBaseView.h; sourceTree = "<group>"; };
+		7F8B69ED21820A4500F08519 /* HotInformationBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotInformationBaseView.m; sourceTree = "<group>"; };
+		7F8B69EF21820B7D00F08519 /* HotInformationNormalCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotInformationNormalCell.h; sourceTree = "<group>"; };
+		7F8B69F021820B7D00F08519 /* HotInformationNormalCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotInformationNormalCell.m; sourceTree = "<group>"; };
+		7F8B69F221820B9200F08519 /* HotInformationThreePictureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotInformationThreePictureCell.h; sourceTree = "<group>"; };
+		7F8B69F321820B9200F08519 /* HotInformationThreePictureCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotInformationThreePictureCell.m; sourceTree = "<group>"; };
+		7F8B69F82182167600F08519 /* HotVideoListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotVideoListViewController.h; sourceTree = "<group>"; };
+		7F8B69F92182167600F08519 /* HotVideoListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotVideoListViewController.m; sourceTree = "<group>"; };
+		7F8B69FB2182168600F08519 /* HotVideoListBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotVideoListBaseView.h; sourceTree = "<group>"; };
+		7F8B69FC2182168600F08519 /* HotVideoListBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotVideoListBaseView.m; sourceTree = "<group>"; };
+		7F8B69FE21821E7B00F08519 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		7F8B69FF21821E7B00F08519 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		7F8B6A0021821E7B00F08519 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		7F8B6A032182266C00F08519 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		7F8B6A042182266C00F08519 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		7F8B6A052182266C00F08519 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		7F8B6A08218228CB00F08519 /* RegisterSetPwdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterSetPwdViewController.h; sourceTree = "<group>"; };
+		7F8B6A09218228CB00F08519 /* RegisterSetPwdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterSetPwdViewController.m; sourceTree = "<group>"; };
+		7F8B6A0A218228CB00F08519 /* RegisterSetPwdViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterSetPwdViewController.xib; sourceTree = "<group>"; };
+		7F8B6A0E21822B6900F08519 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		7F8B6A0F21822B6900F08519 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
+		7F8B6A1021822B6900F08519 /* ForgetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgetPasswordViewController.xib; sourceTree = "<group>"; };
+		7F8B6A1321822C9C00F08519 /* ForgetPwdVerifyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForgetPwdVerifyViewController.h; sourceTree = "<group>"; };
+		7F8B6A1421822C9C00F08519 /* ForgetPwdVerifyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdVerifyViewController.m; sourceTree = "<group>"; };
+		7F8B6A1521822C9C00F08519 /* ForgetPwdVerifyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgetPwdVerifyViewController.xib; sourceTree = "<group>"; };
 		7FA80F86217F7B7000CD213F /* WebShopTwoPictureViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebShopTwoPictureViewCell.h; sourceTree = "<group>"; };
 		7FA80F87217F7B7000CD213F /* WebShopTwoPictureViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebShopTwoPictureViewCell.m; sourceTree = "<group>"; };
 		7FA80F89217F7C9D00CD213F /* WebShopOnePictureMoneyViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebShopOnePictureMoneyViewCell.h; sourceTree = "<group>"; };
@@ -480,213 +407,6 @@
 		7FA8A29C217A33F1000BB44A /* ModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPasswordViewController.h; sourceTree = "<group>"; };
 		7FA8A29D217A33F1000BB44A /* ModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPasswordViewController.m; sourceTree = "<group>"; };
 		7FA8A29E217A33F1000BB44A /* ModifyPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyPasswordViewController.xib; sourceTree = "<group>"; };
-		7FA8A2A0217A33F1000BB44A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		7FA8A2A1217A33F1000BB44A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		7FA8A2A2217A33F1000BB44A /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		7FA8A2A4217A33F1000BB44A /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		7FA8A2A5217A33F1000BB44A /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		7FA8A2A6217A33F1000BB44A /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
-		7FA8A2A8217A33F1000BB44A /* SMSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSLoginViewController.h; sourceTree = "<group>"; };
-		7FA8A2A9217A33F1000BB44A /* SMSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSLoginViewController.m; sourceTree = "<group>"; };
-		7FA8A2AA217A33F1000BB44A /* SMSLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMSLoginViewController.xib; sourceTree = "<group>"; };
-		7FA8A2AC217A33F1000BB44A /* MessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDetailViewController.h; sourceTree = "<group>"; };
-		7FA8A2AD217A33F1000BB44A /* MessageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailViewController.m; sourceTree = "<group>"; };
-		7FA8A2AE217A33F1000BB44A /* MessageDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageDetailViewController.xib; sourceTree = "<group>"; };
-		7FA8A2AF217A33F1000BB44A /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
-		7FA8A2B0217A33F1000BB44A /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
-		7FA8A2B2217A33F1000BB44A /* MessageNoticeListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageNoticeListModel.h; sourceTree = "<group>"; };
-		7FA8A2B3217A33F1000BB44A /* MessageNoticeListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageNoticeListModel.m; sourceTree = "<group>"; };
-		7FA8A2B5217A33F1000BB44A /* MessageBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBaseView.h; sourceTree = "<group>"; };
-		7FA8A2B6217A33F1000BB44A /* MessageBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageBaseView.m; sourceTree = "<group>"; };
-		7FA8A2B7217A33F1000BB44A /* MessageBaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBaseViewCell.h; sourceTree = "<group>"; };
-		7FA8A2B8217A33F1000BB44A /* MessageBaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageBaseViewCell.m; sourceTree = "<group>"; };
-		7FA8A2BC217A33F1000BB44A /* BuyMemberPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyMemberPayViewController.h; sourceTree = "<group>"; };
-		7FA8A2BD217A33F1000BB44A /* BuyMemberPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyMemberPayViewController.m; sourceTree = "<group>"; };
-		7FA8A2BE217A33F1000BB44A /* BuyMemberPayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyMemberPayViewController.xib; sourceTree = "<group>"; };
-		7FA8A2BF217A33F1000BB44A /* OpenAlipaysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenAlipaysViewController.h; sourceTree = "<group>"; };
-		7FA8A2C0217A33F1000BB44A /* OpenAlipaysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenAlipaysViewController.m; sourceTree = "<group>"; };
-		7FA8A2C2217A33F1000BB44A /* BuyMemberSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyMemberSuccessViewController.h; sourceTree = "<group>"; };
-		7FA8A2C3217A33F1000BB44A /* BuyMemberSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyMemberSuccessViewController.m; sourceTree = "<group>"; };
-		7FA8A2C4217A33F1000BB44A /* BuyMemberSuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyMemberSuccessViewController.xib; sourceTree = "<group>"; };
-		7FA8A2C5217A33F1000BB44A /* BuyMemeberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyMemeberViewController.h; sourceTree = "<group>"; };
-		7FA8A2C6217A33F1000BB44A /* BuyMemeberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyMemeberViewController.m; sourceTree = "<group>"; };
-		7FA8A2C7217A33F1000BB44A /* BuyMemeberViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyMemeberViewController.xib; sourceTree = "<group>"; };
-		7FA8A2C9217A33F1000BB44A /* MemberLevelModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberLevelModel.h; sourceTree = "<group>"; };
-		7FA8A2CA217A33F1000BB44A /* MemberLevelModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberLevelModel.m; sourceTree = "<group>"; };
-		7FA8A2CC217A33F1000BB44A /* InviteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteListViewController.h; sourceTree = "<group>"; };
-		7FA8A2CD217A33F1000BB44A /* InviteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteListViewController.m; sourceTree = "<group>"; };
-		7FA8A2CF217A33F1000BB44A /* InviteListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteListModel.h; sourceTree = "<group>"; };
-		7FA8A2D0217A33F1000BB44A /* InviteListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteListModel.m; sourceTree = "<group>"; };
-		7FA8A2D2217A33F1000BB44A /* InviteListBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteListBaseView.h; sourceTree = "<group>"; };
-		7FA8A2D3217A33F1000BB44A /* InviteListBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteListBaseView.m; sourceTree = "<group>"; };
-		7FA8A2D4217A33F1000BB44A /* InviteListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteListViewCell.h; sourceTree = "<group>"; };
-		7FA8A2D5217A33F1000BB44A /* InviteListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteListViewCell.m; sourceTree = "<group>"; };
-		7FA8A2D7217A33F1000BB44A /* BrokerInfoDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrokerInfoDataModel.h; sourceTree = "<group>"; };
-		7FA8A2D8217A33F1000BB44A /* BrokerInfoDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrokerInfoDataModel.m; sourceTree = "<group>"; };
-		7FA8A2D9217A33F1000BB44A /* MyViewDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewDataModel.h; sourceTree = "<group>"; };
-		7FA8A2DA217A33F1000BB44A /* MyViewDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewDataModel.m; sourceTree = "<group>"; };
-		7FA8A2DD217A33F1000BB44A /* IncomeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncomeListViewController.h; sourceTree = "<group>"; };
-		7FA8A2DE217A33F1000BB44A /* IncomeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IncomeListViewController.m; sourceTree = "<group>"; };
-		7FA8A2DF217A33F1000BB44A /* IncomeListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IncomeListViewController.xib; sourceTree = "<group>"; };
-		7FA8A2E1217A33F1000BB44A /* IncomeListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncomeListModel.h; sourceTree = "<group>"; };
-		7FA8A2E2217A33F1000BB44A /* IncomeListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IncomeListModel.m; sourceTree = "<group>"; };
-		7FA8A2E4217A33F1000BB44A /* IncomeListBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncomeListBaseView.h; sourceTree = "<group>"; };
-		7FA8A2E5217A33F1000BB44A /* IncomeListBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IncomeListBaseView.m; sourceTree = "<group>"; };
-		7FA8A2E6217A33F1000BB44A /* IncomeListBaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncomeListBaseViewCell.h; sourceTree = "<group>"; };
-		7FA8A2E7217A33F1000BB44A /* IncomeListBaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IncomeListBaseViewCell.m; sourceTree = "<group>"; };
-		7FA8A2EA217A33F1000BB44A /* MyIncomeListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIncomeListModel.h; sourceTree = "<group>"; };
-		7FA8A2EB217A33F1000BB44A /* MyIncomeListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIncomeListModel.m; sourceTree = "<group>"; };
-		7FA8A2EC217A33F1000BB44A /* MyIncomeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIncomeListViewController.h; sourceTree = "<group>"; };
-		7FA8A2ED217A33F1000BB44A /* MyIncomeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIncomeListViewController.m; sourceTree = "<group>"; };
-		7FA8A2EE217A33F1000BB44A /* MyIncomeListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyIncomeListViewController.xib; sourceTree = "<group>"; };
-		7FA8A2F0217A33F1000BB44A /* MyIncomeListBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIncomeListBaseView.h; sourceTree = "<group>"; };
-		7FA8A2F1217A33F1000BB44A /* MyIncomeListBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIncomeListBaseView.m; sourceTree = "<group>"; };
-		7FA8A2F2217A33F1000BB44A /* MyIncomeListBaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIncomeListBaseViewCell.h; sourceTree = "<group>"; };
-		7FA8A2F3217A33F1000BB44A /* MyIncomeListBaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIncomeListBaseViewCell.m; sourceTree = "<group>"; };
-		7FA8A2F6217A33F1000BB44A /* PaymentListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentListModel.h; sourceTree = "<group>"; };
-		7FA8A2F7217A33F1000BB44A /* PaymentListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentListModel.m; sourceTree = "<group>"; };
-		7FA8A2F8217A33F1000BB44A /* PaymentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentListViewController.h; sourceTree = "<group>"; };
-		7FA8A2F9217A33F1000BB44A /* PaymentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentListViewController.m; sourceTree = "<group>"; };
-		7FA8A2FA217A33F1000BB44A /* PaymentListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentListViewController.xib; sourceTree = "<group>"; };
-		7FA8A2FC217A33F1000BB44A /* PaymentListBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentListBaseView.h; sourceTree = "<group>"; };
-		7FA8A2FD217A33F1000BB44A /* PaymentListBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentListBaseView.m; sourceTree = "<group>"; };
-		7FA8A2FE217A33F1000BB44A /* PaymentListBaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentListBaseViewCell.h; sourceTree = "<group>"; };
-		7FA8A2FF217A33F1000BB44A /* PaymentListBaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentListBaseViewCell.m; sourceTree = "<group>"; };
-		7FA8A301217A33F1000BB44A /* MyLevelDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLevelDataModel.h; sourceTree = "<group>"; };
-		7FA8A302217A33F1000BB44A /* MyLevelDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLevelDataModel.m; sourceTree = "<group>"; };
-		7FA8A303217A33F1000BB44A /* MyLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLevelViewController.h; sourceTree = "<group>"; };
-		7FA8A304217A33F1000BB44A /* MyLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLevelViewController.m; sourceTree = "<group>"; };
-		7FA8A305217A33F1000BB44A /* MyLevelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyLevelViewController.xib; sourceTree = "<group>"; };
-		7FA8A308217A33F1000BB44A /* MyloadListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyloadListModel.h; sourceTree = "<group>"; };
-		7FA8A309217A33F1000BB44A /* MyloadListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyloadListModel.m; sourceTree = "<group>"; };
-		7FA8A30A217A33F1000BB44A /* MyLoadOrderDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLoadOrderDetailModel.h; sourceTree = "<group>"; };
-		7FA8A30B217A33F1000BB44A /* MyLoadOrderDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLoadOrderDetailModel.m; sourceTree = "<group>"; };
-		7FA8A30C217A33F1000BB44A /* MyLoanListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLoanListViewController.h; sourceTree = "<group>"; };
-		7FA8A30D217A33F1000BB44A /* MyLoanListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLoanListViewController.m; sourceTree = "<group>"; };
-		7FA8A30E217A33F1000BB44A /* MyLoanOrderDetailFinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLoanOrderDetailFinishViewController.h; sourceTree = "<group>"; };
-		7FA8A30F217A33F1000BB44A /* MyLoanOrderDetailFinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLoanOrderDetailFinishViewController.m; sourceTree = "<group>"; };
-		7FA8A310217A33F1000BB44A /* MyLoanOrderDetailFinishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyLoanOrderDetailFinishViewController.xib; sourceTree = "<group>"; };
-		7FA8A311217A33F1000BB44A /* MyLoanOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLoanOrderDetailViewController.h; sourceTree = "<group>"; };
-		7FA8A312217A33F1000BB44A /* MyLoanOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLoanOrderDetailViewController.m; sourceTree = "<group>"; };
-		7FA8A313217A33F1000BB44A /* MyLoanOrderDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyLoanOrderDetailViewController.xib; sourceTree = "<group>"; };
-		7FA8A315217A33F1000BB44A /* MyLoanBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLoanBaseView.h; sourceTree = "<group>"; };
-		7FA8A316217A33F1000BB44A /* MyLoanBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLoanBaseView.m; sourceTree = "<group>"; };
-		7FA8A317217A33F1000BB44A /* MyLoanViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLoanViewCell.h; sourceTree = "<group>"; };
-		7FA8A318217A33F1000BB44A /* MyLoanViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLoanViewCell.m; sourceTree = "<group>"; };
-		7FA8A31B217A33F1000BB44A /* CarOrderAllHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarOrderAllHeader.h; sourceTree = "<group>"; };
-		7FA8A31C217A33F1000BB44A /* CarOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarOrderDetailViewController.h; sourceTree = "<group>"; };
-		7FA8A31D217A33F1000BB44A /* CarOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarOrderDetailViewController.m; sourceTree = "<group>"; };
-		7FA8A31E217A33F1000BB44A /* CarOrderWaitReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarOrderWaitReviewViewController.h; sourceTree = "<group>"; };
-		7FA8A31F217A33F1000BB44A /* CarOrderWaitReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarOrderWaitReviewViewController.m; sourceTree = "<group>"; };
-		7FA8A320217A33F1000BB44A /* CarOrderWaitReviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarOrderWaitReviewViewController.xib; sourceTree = "<group>"; };
-		7FA8A322217A33F1000BB44A /* MyOrderCarDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderCarDetailModel.h; sourceTree = "<group>"; };
-		7FA8A323217A33F1000BB44A /* MyOrderCarDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderCarDetailModel.m; sourceTree = "<group>"; };
-		7FA8A325217A33F1000BB44A /* CarInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarInformationView.h; sourceTree = "<group>"; };
-		7FA8A326217A33F1000BB44A /* CarInformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarInformationView.m; sourceTree = "<group>"; };
-		7FA8A327217A33F1000BB44A /* CarOrderCancelButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarOrderCancelButtonView.h; sourceTree = "<group>"; };
-		7FA8A328217A33F1000BB44A /* CarOrderCancelButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarOrderCancelButtonView.m; sourceTree = "<group>"; };
-		7FA8A329217A33F1000BB44A /* CarOrderCommissionInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarOrderCommissionInputView.h; sourceTree = "<group>"; };
-		7FA8A32A217A33F1000BB44A /* CarOrderCommissionInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarOrderCommissionInputView.m; sourceTree = "<group>"; };
-		7FA8A32B217A33F1000BB44A /* CarOrderCommissionInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarOrderCommissionInputView.xib; sourceTree = "<group>"; };
-		7FA8A32C217A33F1000BB44A /* CarOrderDateStyleOneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarOrderDateStyleOneView.h; sourceTree = "<group>"; };
-		7FA8A32D217A33F1000BB44A /* CarOrderDateStyleOneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarOrderDateStyleOneView.m; sourceTree = "<group>"; };
-		7FA8A32E217A33F1000BB44A /* CarOrderDateStyleTwoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarOrderDateStyleTwoView.h; sourceTree = "<group>"; };
-		7FA8A32F217A33F1000BB44A /* CarOrderDateStyleTwoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarOrderDateStyleTwoView.m; sourceTree = "<group>"; };
-		7FA8A330217A33F1000BB44A /* CarOrderManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarOrderManagerView.h; sourceTree = "<group>"; };
-		7FA8A331217A33F1000BB44A /* CarOrderManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarOrderManagerView.m; sourceTree = "<group>"; };
-		7FA8A332217A33F1000BB44A /* CarOrderMoneyButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarOrderMoneyButtonView.h; sourceTree = "<group>"; };
-		7FA8A333217A33F1000BB44A /* CarOrderMoneyButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarOrderMoneyButtonView.m; sourceTree = "<group>"; };
-		7FA8A334217A33F1000BB44A /* CarOrderMoneyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarOrderMoneyView.h; sourceTree = "<group>"; };
-		7FA8A335217A33F1000BB44A /* CarOrderMoneyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarOrderMoneyView.m; sourceTree = "<group>"; };
-		7FA8A336217A33F1000BB44A /* CarOrderStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarOrderStateView.h; sourceTree = "<group>"; };
-		7FA8A337217A33F1000BB44A /* CarOrderStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarOrderStateView.m; sourceTree = "<group>"; };
-		7FA8A338217A33F1000BB44A /* CarOrderThreeLineContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarOrderThreeLineContentView.h; sourceTree = "<group>"; };
-		7FA8A339217A33F1000BB44A /* CarOrderThreeLineContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarOrderThreeLineContentView.m; sourceTree = "<group>"; };
-		7FA8A33A217A33F1000BB44A /* CarOrderTowButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarOrderTowButtonView.h; sourceTree = "<group>"; };
-		7FA8A33B217A33F1000BB44A /* CarOrderTowButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarOrderTowButtonView.m; sourceTree = "<group>"; };
-		7FA8A33D217A33F1000BB44A /* MyOrderCarListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderCarListModel.h; sourceTree = "<group>"; };
-		7FA8A33E217A33F1000BB44A /* MyOrderCarListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderCarListModel.m; sourceTree = "<group>"; };
-		7FA8A33F217A33F1000BB44A /* MyOrderInsuranceListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderInsuranceListModel.h; sourceTree = "<group>"; };
-		7FA8A340217A33F1000BB44A /* MyOrderInsuranceListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderInsuranceListModel.m; sourceTree = "<group>"; };
-		7FA8A341217A33F1000BB44A /* MyOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderListViewController.h; sourceTree = "<group>"; };
-		7FA8A342217A33F1000BB44A /* MyOrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderListViewController.m; sourceTree = "<group>"; };
-		7FA8A343217A33F1000BB44A /* MyOrderListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderListViewController.xib; sourceTree = "<group>"; };
-		7FA8A345217A33F1000BB44A /* MyOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderDetailViewController.h; sourceTree = "<group>"; };
-		7FA8A346217A33F1000BB44A /* MyOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderDetailViewController.m; sourceTree = "<group>"; };
-		7FA8A347217A33F1000BB44A /* MyOrderDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderDetailViewController.xib; sourceTree = "<group>"; };
-		7FA8A348217A33F1000BB44A /* MyOrderInsuranceDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderInsuranceDetailModel.h; sourceTree = "<group>"; };
-		7FA8A349217A33F1000BB44A /* MyOrderInsuranceDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderInsuranceDetailModel.m; sourceTree = "<group>"; };
-		7FA8A34B217A33F1000BB44A /* MyOrderListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderListView.h; sourceTree = "<group>"; };
-		7FA8A34C217A33F1000BB44A /* MyOrderListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderListView.m; sourceTree = "<group>"; };
-		7FA8A34D217A33F1000BB44A /* MyOrderListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderListViewCell.h; sourceTree = "<group>"; };
-		7FA8A34E217A33F1000BB44A /* MyOrderListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderListViewCell.m; sourceTree = "<group>"; };
-		7FA8A352217A33F1000BB44A /* MyPerformanceCreditModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPerformanceCreditModel.h; sourceTree = "<group>"; };
-		7FA8A353217A33F1000BB44A /* MyPerformanceCreditModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPerformanceCreditModel.m; sourceTree = "<group>"; };
-		7FA8A354217A33F1000BB44A /* MyPerformanceCreditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPerformanceCreditViewController.h; sourceTree = "<group>"; };
-		7FA8A355217A33F1000BB44A /* MyPerformanceCreditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPerformanceCreditViewController.m; sourceTree = "<group>"; };
-		7FA8A357217A33F1000BB44A /* MyPerformaceCreditViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPerformaceCreditViewCell.h; sourceTree = "<group>"; };
-		7FA8A358217A33F1000BB44A /* MyPerformaceCreditViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPerformaceCreditViewCell.m; sourceTree = "<group>"; };
-		7FA8A359217A33F1000BB44A /* MyPerformanceCreditBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPerformanceCreditBaseView.h; sourceTree = "<group>"; };
-		7FA8A35A217A33F1000BB44A /* MyPerformanceCreditBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPerformanceCreditBaseView.m; sourceTree = "<group>"; };
-		7FA8A35D217A33F1000BB44A /* MyPerformanceMemberModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPerformanceMemberModel.h; sourceTree = "<group>"; };
-		7FA8A35E217A33F1000BB44A /* MyPerformanceMemberModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPerformanceMemberModel.m; sourceTree = "<group>"; };
-		7FA8A35F217A33F1000BB44A /* MyPerformanceMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPerformanceMemberViewController.h; sourceTree = "<group>"; };
-		7FA8A360217A33F1000BB44A /* MyPerformanceMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPerformanceMemberViewController.m; sourceTree = "<group>"; };
-		7FA8A362217A33F1000BB44A /* MyPerformaceMemberViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPerformaceMemberViewCell.h; sourceTree = "<group>"; };
-		7FA8A363217A33F1000BB44A /* MyPerformaceMemberViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPerformaceMemberViewCell.m; sourceTree = "<group>"; };
-		7FA8A364217A33F1000BB44A /* MyPerformanceMemberBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPerformanceMemberBaseView.h; sourceTree = "<group>"; };
-		7FA8A365217A33F1000BB44A /* MyPerformanceMemberBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPerformanceMemberBaseView.m; sourceTree = "<group>"; };
-		7FA8A368217A33F1000BB44A /* MyPerformanceSafeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPerformanceSafeModel.h; sourceTree = "<group>"; };
-		7FA8A369217A33F1000BB44A /* MyPerformanceSafeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPerformanceSafeModel.m; sourceTree = "<group>"; };
-		7FA8A36A217A33F1000BB44A /* MyPerformanceSafeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPerformanceSafeViewController.h; sourceTree = "<group>"; };
-		7FA8A36B217A33F1000BB44A /* MyPerformanceSafeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPerformanceSafeViewController.m; sourceTree = "<group>"; };
-		7FA8A36D217A33F1000BB44A /* MyPerformanceSafeBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPerformanceSafeBaseView.h; sourceTree = "<group>"; };
-		7FA8A36E217A33F1000BB44A /* MyPerformanceSafeBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPerformanceSafeBaseView.m; sourceTree = "<group>"; };
-		7FA8A36F217A33F1000BB44A /* MyPerformanceSafeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPerformanceSafeViewCell.h; sourceTree = "<group>"; };
-		7FA8A370217A33F1000BB44A /* MyPerformanceSafeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPerformanceSafeViewCell.m; sourceTree = "<group>"; };
-		7FA8A371217A33F1000BB44A /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
-		7FA8A372217A33F1000BB44A /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
-		7FA8A375217A33F1000BB44A /* AddBankAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBankAccountViewController.h; sourceTree = "<group>"; };
-		7FA8A376217A33F1000BB44A /* AddBankAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBankAccountViewController.m; sourceTree = "<group>"; };
-		7FA8A377217A33F1000BB44A /* AddBankAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddBankAccountViewController.xib; sourceTree = "<group>"; };
-		7FA8A379217A33F1000BB44A /* PresentAccountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentAccountModel.h; sourceTree = "<group>"; };
-		7FA8A37A217A33F1000BB44A /* PresentAccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentAccountModel.m; sourceTree = "<group>"; };
-		7FA8A37B217A33F1000BB44A /* PresentAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentAccountViewController.h; sourceTree = "<group>"; };
-		7FA8A37C217A33F1000BB44A /* PresentAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentAccountViewController.m; sourceTree = "<group>"; };
-		7FA8A37E217A33F1000BB44A /* PresentAccountBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentAccountBaseView.h; sourceTree = "<group>"; };
-		7FA8A37F217A33F1000BB44A /* PresentAccountBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentAccountBaseView.m; sourceTree = "<group>"; };
-		7FA8A380217A33F1000BB44A /* PresentAccountViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentAccountViewCell.h; sourceTree = "<group>"; };
-		7FA8A381217A33F1000BB44A /* PresentAccountViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentAccountViewCell.m; sourceTree = "<group>"; };
-		7FA8A383217A33F1000BB44A /* PresentEventResponseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentEventResponseViewController.h; sourceTree = "<group>"; };
-		7FA8A384217A33F1000BB44A /* PresentEventResponseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentEventResponseViewController.m; sourceTree = "<group>"; };
-		7FA8A385217A33F1000BB44A /* PresentEventResponseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PresentEventResponseViewController.xib; sourceTree = "<group>"; };
-		7FA8A386217A33F1000BB44A /* PresentEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentEventViewController.h; sourceTree = "<group>"; };
-		7FA8A387217A33F1000BB44A /* PresentEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentEventViewController.m; sourceTree = "<group>"; };
-		7FA8A388217A33F1000BB44A /* PresentEventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PresentEventViewController.xib; sourceTree = "<group>"; };
-		7FA8A38A217A33F1000BB44A /* AboutOurViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutOurViewController.h; sourceTree = "<group>"; };
-		7FA8A38B217A33F1000BB44A /* AboutOurViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutOurViewController.m; sourceTree = "<group>"; };
-		7FA8A38C217A33F1000BB44A /* AboutOurViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutOurViewController.xib; sourceTree = "<group>"; };
-		7FA8A38D217A33F1000BB44A /* FeedBackResponseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackResponseViewController.h; sourceTree = "<group>"; };
-		7FA8A38E217A33F1000BB44A /* FeedBackResponseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackResponseViewController.m; sourceTree = "<group>"; };
-		7FA8A38F217A33F1000BB44A /* FeedBackResponseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedBackResponseViewController.xib; sourceTree = "<group>"; };
-		7FA8A390217A33F1000BB44A /* FeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackViewController.h; sourceTree = "<group>"; };
-		7FA8A391217A33F1000BB44A /* FeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackViewController.m; sourceTree = "<group>"; };
-		7FA8A392217A33F1000BB44A /* FeedBackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedBackViewController.xib; sourceTree = "<group>"; };
-		7FA8A393217A33F1000BB44A /* NormaQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormaQuestionViewController.h; sourceTree = "<group>"; };
-		7FA8A394217A33F1000BB44A /* NormaQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormaQuestionViewController.m; sourceTree = "<group>"; };
-		7FA8A395217A33F1000BB44A /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
-		7FA8A396217A33F1000BB44A /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
-		7FA8A397217A33F1000BB44A /* SetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetViewController.xib; sourceTree = "<group>"; };
-		7FA8A399217A33F1000BB44A /* EditPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPhoneViewController.h; sourceTree = "<group>"; };
-		7FA8A39A217A33F1000BB44A /* EditPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPhoneViewController.m; sourceTree = "<group>"; };
-		7FA8A39B217A33F1000BB44A /* EditPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditPhoneViewController.xib; sourceTree = "<group>"; };
-		7FA8A39C217A33F1000BB44A /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
-		7FA8A39D217A33F1000BB44A /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
-		7FA8A39E217A33F1000BB44A /* UserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
-		7FA8A3A0217A33F1000BB44A /* MyBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBaseView.h; sourceTree = "<group>"; };
-		7FA8A3A1217A33F1000BB44A /* MyBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBaseView.m; sourceTree = "<group>"; };
-		7FA8A3A2217A33F1000BB44A /* MyBaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBaseViewCell.h; sourceTree = "<group>"; };
-		7FA8A3A3217A33F1000BB44A /* MyBaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBaseViewCell.m; sourceTree = "<group>"; };
 		7FA8A3A4217A33F1000BB44A /* OnlyWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlyWebViewController.h; sourceTree = "<group>"; };
 		7FA8A3A5217A33F1000BB44A /* OnlyWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlyWebViewController.m; sourceTree = "<group>"; };
 		7FA8A3A6217A33F1000BB44A /* PopTowBtnMessageAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopTowBtnMessageAlertView.h; sourceTree = "<group>"; };
@@ -961,6 +681,7 @@
 		7F2E84A1217ADBB000C92C8C /* Video */ = {
 			isa = PBXGroup;
 			children = (
+				7F8B69F62182164800F08519 /* HotVideoList */,
 				7F2E84A2217ADC3600C92C8C /* View */,
 				7F2E84A3217ADC7100C92C8C /* VideoListViewController.h */,
 				7F2E84A4217ADC7100C92C8C /* VideoListViewController.m */,
@@ -1014,6 +735,61 @@
 				7FA8A5F6217A3446000BB44A /* ChangjiangVegetable-PCH.pch */,
 			);
 			path = ChangjiangVegetable;
+			sourceTree = "<group>";
+		};
+		7F8B69E721820A2900F08519 /* HotInformation */ = {
+			isa = PBXGroup;
+			children = (
+				7F8B69E821820A2900F08519 /* View */,
+				7F8B69E921820A3700F08519 /* HotInformationViewController.h */,
+				7F8B69EA21820A3700F08519 /* HotInformationViewController.m */,
+			);
+			path = HotInformation;
+			sourceTree = "<group>";
+		};
+		7F8B69E821820A2900F08519 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7F8B69EC21820A4500F08519 /* HotInformationBaseView.h */,
+				7F8B69ED21820A4500F08519 /* HotInformationBaseView.m */,
+				7F8B69EF21820B7D00F08519 /* HotInformationNormalCell.h */,
+				7F8B69F021820B7D00F08519 /* HotInformationNormalCell.m */,
+				7F8B69F221820B9200F08519 /* HotInformationThreePictureCell.h */,
+				7F8B69F321820B9200F08519 /* HotInformationThreePictureCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7F8B69F62182164800F08519 /* HotVideoList */ = {
+			isa = PBXGroup;
+			children = (
+				7F8B69F72182166600F08519 /* View */,
+				7F8B69F82182167600F08519 /* HotVideoListViewController.h */,
+				7F8B69F92182167600F08519 /* HotVideoListViewController.m */,
+			);
+			path = HotVideoList;
+			sourceTree = "<group>";
+		};
+		7F8B69F72182166600F08519 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7F8B69FB2182168600F08519 /* HotVideoListBaseView.h */,
+				7F8B69FC2182168600F08519 /* HotVideoListBaseView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7F8B6A0D21822B5300F08519 /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				7F8B6A0E21822B6900F08519 /* ForgetPasswordViewController.h */,
+				7F8B6A0F21822B6900F08519 /* ForgetPasswordViewController.m */,
+				7F8B6A1021822B6900F08519 /* ForgetPasswordViewController.xib */,
+				7F8B6A1321822C9C00F08519 /* ForgetPwdVerifyViewController.h */,
+				7F8B6A1421822C9C00F08519 /* ForgetPwdVerifyViewController.m */,
+				7F8B6A1521822C9C00F08519 /* ForgetPwdVerifyViewController.xib */,
+			);
+			path = ForgetPassword;
 			sourceTree = "<group>";
 		};
 		7FA8A214217A33F0000BB44A /* Common */ = {
@@ -1193,9 +969,8 @@
 			isa = PBXGroup;
 			children = (
 				7FA8A277217A33F1000BB44A /* CustomerServer */,
+				7F8B69E721820A2900F08519 /* HotInformation */,
 				7FA8A29A217A33F1000BB44A /* LoginRegister */,
-				7FA8A2AB217A33F1000BB44A /* Message */,
-				7FA8A2B9217A33F1000BB44A /* My */,
 				7FF62ED1217CD03B009190F0 /* MySet */,
 				7FA8A3A4217A33F1000BB44A /* OnlyWebViewController.h */,
 				7FA8A3A5217A33F1000BB44A /* OnlyWebViewController.m */,
@@ -1283,10 +1058,10 @@
 		7FA8A29A217A33F1000BB44A /* LoginRegister */ = {
 			isa = PBXGroup;
 			children = (
+				7F8B6A0D21822B5300F08519 /* ForgetPassword */,
 				7FA8A29B217A33F1000BB44A /* EditPassword */,
 				7FA8A29F217A33F1000BB44A /* Login */,
 				7FA8A2A3217A33F1000BB44A /* Register */,
-				7FA8A2A7217A33F1000BB44A /* SMSLogin */,
 			);
 			path = LoginRegister;
 			sourceTree = "<group>";
@@ -1304,9 +1079,9 @@
 		7FA8A29F217A33F1000BB44A /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				7FA8A2A0217A33F1000BB44A /* LoginViewController.h */,
-				7FA8A2A1217A33F1000BB44A /* LoginViewController.m */,
-				7FA8A2A2217A33F1000BB44A /* LoginViewController.xib */,
+				7F8B69FE21821E7B00F08519 /* LoginViewController.h */,
+				7F8B69FF21821E7B00F08519 /* LoginViewController.m */,
+				7F8B6A0021821E7B00F08519 /* LoginViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1314,625 +1089,14 @@
 		7FA8A2A3217A33F1000BB44A /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				7FA8A2A4217A33F1000BB44A /* RegisterViewController.h */,
-				7FA8A2A5217A33F1000BB44A /* RegisterViewController.m */,
-				7FA8A2A6217A33F1000BB44A /* RegisterViewController.xib */,
+				7F8B6A032182266C00F08519 /* RegisterViewController.h */,
+				7F8B6A042182266C00F08519 /* RegisterViewController.m */,
+				7F8B6A052182266C00F08519 /* RegisterViewController.xib */,
+				7F8B6A08218228CB00F08519 /* RegisterSetPwdViewController.h */,
+				7F8B6A09218228CB00F08519 /* RegisterSetPwdViewController.m */,
+				7F8B6A0A218228CB00F08519 /* RegisterSetPwdViewController.xib */,
 			);
 			path = Register;
-			sourceTree = "<group>";
-		};
-		7FA8A2A7217A33F1000BB44A /* SMSLogin */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2A8217A33F1000BB44A /* SMSLoginViewController.h */,
-				7FA8A2A9217A33F1000BB44A /* SMSLoginViewController.m */,
-				7FA8A2AA217A33F1000BB44A /* SMSLoginViewController.xib */,
-			);
-			path = SMSLogin;
-			sourceTree = "<group>";
-		};
-		7FA8A2AB217A33F1000BB44A /* Message */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2AC217A33F1000BB44A /* MessageDetailViewController.h */,
-				7FA8A2AD217A33F1000BB44A /* MessageDetailViewController.m */,
-				7FA8A2AE217A33F1000BB44A /* MessageDetailViewController.xib */,
-				7FA8A2AF217A33F1000BB44A /* MessageViewController.h */,
-				7FA8A2B0217A33F1000BB44A /* MessageViewController.m */,
-				7FA8A2B1217A33F1000BB44A /* Model */,
-				7FA8A2B4217A33F1000BB44A /* View */,
-			);
-			path = Message;
-			sourceTree = "<group>";
-		};
-		7FA8A2B1217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2B2217A33F1000BB44A /* MessageNoticeListModel.h */,
-				7FA8A2B3217A33F1000BB44A /* MessageNoticeListModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A2B4217A33F1000BB44A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2B5217A33F1000BB44A /* MessageBaseView.h */,
-				7FA8A2B6217A33F1000BB44A /* MessageBaseView.m */,
-				7FA8A2B7217A33F1000BB44A /* MessageBaseViewCell.h */,
-				7FA8A2B8217A33F1000BB44A /* MessageBaseViewCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7FA8A2B9217A33F1000BB44A /* My */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2BA217A33F1000BB44A /* BuyMember */,
-				7FA8A2CB217A33F1000BB44A /* InviteList */,
-				7FA8A2D6217A33F1000BB44A /* Model */,
-				7FA8A2DB217A33F1000BB44A /* MoneyList */,
-				7FA8A300217A33F1000BB44A /* MyLevel */,
-				7FA8A306217A33F1000BB44A /* MyLoan */,
-				7FA8A319217A33F1000BB44A /* MyOrder */,
-				7FA8A34F217A33F1000BB44A /* MyPerformance */,
-				7FA8A371217A33F1000BB44A /* MyViewController.h */,
-				7FA8A372217A33F1000BB44A /* MyViewController.m */,
-				7FA8A373217A33F1000BB44A /* PresentAccount */,
-				7FA8A382217A33F1000BB44A /* PresentEvent */,
-				7FA8A389217A33F1000BB44A /* Set */,
-				7FA8A398217A33F1000BB44A /* UserInformation */,
-				7FA8A39F217A33F1000BB44A /* View */,
-			);
-			path = My;
-			sourceTree = "<group>";
-		};
-		7FA8A2BA217A33F1000BB44A /* BuyMember */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2BB217A33F1000BB44A /* BuyMemberPay */,
-				7FA8A2C1217A33F1000BB44A /* BuyMemberSuccess */,
-				7FA8A2C5217A33F1000BB44A /* BuyMemeberViewController.h */,
-				7FA8A2C6217A33F1000BB44A /* BuyMemeberViewController.m */,
-				7FA8A2C7217A33F1000BB44A /* BuyMemeberViewController.xib */,
-				7FA8A2C8217A33F1000BB44A /* Model */,
-			);
-			path = BuyMember;
-			sourceTree = "<group>";
-		};
-		7FA8A2BB217A33F1000BB44A /* BuyMemberPay */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2BC217A33F1000BB44A /* BuyMemberPayViewController.h */,
-				7FA8A2BD217A33F1000BB44A /* BuyMemberPayViewController.m */,
-				7FA8A2BE217A33F1000BB44A /* BuyMemberPayViewController.xib */,
-				7FA8A2BF217A33F1000BB44A /* OpenAlipaysViewController.h */,
-				7FA8A2C0217A33F1000BB44A /* OpenAlipaysViewController.m */,
-			);
-			path = BuyMemberPay;
-			sourceTree = "<group>";
-		};
-		7FA8A2C1217A33F1000BB44A /* BuyMemberSuccess */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2C2217A33F1000BB44A /* BuyMemberSuccessViewController.h */,
-				7FA8A2C3217A33F1000BB44A /* BuyMemberSuccessViewController.m */,
-				7FA8A2C4217A33F1000BB44A /* BuyMemberSuccessViewController.xib */,
-			);
-			path = BuyMemberSuccess;
-			sourceTree = "<group>";
-		};
-		7FA8A2C8217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2C9217A33F1000BB44A /* MemberLevelModel.h */,
-				7FA8A2CA217A33F1000BB44A /* MemberLevelModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A2CB217A33F1000BB44A /* InviteList */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2CC217A33F1000BB44A /* InviteListViewController.h */,
-				7FA8A2CD217A33F1000BB44A /* InviteListViewController.m */,
-				7FA8A2CE217A33F1000BB44A /* Model */,
-				7FA8A2D1217A33F1000BB44A /* View */,
-			);
-			path = InviteList;
-			sourceTree = "<group>";
-		};
-		7FA8A2CE217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2CF217A33F1000BB44A /* InviteListModel.h */,
-				7FA8A2D0217A33F1000BB44A /* InviteListModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A2D1217A33F1000BB44A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2D2217A33F1000BB44A /* InviteListBaseView.h */,
-				7FA8A2D3217A33F1000BB44A /* InviteListBaseView.m */,
-				7FA8A2D4217A33F1000BB44A /* InviteListViewCell.h */,
-				7FA8A2D5217A33F1000BB44A /* InviteListViewCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7FA8A2D6217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2D7217A33F1000BB44A /* BrokerInfoDataModel.h */,
-				7FA8A2D8217A33F1000BB44A /* BrokerInfoDataModel.m */,
-				7FA8A2D9217A33F1000BB44A /* MyViewDataModel.h */,
-				7FA8A2DA217A33F1000BB44A /* MyViewDataModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A2DB217A33F1000BB44A /* MoneyList */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2DC217A33F1000BB44A /* IncomeList */,
-				7FA8A2E8217A33F1000BB44A /* MyIncomList */,
-				7FA8A2F4217A33F1000BB44A /* PaymentList */,
-			);
-			path = MoneyList;
-			sourceTree = "<group>";
-		};
-		7FA8A2DC217A33F1000BB44A /* IncomeList */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2DD217A33F1000BB44A /* IncomeListViewController.h */,
-				7FA8A2DE217A33F1000BB44A /* IncomeListViewController.m */,
-				7FA8A2DF217A33F1000BB44A /* IncomeListViewController.xib */,
-				7FA8A2E0217A33F1000BB44A /* Model */,
-				7FA8A2E3217A33F1000BB44A /* View */,
-			);
-			path = IncomeList;
-			sourceTree = "<group>";
-		};
-		7FA8A2E0217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2E1217A33F1000BB44A /* IncomeListModel.h */,
-				7FA8A2E2217A33F1000BB44A /* IncomeListModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A2E3217A33F1000BB44A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2E4217A33F1000BB44A /* IncomeListBaseView.h */,
-				7FA8A2E5217A33F1000BB44A /* IncomeListBaseView.m */,
-				7FA8A2E6217A33F1000BB44A /* IncomeListBaseViewCell.h */,
-				7FA8A2E7217A33F1000BB44A /* IncomeListBaseViewCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7FA8A2E8217A33F1000BB44A /* MyIncomList */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2E9217A33F1000BB44A /* Model */,
-				7FA8A2EC217A33F1000BB44A /* MyIncomeListViewController.h */,
-				7FA8A2ED217A33F1000BB44A /* MyIncomeListViewController.m */,
-				7FA8A2EE217A33F1000BB44A /* MyIncomeListViewController.xib */,
-				7FA8A2EF217A33F1000BB44A /* View */,
-			);
-			path = MyIncomList;
-			sourceTree = "<group>";
-		};
-		7FA8A2E9217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2EA217A33F1000BB44A /* MyIncomeListModel.h */,
-				7FA8A2EB217A33F1000BB44A /* MyIncomeListModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A2EF217A33F1000BB44A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2F0217A33F1000BB44A /* MyIncomeListBaseView.h */,
-				7FA8A2F1217A33F1000BB44A /* MyIncomeListBaseView.m */,
-				7FA8A2F2217A33F1000BB44A /* MyIncomeListBaseViewCell.h */,
-				7FA8A2F3217A33F1000BB44A /* MyIncomeListBaseViewCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7FA8A2F4217A33F1000BB44A /* PaymentList */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2F5217A33F1000BB44A /* Model */,
-				7FA8A2F8217A33F1000BB44A /* PaymentListViewController.h */,
-				7FA8A2F9217A33F1000BB44A /* PaymentListViewController.m */,
-				7FA8A2FA217A33F1000BB44A /* PaymentListViewController.xib */,
-				7FA8A2FB217A33F1000BB44A /* View */,
-			);
-			path = PaymentList;
-			sourceTree = "<group>";
-		};
-		7FA8A2F5217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2F6217A33F1000BB44A /* PaymentListModel.h */,
-				7FA8A2F7217A33F1000BB44A /* PaymentListModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A2FB217A33F1000BB44A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A2FC217A33F1000BB44A /* PaymentListBaseView.h */,
-				7FA8A2FD217A33F1000BB44A /* PaymentListBaseView.m */,
-				7FA8A2FE217A33F1000BB44A /* PaymentListBaseViewCell.h */,
-				7FA8A2FF217A33F1000BB44A /* PaymentListBaseViewCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7FA8A300217A33F1000BB44A /* MyLevel */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A301217A33F1000BB44A /* MyLevelDataModel.h */,
-				7FA8A302217A33F1000BB44A /* MyLevelDataModel.m */,
-				7FA8A303217A33F1000BB44A /* MyLevelViewController.h */,
-				7FA8A304217A33F1000BB44A /* MyLevelViewController.m */,
-				7FA8A305217A33F1000BB44A /* MyLevelViewController.xib */,
-			);
-			path = MyLevel;
-			sourceTree = "<group>";
-		};
-		7FA8A306217A33F1000BB44A /* MyLoan */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A307217A33F1000BB44A /* Model */,
-				7FA8A30C217A33F1000BB44A /* MyLoanListViewController.h */,
-				7FA8A30D217A33F1000BB44A /* MyLoanListViewController.m */,
-				7FA8A30E217A33F1000BB44A /* MyLoanOrderDetailFinishViewController.h */,
-				7FA8A30F217A33F1000BB44A /* MyLoanOrderDetailFinishViewController.m */,
-				7FA8A310217A33F1000BB44A /* MyLoanOrderDetailFinishViewController.xib */,
-				7FA8A311217A33F1000BB44A /* MyLoanOrderDetailViewController.h */,
-				7FA8A312217A33F1000BB44A /* MyLoanOrderDetailViewController.m */,
-				7FA8A313217A33F1000BB44A /* MyLoanOrderDetailViewController.xib */,
-				7FA8A314217A33F1000BB44A /* View */,
-			);
-			path = MyLoan;
-			sourceTree = "<group>";
-		};
-		7FA8A307217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A308217A33F1000BB44A /* MyloadListModel.h */,
-				7FA8A309217A33F1000BB44A /* MyloadListModel.m */,
-				7FA8A30A217A33F1000BB44A /* MyLoadOrderDetailModel.h */,
-				7FA8A30B217A33F1000BB44A /* MyLoadOrderDetailModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A314217A33F1000BB44A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A315217A33F1000BB44A /* MyLoanBaseView.h */,
-				7FA8A316217A33F1000BB44A /* MyLoanBaseView.m */,
-				7FA8A317217A33F1000BB44A /* MyLoanViewCell.h */,
-				7FA8A318217A33F1000BB44A /* MyLoanViewCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7FA8A319217A33F1000BB44A /* MyOrder */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A31A217A33F1000BB44A /* CarOrder */,
-				7FA8A33C217A33F1000BB44A /* Model */,
-				7FA8A341217A33F1000BB44A /* MyOrderListViewController.h */,
-				7FA8A342217A33F1000BB44A /* MyOrderListViewController.m */,
-				7FA8A343217A33F1000BB44A /* MyOrderListViewController.xib */,
-				7FA8A344217A33F1000BB44A /* OrderDetail */,
-				7FA8A34A217A33F1000BB44A /* View */,
-			);
-			path = MyOrder;
-			sourceTree = "<group>";
-		};
-		7FA8A31A217A33F1000BB44A /* CarOrder */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A31B217A33F1000BB44A /* CarOrderAllHeader.h */,
-				7FA8A31C217A33F1000BB44A /* CarOrderDetailViewController.h */,
-				7FA8A31D217A33F1000BB44A /* CarOrderDetailViewController.m */,
-				7FA8A31E217A33F1000BB44A /* CarOrderWaitReviewViewController.h */,
-				7FA8A31F217A33F1000BB44A /* CarOrderWaitReviewViewController.m */,
-				7FA8A320217A33F1000BB44A /* CarOrderWaitReviewViewController.xib */,
-				7FA8A321217A33F1000BB44A /* Model */,
-				7FA8A324217A33F1000BB44A /* View */,
-			);
-			path = CarOrder;
-			sourceTree = "<group>";
-		};
-		7FA8A321217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A322217A33F1000BB44A /* MyOrderCarDetailModel.h */,
-				7FA8A323217A33F1000BB44A /* MyOrderCarDetailModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A324217A33F1000BB44A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A325217A33F1000BB44A /* CarInformationView.h */,
-				7FA8A326217A33F1000BB44A /* CarInformationView.m */,
-				7FA8A327217A33F1000BB44A /* CarOrderCancelButtonView.h */,
-				7FA8A328217A33F1000BB44A /* CarOrderCancelButtonView.m */,
-				7FA8A329217A33F1000BB44A /* CarOrderCommissionInputView.h */,
-				7FA8A32A217A33F1000BB44A /* CarOrderCommissionInputView.m */,
-				7FA8A32B217A33F1000BB44A /* CarOrderCommissionInputView.xib */,
-				7FA8A32C217A33F1000BB44A /* CarOrderDateStyleOneView.h */,
-				7FA8A32D217A33F1000BB44A /* CarOrderDateStyleOneView.m */,
-				7FA8A32E217A33F1000BB44A /* CarOrderDateStyleTwoView.h */,
-				7FA8A32F217A33F1000BB44A /* CarOrderDateStyleTwoView.m */,
-				7FA8A330217A33F1000BB44A /* CarOrderManagerView.h */,
-				7FA8A331217A33F1000BB44A /* CarOrderManagerView.m */,
-				7FA8A332217A33F1000BB44A /* CarOrderMoneyButtonView.h */,
-				7FA8A333217A33F1000BB44A /* CarOrderMoneyButtonView.m */,
-				7FA8A334217A33F1000BB44A /* CarOrderMoneyView.h */,
-				7FA8A335217A33F1000BB44A /* CarOrderMoneyView.m */,
-				7FA8A336217A33F1000BB44A /* CarOrderStateView.h */,
-				7FA8A337217A33F1000BB44A /* CarOrderStateView.m */,
-				7FA8A338217A33F1000BB44A /* CarOrderThreeLineContentView.h */,
-				7FA8A339217A33F1000BB44A /* CarOrderThreeLineContentView.m */,
-				7FA8A33A217A33F1000BB44A /* CarOrderTowButtonView.h */,
-				7FA8A33B217A33F1000BB44A /* CarOrderTowButtonView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7FA8A33C217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A33D217A33F1000BB44A /* MyOrderCarListModel.h */,
-				7FA8A33E217A33F1000BB44A /* MyOrderCarListModel.m */,
-				7FA8A33F217A33F1000BB44A /* MyOrderInsuranceListModel.h */,
-				7FA8A340217A33F1000BB44A /* MyOrderInsuranceListModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A344217A33F1000BB44A /* OrderDetail */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A345217A33F1000BB44A /* MyOrderDetailViewController.h */,
-				7FA8A346217A33F1000BB44A /* MyOrderDetailViewController.m */,
-				7FA8A347217A33F1000BB44A /* MyOrderDetailViewController.xib */,
-				7FA8A348217A33F1000BB44A /* MyOrderInsuranceDetailModel.h */,
-				7FA8A349217A33F1000BB44A /* MyOrderInsuranceDetailModel.m */,
-			);
-			path = OrderDetail;
-			sourceTree = "<group>";
-		};
-		7FA8A34A217A33F1000BB44A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A34B217A33F1000BB44A /* MyOrderListView.h */,
-				7FA8A34C217A33F1000BB44A /* MyOrderListView.m */,
-				7FA8A34D217A33F1000BB44A /* MyOrderListViewCell.h */,
-				7FA8A34E217A33F1000BB44A /* MyOrderListViewCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7FA8A34F217A33F1000BB44A /* MyPerformance */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A350217A33F1000BB44A /* Credit */,
-				7FA8A35B217A33F1000BB44A /* Member */,
-				7FA8A366217A33F1000BB44A /* Safe */,
-			);
-			path = MyPerformance;
-			sourceTree = "<group>";
-		};
-		7FA8A350217A33F1000BB44A /* Credit */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A351217A33F1000BB44A /* Model */,
-				7FA8A354217A33F1000BB44A /* MyPerformanceCreditViewController.h */,
-				7FA8A355217A33F1000BB44A /* MyPerformanceCreditViewController.m */,
-				7FA8A356217A33F1000BB44A /* view */,
-			);
-			path = Credit;
-			sourceTree = "<group>";
-		};
-		7FA8A351217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A352217A33F1000BB44A /* MyPerformanceCreditModel.h */,
-				7FA8A353217A33F1000BB44A /* MyPerformanceCreditModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A356217A33F1000BB44A /* view */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A357217A33F1000BB44A /* MyPerformaceCreditViewCell.h */,
-				7FA8A358217A33F1000BB44A /* MyPerformaceCreditViewCell.m */,
-				7FA8A359217A33F1000BB44A /* MyPerformanceCreditBaseView.h */,
-				7FA8A35A217A33F1000BB44A /* MyPerformanceCreditBaseView.m */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		7FA8A35B217A33F1000BB44A /* Member */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A35C217A33F1000BB44A /* Model */,
-				7FA8A35F217A33F1000BB44A /* MyPerformanceMemberViewController.h */,
-				7FA8A360217A33F1000BB44A /* MyPerformanceMemberViewController.m */,
-				7FA8A361217A33F1000BB44A /* view */,
-			);
-			path = Member;
-			sourceTree = "<group>";
-		};
-		7FA8A35C217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A35D217A33F1000BB44A /* MyPerformanceMemberModel.h */,
-				7FA8A35E217A33F1000BB44A /* MyPerformanceMemberModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A361217A33F1000BB44A /* view */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A362217A33F1000BB44A /* MyPerformaceMemberViewCell.h */,
-				7FA8A363217A33F1000BB44A /* MyPerformaceMemberViewCell.m */,
-				7FA8A364217A33F1000BB44A /* MyPerformanceMemberBaseView.h */,
-				7FA8A365217A33F1000BB44A /* MyPerformanceMemberBaseView.m */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		7FA8A366217A33F1000BB44A /* Safe */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A367217A33F1000BB44A /* Model */,
-				7FA8A36A217A33F1000BB44A /* MyPerformanceSafeViewController.h */,
-				7FA8A36B217A33F1000BB44A /* MyPerformanceSafeViewController.m */,
-				7FA8A36C217A33F1000BB44A /* view */,
-			);
-			path = Safe;
-			sourceTree = "<group>";
-		};
-		7FA8A367217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A368217A33F1000BB44A /* MyPerformanceSafeModel.h */,
-				7FA8A369217A33F1000BB44A /* MyPerformanceSafeModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A36C217A33F1000BB44A /* view */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A36D217A33F1000BB44A /* MyPerformanceSafeBaseView.h */,
-				7FA8A36E217A33F1000BB44A /* MyPerformanceSafeBaseView.m */,
-				7FA8A36F217A33F1000BB44A /* MyPerformanceSafeViewCell.h */,
-				7FA8A370217A33F1000BB44A /* MyPerformanceSafeViewCell.m */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		7FA8A373217A33F1000BB44A /* PresentAccount */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A374217A33F1000BB44A /* FollowViewControllers */,
-				7FA8A378217A33F1000BB44A /* Model */,
-				7FA8A37B217A33F1000BB44A /* PresentAccountViewController.h */,
-				7FA8A37C217A33F1000BB44A /* PresentAccountViewController.m */,
-				7FA8A37D217A33F1000BB44A /* View */,
-			);
-			path = PresentAccount;
-			sourceTree = "<group>";
-		};
-		7FA8A374217A33F1000BB44A /* FollowViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A375217A33F1000BB44A /* AddBankAccountViewController.h */,
-				7FA8A376217A33F1000BB44A /* AddBankAccountViewController.m */,
-				7FA8A377217A33F1000BB44A /* AddBankAccountViewController.xib */,
-			);
-			path = FollowViewControllers;
-			sourceTree = "<group>";
-		};
-		7FA8A378217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A379217A33F1000BB44A /* PresentAccountModel.h */,
-				7FA8A37A217A33F1000BB44A /* PresentAccountModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A37D217A33F1000BB44A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A37E217A33F1000BB44A /* PresentAccountBaseView.h */,
-				7FA8A37F217A33F1000BB44A /* PresentAccountBaseView.m */,
-				7FA8A380217A33F1000BB44A /* PresentAccountViewCell.h */,
-				7FA8A381217A33F1000BB44A /* PresentAccountViewCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7FA8A382217A33F1000BB44A /* PresentEvent */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A383217A33F1000BB44A /* PresentEventResponseViewController.h */,
-				7FA8A384217A33F1000BB44A /* PresentEventResponseViewController.m */,
-				7FA8A385217A33F1000BB44A /* PresentEventResponseViewController.xib */,
-				7FA8A386217A33F1000BB44A /* PresentEventViewController.h */,
-				7FA8A387217A33F1000BB44A /* PresentEventViewController.m */,
-				7FA8A388217A33F1000BB44A /* PresentEventViewController.xib */,
-			);
-			path = PresentEvent;
-			sourceTree = "<group>";
-		};
-		7FA8A389217A33F1000BB44A /* Set */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A38A217A33F1000BB44A /* AboutOurViewController.h */,
-				7FA8A38B217A33F1000BB44A /* AboutOurViewController.m */,
-				7FA8A38C217A33F1000BB44A /* AboutOurViewController.xib */,
-				7FA8A38D217A33F1000BB44A /* FeedBackResponseViewController.h */,
-				7FA8A38E217A33F1000BB44A /* FeedBackResponseViewController.m */,
-				7FA8A38F217A33F1000BB44A /* FeedBackResponseViewController.xib */,
-				7FA8A390217A33F1000BB44A /* FeedBackViewController.h */,
-				7FA8A391217A33F1000BB44A /* FeedBackViewController.m */,
-				7FA8A392217A33F1000BB44A /* FeedBackViewController.xib */,
-				7FA8A393217A33F1000BB44A /* NormaQuestionViewController.h */,
-				7FA8A394217A33F1000BB44A /* NormaQuestionViewController.m */,
-				7FA8A395217A33F1000BB44A /* SetViewController.h */,
-				7FA8A396217A33F1000BB44A /* SetViewController.m */,
-				7FA8A397217A33F1000BB44A /* SetViewController.xib */,
-			);
-			path = Set;
-			sourceTree = "<group>";
-		};
-		7FA8A398217A33F1000BB44A /* UserInformation */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A399217A33F1000BB44A /* EditPhoneViewController.h */,
-				7FA8A39A217A33F1000BB44A /* EditPhoneViewController.m */,
-				7FA8A39B217A33F1000BB44A /* EditPhoneViewController.xib */,
-				7FA8A39C217A33F1000BB44A /* UserInfoViewController.h */,
-				7FA8A39D217A33F1000BB44A /* UserInfoViewController.m */,
-				7FA8A39E217A33F1000BB44A /* UserInfoViewController.xib */,
-			);
-			path = UserInformation;
-			sourceTree = "<group>";
-		};
-		7FA8A39F217A33F1000BB44A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3A0217A33F1000BB44A /* MyBaseView.h */,
-				7FA8A3A1217A33F1000BB44A /* MyBaseView.m */,
-				7FA8A3A2217A33F1000BB44A /* MyBaseViewCell.h */,
-				7FA8A3A3217A33F1000BB44A /* MyBaseViewCell.m */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		7FA8A3A9217A33F1000BB44A /* Root */ = {
@@ -2581,68 +1745,47 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FA8A56A217A33F3000BB44A /* FeedBackResponseViewController.xib in Resources */,
 				7FA8A4EE217A33F3000BB44A /* popRec_6.png in Resources */,
-				7FA8A539217A33F3000BB44A /* CarOrderWaitReviewViewController.xib in Resources */,
-				7FA8A507217A33F3000BB44A /* SMSLoginViewController.xib in Resources */,
 				7FA8A590217A33F3000BB44A /* InsuranceDetailViewController.xib in Resources */,
-				7FA8A54A217A33F3000BB44A /* MyOrderListViewController.xib in Resources */,
-				7FA8A505217A33F3000BB44A /* RegisterViewController.xib in Resources */,
-				7FA8A51D217A33F3000BB44A /* IncomeListViewController.xib in Resources */,
 				7FA8A4F0217A33F3000BB44A /* popRec_8.png in Resources */,
 				7FA8A4F6217A33F3000BB44A /* popSend_5.png in Resources */,
 				7FA8A4ED217A33F3000BB44A /* popRec_5.png in Resources */,
 				7FA8A592217A33F3000BB44A /* ShowShareButtonView.xib in Resources */,
+				7F8B6A0C218228CB00F08519 /* RegisterSetPwdViewController.xib in Resources */,
 				7FA8A4EC217A33F3000BB44A /* popRec_4.png in Resources */,
 				7FA8A4F1217A33F3000BB44A /* popRec_9.png in Resources */,
 				7FA8A57A217A33F3000BB44A /* CarInsuranceBusinessViewController.xib in Resources */,
-				7FA8A53E217A33F3000BB44A /* CarOrderCommissionInputView.xib in Resources */,
 				7FA8A4E9217A33F3000BB44A /* popRec_1.png in Resources */,
-				7FA8A534217A33F3000BB44A /* MyLoanOrderDetailViewController.xib in Resources */,
 				7FA8A578217A33F3000BB44A /* PopTowBtnMessageAlertView.xib in Resources */,
-				7FA8A55E217A33F3000BB44A /* AddBankAccountViewController.xib in Resources */,
 				7FA8A594217A33F3000BB44A /* InsuranceInformationViewController.xib in Resources */,
 				7F88DB10217A0D550081DF97 /* LaunchScreen.storyboard in Resources */,
-				7FA8A56F217A33F3000BB44A /* SetViewController.xib in Resources */,
 				7FA8A598217A33F3000BB44A /* InsuranceOrderCommitViewController.xib in Resources */,
+				7F8B6A1221822B6900F08519 /* ForgetPasswordViewController.xib in Resources */,
 				7FA8A4F4217A33F3000BB44A /* popSend_3.png in Resources */,
-				7FA8A566217A33F3000BB44A /* PresentEventViewController.xib in Resources */,
 				7FA8A4F5217A33F3000BB44A /* popSend_4.png in Resources */,
 				7FA8A4EB217A33F3000BB44A /* popRec_3.png in Resources */,
 				7FA8A4F2217A33F3000BB44A /* popSend_1.png in Resources */,
-				7FA8A528217A33F3000BB44A /* PaymentListViewController.xib in Resources */,
+				7F8B6A1721822C9C00F08519 /* ForgetPwdVerifyViewController.xib in Resources */,
 				7FA8A4EF217A33F3000BB44A /* popRec_7.png in Resources */,
-				7FA8A509217A33F3000BB44A /* MessageDetailViewController.xib in Resources */,
 				7FA8A4FA217A33F3000BB44A /* popSend_9.png in Resources */,
 				7FA8A4F3217A33F3000BB44A /* popSend_2.png in Resources */,
-				7FA8A514217A33F3000BB44A /* BuyMemeberViewController.xib in Resources */,
 				7FA8A5AC217A33F3000BB44A /* LoanInformationViewController.xib in Resources */,
-				7FA8A503217A33F3000BB44A /* LoginViewController.xib in Resources */,
-				7FA8A512217A33F3000BB44A /* BuyMemberSuccessViewController.xib in Resources */,
+				7F8B6A072182266C00F08519 /* RegisterViewController.xib in Resources */,
 				7F88DB0D217A0D550081DF97 /* Assets.xcassets in Resources */,
 				7FA8A4C2217A33F2000BB44A /* plane.gif in Resources */,
-				7FA8A568217A33F3000BB44A /* AboutOurViewController.xib in Resources */,
+				7F8B6A0221821E7B00F08519 /* LoginViewController.xib in Resources */,
 				7FA8A5C8217A33F3000BB44A /* SpecialNewsDetailViewController.xib in Resources */,
-				7FA8A571217A33F3000BB44A /* EditPhoneViewController.xib in Resources */,
 				7FA8A4EA217A33F3000BB44A /* popRec_2.png in Resources */,
 				7FA8A4DA217A33F2000BB44A /* del_btn@2x.png in Resources */,
 				7FA8A5A8217A33F3000BB44A /* LoanCommitViewController.xib in Resources */,
-				7FA8A573217A33F3000BB44A /* UserInfoViewController.xib in Resources */,
 				7FA8A59A217A33F3000BB44A /* InsuranceOrderWaitViewController.xib in Resources */,
 				7FA8A58A217A33F3000BB44A /* InsuranceCommitViewController.xib in Resources */,
-				7FA8A564217A33F3000BB44A /* PresentEventResponseViewController.xib in Resources */,
-				7FA8A50F217A33F3000BB44A /* BuyMemberPayViewController.xib in Resources */,
 				7FA8A4F7217A33F3000BB44A /* popSend_6.png in Resources */,
-				7FA8A532217A33F3000BB44A /* MyLoanOrderDetailFinishViewController.xib in Resources */,
 				7FA8A596217A33F3000BB44A /* CancelCommitOrderView.xib in Resources */,
 				7FA8A580217A33F3000BB44A /* CarInsuranceInfoViewController.xib in Resources */,
 				7FA8A4DB217A33F2000BB44A /* del_btn@3x.png in Resources */,
 				7FA8A57E217A33F3000BB44A /* CarInsuranceCommitViewController.xib in Resources */,
-				7FA8A56C217A33F3000BB44A /* FeedBackViewController.xib in Resources */,
-				7FA8A523217A33F3000BB44A /* MyIncomeListViewController.xib in Resources */,
 				7FA8A4F9217A33F3000BB44A /* popSend_8.png in Resources */,
-				7FA8A52D217A33F3000BB44A /* MyLevelViewController.xib in Resources */,
-				7FA8A54C217A33F3000BB44A /* MyOrderDetailViewController.xib in Resources */,
 				7FA8A501217A33F3000BB44A /* ModifyPasswordViewController.xib in Resources */,
 				7FA8A4F8217A33F3000BB44A /* popSend_7.png in Resources */,
 				7FA8A5AA217A33F3000BB44A /* LoanDetailViewController.xib in Resources */,
@@ -2703,9 +1846,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FA8A569217A33F3000BB44A /* FeedBackResponseViewController.m in Sources */,
 				7FA8A5A6217A33F3000BB44A /* InsuranceViewCell.m in Sources */,
-				7FA8A530217A33F3000BB44A /* MyLoanListViewController.m in Sources */,
+				7F8B69F121820B7D00F08519 /* HotInformationNormalCell.m in Sources */,
 				7FA8A593217A33F3000BB44A /* InsuranceInformationViewController.m in Sources */,
 				7FA8A5C0217A33F3000BB44A /* RootViewHotCell.m in Sources */,
 				7FA8A4BA217A33F2000BB44A /* CommonMemonyCache.m in Sources */,
@@ -2714,201 +1856,131 @@
 				7FA8A58B217A33F3000BB44A /* InsuranceCompanyViewController.m in Sources */,
 				7FA8A57C217A33F3000BB44A /* CarInsuranceBusinessViewCell.m in Sources */,
 				7FA8A4BB217A33F2000BB44A /* CommonAchieveModelValue.m in Sources */,
-				7FA8A544217A33F3000BB44A /* CarOrderStateView.m in Sources */,
 				7FA8A581217A33F3000BB44A /* CarInsuranceProvince.m in Sources */,
 				7FA8A5B0217A33F3000BB44A /* LoanProductDetailModel.m in Sources */,
 				7FF62EDB217CD107009190F0 /* MySetBaseView.m in Sources */,
-				7FA8A50D217A33F3000BB44A /* MessageBaseViewCell.m in Sources */,
-				7FA8A545217A33F3000BB44A /* CarOrderThreeLineContentView.m in Sources */,
 				7FA8A59C217A33F3000BB44A /* InsuranceSpeciesModel.m in Sources */,
-				7FA8A517217A33F3000BB44A /* InviteListModel.m in Sources */,
 				7FA8A500217A33F3000BB44A /* ModifyPasswordViewController.m in Sources */,
 				7FA8A5DC217A33F3000BB44A /* NSString+Attributed.m in Sources */,
 				7FA8A4C7217A33F2000BB44A /* NotificationTool.m in Sources */,
 				7FA8A5AD217A33F3000BB44A /* LoanScreenViewController.m in Sources */,
 				7FA8A5A1217A33F3000BB44A /* ScreenDataModel.m in Sources */,
 				7FA8A5E6217A33F3000BB44A /* UIButton+CircleImage.m in Sources */,
-				7FA8A54B217A33F3000BB44A /* MyOrderDetailViewController.m in Sources */,
-				7FA8A52E217A33F3000BB44A /* MyloadListModel.m in Sources */,
 				7FA8A4D2217A33F2000BB44A /* CommonPopListView.m in Sources */,
 				7FA8A59B217A33F3000BB44A /* InsuranceTypesViewController.m in Sources */,
-				7FA8A51E217A33F3000BB44A /* IncomeListModel.m in Sources */,
 				7FA8A5CB217A33F3000BB44A /* SpecialNewsViewImageCell.m in Sources */,
-				7FA8A575217A33F3000BB44A /* MyBaseViewCell.m in Sources */,
-				7FA8A554217A33F3000BB44A /* MyPerformanceMemberModel.m in Sources */,
 				7FA8A5C7217A33F3000BB44A /* SpecialNewsDetailViewController.m in Sources */,
 				7FA8A4D4217A33F2000BB44A /* CommonPopWarnView.m in Sources */,
-				7FA8A50E217A33F3000BB44A /* BuyMemberPayViewController.m in Sources */,
 				7FA8A4C5217A33F2000BB44A /* CommonTool.m in Sources */,
-				7FA8A536217A33F3000BB44A /* MyLoanViewCell.m in Sources */,
 				7FD4D61C217F5BB4007DA159 /* VideoListViewCell.m in Sources */,
 				7FA8A4D9217A33F2000BB44A /* CommonNumberKeyboardView.m in Sources */,
 				7FA80F8B217F7C9D00CD213F /* WebShopOnePictureMoneyViewCell.m in Sources */,
 				7F88DB13217A0D550081DF97 /* main.m in Sources */,
 				7FA8A5EC217A33F3000BB44A /* UIImageView+CircleImage.m in Sources */,
 				7FA8A577217A33F3000BB44A /* PopTowBtnMessageAlertView.m in Sources */,
-				7FA8A559217A33F3000BB44A /* MyPerformanceSafeViewController.m in Sources */,
 				7FA8A4C4217A33F2000BB44A /* CommonPictureSelect.m in Sources */,
 				7FA8A58E217A33F3000BB44A /* InsuranceCompanyViewCell.m in Sources */,
 				7FA8A5BE217A33F3000BB44A /* RootBaseView.m in Sources */,
 				7FA8A5F0217A33F3000BB44A /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
-				7FA8A502217A33F3000BB44A /* LoginViewController.m in Sources */,
-				7FA8A548217A33F3000BB44A /* MyOrderInsuranceListModel.m in Sources */,
 				7FA8A5D8217A33F3000BB44A /* NSNumber+AppendingString.m in Sources */,
-				7FA8A511217A33F3000BB44A /* BuyMemberSuccessViewController.m in Sources */,
 				7FA8A5E1217A33F3000BB44A /* NSString+MD5.m in Sources */,
-				7FA8A518217A33F3000BB44A /* InviteListBaseView.m in Sources */,
+				7F8B69EB21820A3700F08519 /* HotInformationViewController.m in Sources */,
 				7FA8A5D6217A33F3000BB44A /* NSDictionary+Null.m in Sources */,
 				7FF62ECD217CCDD4009190F0 /* WebShowViewController.m in Sources */,
 				7FA8A59D217A33F3000BB44A /* InsuranceTypesBaseView.m in Sources */,
-				7FA8A55A217A33F3000BB44A /* MyPerformanceSafeBaseView.m in Sources */,
 				7FA8A58C217A33F3000BB44A /* InsuranceCompanyModel.m in Sources */,
 				7FA8A5DB217A33F3000BB44A /* NSString+AppendingString.m in Sources */,
-				7FA8A54E217A33F3000BB44A /* MyOrderListView.m in Sources */,
-				7FA8A551217A33F3000BB44A /* MyPerformanceCreditViewController.m in Sources */,
-				7FA8A54D217A33F3000BB44A /* MyOrderInsuranceDetailModel.m in Sources */,
-				7FA8A506217A33F3000BB44A /* SMSLoginViewController.m in Sources */,
-				7FA8A56D217A33F3000BB44A /* NormaQuestionViewController.m in Sources */,
 				7FA8A4B9217A33F2000BB44A /* CommonCurrentUser.m in Sources */,
-				7FA8A53C217A33F3000BB44A /* CarOrderCancelButtonView.m in Sources */,
-				7FA8A50C217A33F3000BB44A /* MessageBaseView.m in Sources */,
-				7FA8A572217A33F3000BB44A /* UserInfoViewController.m in Sources */,
 				7FA8A4C3217A33F2000BB44A /* CommonImage.m in Sources */,
 				7FA8A5EF217A33F3000BB44A /* UITabbar+badge.m in Sources */,
-				7FA8A524217A33F3000BB44A /* MyIncomeListBaseView.m in Sources */,
-				7FA8A53B217A33F3000BB44A /* CarInformationView.m in Sources */,
 				7FA8A4C0217A33F2000BB44A /* CommonHttpAdapter.m in Sources */,
 				7FA8A5DF217A33F3000BB44A /* NSString+GBK.m in Sources */,
-				7FA8A504217A33F3000BB44A /* RegisterViewController.m in Sources */,
 				7F2E84A5217ADC7100C92C8C /* VideoListViewController.m in Sources */,
-				7FA8A55C217A33F3000BB44A /* MyViewController.m in Sources */,
 				7FA8A57D217A33F3000BB44A /* CarInsuranceCommitViewController.m in Sources */,
 				7FA8A4CB217A33F2000BB44A /* CommonCommitButton.m in Sources */,
 				7FA8A4BC217A33F2000BB44A /* CommonAlertView.m in Sources */,
 				7FA8A5D5217A33F3000BB44A /* NSArray+Null.m in Sources */,
-				7FA8A56E217A33F3000BB44A /* SetViewController.m in Sources */,
+				7F8B6A062182266C00F08519 /* RegisterViewController.m in Sources */,
 				7FA8A4FC217A33F3000BB44A /* IMContentShowView.m in Sources */,
 				7FA8A584217A33F3000BB44A /* CarInsuranceBaseView.m in Sources */,
 				7FA8A5D2217A33F3000BB44A /* BaseTableView.m in Sources */,
-				7FA8A542217A33F3000BB44A /* CarOrderMoneyButtonView.m in Sources */,
 				7FA8A588217A33F3000BB44A /* InsuranceAgeViewCell.m in Sources */,
 				7FA8A5E5217A33F3000BB44A /* UIAlertController+CustomAlert.m in Sources */,
 				7FA8A5AF217A33F3000BB44A /* LoadCommitOrderModel.m in Sources */,
 				7FA80F88217F7B7000CD213F /* WebShopTwoPictureViewCell.m in Sources */,
 				7FA8A4BD217A33F2000BB44A /* CommonAnimation.m in Sources */,
 				7FA8A4CD217A33F2000BB44A /* CommonCustomButtonView.m in Sources */,
+				7F8B69EE21820A4500F08519 /* HotInformationBaseView.m in Sources */,
 				7FA8A4C9217A33F2000BB44A /* CommonADAutoView.m in Sources */,
 				7FA8A5AB217A33F3000BB44A /* LoanInformationViewController.m in Sources */,
 				7FA8A5A3217A33F3000BB44A /* ScreehnBaseViewCell.m in Sources */,
 				7FA8A5C3217A33F3000BB44A /* RooViewNewsCell.m in Sources */,
-				7FA8A563217A33F3000BB44A /* PresentEventResponseViewController.m in Sources */,
-				7FA8A516217A33F3000BB44A /* InviteListViewController.m in Sources */,
 				7FA8A4D7217A33F2000BB44A /* CommonShowControlPictureCollectionView.m in Sources */,
-				7FA8A51C217A33F3000BB44A /* IncomeListViewController.m in Sources */,
 				7FA8A58D217A33F3000BB44A /* InsuranceCompanyBaseView.m in Sources */,
-				7FA8A55D217A33F3000BB44A /* AddBankAccountViewController.m in Sources */,
 				7FA8A4CA217A33F2000BB44A /* CommonBottomPopView.m in Sources */,
 				7FA8A5E7217A33F3000BB44A /* UIButton+ImageTitleStyle.m in Sources */,
 				7FD4D61F217F77A0007DA159 /* WebShopLeftOnePictureViewCell.m in Sources */,
-				7FA8A547217A33F3000BB44A /* MyOrderCarListModel.m in Sources */,
 				7FA8A59E217A33F3000BB44A /* InsuranceTypesViewCell.m in Sources */,
-				7FA8A510217A33F3000BB44A /* OpenAlipaysViewController.m in Sources */,
-				7FA8A555217A33F3000BB44A /* MyPerformanceMemberViewController.m in Sources */,
 				7FA8A5E0217A33F3000BB44A /* NSString+GetWeekDay.m in Sources */,
-				7FA8A50B217A33F3000BB44A /* MessageNoticeListModel.m in Sources */,
 				7FA8A5B4217A33F3000BB44A /* LoanScreenBaseView.m in Sources */,
 				7FA8A5B5217A33F3000BB44A /* LoanScreenBaseViewCell.m in Sources */,
 				7FA8A5F2217A33F3000BB44A /* UIView+CornerSquare.m in Sources */,
-				7FA8A51F217A33F3000BB44A /* IncomeListBaseView.m in Sources */,
-				7FA8A565217A33F3000BB44A /* PresentEventViewController.m in Sources */,
-				7FA8A562217A33F3000BB44A /* PresentAccountViewCell.m in Sources */,
 				7FF62ED5217CD053009190F0 /* MySetViewController.m in Sources */,
 				7FA8A5CC217A33F3000BB44A /* SpecialNewsViewMoreImageCell.m in Sources */,
-				7FA8A550217A33F3000BB44A /* MyPerformanceCreditModel.m in Sources */,
-				7FA8A55F217A33F3000BB44A /* PresentAccountModel.m in Sources */,
+				7F8B6A0B218228CB00F08519 /* RegisterSetPwdViewController.m in Sources */,
 				7FA8A5DE217A33F3000BB44A /* NSString+Extension_NSString.m in Sources */,
-				7FA8A540217A33F3000BB44A /* CarOrderDateStyleTwoView.m in Sources */,
 				7FA8A4DC217A33F2000BB44A /* CustomRoundButton.m in Sources */,
 				7FA8A4D3217A33F2000BB44A /* CommonPopShareView.m in Sources */,
 				7FEE8E78217CE87300ECF9AA /* MySetTableViewCell.m in Sources */,
 				7FF62ECA217CCD81009190F0 /* WebShopBaseView.m in Sources */,
 				7F2E84A8217ADC9A00C92C8C /* VideoListBaseView.m in Sources */,
 				7FA8A5F4217A33F3000BB44A /* UIViewExt.m in Sources */,
-				7FA8A52C217A33F3000BB44A /* MyLevelViewController.m in Sources */,
 				7FA80F8E217F8AF600CD213F /* WebShowViewCell.m in Sources */,
 				7FA8A5B3217A33F3000BB44A /* LoanBaseView.m in Sources */,
 				7FF62ED0217CCDF6009190F0 /* WebShowBaseView.m in Sources */,
-				7FA8A535217A33F3000BB44A /* MyLoanBaseView.m in Sources */,
 				7FA8A5D7217A33F3000BB44A /* NSDictionary+Property.m in Sources */,
-				7FA8A513217A33F3000BB44A /* BuyMemeberViewController.m in Sources */,
-				7FA8A549217A33F3000BB44A /* MyOrderListViewController.m in Sources */,
 				7FF62EC7217CCD56009190F0 /* WebShopViewController.m in Sources */,
-				7FA8A508217A33F3000BB44A /* MessageDetailViewController.m in Sources */,
 				7FA8A597217A33F3000BB44A /* InsuranceOrderCommitViewController.m in Sources */,
-				7FA8A546217A33F3000BB44A /* CarOrderTowButtonView.m in Sources */,
 				7FA8A5BD217A33F3000BB44A /* RootViewController.m in Sources */,
 				7FA8A5E4217A33F3000BB44A /* PlaceTextView.m in Sources */,
-				7FA8A531217A33F3000BB44A /* MyLoanOrderDetailFinishViewController.m in Sources */,
 				7FA8A5B6217A33F3000BB44A /* LoanTableViewCell.m in Sources */,
-				7FA8A52F217A33F3000BB44A /* MyLoadOrderDetailModel.m in Sources */,
-				7FA8A50A217A33F3000BB44A /* MessageViewController.m in Sources */,
 				7FA8A4C8217A33F2000BB44A /* RSAEncryptor.m in Sources */,
 				7FA8A5E9217A33F3000BB44A /* UIImage+ConvertBase64.m in Sources */,
-				7FA8A570217A33F3000BB44A /* EditPhoneViewController.m in Sources */,
+				7F8B69FD2182168600F08519 /* HotVideoListBaseView.m in Sources */,
 				7FA8A4DF217A33F2000BB44A /* AJPhotoZoomingScrollView.m in Sources */,
-				7FA8A521217A33F3000BB44A /* MyIncomeListModel.m in Sources */,
 				7FA8A5E8217A33F3000BB44A /* UIColor+Hex.m in Sources */,
 				7FA8A59F217A33F3000BB44A /* InsuranceViewController.m in Sources */,
 				7FA8A5DA217A33F3000BB44A /* NSString+ No2hz.m in Sources */,
-				7FA8A557217A33F3000BB44A /* MyPerformanceMemberBaseView.m in Sources */,
-				7FA8A567217A33F3000BB44A /* AboutOurViewController.m in Sources */,
 				7FA8A5CE217A33F3000BB44A /* BaseCollectionView.m in Sources */,
 				7FA8A4BF217A33F2000BB44A /* CommonGetIPAddress.m in Sources */,
 				7FA8A585217A33F3000BB44A /* CarInsuranceViewCell.m in Sources */,
-				7FA8A515217A33F3000BB44A /* MemberLevelModel.m in Sources */,
-				7FA8A541217A33F3000BB44A /* CarOrderManagerView.m in Sources */,
-				7FA8A526217A33F3000BB44A /* PaymentListModel.m in Sources */,
-				7FA8A520217A33F3000BB44A /* IncomeListBaseViewCell.m in Sources */,
 				7FA8A5C1217A33F3000BB44A /* RootViewLoanCell.m in Sources */,
 				7FA8A579217A33F3000BB44A /* CarInsuranceBusinessViewController.m in Sources */,
+				7F8B6A1121822B6900F08519 /* ForgetPasswordViewController.m in Sources */,
 				7FA8A4FE217A33F3000BB44A /* IMReciveViewCell.m in Sources */,
 				7FA8A5D9217A33F3000BB44A /* NSObject+Null.m in Sources */,
-				7FA8A56B217A33F3000BB44A /* FeedBackViewController.m in Sources */,
 				7FA8A4E2217A33F2000BB44A /* CommonSelectOneLineViewController.m in Sources */,
 				7FA8A4BE217A33F2000BB44A /* CommonDate.m in Sources */,
 				7FA8A5A2217A33F3000BB44A /* ScreenViewController.m in Sources */,
 				7FA8A5A7217A33F3000BB44A /* LoanCommitViewController.m in Sources */,
-				7FA8A558217A33F3000BB44A /* MyPerformanceSafeModel.m in Sources */,
 				7FA8A4D6217A33F2000BB44A /* CommonSheetView.m in Sources */,
-				7FA8A52B217A33F3000BB44A /* MyLevelDataModel.m in Sources */,
-				7FA8A553217A33F3000BB44A /* MyPerformanceCreditBaseView.m in Sources */,
 				7FA8A4D5217A33F2000BB44A /* CommonRightPopView.m in Sources */,
-				7FA8A51A217A33F3000BB44A /* BrokerInfoDataModel.m in Sources */,
 				7FA8A587217A33F3000BB44A /* InsuranceAgeBaseView.m in Sources */,
-				7FA8A53A217A33F3000BB44A /* MyOrderCarDetailModel.m in Sources */,
-				7FA8A556217A33F3000BB44A /* MyPerformaceMemberViewCell.m in Sources */,
-				7FA8A54F217A33F3000BB44A /* MyOrderListViewCell.m in Sources */,
 				7FA8A5D0217A33F3000BB44A /* BaseNavigationViewController.m in Sources */,
 				7FA8A4D8217A33F2000BB44A /* CommonTopShowLineView.m in Sources */,
 				7FA8A5A5217A33F3000BB44A /* InsuranceBaseView.m in Sources */,
 				7FA8A4C1217A33F2000BB44A /* CommonHUD.m in Sources */,
-				7FA8A52A217A33F3000BB44A /* PaymentListBaseViewCell.m in Sources */,
 				7FA8A58F217A33F3000BB44A /* InsuranceDetailViewController.m in Sources */,
 				7FA8A4FB217A33F3000BB44A /* TIMManagerObject.m in Sources */,
-				7FA8A574217A33F3000BB44A /* MyBaseView.m in Sources */,
 				7F2BB05A217E2BA30082BB25 /* RootVideoViewCell.m in Sources */,
 				7FA8A5ED217A33F3000BB44A /* UIImageView+CornerRadius.m in Sources */,
 				7FA8A4DE217A33F2000BB44A /* AJPhotoTapDetectingImageView.m in Sources */,
-				7FA8A519217A33F3000BB44A /* InviteListViewCell.m in Sources */,
 				7FA8A5EE217A33F3000BB44A /* UILabel+CallPhoneExtension.m in Sources */,
 				7FA8A586217A33F3000BB44A /* InsuranceAgeViewController.m in Sources */,
-				7FA8A533217A33F3000BB44A /* MyLoanOrderDetailViewController.m in Sources */,
 				7FA8A4CC217A33F2000BB44A /* CommonContentSubView.m in Sources */,
 				7FA8A4FD217A33F3000BB44A /* IMInpuerView.m in Sources */,
 				7FA8A5CD217A33F3000BB44A /* SpecialNewsViewTextCell.m in Sources */,
-				7FA8A527217A33F3000BB44A /* PaymentListViewController.m in Sources */,
 				7FA8A5CA217A33F3000BB44A /* SpecialNewsBaseView.m in Sources */,
-				7FA8A560217A33F3000BB44A /* PresentAccountViewController.m in Sources */,
 				7FA8A5E2217A33F3000BB44A /* NSString+Null.m in Sources */,
 				7FA8A4E8217A33F3000BB44A /* CustomerServerViewController.m in Sources */,
 				7FA8A5C9217A33F3000BB44A /* SpecialNewsViewController.m in Sources */,
@@ -2916,24 +1988,19 @@
 				7FA8A576217A33F3000BB44A /* OnlyWebViewController.m in Sources */,
 				7FA8A4FF217A33F3000BB44A /* IMSendViewCell.m in Sources */,
 				7FA8A5D1217A33F3000BB44A /* BaseTabBarController.m in Sources */,
-				7FA8A525217A33F3000BB44A /* MyIncomeListBaseViewCell.m in Sources */,
 				7FA8A5B1217A33F3000BB44A /* LoanproductModel.m in Sources */,
 				7FA8A5D3217A33F3000BB44A /* BaseTableViewCell.m in Sources */,
-				7FA8A522217A33F3000BB44A /* MyIncomeListViewController.m in Sources */,
 				7F88DB05217A0D550081DF97 /* AppDelegate.m in Sources */,
 				7FA8A5C6217A33F3000BB44A /* ArticleclassifyModel.m in Sources */,
-				7FA8A538217A33F3000BB44A /* CarOrderWaitReviewViewController.m in Sources */,
-				7FA8A537217A33F3000BB44A /* CarOrderDetailViewController.m in Sources */,
-				7FA8A51B217A33F3000BB44A /* MyViewDataModel.m in Sources */,
+				7F8B69F421820B9200F08519 /* HotInformationThreePictureCell.m in Sources */,
 				7FA8A4CF217A33F2000BB44A /* CommonMorePickerView.m in Sources */,
 				7FA8A4E1217A33F2000BB44A /* CommonSelectOneLineView.m in Sources */,
 				7FA8A5A4217A33F3000BB44A /* ScreenBaseView.m in Sources */,
 				7FA8A5BF217A33F3000BB44A /* RootViewCell.m in Sources */,
 				7FA8A5A0217A33F3000BB44A /* InsuranceProductModel.m in Sources */,
-				7FA8A543217A33F3000BB44A /* CarOrderMoneyView.m in Sources */,
 				7FA8A582217A33F3000BB44A /* CarInsuranceViewController.m in Sources */,
+				7F8B6A0121821E7B00F08519 /* LoginViewController.m in Sources */,
 				7FA8A5EB217A33F3000BB44A /* UIImage+Extension.m in Sources */,
-				7FA8A552217A33F3000BB44A /* MyPerformaceCreditViewCell.m in Sources */,
 				7FA8A5A9217A33F3000BB44A /* LoanDetailViewController.m in Sources */,
 				7FA8A4D1217A33F2000BB44A /* CommonPickerView.m in Sources */,
 				7FA8A599217A33F3000BB44A /* InsuranceOrderWaitViewController.m in Sources */,
@@ -2941,21 +2008,18 @@
 				7F2BB057217E1E3A0082BB25 /* RootOnlyPictureCell.m in Sources */,
 				7FA8A589217A33F3000BB44A /* InsuranceCommitViewController.m in Sources */,
 				7FA8A583217A33F3000BB44A /* CarInsuranceListModel.m in Sources */,
+				7F8B6A1621822C9C00F08519 /* ForgetPwdVerifyViewController.m in Sources */,
 				7FA8A5EA217A33F3000BB44A /* UIImage+CornerRadius.m in Sources */,
-				7FA8A55B217A33F3000BB44A /* MyPerformanceSafeViewCell.m in Sources */,
 				7FA8A5E3217A33F3000BB44A /* NSString+TransformToPinYin.m in Sources */,
-				7FA8A53F217A33F3000BB44A /* CarOrderDateStyleOneView.m in Sources */,
 				7FA8A57B217A33F3000BB44A /* CarInsuranceBusinessBaseView.m in Sources */,
 				7FA8A57F217A33F3000BB44A /* CarInsuranceInfoViewController.m in Sources */,
 				7FA8A4DD217A33F2000BB44A /* AJPhotoBrowserViewController.m in Sources */,
-				7FA8A53D217A33F3000BB44A /* CarOrderCommissionInputView.m in Sources */,
 				7FA8A5AE217A33F3000BB44A /* LoanViewController.m in Sources */,
 				7FA8A591217A33F3000BB44A /* ShowShareButtonView.m in Sources */,
 				7FA8A4D0217A33F2000BB44A /* CommonPageControlView.m in Sources */,
+				7F8B69FA2182167600F08519 /* HotVideoListViewController.m in Sources */,
 				7FA8A5CF217A33F3000BB44A /* BaseLable.m in Sources */,
-				7FA8A561217A33F3000BB44A /* PresentAccountBaseView.m in Sources */,
 				7FA8A5D4217A33F3000BB44A /* BaseViewController.m in Sources */,
-				7FA8A529217A33F3000BB44A /* PaymentListBaseView.m in Sources */,
 				7FA8A5F3217A33F3000BB44A /* UIView+SDAutoLayout.m in Sources */,
 				7FA8A4C6217A33F2000BB44A /* CommonVerify.m in Sources */,
 				7FA8A5F1217A33F3000BB44A /* UIView+BackHexColor.m in Sources */,

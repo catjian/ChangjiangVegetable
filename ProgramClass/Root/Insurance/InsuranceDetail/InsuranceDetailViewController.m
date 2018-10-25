@@ -165,11 +165,6 @@
 
 - (IBAction)buyButtonEvent:(id)sender
 {
-    if (DIF_APPDELEGATE.brokerInfoModel.brokerType.integerValue == 64)
-    {
-        [self.view makeToast:@"普通经纪人无权购买车险/保险" duration:2 position:CSToastPositionCenter];
-        return;
-    }
     m_IsPush = YES;
     if (self.detailModel)
     {

@@ -322,7 +322,6 @@ int delay = 1;
          if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
          {
              [CommonHUD hideHUD];
-             DIF_APPDELEGATE.brokerInfoModel = [BrokerInfoDataModel mj_objectWithKeyValues:responseModel[@"data"]];
          }
          else
          {

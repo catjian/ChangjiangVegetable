@@ -1,5 +1,5 @@
 //
-//  RegisterViewController.h
+//  ForgetPwdVerifyViewController.h
 //  ChangjiangVegetable
 //
 //  Created by jian zhang on 2018/10/26.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RegisterViewController : BaseViewController
+@interface ForgetPwdVerifyViewController : BaseViewController
 
 @end
 

@@ -10,4 +10,6 @@
 
 @interface VideoListBaseView : UIView 
 
+@property (nonatomic, copy) tableViewSelectRowAtIndexPathBlock selectBlock;
+
 @end

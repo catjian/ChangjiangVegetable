@@ -10,7 +10,6 @@
 #import "RootBaseView.h"
 #import "InsuranceDetailViewController.h"
 #import "SpecialNewsDetailViewController.h"
-#import "MessageDetailViewController.h"
 #import "LoanDetailViewController.h"
 #import "LoanViewController.h"
 
@@ -70,17 +69,15 @@
                     {
                         case 0:
                         {                            
-                            [strongSelf loadViewController:@"LoanViewController" hidesBottomBarWhenPushed:NO];
+                            [strongSelf loadViewController:@"HotInformationViewController" hidesBottomBarWhenPushed:NO];
                         }
                             break;
                         case 1:
                         {
-                            [strongSelf loadViewController:@"InsuranceViewController" hidesBottomBarWhenPushed:NO];
                         }
                             break;
                         case 2:
                         {
-                            [strongSelf loadViewController:@"CarInsuranceViewController" hidesBottomBarWhenPushed:NO];
                         }
                             break;
                         default:
@@ -90,8 +87,6 @@
                     break;
                 case 1:
                 {
-                    LoanViewController *vc = [strongSelf loadViewController:@"LoanViewController" hidesBottomBarWhenPushed:NO];
-                    vc.speciesId = [strongSelf->m_LoanSpeciesList[indexPath.row] objectForKey:@"speciesId"];
                 }
                     break;
                 case 2:

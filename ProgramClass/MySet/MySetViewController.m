@@ -38,6 +38,19 @@
     {
         m_BaseView = [[MySetBaseView alloc] initWithFrame:self.view.bounds];
         [self.view addSubview:m_BaseView];
+        DIF_WeakSelf(self)
+        [m_BaseView setSelectBlock:^(NSIndexPath *indexPath, id model) {
+            DIF_StrongSelf
+            switch (indexPath.row)
+            {
+                case -1:
+                    [strongSelf loadViewController:@"LoginViewController" hidesBottomBarWhenPushed:NO];
+                    break;
+                    
+                default:
+                    break;
+            }
+        }];
     }
 }
 

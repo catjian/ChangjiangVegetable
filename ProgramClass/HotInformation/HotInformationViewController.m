@@ -1,21 +1,21 @@
 //
-//  VideoListViewController.m
+//  HotInformationViewController.m
 //  ChangjiangVegetable
 //
-//  Created by jian zhang on 2018/10/20.
+//  Created by jian zhang on 2018/10/25.
 //  Copyright © 2018年 jian zhang. All rights reserved.
 //
 
-#import "VideoListViewController.h"
-#import "VideoListBaseView.h"
+#import "HotInformationViewController.h"
+#import "HotInformationBaseView.h"
 
-@interface VideoListViewController () <UITextFieldDelegate>
+@interface HotInformationViewController () <UITextFieldDelegate>
 
 @end
 
-@implementation VideoListViewController
+@implementation HotInformationViewController
 {
-    VideoListBaseView *m_BaseView;
+    HotInformationBaseView *m_BaseView;
     UIView *m_SearchView;
     UITextField *m_SearchTextField;
     NSArray *m_Articleclassify;
@@ -24,15 +24,14 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    DIF_ShowTabBarAnimation(YES);
+    DIF_ShowTabBarAnimation(NO);
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    DIF_ShowTabBarAnimation(YES);
-    [self setRightItemWithContentName:@" 拍照"];
-    [self.navigationItem setLeftBarButtonItem:nil];
+    DIF_ShowTabBarAnimation(NO);
+    [self setLeftItemWithContentName:@"返回"];
     [self createSearchView];
     [self.navigationItem setTitleView:m_SearchView];
 }
@@ -42,30 +41,12 @@
     [super viewDidAppear:animated];
     if (!m_BaseView)
     {
-        m_BaseView = [[VideoListBaseView alloc] initWithFrame:self.view.bounds];
+        m_BaseView = [[HotInformationBaseView alloc] initWithFrame:self.view.bounds];
         [self.view addSubview:m_BaseView];
-        DIF_WeakSelf(self)
-        [m_BaseView setSelectBlock:^(NSIndexPath *indexPath, id model) {
-            DIF_StrongSelf
-            switch (indexPath.section)
-            {
-                case 0:
-                {
-                    switch (indexPath.row)
-                    {
-                        case -1:
-                            [strongSelf loadViewController:@"HotVideoListViewController" hidesBottomBarWhenPushed:NO];
-                            break;
-                            
-                        default:
-                            break;
-                    }
-                }
-                    break;
-                default:
-                    break;
-            }
-        }];
+    }
+    else
+    {
+        //        [m_BaseView loadScrollView];
     }
 }
 

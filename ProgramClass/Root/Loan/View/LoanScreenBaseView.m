@@ -27,7 +27,7 @@
     {
         m_selectIndexPath = [NSMutableArray array];
         [self createCollectionView];
-        [self createBottomButtonsView];
+//        [self createBottomButtonsView];
     }
     return self;
 }

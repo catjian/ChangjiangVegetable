@@ -8,7 +8,6 @@
 
 #import "InsuranceOrderCommitViewController.h"
 #import "CancelCommitOrderView.h"
-#import "MyOrderInsuranceDetailModel.h"
 
 @interface InsuranceOrderCommitViewController ()
 
@@ -29,9 +28,6 @@
 @end
 
 @implementation InsuranceOrderCommitViewController
-{
-    MyOrderInsuranceDetailModel *m_DetailModel;
-}
 
 - (void)viewDidLoad
 {
@@ -80,20 +76,6 @@
 
 - (void)loadContentView
 {
-    [self.insIcon sd_setImageWithURL:[NSURL URLWithString:m_DetailModel.productUrl]];
-    [self.insNameLab setText:m_DetailModel.productName];
-    [self.insDateLab setText:[CommonDate dateToString:[NSDate dateWithTimeIntervalSince1970:m_DetailModel.createTime.integerValue/1000]
-                                              Formate:@"yyyy-MM-dd HH:mm"]];
-    [self.promotionRewardsLab setText:[NSString stringWithFormat:@"推广奖励：%@元",m_DetailModel.generalizeAmount]];
-    MyOrderInsuranceDetailInsuredInfoModel *insuredInfoModel = [MyOrderInsuranceDetailInsuredInfoModel mj_objectWithKeyValues:self.customInfo];
-    [self.insuredNameLab setText:[NSString stringWithFormat:@"姓名：%@",insuredInfoModel.insuredName]];
-    [self.insuredCardIDLab setText:[NSString stringWithFormat:@"身份证号：%@",insuredInfoModel.certificate]];
-    [self.insuredRelevanceLab setText:[NSString stringWithFormat:@"投保关系：%@",insuredInfoModel.insuredRelation]];
-    [self.insuredPhoneLab setText:[NSString stringWithFormat:@"联系方式：%@",insuredInfoModel.insuredPhone]];
-    [self.insuredEmailLab setText:[NSString stringWithFormat:@"邮箱：%@",insuredInfoModel.insuredEmail?insuredInfoModel.insuredEmail:@""]];
-    [self.orderNumLab setText:[NSString stringWithFormat:@"订单编号：%@",m_DetailModel.orderCode]];
-    [self.createDateLab setText:[NSString stringWithFormat:@"创建时间：%@",[CommonDate dateToString:[NSDate dateWithTimeIntervalSince1970:m_DetailModel.createTime.integerValue/1000]
-                                                 Formate:@"yyyy-MM-dd HH:mm"]]];
 }
 
 #pragma mark - HttpRequest
@@ -109,8 +91,6 @@
          {
              DIF_StrongSelf
              [CommonHUD hideHUD];
-             strongSelf->m_DetailModel = [MyOrderInsuranceDetailModel mj_objectWithKeyValues:responseModel[@"data"]];
-             [strongSelf performSelectorOnMainThread:@selector(loadContentView) withObject:nil waitUntilDone:YES];
          }
          else
          {

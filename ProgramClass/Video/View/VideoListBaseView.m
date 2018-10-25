@@ -153,6 +153,7 @@
                     [btn setTitleColor:DIF_HEXCOLOR(@"333333") forState:UIControlStateNormal];
                     [btn.titleLabel setFont:DIF_UIFONTOFSIZE(15)];
                     [btn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+                    [btn addTarget:self action:@selector(headerViewMoreButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
                     [contentView addSubview:btn];
                 }
             }
@@ -203,6 +204,11 @@
 
 - (void)headerViewMoreButtonEvent:(UIButton *)btn
 {
+    UIView *titleView = btn.superview.superview;
+    if (self.selectBlock)
+    {
+        self.selectBlock([NSIndexPath indexPathForRow:-1 inSection:titleView.tag-1000], nil);
+    }
 }
 
 #pragma mark - UICollecrtionViewDelegate
@@ -216,7 +222,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat widht = (DIF_SCREEN_WIDTH)/2;
-    return CGSizeMake(widht, DIF_PX(150));
+    return CGSizeMake(widht, DIF_PX(160));
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section

@@ -42,11 +42,6 @@
         DIF_WeakSelf(self)
         [m_BaseView setSelectBlock:^(NSIndexPath *indexPath, id model) {
             DIF_StrongSelf
-            if (DIF_APPDELEGATE.brokerInfoModel.brokerType.integerValue == 64)
-            {
-                [strongSelf.view makeToast:@"普通经纪人无权购买车险/保险" duration:2 position:CSToastPositionCenter];
-                return;
-            }
             CarInsuranceInfoViewController *vc = [strongSelf loadViewController:@"CarInsuranceInfoViewController" hidesBottomBarWhenPushed:YES];
             vc.detailModel = model;
         }];

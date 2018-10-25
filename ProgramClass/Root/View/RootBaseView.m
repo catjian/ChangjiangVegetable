@@ -397,7 +397,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (self.selectBlock)
+    {
+        self.selectBlock(indexPath, nil);
+    }
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout

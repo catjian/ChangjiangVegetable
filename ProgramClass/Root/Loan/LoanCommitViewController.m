@@ -7,7 +7,6 @@
 //
 
 #import "LoanCommitViewController.h"
-#import "MyLoanOrderDetailViewController.h"
 
 @interface LoanCommitViewController ()
 
@@ -97,9 +96,6 @@
          if(type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
          {
              [CommonHUD hideHUD];
-             MyLoanOrderDetailViewController *vc = [self loadViewController:@"MyLoanOrderDetailViewController"];
-             vc.orderDetail = [MyLoadOrderDetailModel mj_objectWithKeyValues:responseModel[@"data"]];
-             vc.orderID = strongSelf.orderModel.orderId;
          }
          else
          {

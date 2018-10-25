@@ -1,23 +1,20 @@
 //
-//  RegisterViewController.m
+//  ForgetPasswordViewController.m
 //  ChangjiangVegetable
 //
 //  Created by jian zhang on 2018/10/26.
 //  Copyright © 2018年 jian zhang. All rights reserved.
 //
 
-#import "RegisterViewController.h"
+#import "ForgetPasswordViewController.h"
 
-@interface RegisterViewController ()
-
-@property (weak, nonatomic) IBOutlet UIButton *nextBtn;
-@property (weak, nonatomic) IBOutlet UIButton *verifyBtn;
+@interface ForgetPasswordViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
-@property (weak, nonatomic) IBOutlet UITextField *verifyTF;
+@property (weak, nonatomic) IBOutlet UIButton *nextBtn;
 
 @end
 
-@implementation RegisterViewController
+@implementation ForgetPasswordViewController
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -33,23 +30,16 @@
     [self.navigationController setNavigationBarHidden:NO];
     // Do any additional setup after loading the view from its nib.
     [self.view setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
-    [self setNavTarBarTitle:@"注册"];
+    [self setNavTarBarTitle:@"忘记密码"];
     [self setLeftItemWithContentName:@"back"];
     [self.nextBtn.layer setCornerRadius:21];
-    [self.verifyBtn.layer setCornerRadius:5];
-    [self.verifyBtn.layer setBorderColor:DIF_HEXCOLOR(@"#999999").CGColor];
-    [self.verifyBtn.layer setBorderWidth:1];
 }
 
 #pragma mark - Button Events
 
-- (IBAction)getVerifyButtonEvent:(id)sender
-{
-}
-
 - (IBAction)nextButtonEvent:(id)sender
 {
-    [self loadViewController:@"RegisterSetPwdViewController"];
+    [self loadViewController:@"ForgetPwdVerifyViewController"];
 }
 
 @end

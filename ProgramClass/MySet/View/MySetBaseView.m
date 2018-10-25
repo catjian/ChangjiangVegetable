@@ -83,10 +83,13 @@
     [camaraBtn setTitle:@"相机" forState:UIControlStateNormal];
     [userDetailView addSubview:camaraBtn];
     
-    UIImageView *userIcon = [[UIImageView alloc] initWithFrame:CGRectMake(10, 15, 98, 98)];
+    UIButton *userIcon = [UIButton buttonWithType:UIButtonTypeCustom];
+    [userIcon setFrame:CGRectMake(10, 15, 98, 98)];
     [userIcon.layer setCornerRadius:userIcon.width/2];
+    [userIcon.layer setMasksToBounds:YES];
     [userIcon setBackgroundColor:DIF_HEXCOLOR(@"ffbb42")];
-    [userIcon sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2506/25060666/raw_1536743782.jpeg"]];
+    [userIcon setImage:[UIImage imageNamed:@"normalUserIcon"] forState:UIControlStateNormal];
+    [userIcon addTarget:self action:@selector(headerUserIconButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
     [userDetailView addSubview:userIcon];
     
     UILabel *pointsLab = [[UILabel alloc] initWithFrame:CGRectMake(userIcon.left, userIcon.bottom+1, userIcon.width, 22)];
@@ -153,6 +156,16 @@
         [functionView addSubview:btn];
     }
     return functionView;
+}
+
+#pragma mark - Header View Events
+
+- (void)headerUserIconButtonEvent:(id)sender
+{
+    if (self.selectBlock)
+    {
+        self.selectBlock([NSIndexPath indexPathForRow:-1 inSection:0], nil);
+    }
 }
 
 @end

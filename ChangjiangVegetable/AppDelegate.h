@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "TIMManagerObject.h"
-#import "BrokerInfoDataModel.h"
 
 #define DIF_Login_Status @"DIF_Login_Status"
 #define DIF_Loaction_Save_UserId @"DIF_Loaction_Save_UserId"
@@ -33,7 +32,6 @@ typedef NS_ENUM(NSUInteger, ENUM_MyOrder_Car_Status) {
 @property (nonatomic, strong) BaseTabBarController *baseTB;
 @property (nonatomic, strong) NSDictionary *imUserSig;
 @property (nonatomic, strong) NSDictionary *mybrokeramount;
-@property (nonatomic, strong) BrokerInfoDataModel *brokerInfoModel;
 
 + (AppDelegate *)sharedAppDelegate;
 
