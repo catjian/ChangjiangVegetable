@@ -56,6 +56,15 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if(self.selectBlock)
+    {
+        self.selectBlock(indexPath, nil);
+    }
+}
+
 #pragma mark - TableView HeaderView
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -79,8 +88,9 @@
     UIButton *camaraBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [camaraBtn setFrame:CGRectMake(0, 8, 20, 20)];
     [camaraBtn setRight:DIF_SCREEN_WIDTH-6];
-    [camaraBtn setBackgroundColor:DIF_HEXCOLOR(@"ffbb42")];
-    [camaraBtn setTitle:@"相机" forState:UIControlStateNormal];
+    [camaraBtn setBackgroundColor:DIF_HEXCOLOR(@"")];
+//    [camaraBtn setTitle:@"扫一扫" forState:UIControlStateNormal];
+    [camaraBtn setImage:[UIImage imageNamed:@"扫一扫"] forState:UIControlStateNormal];
     [userDetailView addSubview:camaraBtn];
     
     UIButton *userIcon = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -146,13 +156,26 @@
     
     CGFloat offset_width = DIF_SCREEN_WIDTH/4;
     NSArray *titles = @[@"我要读刊",@"我要投稿",@"我要付款",@"我的订单"];
+    NSArray *images = @[@"杂志期刊3",@"我要投稿2",@"图层1",@"我的订单2"];
     for (NSInteger i = 0; i < titles.count; i++)
     {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [btn setFrame:CGRectMake(i*offset_width, 0, offset_width, frame.size.height)];
-        [btn setTitle:titles[i] forState:UIControlStateNormal];
-        [btn.titleLabel setFont:DIF_UIFONTOFSIZE(14)];
-        [btn setTitleColor:DIF_HEXCOLOR(@"666666") forState:UIControlStateNormal];
+        UILabel *btnTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, btn.width, 22)];
+        [btnTitle setText:titles[i]];
+        [btnTitle setTextAlignment:NSTextAlignmentCenter];
+        [btnTitle setTag:9919];
+        [btnTitle setTextColor:DIF_HEXCOLOR(@"666666")];
+        [btnTitle setFont:DIF_DIFONTOFSIZE(14)];
+        [btnTitle setBottom:btn.height-18];
+        [btn addSubview:btnTitle];
+        
+        UIImageView *btnImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, 22, 25)];
+        [btnImage setTag:9920];
+        [btnImage setImage:[UIImage imageNamed:images[i]]];
+//        [btnImage setBottom:btnTitle.top-4];
+        [btnImage setCenterX:btn.width/2];
+        [btn addSubview:btnImage];
         [functionView addSubview:btn];
     }
     return functionView;

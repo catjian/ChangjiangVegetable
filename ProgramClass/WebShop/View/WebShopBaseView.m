@@ -84,18 +84,19 @@
             RootViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
             NSString *contentTitle = m_ContentArr[indexPath.row];
             [cell.titleLab setText:contentTitle];
-            NSArray *imageArr = @[@"https://free.modao.cc/uploads3/images/2583/25839420/v2_pg9d3c.png",
-                                  @"https://free.modao.cc/uploads3/images/2584/25840711/v2_pg9e3i.png",
-                                  @"https://free.modao.cc/uploads3/images/2502/25027592/raw_1536719120.png",
-                                  @"https://free.modao.cc/uploads3/images/2502/25027526/raw_1536719071.png",
-                                  @"https://free.modao.cc/uploads3/images/2584/25840861/v2_pg9e7w.png",
-                                  @"https://free.modao.cc/uploads3/images/2502/25027760/raw_1536719241.png",
-                                  @"https://free.modao.cc/uploads3/images/2502/25027732/raw_1536719221.png",
-                                  @"https://free.modao.cc/uploads3/images/2584/25841049/v2_pg9eee.png"];
-            NSArray *imageColor = @[@"#FF8181", @"#FF8181", @"#7BB7F6", @"#FCCA2A",
-                                    @"#B6F6D5", @"#BEC4FD", @"#FFBA77", @"#80A9F3"];
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageArr[indexPath.row]]];
-            [cell.imageView setBackgroundColor:DIF_HEXCOLOR(imageColor[indexPath.row])];
+//            NSArray *imageArr = @[@"https://free.modao.cc/uploads3/images/2583/25839420/v2_pg9d3c.png",
+//                                  @"https://free.modao.cc/uploads3/images/2584/25840711/v2_pg9e3i.png",
+//                                  @"https://free.modao.cc/uploads3/images/2502/25027592/raw_1536719120.png",
+//                                  @"https://free.modao.cc/uploads3/images/2502/25027526/raw_1536719071.png",
+//                                  @"https://free.modao.cc/uploads3/images/2584/25840861/v2_pg9e7w.png",
+//                                  @"https://free.modao.cc/uploads3/images/2502/25027760/raw_1536719241.png",
+//                                  @"https://free.modao.cc/uploads3/images/2502/25027732/raw_1536719221.png",
+//                                  @"https://free.modao.cc/uploads3/images/2584/25841049/v2_pg9eee.png"];
+//            NSArray *imageColor = @[@"#FF8181", @"#FF8181", @"#7BB7F6", @"#FCCA2A",
+//                                    @"#B6F6D5", @"#BEC4FD", @"#FFBA77", @"#80A9F3"];
+            [cell.imageView setImage:[UIImage imageNamed:contentTitle]];
+//            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageArr[indexPath.row]]];
+//            [cell.imageView setBackgroundColor:DIF_HEXCOLOR(imageColor[indexPath.row])];
             [cell.charLab setHidden:YES];
             return cell;
         }

@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     DIF_ShowTabBarAnimation(YES);
-    [self setRightItemWithContentName:@" 购物车"];
+    [self setRightItemWithContentName:@"购物车"];
     [self.navigationItem setLeftBarButtonItem:nil];
     [self createSearchView];
     [self.navigationItem setTitleView:m_SearchView];
@@ -70,10 +70,10 @@
     [m_SearchTextField setClearButtonMode:UITextFieldViewModeUnlessEditing|UITextFieldViewModeWhileEditing];
     [backView addSubview:m_SearchTextField];
     
-    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:@"  请输入文字关键字"];
+    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:@"  输入关键字进行搜索"];
     [placeholder FontAttributeNameWithFont:DIF_UIFONTOFSIZE(14) Range:NSMakeRange(0, placeholder.length)];
     [placeholder ForegroundColorAttributeNamWithColor:DIF_HEXCOLOR(@"cccccc") Range:NSMakeRange(0, placeholder.length)];
-    [placeholder attatchImage:[UIImage imageNamed:@"搜索"]
+    [placeholder attatchImage:[UIImage imageNamed:@"椭圆1"]
                    imageFrame:CGRectMake(0, -(m_SearchTextField.height-18)/2, 18, 18)
                         Range:NSMakeRange(0, 0)];
     [m_SearchTextField setAttributedPlaceholder:placeholder];

@@ -41,11 +41,22 @@
     }];
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
     [btn setFrame:CGRectMake(pageView.right+6, 0, 22, 40)];
-    [btn setTitle:@"E" forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"菜单"] forState:UIControlStateNormal];
+//    [btn setTitle:@"E" forState:UIControlStateNormal];
     [btn setTitleColor:DIF_HEXCOLOR(@"808080") forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(pageControlSelectChannelButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:btn];
     [self createCollectionView];
+}
+
+- (void)pageControlSelectChannelButtonEvent:(UIButton *)btn
+{
+    if (self.selectChannelBlock)
+    {
+        self.selectChannelBlock();
+    }
 }
 
 - (void)createCollectionView
@@ -61,7 +72,7 @@
     [self addSubview:m_ContentView];
     [m_ContentView setDelegate:self];
     [m_ContentView setDataSource:self];
-    [m_ContentView setContentInset:UIEdgeInsetsMake(0, 0, 90, 0)];
+//    [m_ContentView setContentInset:UIEdgeInsetsMake(0, 0, 90, 0)];
 }
 
 #pragma mark - UICollectionViewDataSource

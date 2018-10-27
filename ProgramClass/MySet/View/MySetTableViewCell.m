@@ -36,8 +36,9 @@
         [m_RedPoint setHidden:YES];
         [self.contentView addSubview:m_RedPoint];
         
-        UIImageView *rightIcon = [[UIImageView alloc] initWithFrame:CGRectMake(m_TitleLab.right, 0, 24, 24)];
+        UIImageView *rightIcon = [[UIImageView alloc] initWithFrame:CGRectMake(DIF_SCREEN_WIDTH-13, 0, 7, 14)];
         [rightIcon setCenterY:self.cellHeight/2];
+        [rightIcon setImage:[UIImage imageNamed:@"向下"]];
         [self.contentView addSubview:rightIcon];
     }
     return self;

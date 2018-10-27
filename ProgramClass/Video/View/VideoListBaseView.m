@@ -41,7 +41,9 @@
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setFrame:CGRectMake(pageView.right+6, 0, 22, 40)];
-    [btn setTitle:@"E" forState:UIControlStateNormal];
+    [btn setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
+//    [btn setTitle:@"E" forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"菜单"] forState:UIControlStateNormal];
     [btn setTitleColor:DIF_HEXCOLOR(@"808080") forState:UIControlStateNormal];
     [self addSubview:btn];
     [self createCollectionView];
@@ -88,7 +90,12 @@
     VideoListViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2527/25278364/raw_1537249493.jpeg"]];
     [cell.titleLab setText:@"农民种植茶叶，这位农民..."];
-    [cell.detailLab setText:@"⚯ 888  👍 888"];
+    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:@" 888"];
+    [placeholder attatchImage:[UIImage imageNamed:@"浏览"]
+                   imageFrame:CGRectMake(0, -(cell.detailLab.height-14)/2, 20, 11)
+                        Range:NSMakeRange(0, 0)];
+    [cell.detailLab setAttributedText:placeholder];
+    [cell.zanBtn setTitle:@"999" forState:UIControlStateNormal];
     return cell;
 }
 
@@ -136,7 +143,9 @@
                     
                     
                     UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(12, 0, 24, 24)];
-                    [titleImage sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2599/25992702/v2_pgf11t.png"]];
+                    [titleImage sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2599/25992702/v2_pgf11t.png"]
+                                  placeholderImage:[UIImage imageNamed:@"火"]];
+//                    [titleImage setImage:[UIImage imageNamed:@"火"]];
                     [contentView addSubview:titleImage];
                     
                     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(titleImage.right+2, adView.bottom, contentView.width-38-12-40, DIF_PX(50))];
@@ -176,7 +185,9 @@
                     [contentView addSubview:headerImageView];
                     
                     UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(12, 0, 24, 24)];
-                    [titleImage sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2599/25992803/v2_pgf14l.png"]];
+                    [titleImage sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2599/25992803/v2_pgf14l.png"]
+                                  placeholderImage:[UIImage imageNamed:@"时钟"]];
+//                    [titleImage setImage:[UIImage imageNamed:@"时钟"]];
                     [contentView addSubview:titleImage];
                     
                     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(titleImage.right+2, headerImageView.bottom, contentView.width-38-12-40, DIF_PX(60))];

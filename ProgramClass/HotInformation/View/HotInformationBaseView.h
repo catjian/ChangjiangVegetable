@@ -10,7 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^HotInformationBaseViewSelectChannelBlock)(void);
+
 @interface HotInformationBaseView : UIView
+
+@property (nonatomic, copy) HotInformationBaseViewSelectChannelBlock selectChannelBlock;
 
 @end
 

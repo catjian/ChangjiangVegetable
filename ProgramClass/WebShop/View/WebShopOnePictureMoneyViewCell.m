@@ -50,17 +50,20 @@
         [sendLab.layer setCornerRadius:2];
         [bgView addSubview:sendLab];
         
-        UILabel *moreLab = [[UILabel alloc] initWithFrame:CGRectMake(self.imageView.right-38, 0, 38, self.titleLab.height)];
-        [moreLab setText:@"∙ ∙ ∙"];
-        [moreLab setTextColor:DIF_HEXCOLOR(@"#838383")];
-        [moreLab setTextAlignment:NSTextAlignmentRight];
-        [bgView addSubview:moreLab];
+//        UILabel *moreLab = [[UILabel alloc] initWithFrame:CGRectMake(self.imageView.right-38, 0, 38, self.titleLab.height)];
+//        [moreLab setText:@"∙ ∙ ∙"];
+//        [moreLab setTextColor:DIF_HEXCOLOR(@"#838383")];
+//        [moreLab setTextAlignment:NSTextAlignmentRight];
+//        [bgView addSubview:moreLab];
+        UIImageView *moreImage = [[UIImageView alloc] initWithFrame:CGRectMake(self.imageView.right-26, 0, 26, 6)];
+        [moreImage setImage:[UIImage imageNamed:@"更多2"]];
+        [bgView addSubview:moreImage];
         
-        self.moneyLab = [[UILabel alloc] initWithFrame:CGRectMake(self.titleLab.left, selfLab.bottom+DIF_PX(3), moreLab.left-DIF_PX(4)-self.titleLab.left, self.titleLab.height)];
+        self.moneyLab = [[UILabel alloc] initWithFrame:CGRectMake(self.titleLab.left, selfLab.bottom+DIF_PX(3), moreImage.left-DIF_PX(4)-self.titleLab.left, self.titleLab.height)];
         [self.moneyLab setTextColor:DIF_HEXCOLOR(@"#FF5555")];
         [self.moneyLab setFont:DIF_DIFONTOFSIZE(14)];
         [bgView addSubview:self.moneyLab];
-        [moreLab setCenterY:self.moneyLab.centerY];
+        [moreImage setCenterY:self.moneyLab.centerY];
     }
     return self;
 }

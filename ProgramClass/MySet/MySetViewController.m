@@ -47,6 +47,9 @@
                     [strongSelf loadViewController:@"LoginViewController" hidesBottomBarWhenPushed:NO];
                     break;
                     
+                case 7:
+                    [strongSelf loadViewController:@"SettingViewController" hidesBottomBarWhenPushed:NO];
+                    break;
                 default:
                     break;
             }

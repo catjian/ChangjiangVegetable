@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F2236B92184B15D000792C0 /* SelectChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2236B82184B15D000792C0 /* SelectChannelViewController.m */; };
+		7F2236BD2184B17D000792C0 /* SelectChannelBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2236BC2184B17D000792C0 /* SelectChannelBaseView.m */; };
+		7F2236C02184B2E5000792C0 /* SelectChannelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2236BF2184B2E5000792C0 /* SelectChannelViewCell.m */; };
+		7F2236C42184C88C000792C0 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2236C32184C88C000792C0 /* SettingViewController.m */; };
+		7F2236C72184C988000792C0 /* SettingViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2236C62184C988000792C0 /* SettingViewCell.m */; };
 		7F2BB057217E1E3A0082BB25 /* RootOnlyPictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2BB056217E1E3A0082BB25 /* RootOnlyPictureCell.m */; };
 		7F2BB05A217E2BA30082BB25 /* RootVideoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2BB059217E2BA30082BB25 /* RootVideoViewCell.m */; };
 		7F2E84A5217ADC7100C92C8C /* VideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E84A4217ADC7100C92C8C /* VideoListViewController.m */; };
@@ -107,71 +112,8 @@
 		7FA8A4FF217A33F3000BB44A /* IMSendViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A299217A33F1000BB44A /* IMSendViewCell.m */; };
 		7FA8A500217A33F3000BB44A /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A29D217A33F1000BB44A /* ModifyPasswordViewController.m */; };
 		7FA8A501217A33F3000BB44A /* ModifyPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A29E217A33F1000BB44A /* ModifyPasswordViewController.xib */; };
-		7FA8A576217A33F3000BB44A /* OnlyWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3A5217A33F1000BB44A /* OnlyWebViewController.m */; };
 		7FA8A577217A33F3000BB44A /* PopTowBtnMessageAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3A7217A33F1000BB44A /* PopTowBtnMessageAlertView.m */; };
 		7FA8A578217A33F3000BB44A /* PopTowBtnMessageAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A3A8217A33F1000BB44A /* PopTowBtnMessageAlertView.xib */; };
-		7FA8A579217A33F3000BB44A /* CarInsuranceBusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3AE217A33F1000BB44A /* CarInsuranceBusinessViewController.m */; };
-		7FA8A57A217A33F3000BB44A /* CarInsuranceBusinessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A3AF217A33F1000BB44A /* CarInsuranceBusinessViewController.xib */; };
-		7FA8A57B217A33F3000BB44A /* CarInsuranceBusinessBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3B2217A33F1000BB44A /* CarInsuranceBusinessBaseView.m */; };
-		7FA8A57C217A33F3000BB44A /* CarInsuranceBusinessViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3B4217A33F1000BB44A /* CarInsuranceBusinessViewCell.m */; };
-		7FA8A57D217A33F3000BB44A /* CarInsuranceCommitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3B6217A33F1000BB44A /* CarInsuranceCommitViewController.m */; };
-		7FA8A57E217A33F3000BB44A /* CarInsuranceCommitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A3B7217A33F1000BB44A /* CarInsuranceCommitViewController.xib */; };
-		7FA8A57F217A33F3000BB44A /* CarInsuranceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3B9217A33F1000BB44A /* CarInsuranceInfoViewController.m */; };
-		7FA8A580217A33F3000BB44A /* CarInsuranceInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A3BA217A33F1000BB44A /* CarInsuranceInfoViewController.xib */; };
-		7FA8A581217A33F3000BB44A /* CarInsuranceProvince.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3BD217A33F1000BB44A /* CarInsuranceProvince.m */; };
-		7FA8A582217A33F3000BB44A /* CarInsuranceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3BF217A33F1000BB44A /* CarInsuranceViewController.m */; };
-		7FA8A583217A33F3000BB44A /* CarInsuranceListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3C2217A33F1000BB44A /* CarInsuranceListModel.m */; };
-		7FA8A584217A33F3000BB44A /* CarInsuranceBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3C5217A33F1000BB44A /* CarInsuranceBaseView.m */; };
-		7FA8A585217A33F3000BB44A /* CarInsuranceViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3C7217A33F1000BB44A /* CarInsuranceViewCell.m */; };
-		7FA8A586217A33F3000BB44A /* InsuranceAgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3CB217A33F1000BB44A /* InsuranceAgeViewController.m */; };
-		7FA8A587217A33F3000BB44A /* InsuranceAgeBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3CF217A33F1000BB44A /* InsuranceAgeBaseView.m */; };
-		7FA8A588217A33F3000BB44A /* InsuranceAgeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3D1217A33F1000BB44A /* InsuranceAgeViewCell.m */; };
-		7FA8A589217A33F3000BB44A /* InsuranceCommitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3D4217A33F1000BB44A /* InsuranceCommitViewController.m */; };
-		7FA8A58A217A33F3000BB44A /* InsuranceCommitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A3D5217A33F1000BB44A /* InsuranceCommitViewController.xib */; };
-		7FA8A58B217A33F3000BB44A /* InsuranceCompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3D8217A33F1000BB44A /* InsuranceCompanyViewController.m */; };
-		7FA8A58C217A33F3000BB44A /* InsuranceCompanyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3DB217A33F1000BB44A /* InsuranceCompanyModel.m */; };
-		7FA8A58D217A33F3000BB44A /* InsuranceCompanyBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3DE217A33F1000BB44A /* InsuranceCompanyBaseView.m */; };
-		7FA8A58E217A33F3000BB44A /* InsuranceCompanyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3E0217A33F1000BB44A /* InsuranceCompanyViewCell.m */; };
-		7FA8A58F217A33F3000BB44A /* InsuranceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3E3217A33F1000BB44A /* InsuranceDetailViewController.m */; };
-		7FA8A590217A33F3000BB44A /* InsuranceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A3E4217A33F1000BB44A /* InsuranceDetailViewController.xib */; };
-		7FA8A591217A33F3000BB44A /* ShowShareButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3E6217A33F1000BB44A /* ShowShareButtonView.m */; };
-		7FA8A592217A33F3000BB44A /* ShowShareButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A3E7217A33F1000BB44A /* ShowShareButtonView.xib */; };
-		7FA8A593217A33F3000BB44A /* InsuranceInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3EA217A33F1000BB44A /* InsuranceInformationViewController.m */; };
-		7FA8A594217A33F3000BB44A /* InsuranceInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A3EB217A33F1000BB44A /* InsuranceInformationViewController.xib */; };
-		7FA8A595217A33F3000BB44A /* CancelCommitOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3EE217A33F1000BB44A /* CancelCommitOrderView.m */; };
-		7FA8A596217A33F3000BB44A /* CancelCommitOrderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A3EF217A33F1000BB44A /* CancelCommitOrderView.xib */; };
-		7FA8A597217A33F3000BB44A /* InsuranceOrderCommitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3F1217A33F1000BB44A /* InsuranceOrderCommitViewController.m */; };
-		7FA8A598217A33F3000BB44A /* InsuranceOrderCommitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A3F2217A33F1000BB44A /* InsuranceOrderCommitViewController.xib */; };
-		7FA8A599217A33F3000BB44A /* InsuranceOrderWaitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3F4217A33F1000BB44A /* InsuranceOrderWaitViewController.m */; };
-		7FA8A59A217A33F3000BB44A /* InsuranceOrderWaitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A3F5217A33F1000BB44A /* InsuranceOrderWaitViewController.xib */; };
-		7FA8A59B217A33F3000BB44A /* InsuranceTypesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3F9217A33F1000BB44A /* InsuranceTypesViewController.m */; };
-		7FA8A59C217A33F3000BB44A /* InsuranceSpeciesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3FC217A33F1000BB44A /* InsuranceSpeciesModel.m */; };
-		7FA8A59D217A33F3000BB44A /* InsuranceTypesBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A3FF217A33F1000BB44A /* InsuranceTypesBaseView.m */; };
-		7FA8A59E217A33F3000BB44A /* InsuranceTypesViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A401217A33F1000BB44A /* InsuranceTypesViewCell.m */; };
-		7FA8A59F217A33F3000BB44A /* InsuranceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A403217A33F1000BB44A /* InsuranceViewController.m */; };
-		7FA8A5A0217A33F3000BB44A /* InsuranceProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A406217A33F1000BB44A /* InsuranceProductModel.m */; };
-		7FA8A5A1217A33F3000BB44A /* ScreenDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A40A217A33F1000BB44A /* ScreenDataModel.m */; };
-		7FA8A5A2217A33F3000BB44A /* ScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A40C217A33F1000BB44A /* ScreenViewController.m */; };
-		7FA8A5A3217A33F3000BB44A /* ScreehnBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A40F217A33F1000BB44A /* ScreehnBaseViewCell.m */; };
-		7FA8A5A4217A33F3000BB44A /* ScreenBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A411217A33F1000BB44A /* ScreenBaseView.m */; };
-		7FA8A5A5217A33F3000BB44A /* InsuranceBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A414217A33F1000BB44A /* InsuranceBaseView.m */; };
-		7FA8A5A6217A33F3000BB44A /* InsuranceViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A416217A33F1000BB44A /* InsuranceViewCell.m */; };
-		7FA8A5A7217A33F3000BB44A /* LoanCommitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A419217A33F1000BB44A /* LoanCommitViewController.m */; };
-		7FA8A5A8217A33F3000BB44A /* LoanCommitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A41A217A33F1000BB44A /* LoanCommitViewController.xib */; };
-		7FA8A5A9217A33F3000BB44A /* LoanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A41C217A33F1000BB44A /* LoanDetailViewController.m */; };
-		7FA8A5AA217A33F3000BB44A /* LoanDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A41D217A33F1000BB44A /* LoanDetailViewController.xib */; };
-		7FA8A5AB217A33F3000BB44A /* LoanInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A41F217A33F1000BB44A /* LoanInformationViewController.m */; };
-		7FA8A5AC217A33F3000BB44A /* LoanInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A420217A33F1000BB44A /* LoanInformationViewController.xib */; };
-		7FA8A5AD217A33F3000BB44A /* LoanScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A422217A33F1000BB44A /* LoanScreenViewController.m */; };
-		7FA8A5AE217A33F3000BB44A /* LoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A424217A33F1000BB44A /* LoanViewController.m */; };
-		7FA8A5AF217A33F3000BB44A /* LoadCommitOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A427217A33F1000BB44A /* LoadCommitOrderModel.m */; };
-		7FA8A5B0217A33F3000BB44A /* LoanProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A429217A33F1000BB44A /* LoanProductDetailModel.m */; };
-		7FA8A5B1217A33F3000BB44A /* LoanproductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A42B217A33F1000BB44A /* LoanproductModel.m */; };
-		7FA8A5B2217A33F3000BB44A /* LoanScreenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A42D217A33F1000BB44A /* LoanScreenModel.m */; };
-		7FA8A5B3217A33F3000BB44A /* LoanBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A430217A33F1000BB44A /* LoanBaseView.m */; };
-		7FA8A5B4217A33F3000BB44A /* LoanScreenBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A432217A33F1000BB44A /* LoanScreenBaseView.m */; };
-		7FA8A5B5217A33F3000BB44A /* LoanScreenBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A434217A33F1000BB44A /* LoanScreenBaseViewCell.m */; };
-		7FA8A5B6217A33F3000BB44A /* LoanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A436217A33F1000BB44A /* LoanTableViewCell.m */; };
 		7FA8A5BD217A33F3000BB44A /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A445217A33F1000BB44A /* RootViewController.m */; };
 		7FA8A5BE217A33F3000BB44A /* RootBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A448217A33F1000BB44A /* RootBaseView.m */; };
 		7FA8A5BF217A33F3000BB44A /* RootViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A44A217A33F1000BB44A /* RootViewCell.m */; };
@@ -239,6 +181,16 @@
 
 /* Begin PBXFileReference section */
 		460720354A36434ACA672A13 /* Pods-ChangjiangVegetable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChangjiangVegetable.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChangjiangVegetable/Pods-ChangjiangVegetable.release.xcconfig"; sourceTree = "<group>"; };
+		7F2236B72184B15D000792C0 /* SelectChannelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectChannelViewController.h; sourceTree = "<group>"; };
+		7F2236B82184B15D000792C0 /* SelectChannelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectChannelViewController.m; sourceTree = "<group>"; };
+		7F2236BB2184B17D000792C0 /* SelectChannelBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectChannelBaseView.h; sourceTree = "<group>"; };
+		7F2236BC2184B17D000792C0 /* SelectChannelBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectChannelBaseView.m; sourceTree = "<group>"; };
+		7F2236BE2184B2E5000792C0 /* SelectChannelViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectChannelViewCell.h; sourceTree = "<group>"; };
+		7F2236BF2184B2E5000792C0 /* SelectChannelViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectChannelViewCell.m; sourceTree = "<group>"; };
+		7F2236C22184C88C000792C0 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		7F2236C32184C88C000792C0 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		7F2236C52184C988000792C0 /* SettingViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewCell.h; sourceTree = "<group>"; };
+		7F2236C62184C988000792C0 /* SettingViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewCell.m; sourceTree = "<group>"; };
 		7F2BB055217E1E3A0082BB25 /* RootOnlyPictureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootOnlyPictureCell.h; sourceTree = "<group>"; };
 		7F2BB056217E1E3A0082BB25 /* RootOnlyPictureCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootOnlyPictureCell.m; sourceTree = "<group>"; };
 		7F2BB058217E2BA30082BB25 /* RootVideoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootVideoViewCell.h; sourceTree = "<group>"; };
@@ -407,122 +359,9 @@
 		7FA8A29C217A33F1000BB44A /* ModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPasswordViewController.h; sourceTree = "<group>"; };
 		7FA8A29D217A33F1000BB44A /* ModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPasswordViewController.m; sourceTree = "<group>"; };
 		7FA8A29E217A33F1000BB44A /* ModifyPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyPasswordViewController.xib; sourceTree = "<group>"; };
-		7FA8A3A4217A33F1000BB44A /* OnlyWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlyWebViewController.h; sourceTree = "<group>"; };
-		7FA8A3A5217A33F1000BB44A /* OnlyWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlyWebViewController.m; sourceTree = "<group>"; };
 		7FA8A3A6217A33F1000BB44A /* PopTowBtnMessageAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopTowBtnMessageAlertView.h; sourceTree = "<group>"; };
 		7FA8A3A7217A33F1000BB44A /* PopTowBtnMessageAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopTowBtnMessageAlertView.m; sourceTree = "<group>"; };
 		7FA8A3A8217A33F1000BB44A /* PopTowBtnMessageAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopTowBtnMessageAlertView.xib; sourceTree = "<group>"; };
-		7FA8A3AD217A33F1000BB44A /* CarInsuranceBusinessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarInsuranceBusinessViewController.h; sourceTree = "<group>"; };
-		7FA8A3AE217A33F1000BB44A /* CarInsuranceBusinessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarInsuranceBusinessViewController.m; sourceTree = "<group>"; };
-		7FA8A3AF217A33F1000BB44A /* CarInsuranceBusinessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarInsuranceBusinessViewController.xib; sourceTree = "<group>"; };
-		7FA8A3B1217A33F1000BB44A /* CarInsuranceBusinessBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarInsuranceBusinessBaseView.h; sourceTree = "<group>"; };
-		7FA8A3B2217A33F1000BB44A /* CarInsuranceBusinessBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarInsuranceBusinessBaseView.m; sourceTree = "<group>"; };
-		7FA8A3B3217A33F1000BB44A /* CarInsuranceBusinessViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarInsuranceBusinessViewCell.h; sourceTree = "<group>"; };
-		7FA8A3B4217A33F1000BB44A /* CarInsuranceBusinessViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarInsuranceBusinessViewCell.m; sourceTree = "<group>"; };
-		7FA8A3B5217A33F1000BB44A /* CarInsuranceCommitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarInsuranceCommitViewController.h; sourceTree = "<group>"; };
-		7FA8A3B6217A33F1000BB44A /* CarInsuranceCommitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarInsuranceCommitViewController.m; sourceTree = "<group>"; };
-		7FA8A3B7217A33F1000BB44A /* CarInsuranceCommitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarInsuranceCommitViewController.xib; sourceTree = "<group>"; };
-		7FA8A3B8217A33F1000BB44A /* CarInsuranceInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarInsuranceInfoViewController.h; sourceTree = "<group>"; };
-		7FA8A3B9217A33F1000BB44A /* CarInsuranceInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarInsuranceInfoViewController.m; sourceTree = "<group>"; };
-		7FA8A3BA217A33F1000BB44A /* CarInsuranceInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarInsuranceInfoViewController.xib; sourceTree = "<group>"; };
-		7FA8A3BC217A33F1000BB44A /* CarInsuranceProvince.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarInsuranceProvince.h; sourceTree = "<group>"; };
-		7FA8A3BD217A33F1000BB44A /* CarInsuranceProvince.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarInsuranceProvince.m; sourceTree = "<group>"; };
-		7FA8A3BE217A33F1000BB44A /* CarInsuranceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarInsuranceViewController.h; sourceTree = "<group>"; };
-		7FA8A3BF217A33F1000BB44A /* CarInsuranceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarInsuranceViewController.m; sourceTree = "<group>"; };
-		7FA8A3C1217A33F1000BB44A /* CarInsuranceListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarInsuranceListModel.h; sourceTree = "<group>"; };
-		7FA8A3C2217A33F1000BB44A /* CarInsuranceListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarInsuranceListModel.m; sourceTree = "<group>"; };
-		7FA8A3C4217A33F1000BB44A /* CarInsuranceBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarInsuranceBaseView.h; sourceTree = "<group>"; };
-		7FA8A3C5217A33F1000BB44A /* CarInsuranceBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarInsuranceBaseView.m; sourceTree = "<group>"; };
-		7FA8A3C6217A33F1000BB44A /* CarInsuranceViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarInsuranceViewCell.h; sourceTree = "<group>"; };
-		7FA8A3C7217A33F1000BB44A /* CarInsuranceViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarInsuranceViewCell.m; sourceTree = "<group>"; };
-		7FA8A3CA217A33F1000BB44A /* InsuranceAgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceAgeViewController.h; sourceTree = "<group>"; };
-		7FA8A3CB217A33F1000BB44A /* InsuranceAgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceAgeViewController.m; sourceTree = "<group>"; };
-		7FA8A3CE217A33F1000BB44A /* InsuranceAgeBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceAgeBaseView.h; sourceTree = "<group>"; };
-		7FA8A3CF217A33F1000BB44A /* InsuranceAgeBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceAgeBaseView.m; sourceTree = "<group>"; };
-		7FA8A3D0217A33F1000BB44A /* InsuranceAgeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceAgeViewCell.h; sourceTree = "<group>"; };
-		7FA8A3D1217A33F1000BB44A /* InsuranceAgeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceAgeViewCell.m; sourceTree = "<group>"; };
-		7FA8A3D3217A33F1000BB44A /* InsuranceCommitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceCommitViewController.h; sourceTree = "<group>"; };
-		7FA8A3D4217A33F1000BB44A /* InsuranceCommitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceCommitViewController.m; sourceTree = "<group>"; };
-		7FA8A3D5217A33F1000BB44A /* InsuranceCommitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InsuranceCommitViewController.xib; sourceTree = "<group>"; };
-		7FA8A3D7217A33F1000BB44A /* InsuranceCompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceCompanyViewController.h; sourceTree = "<group>"; };
-		7FA8A3D8217A33F1000BB44A /* InsuranceCompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceCompanyViewController.m; sourceTree = "<group>"; };
-		7FA8A3DA217A33F1000BB44A /* InsuranceCompanyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceCompanyModel.h; sourceTree = "<group>"; };
-		7FA8A3DB217A33F1000BB44A /* InsuranceCompanyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceCompanyModel.m; sourceTree = "<group>"; };
-		7FA8A3DD217A33F1000BB44A /* InsuranceCompanyBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceCompanyBaseView.h; sourceTree = "<group>"; };
-		7FA8A3DE217A33F1000BB44A /* InsuranceCompanyBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceCompanyBaseView.m; sourceTree = "<group>"; };
-		7FA8A3DF217A33F1000BB44A /* InsuranceCompanyViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceCompanyViewCell.h; sourceTree = "<group>"; };
-		7FA8A3E0217A33F1000BB44A /* InsuranceCompanyViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceCompanyViewCell.m; sourceTree = "<group>"; };
-		7FA8A3E2217A33F1000BB44A /* InsuranceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceDetailViewController.h; sourceTree = "<group>"; };
-		7FA8A3E3217A33F1000BB44A /* InsuranceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceDetailViewController.m; sourceTree = "<group>"; };
-		7FA8A3E4217A33F1000BB44A /* InsuranceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InsuranceDetailViewController.xib; sourceTree = "<group>"; };
-		7FA8A3E5217A33F1000BB44A /* ShowShareButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowShareButtonView.h; sourceTree = "<group>"; };
-		7FA8A3E6217A33F1000BB44A /* ShowShareButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowShareButtonView.m; sourceTree = "<group>"; };
-		7FA8A3E7217A33F1000BB44A /* ShowShareButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowShareButtonView.xib; sourceTree = "<group>"; };
-		7FA8A3E9217A33F1000BB44A /* InsuranceInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceInformationViewController.h; sourceTree = "<group>"; };
-		7FA8A3EA217A33F1000BB44A /* InsuranceInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceInformationViewController.m; sourceTree = "<group>"; };
-		7FA8A3EB217A33F1000BB44A /* InsuranceInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InsuranceInformationViewController.xib; sourceTree = "<group>"; };
-		7FA8A3ED217A33F1000BB44A /* CancelCommitOrderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CancelCommitOrderView.h; sourceTree = "<group>"; };
-		7FA8A3EE217A33F1000BB44A /* CancelCommitOrderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CancelCommitOrderView.m; sourceTree = "<group>"; };
-		7FA8A3EF217A33F1000BB44A /* CancelCommitOrderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CancelCommitOrderView.xib; sourceTree = "<group>"; };
-		7FA8A3F0217A33F1000BB44A /* InsuranceOrderCommitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceOrderCommitViewController.h; sourceTree = "<group>"; };
-		7FA8A3F1217A33F1000BB44A /* InsuranceOrderCommitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceOrderCommitViewController.m; sourceTree = "<group>"; };
-		7FA8A3F2217A33F1000BB44A /* InsuranceOrderCommitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InsuranceOrderCommitViewController.xib; sourceTree = "<group>"; };
-		7FA8A3F3217A33F1000BB44A /* InsuranceOrderWaitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceOrderWaitViewController.h; sourceTree = "<group>"; };
-		7FA8A3F4217A33F1000BB44A /* InsuranceOrderWaitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceOrderWaitViewController.m; sourceTree = "<group>"; };
-		7FA8A3F5217A33F1000BB44A /* InsuranceOrderWaitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InsuranceOrderWaitViewController.xib; sourceTree = "<group>"; };
-		7FA8A3F8217A33F1000BB44A /* InsuranceTypesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceTypesViewController.h; sourceTree = "<group>"; };
-		7FA8A3F9217A33F1000BB44A /* InsuranceTypesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceTypesViewController.m; sourceTree = "<group>"; };
-		7FA8A3FB217A33F1000BB44A /* InsuranceSpeciesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceSpeciesModel.h; sourceTree = "<group>"; };
-		7FA8A3FC217A33F1000BB44A /* InsuranceSpeciesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceSpeciesModel.m; sourceTree = "<group>"; };
-		7FA8A3FE217A33F1000BB44A /* InsuranceTypesBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceTypesBaseView.h; sourceTree = "<group>"; };
-		7FA8A3FF217A33F1000BB44A /* InsuranceTypesBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceTypesBaseView.m; sourceTree = "<group>"; };
-		7FA8A400217A33F1000BB44A /* InsuranceTypesViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceTypesViewCell.h; sourceTree = "<group>"; };
-		7FA8A401217A33F1000BB44A /* InsuranceTypesViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceTypesViewCell.m; sourceTree = "<group>"; };
-		7FA8A402217A33F1000BB44A /* InsuranceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceViewController.h; sourceTree = "<group>"; };
-		7FA8A403217A33F1000BB44A /* InsuranceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceViewController.m; sourceTree = "<group>"; };
-		7FA8A405217A33F1000BB44A /* InsuranceProductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceProductModel.h; sourceTree = "<group>"; };
-		7FA8A406217A33F1000BB44A /* InsuranceProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceProductModel.m; sourceTree = "<group>"; };
-		7FA8A409217A33F1000BB44A /* ScreenDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenDataModel.h; sourceTree = "<group>"; };
-		7FA8A40A217A33F1000BB44A /* ScreenDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenDataModel.m; sourceTree = "<group>"; };
-		7FA8A40B217A33F1000BB44A /* ScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenViewController.h; sourceTree = "<group>"; };
-		7FA8A40C217A33F1000BB44A /* ScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenViewController.m; sourceTree = "<group>"; };
-		7FA8A40E217A33F1000BB44A /* ScreehnBaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreehnBaseViewCell.h; sourceTree = "<group>"; };
-		7FA8A40F217A33F1000BB44A /* ScreehnBaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreehnBaseViewCell.m; sourceTree = "<group>"; };
-		7FA8A410217A33F1000BB44A /* ScreenBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenBaseView.h; sourceTree = "<group>"; };
-		7FA8A411217A33F1000BB44A /* ScreenBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenBaseView.m; sourceTree = "<group>"; };
-		7FA8A413217A33F1000BB44A /* InsuranceBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceBaseView.h; sourceTree = "<group>"; };
-		7FA8A414217A33F1000BB44A /* InsuranceBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceBaseView.m; sourceTree = "<group>"; };
-		7FA8A415217A33F1000BB44A /* InsuranceViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceViewCell.h; sourceTree = "<group>"; };
-		7FA8A416217A33F1000BB44A /* InsuranceViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceViewCell.m; sourceTree = "<group>"; };
-		7FA8A418217A33F1000BB44A /* LoanCommitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanCommitViewController.h; sourceTree = "<group>"; };
-		7FA8A419217A33F1000BB44A /* LoanCommitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanCommitViewController.m; sourceTree = "<group>"; };
-		7FA8A41A217A33F1000BB44A /* LoanCommitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoanCommitViewController.xib; sourceTree = "<group>"; };
-		7FA8A41B217A33F1000BB44A /* LoanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanDetailViewController.h; sourceTree = "<group>"; };
-		7FA8A41C217A33F1000BB44A /* LoanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanDetailViewController.m; sourceTree = "<group>"; };
-		7FA8A41D217A33F1000BB44A /* LoanDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoanDetailViewController.xib; sourceTree = "<group>"; };
-		7FA8A41E217A33F1000BB44A /* LoanInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanInformationViewController.h; sourceTree = "<group>"; };
-		7FA8A41F217A33F1000BB44A /* LoanInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanInformationViewController.m; sourceTree = "<group>"; };
-		7FA8A420217A33F1000BB44A /* LoanInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoanInformationViewController.xib; sourceTree = "<group>"; };
-		7FA8A421217A33F1000BB44A /* LoanScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanScreenViewController.h; sourceTree = "<group>"; };
-		7FA8A422217A33F1000BB44A /* LoanScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanScreenViewController.m; sourceTree = "<group>"; };
-		7FA8A423217A33F1000BB44A /* LoanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanViewController.h; sourceTree = "<group>"; };
-		7FA8A424217A33F1000BB44A /* LoanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanViewController.m; sourceTree = "<group>"; };
-		7FA8A426217A33F1000BB44A /* LoadCommitOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadCommitOrderModel.h; sourceTree = "<group>"; };
-		7FA8A427217A33F1000BB44A /* LoadCommitOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadCommitOrderModel.m; sourceTree = "<group>"; };
-		7FA8A428217A33F1000BB44A /* LoanProductDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanProductDetailModel.h; sourceTree = "<group>"; };
-		7FA8A429217A33F1000BB44A /* LoanProductDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanProductDetailModel.m; sourceTree = "<group>"; };
-		7FA8A42A217A33F1000BB44A /* LoanproductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanproductModel.h; sourceTree = "<group>"; };
-		7FA8A42B217A33F1000BB44A /* LoanproductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanproductModel.m; sourceTree = "<group>"; };
-		7FA8A42C217A33F1000BB44A /* LoanScreenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanScreenModel.h; sourceTree = "<group>"; };
-		7FA8A42D217A33F1000BB44A /* LoanScreenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanScreenModel.m; sourceTree = "<group>"; };
-		7FA8A42F217A33F1000BB44A /* LoanBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanBaseView.h; sourceTree = "<group>"; };
-		7FA8A430217A33F1000BB44A /* LoanBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanBaseView.m; sourceTree = "<group>"; };
-		7FA8A431217A33F1000BB44A /* LoanScreenBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanScreenBaseView.h; sourceTree = "<group>"; };
-		7FA8A432217A33F1000BB44A /* LoanScreenBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanScreenBaseView.m; sourceTree = "<group>"; };
-		7FA8A433217A33F1000BB44A /* LoanScreenBaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanScreenBaseViewCell.h; sourceTree = "<group>"; };
-		7FA8A434217A33F1000BB44A /* LoanScreenBaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanScreenBaseViewCell.m; sourceTree = "<group>"; };
-		7FA8A435217A33F1000BB44A /* LoanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanTableViewCell.h; sourceTree = "<group>"; };
-		7FA8A436217A33F1000BB44A /* LoanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanTableViewCell.m; sourceTree = "<group>"; };
 		7FA8A444217A33F1000BB44A /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		7FA8A445217A33F1000BB44A /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		7FA8A447217A33F1000BB44A /* RootBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootBaseView.h; sourceTree = "<group>"; };
@@ -668,6 +507,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F2236B62184B129000792C0 /* SelectChannel */ = {
+			isa = PBXGroup;
+			children = (
+				7F2236BA2184B162000792C0 /* View */,
+				7F2236B72184B15D000792C0 /* SelectChannelViewController.h */,
+				7F2236B82184B15D000792C0 /* SelectChannelViewController.m */,
+			);
+			path = SelectChannel;
+			sourceTree = "<group>";
+		};
+		7F2236BA2184B162000792C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7F2236BB2184B17D000792C0 /* SelectChannelBaseView.h */,
+				7F2236BC2184B17D000792C0 /* SelectChannelBaseView.m */,
+				7F2236BE2184B2E5000792C0 /* SelectChannelViewCell.h */,
+				7F2236BF2184B2E5000792C0 /* SelectChannelViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7F2236C12184C871000792C0 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				7F2236C22184C88C000792C0 /* SettingViewController.h */,
+				7F2236C32184C88C000792C0 /* SettingViewController.m */,
+				7F2236C52184C988000792C0 /* SettingViewCell.h */,
+				7F2236C62184C988000792C0 /* SettingViewCell.m */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		7F2E84A0217ADBAF00C92C8C /* WebShop */ = {
 			isa = PBXGroup;
 			children = (
@@ -968,12 +839,11 @@
 		7FA8A276217A33F1000BB44A /* ProgramClass */ = {
 			isa = PBXGroup;
 			children = (
+				7F2236B62184B129000792C0 /* SelectChannel */,
 				7FA8A277217A33F1000BB44A /* CustomerServer */,
 				7F8B69E721820A2900F08519 /* HotInformation */,
 				7FA8A29A217A33F1000BB44A /* LoginRegister */,
 				7FF62ED1217CD03B009190F0 /* MySet */,
-				7FA8A3A4217A33F1000BB44A /* OnlyWebViewController.h */,
-				7FA8A3A5217A33F1000BB44A /* OnlyWebViewController.m */,
 				7FA8A3A6217A33F1000BB44A /* PopTowBtnMessageAlertView.h */,
 				7FA8A3A7217A33F1000BB44A /* PopTowBtnMessageAlertView.m */,
 				7FA8A3A8217A33F1000BB44A /* PopTowBtnMessageAlertView.xib */,
@@ -1102,362 +972,11 @@
 		7FA8A3A9217A33F1000BB44A /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				7FA8A3AA217A33F1000BB44A /* CarInsurance */,
-				7FA8A3C8217A33F1000BB44A /* Insurance */,
-				7FA8A417217A33F1000BB44A /* Loan */,
 				7FA8A444217A33F1000BB44A /* RootViewController.h */,
 				7FA8A445217A33F1000BB44A /* RootViewController.m */,
 				7FA8A446217A33F1000BB44A /* View */,
 			);
 			path = Root;
-			sourceTree = "<group>";
-		};
-		7FA8A3AA217A33F1000BB44A /* CarInsurance */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3AB217A33F1000BB44A /* CarInsuranceInformation */,
-				7FA8A3BE217A33F1000BB44A /* CarInsuranceViewController.h */,
-				7FA8A3BF217A33F1000BB44A /* CarInsuranceViewController.m */,
-				7FA8A3C0217A33F1000BB44A /* Model */,
-				7FA8A3C3217A33F1000BB44A /* View */,
-			);
-			path = CarInsurance;
-			sourceTree = "<group>";
-		};
-		7FA8A3AB217A33F1000BB44A /* CarInsuranceInformation */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3AC217A33F1000BB44A /* CarInsuranceBusiness */,
-				7FA8A3B5217A33F1000BB44A /* CarInsuranceCommitViewController.h */,
-				7FA8A3B6217A33F1000BB44A /* CarInsuranceCommitViewController.m */,
-				7FA8A3B7217A33F1000BB44A /* CarInsuranceCommitViewController.xib */,
-				7FA8A3B8217A33F1000BB44A /* CarInsuranceInfoViewController.h */,
-				7FA8A3B9217A33F1000BB44A /* CarInsuranceInfoViewController.m */,
-				7FA8A3BA217A33F1000BB44A /* CarInsuranceInfoViewController.xib */,
-				7FA8A3BB217A33F1000BB44A /* Model */,
-			);
-			path = CarInsuranceInformation;
-			sourceTree = "<group>";
-		};
-		7FA8A3AC217A33F1000BB44A /* CarInsuranceBusiness */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3AD217A33F1000BB44A /* CarInsuranceBusinessViewController.h */,
-				7FA8A3AE217A33F1000BB44A /* CarInsuranceBusinessViewController.m */,
-				7FA8A3AF217A33F1000BB44A /* CarInsuranceBusinessViewController.xib */,
-				7FA8A3B0217A33F1000BB44A /* View */,
-			);
-			path = CarInsuranceBusiness;
-			sourceTree = "<group>";
-		};
-		7FA8A3B0217A33F1000BB44A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3B1217A33F1000BB44A /* CarInsuranceBusinessBaseView.h */,
-				7FA8A3B2217A33F1000BB44A /* CarInsuranceBusinessBaseView.m */,
-				7FA8A3B3217A33F1000BB44A /* CarInsuranceBusinessViewCell.h */,
-				7FA8A3B4217A33F1000BB44A /* CarInsuranceBusinessViewCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7FA8A3BB217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3BC217A33F1000BB44A /* CarInsuranceProvince.h */,
-				7FA8A3BD217A33F1000BB44A /* CarInsuranceProvince.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A3C0217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3C1217A33F1000BB44A /* CarInsuranceListModel.h */,
-				7FA8A3C2217A33F1000BB44A /* CarInsuranceListModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A3C3217A33F1000BB44A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3C4217A33F1000BB44A /* CarInsuranceBaseView.h */,
-				7FA8A3C5217A33F1000BB44A /* CarInsuranceBaseView.m */,
-				7FA8A3C6217A33F1000BB44A /* CarInsuranceViewCell.h */,
-				7FA8A3C7217A33F1000BB44A /* CarInsuranceViewCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7FA8A3C8217A33F1000BB44A /* Insurance */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3C9217A33F1000BB44A /* InsuranceAge */,
-				7FA8A3D2217A33F1000BB44A /* InsuranceCommit */,
-				7FA8A3D6217A33F1000BB44A /* InsuranceCompany */,
-				7FA8A3E1217A33F1000BB44A /* InsuranceDetail */,
-				7FA8A3E8217A33F1000BB44A /* InsuranceInformation */,
-				7FA8A3F7217A33F1000BB44A /* InsuranceTypes */,
-				7FA8A402217A33F1000BB44A /* InsuranceViewController.h */,
-				7FA8A403217A33F1000BB44A /* InsuranceViewController.m */,
-				7FA8A404217A33F1000BB44A /* Model */,
-				7FA8A407217A33F1000BB44A /* Screen */,
-				7FA8A412217A33F1000BB44A /* View */,
-			);
-			path = Insurance;
-			sourceTree = "<group>";
-		};
-		7FA8A3C9217A33F1000BB44A /* InsuranceAge */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3CA217A33F1000BB44A /* InsuranceAgeViewController.h */,
-				7FA8A3CB217A33F1000BB44A /* InsuranceAgeViewController.m */,
-				7FA8A3CC217A33F1000BB44A /* Model */,
-				7FA8A3CD217A33F1000BB44A /* View */,
-			);
-			path = InsuranceAge;
-			sourceTree = "<group>";
-		};
-		7FA8A3CC217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A3CD217A33F1000BB44A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3CE217A33F1000BB44A /* InsuranceAgeBaseView.h */,
-				7FA8A3CF217A33F1000BB44A /* InsuranceAgeBaseView.m */,
-				7FA8A3D0217A33F1000BB44A /* InsuranceAgeViewCell.h */,
-				7FA8A3D1217A33F1000BB44A /* InsuranceAgeViewCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7FA8A3D2217A33F1000BB44A /* InsuranceCommit */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3D3217A33F1000BB44A /* InsuranceCommitViewController.h */,
-				7FA8A3D4217A33F1000BB44A /* InsuranceCommitViewController.m */,
-				7FA8A3D5217A33F1000BB44A /* InsuranceCommitViewController.xib */,
-			);
-			path = InsuranceCommit;
-			sourceTree = "<group>";
-		};
-		7FA8A3D6217A33F1000BB44A /* InsuranceCompany */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3D7217A33F1000BB44A /* InsuranceCompanyViewController.h */,
-				7FA8A3D8217A33F1000BB44A /* InsuranceCompanyViewController.m */,
-				7FA8A3D9217A33F1000BB44A /* Model */,
-				7FA8A3DC217A33F1000BB44A /* View */,
-			);
-			path = InsuranceCompany;
-			sourceTree = "<group>";
-		};
-		7FA8A3D9217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3DA217A33F1000BB44A /* InsuranceCompanyModel.h */,
-				7FA8A3DB217A33F1000BB44A /* InsuranceCompanyModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A3DC217A33F1000BB44A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3DD217A33F1000BB44A /* InsuranceCompanyBaseView.h */,
-				7FA8A3DE217A33F1000BB44A /* InsuranceCompanyBaseView.m */,
-				7FA8A3DF217A33F1000BB44A /* InsuranceCompanyViewCell.h */,
-				7FA8A3E0217A33F1000BB44A /* InsuranceCompanyViewCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7FA8A3E1217A33F1000BB44A /* InsuranceDetail */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3E2217A33F1000BB44A /* InsuranceDetailViewController.h */,
-				7FA8A3E3217A33F1000BB44A /* InsuranceDetailViewController.m */,
-				7FA8A3E4217A33F1000BB44A /* InsuranceDetailViewController.xib */,
-				7FA8A3E5217A33F1000BB44A /* ShowShareButtonView.h */,
-				7FA8A3E6217A33F1000BB44A /* ShowShareButtonView.m */,
-				7FA8A3E7217A33F1000BB44A /* ShowShareButtonView.xib */,
-			);
-			path = InsuranceDetail;
-			sourceTree = "<group>";
-		};
-		7FA8A3E8217A33F1000BB44A /* InsuranceInformation */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3E9217A33F1000BB44A /* InsuranceInformationViewController.h */,
-				7FA8A3EA217A33F1000BB44A /* InsuranceInformationViewController.m */,
-				7FA8A3EB217A33F1000BB44A /* InsuranceInformationViewController.xib */,
-				7FA8A3EC217A33F1000BB44A /* InsuranceOrderCommit */,
-				7FA8A3F6217A33F1000BB44A /* Model */,
-			);
-			path = InsuranceInformation;
-			sourceTree = "<group>";
-		};
-		7FA8A3EC217A33F1000BB44A /* InsuranceOrderCommit */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3ED217A33F1000BB44A /* CancelCommitOrderView.h */,
-				7FA8A3EE217A33F1000BB44A /* CancelCommitOrderView.m */,
-				7FA8A3EF217A33F1000BB44A /* CancelCommitOrderView.xib */,
-				7FA8A3F0217A33F1000BB44A /* InsuranceOrderCommitViewController.h */,
-				7FA8A3F1217A33F1000BB44A /* InsuranceOrderCommitViewController.m */,
-				7FA8A3F2217A33F1000BB44A /* InsuranceOrderCommitViewController.xib */,
-				7FA8A3F3217A33F1000BB44A /* InsuranceOrderWaitViewController.h */,
-				7FA8A3F4217A33F1000BB44A /* InsuranceOrderWaitViewController.m */,
-				7FA8A3F5217A33F1000BB44A /* InsuranceOrderWaitViewController.xib */,
-			);
-			path = InsuranceOrderCommit;
-			sourceTree = "<group>";
-		};
-		7FA8A3F6217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A3F7217A33F1000BB44A /* InsuranceTypes */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3F8217A33F1000BB44A /* InsuranceTypesViewController.h */,
-				7FA8A3F9217A33F1000BB44A /* InsuranceTypesViewController.m */,
-				7FA8A3FA217A33F1000BB44A /* Model */,
-				7FA8A3FD217A33F1000BB44A /* View */,
-			);
-			path = InsuranceTypes;
-			sourceTree = "<group>";
-		};
-		7FA8A3FA217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3FB217A33F1000BB44A /* InsuranceSpeciesModel.h */,
-				7FA8A3FC217A33F1000BB44A /* InsuranceSpeciesModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A3FD217A33F1000BB44A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A3FE217A33F1000BB44A /* InsuranceTypesBaseView.h */,
-				7FA8A3FF217A33F1000BB44A /* InsuranceTypesBaseView.m */,
-				7FA8A400217A33F1000BB44A /* InsuranceTypesViewCell.h */,
-				7FA8A401217A33F1000BB44A /* InsuranceTypesViewCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7FA8A404217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A405217A33F1000BB44A /* InsuranceProductModel.h */,
-				7FA8A406217A33F1000BB44A /* InsuranceProductModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A407217A33F1000BB44A /* Screen */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A408217A33F1000BB44A /* Model */,
-				7FA8A40B217A33F1000BB44A /* ScreenViewController.h */,
-				7FA8A40C217A33F1000BB44A /* ScreenViewController.m */,
-				7FA8A40D217A33F1000BB44A /* View */,
-			);
-			path = Screen;
-			sourceTree = "<group>";
-		};
-		7FA8A408217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A409217A33F1000BB44A /* ScreenDataModel.h */,
-				7FA8A40A217A33F1000BB44A /* ScreenDataModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A40D217A33F1000BB44A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A40E217A33F1000BB44A /* ScreehnBaseViewCell.h */,
-				7FA8A40F217A33F1000BB44A /* ScreehnBaseViewCell.m */,
-				7FA8A410217A33F1000BB44A /* ScreenBaseView.h */,
-				7FA8A411217A33F1000BB44A /* ScreenBaseView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7FA8A412217A33F1000BB44A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A413217A33F1000BB44A /* InsuranceBaseView.h */,
-				7FA8A414217A33F1000BB44A /* InsuranceBaseView.m */,
-				7FA8A415217A33F1000BB44A /* InsuranceViewCell.h */,
-				7FA8A416217A33F1000BB44A /* InsuranceViewCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7FA8A417217A33F1000BB44A /* Loan */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A418217A33F1000BB44A /* LoanCommitViewController.h */,
-				7FA8A419217A33F1000BB44A /* LoanCommitViewController.m */,
-				7FA8A41A217A33F1000BB44A /* LoanCommitViewController.xib */,
-				7FA8A41B217A33F1000BB44A /* LoanDetailViewController.h */,
-				7FA8A41C217A33F1000BB44A /* LoanDetailViewController.m */,
-				7FA8A41D217A33F1000BB44A /* LoanDetailViewController.xib */,
-				7FA8A41E217A33F1000BB44A /* LoanInformationViewController.h */,
-				7FA8A41F217A33F1000BB44A /* LoanInformationViewController.m */,
-				7FA8A420217A33F1000BB44A /* LoanInformationViewController.xib */,
-				7FA8A421217A33F1000BB44A /* LoanScreenViewController.h */,
-				7FA8A422217A33F1000BB44A /* LoanScreenViewController.m */,
-				7FA8A423217A33F1000BB44A /* LoanViewController.h */,
-				7FA8A424217A33F1000BB44A /* LoanViewController.m */,
-				7FA8A425217A33F1000BB44A /* Model */,
-				7FA8A42E217A33F1000BB44A /* View */,
-			);
-			path = Loan;
-			sourceTree = "<group>";
-		};
-		7FA8A425217A33F1000BB44A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A426217A33F1000BB44A /* LoadCommitOrderModel.h */,
-				7FA8A427217A33F1000BB44A /* LoadCommitOrderModel.m */,
-				7FA8A428217A33F1000BB44A /* LoanProductDetailModel.h */,
-				7FA8A429217A33F1000BB44A /* LoanProductDetailModel.m */,
-				7FA8A42A217A33F1000BB44A /* LoanproductModel.h */,
-				7FA8A42B217A33F1000BB44A /* LoanproductModel.m */,
-				7FA8A42C217A33F1000BB44A /* LoanScreenModel.h */,
-				7FA8A42D217A33F1000BB44A /* LoanScreenModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FA8A42E217A33F1000BB44A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A42F217A33F1000BB44A /* LoanBaseView.h */,
-				7FA8A430217A33F1000BB44A /* LoanBaseView.m */,
-				7FA8A431217A33F1000BB44A /* LoanScreenBaseView.h */,
-				7FA8A432217A33F1000BB44A /* LoanScreenBaseView.m */,
-				7FA8A433217A33F1000BB44A /* LoanScreenBaseViewCell.h */,
-				7FA8A434217A33F1000BB44A /* LoanScreenBaseViewCell.m */,
-				7FA8A435217A33F1000BB44A /* LoanTableViewCell.h */,
-				7FA8A436217A33F1000BB44A /* LoanTableViewCell.m */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		7FA8A446217A33F1000BB44A /* View */ = {
@@ -1650,6 +1169,7 @@
 		7FF62ED1217CD03B009190F0 /* MySet */ = {
 			isa = PBXGroup;
 			children = (
+				7F2236C12184C871000792C0 /* Setting */,
 				7FF62ED2217CD03B009190F0 /* View */,
 				7FF62ED3217CD053009190F0 /* MySetViewController.h */,
 				7FF62ED4217CD053009190F0 /* MySetViewController.m */,
@@ -1746,20 +1266,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FA8A4EE217A33F3000BB44A /* popRec_6.png in Resources */,
-				7FA8A590217A33F3000BB44A /* InsuranceDetailViewController.xib in Resources */,
 				7FA8A4F0217A33F3000BB44A /* popRec_8.png in Resources */,
 				7FA8A4F6217A33F3000BB44A /* popSend_5.png in Resources */,
 				7FA8A4ED217A33F3000BB44A /* popRec_5.png in Resources */,
-				7FA8A592217A33F3000BB44A /* ShowShareButtonView.xib in Resources */,
 				7F8B6A0C218228CB00F08519 /* RegisterSetPwdViewController.xib in Resources */,
 				7FA8A4EC217A33F3000BB44A /* popRec_4.png in Resources */,
 				7FA8A4F1217A33F3000BB44A /* popRec_9.png in Resources */,
-				7FA8A57A217A33F3000BB44A /* CarInsuranceBusinessViewController.xib in Resources */,
 				7FA8A4E9217A33F3000BB44A /* popRec_1.png in Resources */,
 				7FA8A578217A33F3000BB44A /* PopTowBtnMessageAlertView.xib in Resources */,
-				7FA8A594217A33F3000BB44A /* InsuranceInformationViewController.xib in Resources */,
 				7F88DB10217A0D550081DF97 /* LaunchScreen.storyboard in Resources */,
-				7FA8A598217A33F3000BB44A /* InsuranceOrderCommitViewController.xib in Resources */,
 				7F8B6A1221822B6900F08519 /* ForgetPasswordViewController.xib in Resources */,
 				7FA8A4F4217A33F3000BB44A /* popSend_3.png in Resources */,
 				7FA8A4F5217A33F3000BB44A /* popSend_4.png in Resources */,
@@ -1769,7 +1284,6 @@
 				7FA8A4EF217A33F3000BB44A /* popRec_7.png in Resources */,
 				7FA8A4FA217A33F3000BB44A /* popSend_9.png in Resources */,
 				7FA8A4F3217A33F3000BB44A /* popSend_2.png in Resources */,
-				7FA8A5AC217A33F3000BB44A /* LoanInformationViewController.xib in Resources */,
 				7F8B6A072182266C00F08519 /* RegisterViewController.xib in Resources */,
 				7F88DB0D217A0D550081DF97 /* Assets.xcassets in Resources */,
 				7FA8A4C2217A33F2000BB44A /* plane.gif in Resources */,
@@ -1777,18 +1291,11 @@
 				7FA8A5C8217A33F3000BB44A /* SpecialNewsDetailViewController.xib in Resources */,
 				7FA8A4EA217A33F3000BB44A /* popRec_2.png in Resources */,
 				7FA8A4DA217A33F2000BB44A /* del_btn@2x.png in Resources */,
-				7FA8A5A8217A33F3000BB44A /* LoanCommitViewController.xib in Resources */,
-				7FA8A59A217A33F3000BB44A /* InsuranceOrderWaitViewController.xib in Resources */,
-				7FA8A58A217A33F3000BB44A /* InsuranceCommitViewController.xib in Resources */,
 				7FA8A4F7217A33F3000BB44A /* popSend_6.png in Resources */,
-				7FA8A596217A33F3000BB44A /* CancelCommitOrderView.xib in Resources */,
-				7FA8A580217A33F3000BB44A /* CarInsuranceInfoViewController.xib in Resources */,
 				7FA8A4DB217A33F2000BB44A /* del_btn@3x.png in Resources */,
-				7FA8A57E217A33F3000BB44A /* CarInsuranceCommitViewController.xib in Resources */,
 				7FA8A4F9217A33F3000BB44A /* popSend_8.png in Resources */,
 				7FA8A501217A33F3000BB44A /* ModifyPasswordViewController.xib in Resources */,
 				7FA8A4F8217A33F3000BB44A /* popSend_7.png in Resources */,
-				7FA8A5AA217A33F3000BB44A /* LoanDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1846,32 +1353,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FA8A5A6217A33F3000BB44A /* InsuranceViewCell.m in Sources */,
+				7F2236BD2184B17D000792C0 /* SelectChannelBaseView.m in Sources */,
 				7F8B69F121820B7D00F08519 /* HotInformationNormalCell.m in Sources */,
-				7FA8A593217A33F3000BB44A /* InsuranceInformationViewController.m in Sources */,
 				7FA8A5C0217A33F3000BB44A /* RootViewHotCell.m in Sources */,
 				7FA8A4BA217A33F2000BB44A /* CommonMemonyCache.m in Sources */,
-				7FA8A595217A33F3000BB44A /* CancelCommitOrderView.m in Sources */,
 				7FA8A4CE217A33F2000BB44A /* CommonMoreColumnsPickerView.m in Sources */,
-				7FA8A58B217A33F3000BB44A /* InsuranceCompanyViewController.m in Sources */,
-				7FA8A57C217A33F3000BB44A /* CarInsuranceBusinessViewCell.m in Sources */,
 				7FA8A4BB217A33F2000BB44A /* CommonAchieveModelValue.m in Sources */,
-				7FA8A581217A33F3000BB44A /* CarInsuranceProvince.m in Sources */,
-				7FA8A5B0217A33F3000BB44A /* LoanProductDetailModel.m in Sources */,
 				7FF62EDB217CD107009190F0 /* MySetBaseView.m in Sources */,
-				7FA8A59C217A33F3000BB44A /* InsuranceSpeciesModel.m in Sources */,
 				7FA8A500217A33F3000BB44A /* ModifyPasswordViewController.m in Sources */,
 				7FA8A5DC217A33F3000BB44A /* NSString+Attributed.m in Sources */,
 				7FA8A4C7217A33F2000BB44A /* NotificationTool.m in Sources */,
-				7FA8A5AD217A33F3000BB44A /* LoanScreenViewController.m in Sources */,
-				7FA8A5A1217A33F3000BB44A /* ScreenDataModel.m in Sources */,
 				7FA8A5E6217A33F3000BB44A /* UIButton+CircleImage.m in Sources */,
 				7FA8A4D2217A33F2000BB44A /* CommonPopListView.m in Sources */,
-				7FA8A59B217A33F3000BB44A /* InsuranceTypesViewController.m in Sources */,
 				7FA8A5CB217A33F3000BB44A /* SpecialNewsViewImageCell.m in Sources */,
 				7FA8A5C7217A33F3000BB44A /* SpecialNewsDetailViewController.m in Sources */,
 				7FA8A4D4217A33F2000BB44A /* CommonPopWarnView.m in Sources */,
 				7FA8A4C5217A33F2000BB44A /* CommonTool.m in Sources */,
+				7F2236B92184B15D000792C0 /* SelectChannelViewController.m in Sources */,
 				7FD4D61C217F5BB4007DA159 /* VideoListViewCell.m in Sources */,
 				7FA8A4D9217A33F2000BB44A /* CommonNumberKeyboardView.m in Sources */,
 				7FA80F8B217F7C9D00CD213F /* WebShopOnePictureMoneyViewCell.m in Sources */,
@@ -1879,7 +1377,6 @@
 				7FA8A5EC217A33F3000BB44A /* UIImageView+CircleImage.m in Sources */,
 				7FA8A577217A33F3000BB44A /* PopTowBtnMessageAlertView.m in Sources */,
 				7FA8A4C4217A33F2000BB44A /* CommonPictureSelect.m in Sources */,
-				7FA8A58E217A33F3000BB44A /* InsuranceCompanyViewCell.m in Sources */,
 				7FA8A5BE217A33F3000BB44A /* RootBaseView.m in Sources */,
 				7FA8A5F0217A33F3000BB44A /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				7FA8A5D8217A33F3000BB44A /* NSNumber+AppendingString.m in Sources */,
@@ -1887,8 +1384,6 @@
 				7F8B69EB21820A3700F08519 /* HotInformationViewController.m in Sources */,
 				7FA8A5D6217A33F3000BB44A /* NSDictionary+Null.m in Sources */,
 				7FF62ECD217CCDD4009190F0 /* WebShowViewController.m in Sources */,
-				7FA8A59D217A33F3000BB44A /* InsuranceTypesBaseView.m in Sources */,
-				7FA8A58C217A33F3000BB44A /* InsuranceCompanyModel.m in Sources */,
 				7FA8A5DB217A33F3000BB44A /* NSString+AppendingString.m in Sources */,
 				7FA8A4B9217A33F2000BB44A /* CommonCurrentUser.m in Sources */,
 				7FA8A4C3217A33F2000BB44A /* CommonImage.m in Sources */,
@@ -1896,34 +1391,24 @@
 				7FA8A4C0217A33F2000BB44A /* CommonHttpAdapter.m in Sources */,
 				7FA8A5DF217A33F3000BB44A /* NSString+GBK.m in Sources */,
 				7F2E84A5217ADC7100C92C8C /* VideoListViewController.m in Sources */,
-				7FA8A57D217A33F3000BB44A /* CarInsuranceCommitViewController.m in Sources */,
 				7FA8A4CB217A33F2000BB44A /* CommonCommitButton.m in Sources */,
 				7FA8A4BC217A33F2000BB44A /* CommonAlertView.m in Sources */,
 				7FA8A5D5217A33F3000BB44A /* NSArray+Null.m in Sources */,
 				7F8B6A062182266C00F08519 /* RegisterViewController.m in Sources */,
 				7FA8A4FC217A33F3000BB44A /* IMContentShowView.m in Sources */,
-				7FA8A584217A33F3000BB44A /* CarInsuranceBaseView.m in Sources */,
 				7FA8A5D2217A33F3000BB44A /* BaseTableView.m in Sources */,
-				7FA8A588217A33F3000BB44A /* InsuranceAgeViewCell.m in Sources */,
 				7FA8A5E5217A33F3000BB44A /* UIAlertController+CustomAlert.m in Sources */,
-				7FA8A5AF217A33F3000BB44A /* LoadCommitOrderModel.m in Sources */,
 				7FA80F88217F7B7000CD213F /* WebShopTwoPictureViewCell.m in Sources */,
 				7FA8A4BD217A33F2000BB44A /* CommonAnimation.m in Sources */,
 				7FA8A4CD217A33F2000BB44A /* CommonCustomButtonView.m in Sources */,
 				7F8B69EE21820A4500F08519 /* HotInformationBaseView.m in Sources */,
 				7FA8A4C9217A33F2000BB44A /* CommonADAutoView.m in Sources */,
-				7FA8A5AB217A33F3000BB44A /* LoanInformationViewController.m in Sources */,
-				7FA8A5A3217A33F3000BB44A /* ScreehnBaseViewCell.m in Sources */,
 				7FA8A5C3217A33F3000BB44A /* RooViewNewsCell.m in Sources */,
 				7FA8A4D7217A33F2000BB44A /* CommonShowControlPictureCollectionView.m in Sources */,
-				7FA8A58D217A33F3000BB44A /* InsuranceCompanyBaseView.m in Sources */,
 				7FA8A4CA217A33F2000BB44A /* CommonBottomPopView.m in Sources */,
 				7FA8A5E7217A33F3000BB44A /* UIButton+ImageTitleStyle.m in Sources */,
 				7FD4D61F217F77A0007DA159 /* WebShopLeftOnePictureViewCell.m in Sources */,
-				7FA8A59E217A33F3000BB44A /* InsuranceTypesViewCell.m in Sources */,
 				7FA8A5E0217A33F3000BB44A /* NSString+GetWeekDay.m in Sources */,
-				7FA8A5B4217A33F3000BB44A /* LoanScreenBaseView.m in Sources */,
-				7FA8A5B5217A33F3000BB44A /* LoanScreenBaseViewCell.m in Sources */,
 				7FA8A5F2217A33F3000BB44A /* UIView+CornerSquare.m in Sources */,
 				7FF62ED5217CD053009190F0 /* MySetViewController.m in Sources */,
 				7FA8A5CC217A33F3000BB44A /* SpecialNewsViewMoreImageCell.m in Sources */,
@@ -1936,86 +1421,64 @@
 				7F2E84A8217ADC9A00C92C8C /* VideoListBaseView.m in Sources */,
 				7FA8A5F4217A33F3000BB44A /* UIViewExt.m in Sources */,
 				7FA80F8E217F8AF600CD213F /* WebShowViewCell.m in Sources */,
-				7FA8A5B3217A33F3000BB44A /* LoanBaseView.m in Sources */,
 				7FF62ED0217CCDF6009190F0 /* WebShowBaseView.m in Sources */,
 				7FA8A5D7217A33F3000BB44A /* NSDictionary+Property.m in Sources */,
 				7FF62EC7217CCD56009190F0 /* WebShopViewController.m in Sources */,
-				7FA8A597217A33F3000BB44A /* InsuranceOrderCommitViewController.m in Sources */,
 				7FA8A5BD217A33F3000BB44A /* RootViewController.m in Sources */,
 				7FA8A5E4217A33F3000BB44A /* PlaceTextView.m in Sources */,
-				7FA8A5B6217A33F3000BB44A /* LoanTableViewCell.m in Sources */,
 				7FA8A4C8217A33F2000BB44A /* RSAEncryptor.m in Sources */,
 				7FA8A5E9217A33F3000BB44A /* UIImage+ConvertBase64.m in Sources */,
 				7F8B69FD2182168600F08519 /* HotVideoListBaseView.m in Sources */,
 				7FA8A4DF217A33F2000BB44A /* AJPhotoZoomingScrollView.m in Sources */,
 				7FA8A5E8217A33F3000BB44A /* UIColor+Hex.m in Sources */,
-				7FA8A59F217A33F3000BB44A /* InsuranceViewController.m in Sources */,
 				7FA8A5DA217A33F3000BB44A /* NSString+ No2hz.m in Sources */,
 				7FA8A5CE217A33F3000BB44A /* BaseCollectionView.m in Sources */,
 				7FA8A4BF217A33F2000BB44A /* CommonGetIPAddress.m in Sources */,
-				7FA8A585217A33F3000BB44A /* CarInsuranceViewCell.m in Sources */,
+				7F2236C42184C88C000792C0 /* SettingViewController.m in Sources */,
+				7F2236C02184B2E5000792C0 /* SelectChannelViewCell.m in Sources */,
 				7FA8A5C1217A33F3000BB44A /* RootViewLoanCell.m in Sources */,
-				7FA8A579217A33F3000BB44A /* CarInsuranceBusinessViewController.m in Sources */,
 				7F8B6A1121822B6900F08519 /* ForgetPasswordViewController.m in Sources */,
 				7FA8A4FE217A33F3000BB44A /* IMReciveViewCell.m in Sources */,
 				7FA8A5D9217A33F3000BB44A /* NSObject+Null.m in Sources */,
 				7FA8A4E2217A33F2000BB44A /* CommonSelectOneLineViewController.m in Sources */,
 				7FA8A4BE217A33F2000BB44A /* CommonDate.m in Sources */,
-				7FA8A5A2217A33F3000BB44A /* ScreenViewController.m in Sources */,
-				7FA8A5A7217A33F3000BB44A /* LoanCommitViewController.m in Sources */,
 				7FA8A4D6217A33F2000BB44A /* CommonSheetView.m in Sources */,
 				7FA8A4D5217A33F2000BB44A /* CommonRightPopView.m in Sources */,
-				7FA8A587217A33F3000BB44A /* InsuranceAgeBaseView.m in Sources */,
 				7FA8A5D0217A33F3000BB44A /* BaseNavigationViewController.m in Sources */,
 				7FA8A4D8217A33F2000BB44A /* CommonTopShowLineView.m in Sources */,
-				7FA8A5A5217A33F3000BB44A /* InsuranceBaseView.m in Sources */,
 				7FA8A4C1217A33F2000BB44A /* CommonHUD.m in Sources */,
-				7FA8A58F217A33F3000BB44A /* InsuranceDetailViewController.m in Sources */,
 				7FA8A4FB217A33F3000BB44A /* TIMManagerObject.m in Sources */,
 				7F2BB05A217E2BA30082BB25 /* RootVideoViewCell.m in Sources */,
 				7FA8A5ED217A33F3000BB44A /* UIImageView+CornerRadius.m in Sources */,
 				7FA8A4DE217A33F2000BB44A /* AJPhotoTapDetectingImageView.m in Sources */,
 				7FA8A5EE217A33F3000BB44A /* UILabel+CallPhoneExtension.m in Sources */,
-				7FA8A586217A33F3000BB44A /* InsuranceAgeViewController.m in Sources */,
 				7FA8A4CC217A33F2000BB44A /* CommonContentSubView.m in Sources */,
 				7FA8A4FD217A33F3000BB44A /* IMInpuerView.m in Sources */,
 				7FA8A5CD217A33F3000BB44A /* SpecialNewsViewTextCell.m in Sources */,
 				7FA8A5CA217A33F3000BB44A /* SpecialNewsBaseView.m in Sources */,
+				7F2236C72184C988000792C0 /* SettingViewCell.m in Sources */,
 				7FA8A5E2217A33F3000BB44A /* NSString+Null.m in Sources */,
 				7FA8A4E8217A33F3000BB44A /* CustomerServerViewController.m in Sources */,
 				7FA8A5C9217A33F3000BB44A /* SpecialNewsViewController.m in Sources */,
 				7FA8A5DD217A33F3000BB44A /* NSString+ConvertHex.m in Sources */,
-				7FA8A576217A33F3000BB44A /* OnlyWebViewController.m in Sources */,
 				7FA8A4FF217A33F3000BB44A /* IMSendViewCell.m in Sources */,
 				7FA8A5D1217A33F3000BB44A /* BaseTabBarController.m in Sources */,
-				7FA8A5B1217A33F3000BB44A /* LoanproductModel.m in Sources */,
 				7FA8A5D3217A33F3000BB44A /* BaseTableViewCell.m in Sources */,
 				7F88DB05217A0D550081DF97 /* AppDelegate.m in Sources */,
 				7FA8A5C6217A33F3000BB44A /* ArticleclassifyModel.m in Sources */,
 				7F8B69F421820B9200F08519 /* HotInformationThreePictureCell.m in Sources */,
 				7FA8A4CF217A33F2000BB44A /* CommonMorePickerView.m in Sources */,
 				7FA8A4E1217A33F2000BB44A /* CommonSelectOneLineView.m in Sources */,
-				7FA8A5A4217A33F3000BB44A /* ScreenBaseView.m in Sources */,
 				7FA8A5BF217A33F3000BB44A /* RootViewCell.m in Sources */,
-				7FA8A5A0217A33F3000BB44A /* InsuranceProductModel.m in Sources */,
-				7FA8A582217A33F3000BB44A /* CarInsuranceViewController.m in Sources */,
 				7F8B6A0121821E7B00F08519 /* LoginViewController.m in Sources */,
 				7FA8A5EB217A33F3000BB44A /* UIImage+Extension.m in Sources */,
-				7FA8A5A9217A33F3000BB44A /* LoanDetailViewController.m in Sources */,
 				7FA8A4D1217A33F2000BB44A /* CommonPickerView.m in Sources */,
-				7FA8A599217A33F3000BB44A /* InsuranceOrderWaitViewController.m in Sources */,
 				7FA8A4E0217A33F2000BB44A /* AJTapDetectingView.m in Sources */,
 				7F2BB057217E1E3A0082BB25 /* RootOnlyPictureCell.m in Sources */,
-				7FA8A589217A33F3000BB44A /* InsuranceCommitViewController.m in Sources */,
-				7FA8A583217A33F3000BB44A /* CarInsuranceListModel.m in Sources */,
 				7F8B6A1621822C9C00F08519 /* ForgetPwdVerifyViewController.m in Sources */,
 				7FA8A5EA217A33F3000BB44A /* UIImage+CornerRadius.m in Sources */,
 				7FA8A5E3217A33F3000BB44A /* NSString+TransformToPinYin.m in Sources */,
-				7FA8A57B217A33F3000BB44A /* CarInsuranceBusinessBaseView.m in Sources */,
-				7FA8A57F217A33F3000BB44A /* CarInsuranceInfoViewController.m in Sources */,
 				7FA8A4DD217A33F2000BB44A /* AJPhotoBrowserViewController.m in Sources */,
-				7FA8A5AE217A33F3000BB44A /* LoanViewController.m in Sources */,
-				7FA8A591217A33F3000BB44A /* ShowShareButtonView.m in Sources */,
 				7FA8A4D0217A33F2000BB44A /* CommonPageControlView.m in Sources */,
 				7F8B69FA2182167600F08519 /* HotVideoListViewController.m in Sources */,
 				7FA8A5CF217A33F3000BB44A /* BaseLable.m in Sources */,
@@ -2023,7 +1486,6 @@
 				7FA8A5F3217A33F3000BB44A /* UIView+SDAutoLayout.m in Sources */,
 				7FA8A4C6217A33F2000BB44A /* CommonVerify.m in Sources */,
 				7FA8A5F1217A33F3000BB44A /* UIView+BackHexColor.m in Sources */,
-				7FA8A5B2217A33F3000BB44A /* LoanScreenModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

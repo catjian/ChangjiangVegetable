@@ -24,13 +24,13 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    DIF_ShowTabBarAnimation(NO);
+    DIF_HideTabBarAnimation(YES);
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    DIF_ShowTabBarAnimation(NO);
+    DIF_HideTabBarAnimation(NO);
     [self setLeftItemWithContentName:@"返回"];
     [self createSearchView];
     [self.navigationItem setTitleView:m_SearchView];
@@ -43,10 +43,14 @@
     {
         m_BaseView = [[HotInformationBaseView alloc] initWithFrame:self.view.bounds];
         [self.view addSubview:m_BaseView];
-    }
-    else
-    {
-        //        [m_BaseView loadScrollView];
+        DIF_WeakSelf(self)
+        [m_BaseView setSelectChannelBlock:^{
+            DIF_StrongSelf
+            SelectChannelViewController *vc = [strongSelf loadViewController:@"SelectChannelViewController"];
+            vc.channelData = @{@"0":@"热门新闻",@"1":@"品种导航",@"2":@"栽培技术",@"3":@"栽培技术",
+                              @"4":@"政策法规",@"5":@"专家观点",@"6":@"创富故事",@"7":@"市场行情",
+                              @"8":@"农资农机",@"9":@"长蔬专访"};
+        }];
     }
 }
 
@@ -69,10 +73,10 @@
     [m_SearchTextField setClearButtonMode:UITextFieldViewModeUnlessEditing|UITextFieldViewModeWhileEditing];
     [backView addSubview:m_SearchTextField];
     
-    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:@"  请输入文字关键字"];
+    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:@"  输入关键字进行搜索"];
     [placeholder FontAttributeNameWithFont:DIF_UIFONTOFSIZE(14) Range:NSMakeRange(0, placeholder.length)];
     [placeholder ForegroundColorAttributeNamWithColor:DIF_HEXCOLOR(@"cccccc") Range:NSMakeRange(0, placeholder.length)];
-    [placeholder attatchImage:[UIImage imageNamed:@"搜索"]
+    [placeholder attatchImage:[UIImage imageNamed:@"椭圆1"]
                    imageFrame:CGRectMake(0, -(m_SearchTextField.height-18)/2, 18, 18)
                         Range:NSMakeRange(0, 0)];
     [m_SearchTextField setAttributedPlaceholder:placeholder];

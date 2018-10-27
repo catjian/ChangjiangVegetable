@@ -104,19 +104,22 @@ const CGFloat tabbar_Hegith = 50;
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setFrame:CGRectMake(idx*(offset_Width+0), 0, offset_Width, tabbar_Hegith)];
     [btn setTag:idx+100];
-    [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@-选中",btnImages[idx]]]
-         forState:UIControlStateSelected];
-    [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@-选中",btnImages[idx]]]
-         forState:UIControlStateHighlighted];
-    [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@-未选中",btnImages[idx]]] forState:UIControlStateNormal];
+    UILabel *btnTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, btn.width, 17)];
+    [btnTitle setText:btnImages[idx]];
+    [btnTitle setTextAlignment:NSTextAlignmentCenter];
+    [btnTitle setTag:9919];
+    [btnTitle setTextColor:DIF_HEXCOLOR(@"666666")];
+    [btnTitle setFont:DIF_DIFONTOFSIZE(12)];
+    [btnTitle setBottom:btn.height-1];
+    [btn addSubview:btnTitle];
+    UIImageView *btnImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+    [btnImage setTag:9920];
+    [btnImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"底部栏图标(%ld)",idx+1]]];
+    [btnImage setBottom:btnTitle.top-1];
+    [btnImage setCenterX:btn.width/2];
+    [btn addSubview:btnImage];
     [btn setSelected:NO];
     [btn addTarget:self action:@selector(SelectButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [btn setTitle:btnImages[idx] forState:UIControlStateNormal];
-    [btn.titleLabel setFont:DIF_DIFONTOFSIZE(11)];
-    [btn setTitleColor:[CommonTool colorWithHexString:@"#A9A9A9" Alpha:1] forState:UIControlStateNormal];
-    [btn setTitleColor:[CommonTool colorWithHexString:@"#2D7AFF" Alpha:1] forState:UIControlStateHighlighted];
-    [btn setTitleColor:[CommonTool colorWithHexString:@"#2D7AFF" Alpha:1] forState:UIControlStateSelected];
-    [btn setButtonImageTitleStyle:ENUM_ButtonImageTitleStyleTop padding:3];
     [m_BaseView addSubview:btn];
 }
 
@@ -154,10 +157,16 @@ const CGFloat tabbar_Hegith = 50;
         for (int i = 0; i < self.viewControllers.count; i++)
         {
             UIButton *btn = (UIButton *)[m_BaseView viewWithTag:100+i];
+            UILabel *btnTitle = [btn viewWithTag:9919];
+            [btnTitle setTextColor:DIF_HEXCOLOR(@"666666")];
+            UIImageView *btnImage = [btn viewWithTag:9920];
+            [btnImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"底部栏图标(%d)",i+1]]];
             [btn setSelected:NO];
             if (i == newIndex)
             {
                 [btn setSelected:YES];
+                [btnTitle setTextColor:DIF_HEXCOLOR(@"#FF9800")];
+                [btnImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"底部栏图标(%d)",i+6]]];
                 m_SelectBtn = btn;
                 [self setSelectedViewController:self.viewControllers[i]];
             }

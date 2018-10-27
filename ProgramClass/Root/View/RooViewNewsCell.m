@@ -29,7 +29,7 @@
         UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [closeBtn setFrame:CGRectMake(self.imageView.left-DIF_PX(12*3), self.titleLab.bottom, DIF_PX(12*3), DIF_PX(16))];
         [closeBtn setBackgroundColor:DIF_HEXCOLOR(@"")];
-        [closeBtn setTitle:@"X" forState:UIControlStateNormal];
+        [closeBtn setImage:[UIImage imageNamed:@"叉叉"] forState:UIControlStateNormal];
         [closeBtn setTitleColor:DIF_HEXCOLOR(@"999999") forState:UIControlStateNormal];
         [closeBtn.titleLabel setFont:DIF_UIFONTOFSIZE(12)];
         [self.contentView addSubview:closeBtn];

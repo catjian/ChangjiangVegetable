@@ -159,14 +159,15 @@
             RootViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
             NSString *contentTitle = m_ContentArr[indexPath.row];
             [cell.titleLab setText:contentTitle];
-            NSArray *imageArr = @[@"https://free.modao.cc/uploads3/images/2500/25009955/raw_1536659848.png",
-                                  @"https://free.modao.cc/uploads3/images/2525/25250935/raw_1537178890.png",
-                                  @"https://free.modao.cc/uploads3/images/2501/25010023/raw_1536659911.png",
-                                  @"https://free.modao.cc/uploads3/images/2501/25010240/raw_1536660128.png",
-                                  @"https://free.modao.cc/uploads3/images/2526/25267543/raw_1537238154.png"];
-            NSArray *imageColor = @[@"ff8181", @"#69D48C", @"#97ECC0", @"#A5ADF6", @"#92D8FF"];
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageArr[indexPath.row]]];
-            [cell.imageView setBackgroundColor:DIF_HEXCOLOR(imageColor[indexPath.row])];
+//            NSArray *imageArr = @[@"https://free.modao.cc/uploads3/images/2500/25009955/raw_1536659848.png",
+//                                  @"https://free.modao.cc/uploads3/images/2525/25250935/raw_1537178890.png",
+//                                  @"https://free.modao.cc/uploads3/images/2501/25010023/raw_1536659911.png",
+//                                  @"https://free.modao.cc/uploads3/images/2501/25010240/raw_1536660128.png",
+//                                  @"https://free.modao.cc/uploads3/images/2526/25267543/raw_1537238154.png"];
+//            NSArray *imageColor = @[@"ff8181", @"#69D48C", @"#97ECC0", @"#A5ADF6", @"#92D8FF"];
+//            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageArr[indexPath.row]]];
+            [cell.imageView setImage:[UIImage imageNamed:contentTitle]];
+//            [cell.imageView setBackgroundColor:DIF_HEXCOLOR(imageColor[indexPath.row])];
             [cell.charLab setHidden:YES];
             return cell;
         }
