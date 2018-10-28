@@ -23,6 +23,7 @@
     self = [super initWithFrame:frame];
     if (self)
     {
+        [self setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
         [self createPageController];
     }
     return self;
@@ -226,6 +227,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.selectBlock)
+    {
+        self.selectBlock(indexPath, nil);
+    }
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout

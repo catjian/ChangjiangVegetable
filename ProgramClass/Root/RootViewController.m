@@ -71,10 +71,14 @@
                             break;
                         case 1:
                         {
+                            [strongSelf loadViewController:@"BookStoreViewController" hidesBottomBarWhenPushed:NO];
                         }
                             break;
                         case 2:
+                            break;
+                        case 4:
                         {
+                            [strongSelf loadViewController:@"SubmissionNotifyViewController" hidesBottomBarWhenPushed:NO];
                         }
                             break;
                         default:

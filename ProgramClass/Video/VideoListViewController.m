@@ -58,11 +58,13 @@
                             break;
                             
                         default:
+                            [strongSelf loadViewController:@"VideoPlayerViewController" hidesBottomBarWhenPushed:NO];
                             break;
                     }
                 }
                     break;
                 default:
+                    [strongSelf loadViewController:@"VideoPlayerViewController" hidesBottomBarWhenPushed:NO];
                     break;
             }
         }];

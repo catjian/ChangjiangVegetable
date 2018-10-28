@@ -24,6 +24,7 @@
     self = [super initWithFrame:frame];
     if (self)
     {
+        [self setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
         [self createPageController];
     }
     return self;

@@ -32,6 +32,7 @@
 #import <WebKit/WebKit.h>
 #import <UMShare/UMShare.h>
 #import <AMapLocationKit/AMapLocationKit.h>
+#import <KRVideoPlayerController.h>
 
 #import "UIView+SDAutoLayout.h"
 #import "UIImage+CornerRadius.h"
