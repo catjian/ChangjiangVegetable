@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VideoPlayerBaseView : UIView
 
+@property(nonatomic, strong) KRVideoPlayerController *playerCon;
 @end
 
 NS_ASSUME_NONNULL_END

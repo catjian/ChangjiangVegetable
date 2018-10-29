@@ -1713,7 +1713,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4985TM67S5;
+				DEVELOPMENT_TEAM = FS645WBRSS;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/IMSDK",
@@ -1722,7 +1723,7 @@
 				INFOPLIST_FILE = ChangjiangVegetable/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zhangjian.ChangjiangVegetable;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CJSC.ChangjiangVegetable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1734,7 +1735,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4985TM67S5;
+				DEVELOPMENT_TEAM = FS645WBRSS;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/IMSDK",
@@ -1743,7 +1745,7 @@
 				INFOPLIST_FILE = ChangjiangVegetable/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zhangjian.ChangjiangVegetable;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CJSC.ChangjiangVegetable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

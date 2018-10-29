@@ -11,7 +11,6 @@
 @implementation VideoPlayerBaseView
 {
     UIScrollView *m_ScrollView;
-    KRVideoPlayerController *m_PlayerCon;
     UIView *m_NewsView;
     UITextView *m_TitelView;
     UITextView *m_DetailView;
@@ -37,12 +36,12 @@
 
 - (CGFloat)createVideoPlayerView
 {
-    m_PlayerCon = [[KRVideoPlayerController alloc] initWithFrame:CGRectMake(0, 0, DIF_PX_Scale(375), DIF_PX_Scale(170))];
+    self.playerCon = [[KRVideoPlayerController alloc] initWithFrame:CGRectMake(0, 0, DIF_PX_Scale(375), DIF_PX_Scale(170))];
     NSURL *videoURL = [[NSBundle mainBundle] URLForResource:@"150511_JiveBike" withExtension:@"mov"];
-    [m_PlayerCon setContentURL:videoURL];
-    [m_ScrollView addSubview:m_PlayerCon.view];
-    [m_PlayerCon stop];
-    return m_PlayerCon.view.bottom;
+    [self.playerCon setContentURL:videoURL];
+    [m_ScrollView addSubview:self.playerCon.view];
+    [self.playerCon stop];
+    return self.playerCon.view.bottom;
 }
 
 - (CGFloat)createSharedViewWithBelowBottom:(CGFloat)bottom
@@ -78,7 +77,7 @@
     
     UIButton *giveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [shareBtn setFrame:CGRectMake(0, DIF_PX(4), DIF_PX(70), DIF_PX(30))];
-    [shareBtn setRight:commonBtn.width-DIF_PX(8)];
+    [shareBtn setRight:commonBtn.left-DIF_PX(8)];
     [giveBtn setImage:[UIImage imageNamed:@"点赞3"] forState:UIControlStateNormal];
     [giveBtn setTitle:@"888" forState:UIControlStateNormal];
     [commonBtn.titleLabel setFont:DIF_DIFONTOFSIZE(14)];

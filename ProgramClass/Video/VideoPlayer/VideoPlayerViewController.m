@@ -31,7 +31,6 @@
     [self setLeftItemWithContentName:@"返回"];    
 }
 
-
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -40,6 +39,12 @@
         m_BaseView = [[VideoPlayerBaseView alloc] initWithFrame:self.view.bounds];
         [self.view addSubview:m_BaseView];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [m_BaseView.playerCon dismiss];
+    [super viewWillDisappear:animated];
 }
 
 @end

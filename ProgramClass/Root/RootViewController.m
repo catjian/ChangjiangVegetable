@@ -102,8 +102,9 @@
                 {
                 }
                     break;
-                case 9:
+                case 5:
                 {
+                    [strongSelf loadViewController:@"VideoPlayerViewController" hidesBottomBarWhenPushed:NO];
                 }
                 default:
                     break;
