@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WebShowBaseView : UIView
 
+@property (nonatomic, strong) NSDictionary *allDataDic;
+
 @end
 
 NS_ASSUME_NONNULL_END

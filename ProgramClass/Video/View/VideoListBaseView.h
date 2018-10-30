@@ -11,5 +11,6 @@
 @interface VideoListBaseView : UIView 
 
 @property (nonatomic, copy) tableViewSelectRowAtIndexPathBlock selectBlock;
+@property (nonatomic, strong) NSDictionary *allDataDic;
 
 @end

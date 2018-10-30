@@ -43,7 +43,7 @@
         [self.detailLab setFont:DIF_UIFONTOFSIZE(12)];
         [self.contentView addSubview:self.detailLab];
         
-        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 162, DIF_SCREEN_WIDTH, 2)];
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, DIF_PX(162), DIF_SCREEN_WIDTH, DIF_PX(2))];
         [line setBackgroundColor:DIF_HEXCOLOR(@"dedede")];
         [self.contentView addSubview:line];
     }

@@ -15,6 +15,8 @@ typedef void(^HotInformationBaseViewSelectChannelBlock)(void);
 @interface HotInformationBaseView : UIView
 
 @property (nonatomic, copy) HotInformationBaseViewSelectChannelBlock selectChannelBlock;
+@property (nonatomic, strong) NSDictionary *allDataDic;
+@property (nonatomic, strong) NSArray *channelArray;
 
 @end
 

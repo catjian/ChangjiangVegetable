@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *titleLab;
 @property (nonatomic, strong) UILabel *detailLab;
 @property (nonatomic, strong) UIButton *zanBtn;
+@property (nonatomic) BOOL likeFlag;
 
 @end
 

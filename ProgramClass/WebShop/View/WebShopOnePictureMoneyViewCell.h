@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UILabel *titleLab;
 @property (nonatomic, strong) UILabel *moneyLab;
+@property (nonatomic, strong) UILabel *selfOperated;
+@property (nonatomic, strong) UILabel *Shipping;
 
 @end
 

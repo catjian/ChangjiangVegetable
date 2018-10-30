@@ -46,6 +46,12 @@
     [m_ContentView setBackgroundColor:DIF_HEXCOLOR(@"")];
 }
 
+- (void)setAllDataDic:(NSDictionary *)allDataDic
+{
+    _allDataDic = allDataDic;
+    [m_ContentView reloadData];
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -55,35 +61,24 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 4;
+    NSDictionary *list = self.allDataDic[@"list"];
+    return list&&list[@"onlineList"]?[list[@"onlineList"] count]:0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSDictionary *list = self.allDataDic[@"list"];
+    NSArray<NSDictionary *> *onlineList = list[@"onlineList"];
     static NSString *cellIdentifier = @"WebShowViewCell_CELLIDENTIFIER";
     [m_ContentView registerClass:[WebShowViewCell class] forCellWithReuseIdentifier:cellIdentifier];
     WebShowViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    NSArray *imageArr = @[@"https://free.modao.cc/uploads3/images/2506/25060719/raw_1536743823.jpeg",
-                          @"https://free.modao.cc/uploads3/images/2506/25063607/raw_1536745900.jpeg",
-                          @"https://free.modao.cc/uploads3/images/2506/25063635/raw_1536745924.jpeg",
-                          @"https://free.modao.cc/uploads3/images/2506/25063635/raw_1536745924.jpeg"];
-    NSArray *imageRightArr = @[@[@"https://free.modao.cc/uploads3/images/2506/25063890/raw_1536746128.jpeg",
-                                 @"https://free.modao.cc/uploads3/images/2506/25063881/raw_1536746118.jpeg"],
-                               @[@"https://free.modao.cc/uploads3/images/2506/25063866/raw_1536746106.jpeg",
-                                 @"https://free.modao.cc/uploads3/images/2506/25063382/raw_1536745768.jpeg"],
-                               @[@"https://free.modao.cc/uploads3/images/2506/25060690/raw_1536743799.jpeg",
-                                 @"https://free.modao.cc/uploads3/images/2506/25060666/raw_1536743782.jpeg"],
-                               @[@"https://free.modao.cc/uploads3/images/2506/25060690/raw_1536743799.jpeg",
-                                 @"https://free.modao.cc/uploads3/images/2506/25060666/raw_1536743782.jpeg"]];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageArr[indexPath.row]]];
-    [cell.imageViewRightT sd_setImageWithURL:[NSURL URLWithString:imageRightArr[indexPath.row][0]]];
-    [cell.imageViewRightB sd_setImageWithURL:[NSURL URLWithString:imageRightArr[indexPath.row][0]]];
-    NSArray *titleArr = @[@"现代化无土栽培技术，让蔬菜远离农药及重金属污染",
-                          @"中国第二大蔬菜？规模2000万亩，它的信息全在这里了！",
-                          @"胡春华:全面清理整治“大棚房” 遏制农地非农化",
-                          @"胡春华:全面清理整治“大棚房” 遏制农地非农化"];
-    [cell.titleLab setText:titleArr[indexPath.row]];
-    [cell.detailLab setText:@"2018年9月12日"];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:onlineList[indexPath.row][@"videoFirstFrameUrl"]]];
+    [cell.imageViewRightT sd_setImageWithURL:[NSURL URLWithString:onlineList[indexPath.row][@"imgUrl1"]]];
+    [cell.imageViewRightB sd_setImageWithURL:[NSURL URLWithString:onlineList[indexPath.row][@"imgUrl2"]]];
+    [cell.titleLab setText:onlineList[indexPath.row][@"title"]];
+    NSString *date = [CommonDate dateToString:[NSDate dateWithTimeIntervalSince1970:[onlineList[indexPath.row][@"createDate"] integerValue]/1000]
+                                      Formate:@"yyyy年MM月dd日"];
+    [cell.detailLab setText:date];
     return cell;
 }
 
@@ -112,19 +107,29 @@
             [titleView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
             [reusableview addSubview:titleView];
             
-            UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, DIF_PX(0), DIF_SCREEN_WIDTH, DIF_PX(150))];
-            [contentView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
-            [titleView addSubview:contentView];
-            
             CommonADAutoView *adView = [[CommonADAutoView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(150))];
+            [adView setTag:10001];
             [adView setBackgroundColor:DIF_HEXCOLOR(@"017aff")];
-            [contentView addSubview:adView];
+            [titleView addSubview:adView];
             [adView setSelectBlock:^(NSInteger page) {
             }];
-            NSMutableArray *picArr = [NSMutableArray array];
-            [picArr addObject:@"https://free.modao.cc/uploads3/images/2504/25041835/raw_1536733080.jpeg"];
-            adView.picArr = picArr;
         }
+        CommonADAutoView *adView = [titleView viewWithTag:10001];
+        NSMutableArray *picArr = [NSMutableArray array];
+        [picArr addObject:@"https://free.modao.cc/uploads3/images/2504/25041835/raw_1536733080.jpeg"];
+        if (self.allDataDic[@"banner"] && [self.allDataDic[@"banner"] count] > 0)
+        {
+            [picArr removeAllObjects];
+            for (int i = 0; i < [self.allDataDic[@"banner"] count]; i++)
+            {
+                NSArray *banner = [self.allDataDic[@"banner"] objectForKey:[NSString stringWithFormat:@"banner%d",i+1]];
+                for (NSString *bannerUrl in banner)
+                {
+                    [picArr addObject:bannerUrl];
+                }
+            }
+        }
+        adView.picArr = picArr;
     }
     return reusableview;
 }

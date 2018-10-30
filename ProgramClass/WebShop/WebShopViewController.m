@@ -45,10 +45,7 @@
         m_BaseView = [[WebShopBaseView alloc] initWithFrame:self.view.bounds];
         [self.view addSubview:m_BaseView];
     }
-    else
-    {
-        //        [m_BaseView loadScrollView];
-    }
+    [self httpRequestGetShopData];
 }
 
 #pragma mark - Search Event Object
@@ -123,6 +120,28 @@
 {
     [m_SearchTextField resignFirstResponder];
     return YES;
+}
+
+#pragma mark - Http Request
+
+- (void)httpRequestGetShopData
+{
+    [CommonHUD showHUD];
+    DIF_WeakSelf(self)
+    [DIF_CommonHttpAdapter httpRequestGetShopDataWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+        if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
+        {
+            DIF_StrongSelf
+            [CommonHUD hideHUD];
+            [strongSelf->m_BaseView setAllDataDic:responseModel[@"data"]];
+        }
+        else
+        {
+            [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
+        }
+    } FailedBlcok:^(NSError *error) {
+        [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
+    }];
 }
 
 @end

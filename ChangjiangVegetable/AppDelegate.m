@@ -49,8 +49,6 @@
     [self.window setBackgroundColor:[UIColor whiteColor]];
     
     [self loadWindowRootTabbarViewController];
-    DIF_CommonHttpAdapter.access_token = DIF_CommonCurrentUser.accessToken;
-    DIF_CommonHttpAdapter.refresh_token = DIF_CommonCurrentUser.refreshToken;
     [self.window makeKeyAndVisible];
     
 //    [[IQKeyboardManager sharedManager] setToolbarDoneBarButtonItemText:@"完成"];
@@ -280,81 +278,18 @@ int delay = 1;
 #pragma mark - Http Request
 - (void)httpRequestIMUserSig
 {
-    [DIF_CommonHttpAdapter
-     httpRequestUserSigResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
-         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
-         {
-             NSDictionary *dic = responseModel[@"data"];
-             DIF_APPDELEGATE.imUserSig = dic;
-             NSNumber *number = dic[@"accountType"];
-             [TIMManagerObject sharedTIMManager].accountType = [number stringValue];
-             DIF_TIMManagerObject.identifier = dic[@"identifier"];
-             DIF_TIMManagerObject.userSig = dic[@"userSig"];
-             number = dic[@"sdkAppID"];
-             DIF_TIMManagerObject.appidAt3rd = [number stringValue];
-             DIF_TIMManagerObject.sdkAppId = [number intValue];
-             [DIF_TIMManagerObject loginEvent];
-         }
-     } FailedBlcok:^(NSError *error) {
-         
-     }];
 }
 
 - (void)httpRequestMyBrokerAmount
 {
-    [DIF_CommonHttpAdapter
-     httpRequestMyBrokerAmountResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
-         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
-         {
-             NSDictionary *dic = responseModel[@"data"];
-             DIF_APPDELEGATE.mybrokeramount = dic;
-         }
-     } FailedBlcok:^(NSError *error) {
-         
-     }];
 }
 
 - (void)httpRequestGetBrokerInfo
 {
-    [CommonHUD showHUD];
-    [DIF_CommonHttpAdapter
-     httpRequestBrokerinfoWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
-         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
-         {
-             [CommonHUD hideHUD];
-         }
-         else
-         {
-             [CommonHUD delayShowHUDWithMessage:responseModel[@"message"]];
-         }
-         
-     } FailedBlcok:^(NSError *error) {
-         [CommonHUD delayShowHUDWithMessage:DIF_Request_NET_ERROR];
-     }];
 }
 
 - (void)httpRequestCheckVersion
 {
-    [CommonHUD showHUD];
-    DIF_WeakSelf(self)
-    [DIF_CommonHttpAdapter
-     httpRequestCheckVersionWithParameters:@{@"versionCode": [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]}
-     ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
-         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
-         {
-             DIF_StrongSelf
-             [CommonHUD hideHUD];
-             strongSelf->m_VersionDic = responseModel[@"data"];
-             [strongSelf showUpdataAlert];
-         }
-         else
-         {
-             [CommonHUD delayShowHUDWithMessage:responseModel[@"message"]];
-         }
-         
-     } FailedBlcok:^(NSError *error) {
-         [CommonHUD delayShowHUDWithMessage:DIF_Request_NET_ERROR];
-     }];
 }
 
 - (void)showUpdataAlert

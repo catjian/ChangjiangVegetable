@@ -39,6 +39,7 @@
         [selfLab.layer setBorderColor:DIF_HEXCOLOR(@"FD6A6A").CGColor];
         [selfLab.layer setCornerRadius:2];
         [bgView addSubview:selfLab];
+        self.selfOperated = selfLab;
         
         UILabel *sendLab = [[UILabel alloc] initWithFrame:CGRectMake(selfLab.right+DIF_PX(12), selfLab.top, 31, 14)];
         [sendLab setText:@"包邮"];
@@ -49,6 +50,7 @@
         [sendLab.layer setBorderColor:DIF_HEXCOLOR(@"FFAE1C").CGColor];
         [sendLab.layer setCornerRadius:2];
         [bgView addSubview:sendLab];
+        self.Shipping = sendLab;
         
 //        UILabel *moreLab = [[UILabel alloc] initWithFrame:CGRectMake(self.imageView.right-38, 0, 38, self.titleLab.height)];
 //        [moreLab setText:@"∙ ∙ ∙"];

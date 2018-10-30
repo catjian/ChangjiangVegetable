@@ -53,6 +53,7 @@
         [self.contentView addSubview:self.zanBtn];
         
         UIButton *subscribeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [subscribeBtn setTag:10001];
         [subscribeBtn setFrame:CGRectMake(self.imageView.right-DIF_PX(16), self.detailLab.top, 16,16)];
         [subscribeBtn setBackgroundColor:DIF_HEXCOLOR(@"")];
         [subscribeBtn setImage:[UIImage imageNamed:@"收藏"] forState:UIControlStateNormal];
@@ -72,6 +73,12 @@
 - (void)subscribeButtonEvent:(UIButton *)btn
 {
     btn.selected = YES;
+}
+
+- (void)setLikeFlag:(BOOL)likeFlag
+{
+    UIButton *subscribeBtn = [self.contentView viewWithTag:10001];
+    subscribeBtn.selected = likeFlag;
 }
 
 @end

@@ -47,18 +47,24 @@
         [m_BaseView setSelectChannelBlock:^{
             DIF_StrongSelf
             SelectChannelViewController *vc = [strongSelf loadViewController:@"SelectChannelViewController"];
-            vc.channelData = @{@"0":@"热门新闻",@"1":@"品种导航",@"2":@"栽培技术",@"3":@"栽培技术",
-                              @"4":@"政策法规",@"5":@"专家观点",@"6":@"创富故事",@"7":@"市场行情",
-                              @"8":@"农资农机",@"9":@"长蔬专访"};
+            [vc setNavTarBarTitle:@"我的频道"];
+            NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+            for (int i = 0; i < strongSelf->m_BaseView.channelArray.count; i++)
+            {
+                NSDictionary *channelDic = strongSelf->m_BaseView.channelArray[i];
+                [dic setObject:channelDic[@"menuName"] forKey:[@(i) stringValue]];
+            }
+            vc.channelData = dic;
         }];
     }
+    [self httpRequestGetMenuList];
 }
 
 #pragma mark - Search Event Object
 
 - (void)createSearchView
 {
-    m_SearchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width-90, 29)];
+    m_SearchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width-100, 29)];
     [m_SearchView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
     
     UIView *backView = [[UIView alloc] initWithFrame:m_SearchView.frame];
@@ -128,4 +134,46 @@
     return YES;
 }
 
+#pragma mark - Http Request
+
+- (void)httpRequestGetMenuList
+{
+    [CommonHUD showHUD];
+    DIF_WeakSelf(self)
+    [DIF_CommonHttpAdapter httpRequestGetMenuListWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+        if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
+        {
+            DIF_StrongSelf
+            [CommonHUD hideHUD];
+            [strongSelf->m_BaseView setChannelArray:responseModel[@"data"]];
+            [strongSelf httpRequestGetTopicListByMenuId];
+        }
+        else
+        {
+            [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
+        }
+    } FailedBlcok:^(NSError *error) {
+        [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
+    }];
+}
+
+- (void)httpRequestGetTopicListByMenuId
+{
+    [CommonHUD showHUD];
+    DIF_WeakSelf(self)
+    [DIF_CommonHttpAdapter httpRequestGetTopicListByMenuIdWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+        if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
+        {
+            DIF_StrongSelf
+            [CommonHUD hideHUD];
+            [strongSelf->m_BaseView setAllDataDic:responseModel[@"data"]];
+        }
+        else
+        {
+            [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
+        }
+    } FailedBlcok:^(NSError *error) {
+        [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
+    }];
+}
 @end

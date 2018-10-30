@@ -66,6 +66,12 @@
     [m_ContentView setContentInset:UIEdgeInsetsMake(0, 0, 50, 0)];
 }
 
+- (void)setAllDataDic:(NSDictionary *)allDataDic
+{
+    _allDataDic = allDataDic;
+    [m_ContentView reloadData];
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -75,12 +81,13 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    NSDictionary *list = self.allDataDic[@"list"];
     switch (section)
     {
         case 0:
-            return 4;
+            return list&&list[@"hotVideoList"]?[list[@"hotVideoList"] count]:0;
         default:
-            return 6;
+            return list&&list[@"newVideoList"]?[list[@"newVideoList"] count]:0;
     }
 }
 
@@ -89,14 +96,20 @@
     static NSString *cellIdentifier = @"VideoListViewCell_CELLIDENTIFIER";
     [m_ContentView registerClass:[VideoListViewCell class] forCellWithReuseIdentifier:cellIdentifier];
     VideoListViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2527/25278364/raw_1537249493.jpeg"]];
-    [cell.titleLab setText:@"农民种植茶叶，这位农民..."];
-    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:@" 888"];
+    NSDictionary *list = self.allDataDic[@"list"];
+    NSArray *videoList = list[indexPath.section == 0?@"hotVideoList":@"newVideoList"];
+    NSDictionary *videoDic = videoList[indexPath.row];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:videoDic[@"videoFirstFrameUrl"]]];
+    [cell.titleLab setText:videoDic[@"title"]];
+    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",[videoDic[@"watchNum"] intValue]]];
     [placeholder attatchImage:[UIImage imageNamed:@"浏览"]
                    imageFrame:CGRectMake(0, -(cell.detailLab.height-14)/2, 20, 11)
                         Range:NSMakeRange(0, 0)];
     [cell.detailLab setAttributedText:placeholder];
-    [cell.zanBtn setTitle:@"999" forState:UIControlStateNormal];
+    [cell.zanBtn setTitle:[NSString stringWithFormat:@"%d",[videoDic[@"likeNum"] intValue]]
+                 forState:UIControlStateNormal];
+    [cell setLikeFlag:NO];
+    [cell setLikeFlag:[videoDic[@"likeFlag"] boolValue]];
     return cell;
 }
 
@@ -134,14 +147,11 @@
                     [titleView addSubview:contentView];
                     
                     CommonADAutoView *adView = [[CommonADAutoView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(150))];
+                    [adView setTag:10001];
                     [adView setBackgroundColor:DIF_HEXCOLOR(@"017aff")];
-                    [contentView addSubview:adView];
+                    [titleView addSubview:adView];
                     [adView setSelectBlock:^(NSInteger page) {
-                    }];
-                    NSMutableArray *picArr = [NSMutableArray array];
-                    [picArr addObject:@"https://free.modao.cc/uploads3/images/2498/24986507/raw_1536656385.jpeg"];
-                    adView.picArr = picArr;
-                    
+                    }];                    
                     
                     UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(12, 0, 24, 24)];
                     [titleImage sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2599/25992702/v2_pgf11t.png"]
@@ -166,6 +176,22 @@
                     [btn addTarget:self action:@selector(headerViewMoreButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
                     [contentView addSubview:btn];
                 }
+                CommonADAutoView *adView = [titleView viewWithTag:10001];
+                NSMutableArray *picArr = [NSMutableArray array];
+                [picArr addObject:@"https://free.modao.cc/uploads3/images/2504/25041835/raw_1536733080.jpeg"];
+                if (self.allDataDic[@"banner"] && [self.allDataDic[@"banner"] count] > 0)
+                {
+                    [picArr removeAllObjects];
+                    for (int i = 0; i < [self.allDataDic[@"banner"] count]; i++)
+                    {
+                        NSArray *banner = [self.allDataDic[@"banner"] objectForKey:[NSString stringWithFormat:@"banner%d",i+1]];
+                        for (NSString *bannerUrl in banner)
+                        {
+                            [picArr addObject:bannerUrl];
+                        }
+                    }
+                }
+                adView.picArr = picArr;
             }
                 break;
             default:

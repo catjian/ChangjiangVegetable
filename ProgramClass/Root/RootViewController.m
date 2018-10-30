@@ -111,6 +111,7 @@
             }
         }];
     }
+    [self httpRequestGetMainData];
 }
 
 #pragma mark - Search Event Object
@@ -195,4 +196,25 @@
 }
 
 #pragma mark - Http Request
+
+- (void)httpRequestGetMainData
+{
+    [CommonHUD showHUD];
+    DIF_WeakSelf(self)
+    [DIF_CommonHttpAdapter httpRequestGetMainDataWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+        if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
+        {
+            DIF_StrongSelf
+            [CommonHUD hideHUD];
+            [strongSelf->m_BaseView setAllDataDic:responseModel[@"data"]];
+        }
+        else
+        {
+            [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
+        }
+    } FailedBlcok:^(NSError *error) {
+        [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
+    }];
+}
+
 @end

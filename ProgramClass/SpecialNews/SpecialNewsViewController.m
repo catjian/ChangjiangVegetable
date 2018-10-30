@@ -38,7 +38,6 @@
     [self.navigationItem setLeftBarButtonItem:nil];
     [self createSearchView];
     [self.navigationItem setTitleView:m_SearchView];
-    [self httpRequestArticleclassify];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -62,23 +61,16 @@
             DIF_StrongSelf
             if (strongSelf->m_Articleclassify.count > 0)
             {
-                [strongSelf httpRequestWithClassifyId:strongSelf->m_NowPageModel.classifyId
-                                        SearchContent:strongSelf->m_SearchTextField.text
-                                           PageNumber:1];
             }
         }];
         [m_BaseView setLoadMoreBlock:^(NSInteger page) {
             DIF_StrongSelf
             if (strongSelf->m_Articleclassify.count > 0)
             {
-                [strongSelf httpRequestWithClassifyId:strongSelf->m_NowPageModel.classifyId
-                                        SearchContent:strongSelf->m_SearchTextField.text
-                                           PageNumber:page+1];
             }
         }];
         [m_BaseView setSelectBlock:^(NSIndexPath *indexPath, ArticleListDetailModel *model) {
             DIF_StrongSelf
-            [strongSelf httpRequestArticleDetailWithDetailModel:model];
         }];
     }
     else
@@ -130,9 +122,6 @@
                     duration:2 position:CSToastPositionCenter];
         return;
     }
-    [self httpRequestWithClassifyId:m_NowPageModel.classifyId
-                      SearchContent:m_SearchTextField.text
-                         PageNumber:1];
 }
 
 #pragma mark - UITextField Delegate
@@ -161,112 +150,9 @@
 - (BOOL)textFieldShouldClear:(UITextField *)textField
 {
     [m_SearchTextField resignFirstResponder];
-    [self httpRequestWithClassifyId:m_NowPageModel.classifyId
-                      SearchContent:@""
-                         PageNumber:1];
     return YES;
 }
 
-#pragma mark - http Request
-
-- (void)httpRequestArticleclassify
-{
-    DIF_WeakSelf(self)
-    [DIF_CommonHttpAdapter
-     httpRequestArticleclassifyResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
-         DIF_StrongSelf
-         if(type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
-         {
-             strongSelf->m_Articleclassify = responseModel[@"data"];
-             [strongSelf->m_BaseView setClassifyArr:responseModel[@"data"]];
-             strongSelf->m_NowPageModel = [ArticleclassifyModel mj_objectWithKeyValues:strongSelf->m_Articleclassify[0]];
-         }
-         else
-         {
-             [CommonHUD delayShowHUDWithMessage:responseModel[@"message"]];
-         }
-     } FailedBlcok:^(NSError *error) {
-         [CommonHUD delayShowHUDWithMessage:DIF_Request_NET_ERROR];
-     }];
-}
-
-- (void)httpRequestWithClassifyId:(NSString *)classifyId
-                    SearchContent:(NSString *)title
-                       PageNumber:(NSInteger)pageNum
-{
-    DIF_WeakSelf(self)
-    [DIF_CommonHttpAdapter
-     httpRequestArticleListWithParameters:@{@"classifyId":classifyId,@"title":title,@"pageNum":[@(pageNum) stringValue],@"pageSize":@"10"}
-     ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
-         DIF_StrongSelf
-         [strongSelf->m_BaseView endloadEvent];
-         if(type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
-         {
-             strongSelf->m_listModel = [ArticleListModel mj_objectWithKeyValues:responseModel[@"data"]];
-             if (pageNum == 1)
-             {
-                 [strongSelf->m_BaseView setListModel:@[strongSelf->m_listModel]];
-             }
-             else if (strongSelf->m_listModel.list.count > 0)
-             {
-                 NSMutableArray *listModelArr = [NSMutableArray arrayWithArray:strongSelf->m_BaseView.listModel];
-                 [listModelArr addObject:strongSelf->m_listModel];
-                 [strongSelf->m_BaseView setListModel:listModelArr];
-             }
-             [strongSelf->m_BaseView setNoDataImageName:@"无记录"];
-         }
-         else
-         {
-             if ([responseModel[@"message"] rangeOfString:@"网络连接失败"].location != NSNotFound )
-             {
-                 [strongSelf->m_BaseView setNoDataImageName:@"网络走丢了"];
-             }
-             else
-             {
-                 [strongSelf->m_BaseView setNoDataImageName:@"数据错误"];
-             }
-             [strongSelf->m_BaseView setListModel:nil];
-             [CommonHUD delayShowHUDWithMessage:responseModel[@"message"]];
-         }
-     } FailedBlcok:^(NSError *error) {
-         DIF_StrongSelf
-         if ([error.userInfo[NSLocalizedDescriptionKey] rangeOfString:@"offline"].location != NSNotFound)
-         {
-             [strongSelf->m_BaseView setNoDataImageName:@"网络走丢了"];
-             [strongSelf->m_BaseView setListModel:nil];
-         }
-         if ([error.userInfo[NSLocalizedDescriptionKey] rangeOfString:@"timed out"].location != NSNotFound)
-         {
-             [strongSelf->m_BaseView setNoDataImageName:@"已超时"];
-             [strongSelf->m_BaseView setListModel:nil];
-         }
-         [strongSelf->m_BaseView endloadEvent];
-         [CommonHUD delayShowHUDWithMessage:DIF_Request_NET_ERROR];
-    }];
-}
-
-- (void)httpRequestArticleDetailWithDetailModel:(ArticleListDetailModel *)model
-{
-    [CommonHUD showHUD];
-    DIF_WeakSelf(self)
-    [DIF_CommonHttpAdapter
-     httpRequestArticleDetailWithParameters:@{@"articleId":model.articleId}
-     ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
-         DIF_StrongSelf
-         if(type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
-         {
-             [CommonHUD hideHUD];
-             SpecialNewsDetailViewController *vc = [strongSelf loadViewController:@"SpecialNewsDetailViewController" hidesBottomBarWhenPushed:YES];
-             vc.detailModel = [ArticleDetailModel mj_objectWithKeyValues:responseModel[@"data"]];
-             [strongSelf->m_BaseView loadScrollView];
-         }
-         else
-         {
-             [CommonHUD delayShowHUDWithMessage:responseModel[@"message"]];
-         }
-     } FailedBlcok:^(NSError *error) {
-         [CommonHUD delayShowHUDWithMessage:DIF_Request_NET_ERROR];
-     }];
-}
+#pragma mark - Http Request
 
 @end

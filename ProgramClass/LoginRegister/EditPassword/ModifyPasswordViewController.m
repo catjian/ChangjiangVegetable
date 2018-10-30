@@ -61,21 +61,6 @@
         return;
     }
     [CommonHUD showHUD];
-    DIF_WeakSelf(self)
-    [DIF_CommonHttpAdapter
-     httpRequestPasswordResetSmsCodeWithParameters:@{@"brokerPhone":self.phoneTF.text}
-     ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
-         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
-         {
-             DIF_StrongSelf
-             strongSelf->m_TimeOut = 60;
-             [strongSelf.getVerifyCodeBtn setBackgroundColor:[UIColor grayColor]];
-             [strongSelf reloadVerifyButtonTimeOut];
-         }
-         [CommonHUD delayShowHUDWithMessage:responseModel[@"message"]];
-     } FailedBlcok:^(NSError *error) {
-         [CommonHUD delayShowHUDWithMessage:DIF_Request_NET_ERROR];
-     }];
 }
 
 - (void)reloadVerifyButtonTimeOut
@@ -118,21 +103,6 @@
     [parmas setObject:self.phoneTF.text forKey:@"brokerPhone"];
     [parmas setObject:self.verifyCodeTF.text forKey:@"verifyCode"];
     [parmas setObject:self.passwordTF.text forKey:@"newPassword"];
-    [DIF_CommonHttpAdapter
-     httpRequestPasswordResetWithParameters:parmas
-     ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
-         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
-         {
-             [CommonHUD delayShowHUDWithMessage:@"设置密码成功"];
-             [self.navigationController popToRootViewControllerAnimated:YES];
-         }
-         else
-         {
-             [CommonHUD delayShowHUDWithMessage:responseModel[@"message"]];
-         }
-     } FailedBlcok:^(NSError *error) {
-         [CommonHUD delayShowHUDWithMessage:DIF_Request_NET_ERROR];
-     }];
 }
 
 - (IBAction)openPasswordSecureButtonEvent:(UIButton *)sender

@@ -25,15 +25,19 @@
     if (self)
     {
         [self setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
-        [self createPageController];
     }
     return self;
 }
 
 - (void)createPageController
 {
+    NSMutableArray *titles = [NSMutableArray array];
+    for (NSDictionary *dic in self.channelArray)
+    {
+        [titles addObject:dic[@"menuName"]];
+    }
     CommonPageControlView *pageView = [[CommonPageControlView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH-34, 40)
-                                                                            titles:@[@"热门新闻",@"品种导航",@"栽培技术",@"庄稼医生"]
+                                                                            titles:titles
                                                                           oneWidth:(DIF_SCREEN_WIDTH-34)/4-12];
     [self addSubview:pageView];
     DIF_WeakSelf(self)
@@ -76,6 +80,13 @@
 //    [m_ContentView setContentInset:UIEdgeInsetsMake(0, 0, 90, 0)];
 }
 
+- (void)setAllDataDic:(NSDictionary *)allDataDic
+{
+    _allDataDic = allDataDic;
+    [self createPageController];
+    [m_ContentView reloadData];
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -85,19 +96,25 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 13;
+    NSArray *list = self.allDataDic[@"list"];
+    return list.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row%5 != 0)
+    NSArray *videoList = self.allDataDic[@"list"];
+    NSDictionary *videoDic = videoList[indexPath.row];
+    NSArray *imgUrlList = videoDic[@"imgUrlList"];
+    if (imgUrlList.count <= 1)
     {
         static NSString *cellIdentifier = @"HotInformationNormalCell_CELLIDENTIFIER";
         [m_ContentView registerClass:[HotInformationNormalCell class] forCellWithReuseIdentifier:cellIdentifier];
         HotInformationNormalCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2513/25139904/raw_1536893891.jpeg"]];
-        [cell.titleLab setText:@"罕见！多地大棚被狂风暴雨击垮！台风致山东河南等地农业损失惨重."];
-        [cell.detailLab setText:@"2018年8月10日    阅读量：8888"];
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imgUrlList.firstObject]];
+        [cell.titleLab setText:videoDic[@"title"]];
+//        NSString *date = [CommonDate dateToString:[NSDate dateWithTimeIntervalSince1970:[videoDic[@"createDate"] integerValue]/1000]
+//                                          Formate:@"yyyy年MM月dd日"];
+        [cell.detailLab setText:[NSString stringWithFormat:@"%@    阅读量：%d@",videoDic[@"createDate"],[videoDic[@"readNum"] intValue]]];
         return cell;
     }
     else
@@ -105,11 +122,15 @@
         static NSString *cellIdentifier = @"HotInformationThreePictureCell_CELLIDENTIFIER";
         [m_ContentView registerClass:[HotInformationThreePictureCell class] forCellWithReuseIdentifier:cellIdentifier];
         HotInformationThreePictureCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2513/25138479/raw_1536893021.jpeg"]];
-        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2513/25138505/raw_1536893038.jpeg"]];
-        [cell.imageView3 sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2513/25138534/raw_1536893068.jpeg"]];
-        [cell.titleLab setText:@"科研编织“致富梦”，品质打赢“市场牌”—长阳火烧坪高山蔬菜基地调研实录"];
-        [cell.detailLab setText:@"2018年8月10日    阅读量：8888"];
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imgUrlList[0]]];
+        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:imgUrlList[1]]];
+        if (imgUrlList.count > 2) {
+            [cell.imageView3 sd_setImageWithURL:[NSURL URLWithString:imgUrlList[2]]];
+        }
+        [cell.titleLab setText:videoDic[@"title"]];
+        //        NSString *date = [CommonDate dateToString:[NSDate dateWithTimeIntervalSince1970:[videoDic[@"createDate"] integerValue]/1000]
+        //                                          Formate:@"yyyy年MM月dd日"];
+        [cell.detailLab setText:[NSString stringWithFormat:@"%@    阅读量：%d@",videoDic[@"createDate"],[videoDic[@"readNum"] intValue]]];
         return cell;
     }
 }
@@ -133,7 +154,10 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(DIF_SCREEN_WIDTH, indexPath.row%5!=0? DIF_PX(92):DIF_PX(164));
+    NSArray *videoList = self.allDataDic[@"list"];
+    NSDictionary *videoDic = videoList[indexPath.row];
+    NSArray *imgUrlList = videoDic[@"imgUrlList"];
+    return CGSizeMake(DIF_SCREEN_WIDTH, imgUrlList.count <= 1? DIF_PX(92):DIF_PX(164));
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section

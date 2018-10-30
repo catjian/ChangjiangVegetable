@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WebShopBaseView : UIView
 
+@property (nonatomic, strong) NSDictionary *allDataDic;
+
 @end
 
 NS_ASSUME_NONNULL_END

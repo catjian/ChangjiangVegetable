@@ -44,6 +44,12 @@
     [m_ContentView setContentInset:UIEdgeInsetsMake(0, 0, 50, 0)];
 }
 
+- (void)setAllDataDic:(NSDictionary *)allDataDic
+{
+    _allDataDic = allDataDic;
+    [m_ContentView reloadData];
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -53,7 +59,8 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 17;
+    NSArray *list = self.allDataDic[@"list"];
+    return list.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -61,9 +68,19 @@
     static NSString *cellIdentifier = @"VideoListViewCell_CELLIDENTIFIER";
     [m_ContentView registerClass:[VideoListViewCell class] forCellWithReuseIdentifier:cellIdentifier];
     VideoListViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2527/25278364/raw_1537249493.jpeg"]];
-    [cell.titleLab setText:@"农民种植茶叶，这位农民..."];
-    [cell.detailLab setText:@"⚯ 888  👍 888"];
+    NSArray *videoList = self.allDataDic[@"list"];
+    NSDictionary *videoDic = videoList[indexPath.row];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:videoDic[@"videoFirstFrameUrl"]]];
+    [cell.titleLab setText:videoDic[@"title"]];
+    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",[videoDic[@"watchNum"] intValue]]];
+    [placeholder attatchImage:[UIImage imageNamed:@"浏览"]
+                   imageFrame:CGRectMake(0, -(cell.detailLab.height-14)/2, 20, 11)
+                        Range:NSMakeRange(0, 0)];
+    [cell.detailLab setAttributedText:placeholder];
+    [cell.zanBtn setTitle:[NSString stringWithFormat:@"%d",[videoDic[@"likeNum"] intValue]]
+                 forState:UIControlStateNormal];
+    [cell setLikeFlag:NO];
+    [cell setLikeFlag:[videoDic[@"likeFlag"] boolValue]];
     return cell;
 }
 
@@ -80,6 +97,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.selectBlock)
+    {
+        self.selectBlock(indexPath, nil);
+    }
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
