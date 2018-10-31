@@ -27,7 +27,6 @@
 		7F6E2619218619BE004D9CE7 /* 150511_JiveBike.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7F6E2618218619BE004D9CE7 /* 150511_JiveBike.mov */; };
 		7F6E261C21861B3D004D9CE7 /* VideoPlayerBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E261B21861B3D004D9CE7 /* VideoPlayerBaseView.m */; };
 		7F88DB05217A0D550081DF97 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F88DB04217A0D550081DF97 /* AppDelegate.m */; };
-		7F88DB0D217A0D550081DF97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F88DB0C217A0D550081DF97 /* Assets.xcassets */; };
 		7F88DB10217A0D550081DF97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F88DB0E217A0D550081DF97 /* LaunchScreen.storyboard */; };
 		7F88DB13217A0D550081DF97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F88DB12217A0D550081DF97 /* main.m */; };
 		7F8B69EB21820A3700F08519 /* HotInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B69EA21820A3700F08519 /* HotInformationViewController.m */; };
@@ -46,6 +45,7 @@
 		7F8B6A1221822B6900F08519 /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8B6A1021822B6900F08519 /* ForgetPasswordViewController.xib */; };
 		7F8B6A1621822C9C00F08519 /* ForgetPwdVerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B6A1421822C9C00F08519 /* ForgetPwdVerifyViewController.m */; };
 		7F8B6A1721822C9C00F08519 /* ForgetPwdVerifyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8B6A1521822C9C00F08519 /* ForgetPwdVerifyViewController.xib */; };
+		7FA3EB52218A046D004A6C03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA3EB51218A046D004A6C03 /* Assets.xcassets */; };
 		7FA80F88217F7B7000CD213F /* WebShopTwoPictureViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA80F87217F7B7000CD213F /* WebShopTwoPictureViewCell.m */; };
 		7FA80F8B217F7C9D00CD213F /* WebShopOnePictureMoneyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA80F8A217F7C9D00CD213F /* WebShopOnePictureMoneyViewCell.m */; };
 		7FA80F8E217F8AF600CD213F /* WebShowViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA80F8D217F8AF600CD213F /* WebShowViewCell.m */; };
@@ -231,7 +231,6 @@
 		7F88DB00217A0D550081DF97 /* ChangjiangVegetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChangjiangVegetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F88DB03217A0D550081DF97 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7F88DB04217A0D550081DF97 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7F88DB0C217A0D550081DF97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F88DB0F217A0D550081DF97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F88DB11217A0D550081DF97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F88DB12217A0D550081DF97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -262,6 +261,8 @@
 		7F8B6A1321822C9C00F08519 /* ForgetPwdVerifyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForgetPwdVerifyViewController.h; sourceTree = "<group>"; };
 		7F8B6A1421822C9C00F08519 /* ForgetPwdVerifyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdVerifyViewController.m; sourceTree = "<group>"; };
 		7F8B6A1521822C9C00F08519 /* ForgetPwdVerifyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgetPwdVerifyViewController.xib; sourceTree = "<group>"; };
+		7FA3EB51218A046D004A6C03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7FA3EB53218A0CDF004A6C03 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		7FA80F86217F7B7000CD213F /* WebShopTwoPictureViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebShopTwoPictureViewCell.h; sourceTree = "<group>"; };
 		7FA80F87217F7B7000CD213F /* WebShopTwoPictureViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebShopTwoPictureViewCell.m; sourceTree = "<group>"; };
 		7FA80F89217F7C9D00CD213F /* WebShopOnePictureMoneyViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebShopOnePictureMoneyViewCell.h; sourceTree = "<group>"; };
@@ -683,7 +684,7 @@
 				7F6E2618218619BE004D9CE7 /* 150511_JiveBike.mov */,
 				7F88DB03217A0D550081DF97 /* AppDelegate.h */,
 				7F88DB04217A0D550081DF97 /* AppDelegate.m */,
-				7F88DB0C217A0D550081DF97 /* Assets.xcassets */,
+				7FA3EB51218A046D004A6C03 /* Assets.xcassets */,
 				7F88DB0E217A0D550081DF97 /* LaunchScreen.storyboard */,
 				7F88DB11217A0D550081DF97 /* Info.plist */,
 				7F88DB12217A0D550081DF97 /* main.m */,
@@ -1374,7 +1375,6 @@
 				7FA8A4FA217A33F3000BB44A /* popSend_9.png in Resources */,
 				7FA8A4F3217A33F3000BB44A /* popSend_2.png in Resources */,
 				7F8B6A072182266C00F08519 /* RegisterViewController.xib in Resources */,
-				7F88DB0D217A0D550081DF97 /* Assets.xcassets in Resources */,
 				7FA8A4C2217A33F2000BB44A /* plane.gif in Resources */,
 				7F8B6A0221821E7B00F08519 /* LoginViewController.xib in Resources */,
 				7FA8A5C8217A33F3000BB44A /* SpecialNewsDetailViewController.xib in Resources */,
@@ -1384,6 +1384,7 @@
 				7FA8A4DB217A33F2000BB44A /* del_btn@3x.png in Resources */,
 				7FA8A4F9217A33F3000BB44A /* popSend_8.png in Resources */,
 				7FA8A501217A33F3000BB44A /* ModifyPasswordViewController.xib in Resources */,
+				7FA3EB52218A046D004A6C03 /* Assets.xcassets in Resources */,
 				7FA8A4F8217A33F3000BB44A /* popSend_7.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1596,6 +1597,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7F88DB0F217A0D550081DF97 /* Base */,
+				7FA3EB53218A0CDF004A6C03 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1607,6 +1609,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1662,6 +1665,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

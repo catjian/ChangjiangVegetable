@@ -72,6 +72,23 @@
     [self httpRequestGetVideoDataByMenuId];
 }
 
+- (void)rightBarButtonItemAction:(UIButton *)btn
+{
+    [self.view endEditing:YES];
+    DIF_WeakSelf(self)
+    [[CommonPictureSelect sharedPictureSelect]
+     showWithViewController:self
+     ResponseBlock:^(UIImage *image) {
+         DIF_StrongSelf
+         if (image)
+         {
+         }
+         else
+         {
+         }
+     }];
+}
+
 #pragma mark - Search Event Object
 
 - (void)createSearchView
@@ -103,18 +120,6 @@
 - (void)cleanSearchText
 {
     [m_SearchTextField setText:nil];
-}
-
-- (void)rightBarButtonItemAction:(UIButton *)btn
-{
-    [self.view endEditing:YES];
-    [m_SearchTextField resignFirstResponder];
-    if ([CommonVerify isContainsEmoji:m_SearchTextField.text])
-    {
-        [self.view makeToast:@"关键字不能包含表情"
-                    duration:2 position:CSToastPositionCenter];
-        return;
-    }
 }
 
 #pragma mark - UITextField Delegate
