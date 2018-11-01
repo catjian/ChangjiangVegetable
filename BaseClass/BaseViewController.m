@@ -73,7 +73,7 @@ UIKIT_STATIC_INLINE UIImage *imageWithColor(UIColor *color)
     if (self.ShowBackButton)
     {
         [self setBackItem];
-//        [self setLeftItemWithContentName:@"" imageName:@"返回箭头-黑"];
+//        [self setLeftItemWithContentName::@"" imageName:@"返回箭头-黑"];
     }
 }
 

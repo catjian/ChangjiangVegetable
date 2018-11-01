@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     DIF_HideTabBarAnimation(NO);
-    [self setLeftItemWithContentName:@"返回"];
+    //        [self setLeftItemWithContentName::@"返回"];
     [self createSearchView];
     [self.navigationItem setTitleView:m_SearchView];
 }

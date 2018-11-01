@@ -31,9 +31,8 @@
 {
     [super viewDidLoad];
     DIF_HideTabBarAnimation(NO);
-    [self setLeftItemWithContentName:@"返回"];
-    [self setRightItemWithContentName:@"筛选"];
-    [self.navigationItem setLeftBarButtonItem:nil];
+    //        [self setLeftItemWithContentName::@"返回"];
+    [self setRightItemWithContentName:@"杂志期刊2"];
     [self createSearchView];
     [self.navigationItem setTitleView:m_SearchView];
 }
@@ -57,7 +56,7 @@
 
 - (void)createSearchView
 {
-    m_SearchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width-90*2, 29)];
+    m_SearchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width-120, 29)];
     [m_SearchView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
     
     UIView *backView = [[UIView alloc] initWithFrame:m_SearchView.frame];

@@ -48,11 +48,17 @@
     [self httpRequestGetShopData];
 }
 
+- (void)rightBarButtonItemAction:(UIButton *)btn
+{
+    [self.view endEditing:YES];
+    [self loadViewController:@"ShopCartViewController" hidesBottomBarWhenPushed:YES isNowPush:YES];
+}
+
 #pragma mark - Search Event Object
 
 - (void)createSearchView
 {
-    m_SearchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width-90, 29)];
+    m_SearchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width-80, 29)];
     [m_SearchView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
     
     UIView *backView = [[UIView alloc] initWithFrame:m_SearchView.frame];
@@ -79,18 +85,6 @@
 - (void)cleanSearchText
 {
     [m_SearchTextField setText:nil];
-}
-
-- (void)rightBarButtonItemAction:(UIButton *)btn
-{
-    [self.view endEditing:YES];
-    [m_SearchTextField resignFirstResponder];
-    if ([CommonVerify isContainsEmoji:m_SearchTextField.text])
-    {
-        [self.view makeToast:@"关键字不能包含表情"
-                    duration:2 position:CSToastPositionCenter];
-        return;
-    }
 }
 
 #pragma mark - UITextField Delegate

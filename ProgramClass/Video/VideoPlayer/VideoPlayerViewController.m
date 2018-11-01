@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     DIF_HideTabBarAnimation(NO);
-    [self setLeftItemWithContentName:@"返回"];    
+    //        [self setLeftItemWithContentName::@"返回"];    
 }
 
 - (void)viewDidAppear:(BOOL)animated

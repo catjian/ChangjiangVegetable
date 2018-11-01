@@ -34,7 +34,7 @@
     // Do any additional setup after loading the view from its nib.
     [self.view setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
     [self setNavTarBarTitle:@"登录"];
-    [self setLeftItemWithContentName:@"back"];
+    //        [self setLeftItemWithContentName::@"back"];
     [self.loginBtn.layer setCornerRadius:5];
     [self.registBtn.layer setCornerRadius:5];
     [self.registBtn.layer setBorderColor:DIF_HEXCOLOR(@"#E53C1C").CGColor];

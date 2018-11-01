@@ -118,7 +118,7 @@
 
 - (void)createSearchView
 {
-    m_SearchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 29)];
+    m_SearchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width-10, 29)];
     [m_SearchView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
     
     UILabel *titleLab = [[UILabel alloc] initWithFrame:CGRectMake(6, 0, 90, 29)];

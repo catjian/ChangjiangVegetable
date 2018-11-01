@@ -35,7 +35,6 @@
     [super viewDidLoad];
     DIF_ShowTabBarAnimation(YES);
     [self setRightItemWithContentName:@" 搜索"];
-    [self.navigationItem setLeftBarButtonItem:nil];
     [self createSearchView];
     [self.navigationItem setTitleView:m_SearchView];
 }
@@ -83,7 +82,7 @@
 
 - (void)createSearchView
 {
-    m_SearchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width-90, 29)];
+    m_SearchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 29)];
     [m_SearchView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
     
     UIView *backView = [[UIView alloc] initWithFrame:m_SearchView.frame];

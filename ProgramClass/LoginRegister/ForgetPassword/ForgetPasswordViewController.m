@@ -31,7 +31,7 @@
     // Do any additional setup after loading the view from its nib.
     [self.view setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
     [self setNavTarBarTitle:@"忘记密码"];
-    [self setLeftItemWithContentName:@"back"];
+    //        [self setLeftItemWithContentName::@"back"];
     [self.nextBtn.layer setCornerRadius:21];
 }
 

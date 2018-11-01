@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     DIF_HideTabBarAnimation(YES);
-    [self setLeftItemWithContentName:@"返回"];
+    //        [self setLeftItemWithContentName::@"返回"];
     [self setNavTarBarTitle:@"热门推荐"];
 }
 

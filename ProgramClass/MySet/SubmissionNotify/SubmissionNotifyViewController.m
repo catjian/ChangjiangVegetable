@@ -29,7 +29,7 @@
     [super viewDidLoad];
     DIF_HideTabBarAnimation(YES);
     [self.navigationController setNavigationBarHidden:NO];
-    [self setLeftItemWithContentName:@"返回"];
+    //        [self setLeftItemWithContentName::@"返回"];
     [self setNavTarBarTitle:@"设置"];
 }
 

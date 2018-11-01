@@ -38,7 +38,7 @@
         
         UIImageView *rightIcon = [[UIImageView alloc] initWithFrame:CGRectMake(DIF_SCREEN_WIDTH-13, 0, 7, 14)];
         [rightIcon setCenterY:self.cellHeight/2];
-        [rightIcon setImage:[UIImage imageNamed:@"向下"]];
+        [rightIcon setImage:[UIImage imageNamed:@"向右"]];
         [self.contentView addSubview:rightIcon];
     }
     return self;

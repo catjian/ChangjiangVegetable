@@ -24,7 +24,7 @@
         [self.contentView addSubview:m_BackView];
         
         self.rightIcon = [[UIImageView alloc] initWithFrame:CGRectMake(DIF_SCREEN_WIDTH-13, 0, 7, 14)];
-        [self.rightIcon setImage:[UIImage imageNamed:@"向下"]];
+        [self.rightIcon setImage:[UIImage imageNamed:@"向右"]];
         [self.rightIcon setCenterY:m_BackView.height/2];
         [m_BackView addSubview:self.rightIcon];
         
