@@ -25,12 +25,14 @@
 {
     [super viewWillAppear:animated];
     DIF_HideTabBarAnimation(YES);
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    DIF_HideTabBarAnimation(NO);
+    [self.navigationController setNavigationBarHidden:NO];
+    DIF_HideTabBarAnimation(YES);
     //        [self setLeftItemWithContentName::@"返回"];
     [self setNavTarBarTitle:@"书架"];
 }

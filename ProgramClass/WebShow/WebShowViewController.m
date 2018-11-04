@@ -8,6 +8,7 @@
 
 #import "WebShowViewController.h"
 #import "WebShowBaseView.h"
+#import "WebShowRightTypeListView.h"
 
 @interface WebShowViewController () <UITextFieldDelegate>
 
@@ -19,6 +20,7 @@
     UIView *m_SearchView;
     UITextField *m_SearchTextField;
     NSArray *m_Articleclassify;
+    WebShowRightTypeListView *m_rightView;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -51,8 +53,22 @@
         [addMessageBtn setBottom:self.view.height-DIF_PX(8)];
         [addMessageBtn setImage:[UIImage imageNamed:@"记录"] forState:UIControlStateNormal];
         [self.view addSubview:addMessageBtn];
+        m_rightView = [[WebShowRightTypeListView alloc] initWithFrame:CGRectMake(DIF_SCREEN_WIDTH+10, 0, DIF_PX(167), DIF_PX(490))];
+        [self.view addSubview:m_rightView];
     }
     [self httpRequestGetOnlineData];
+}
+
+- (void)rightBarButtonItemAction:(UIButton *)btn
+{
+    CGFloat offsetX = DIF_SCREEN_WIDTH+10;
+    if (m_rightView.left >= DIF_SCREEN_WIDTH)
+    {
+        offsetX = DIF_SCREEN_WIDTH-m_rightView.width;
+    }
+    [UIView animateWithDuration:0.5 animations:^{
+        [m_rightView setLeft:offsetX];
+    }];
 }
 
 #pragma mark - Search Event Object
@@ -86,18 +102,6 @@
 - (void)cleanSearchText
 {
     [m_SearchTextField setText:nil];
-}
-
-- (void)rightBarButtonItemAction:(UIButton *)btn
-{
-    [self.view endEditing:YES];
-    [m_SearchTextField resignFirstResponder];
-    if ([CommonVerify isContainsEmoji:m_SearchTextField.text])
-    {
-        [self.view makeToast:@"关键字不能包含表情"
-                    duration:2 position:CSToastPositionCenter];
-        return;
-    }
 }
 
 #pragma mark - UITextField Delegate

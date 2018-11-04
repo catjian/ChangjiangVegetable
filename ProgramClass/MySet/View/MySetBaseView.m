@@ -161,6 +161,8 @@
     {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [btn setFrame:CGRectMake(i*offset_width, 0, offset_width, frame.size.height)];
+        [btn setTag:9990+i];
+        [btn addTarget:self action:@selector(functionButtonsEvent:) forControlEvents:UIControlEventTouchUpInside];
         UILabel *btnTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, btn.width, 22)];
         [btnTitle setText:titles[i]];
         [btnTitle setTextAlignment:NSTextAlignmentCenter];
@@ -187,7 +189,15 @@
 {
     if (self.selectBlock)
     {
-        self.selectBlock([NSIndexPath indexPathForRow:-1 inSection:0], nil);
+        self.selectBlock([NSIndexPath indexPathForRow:0 inSection:-2], nil);
+    }
+}
+
+- (void)functionButtonsEvent:(UIButton *)btn
+{
+    if (self.selectBlock)
+    {
+        self.selectBlock([NSIndexPath indexPathForRow:btn.tag-9990 inSection:-1], nil);
     }
 }
 

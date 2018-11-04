@@ -63,6 +63,7 @@
     static NSString *cellIdentifier = @"CELLIDENTIFIER";
     BookCoverCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     [cell.imageView setFrame:CGRectMake(0, 6, DIF_PX(96), DIF_PX(130))];
+    [cell.imageView setCenterX:(DIF_SCREEN_WIDTH)/3/2];
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2532/25326440/raw_1537325759.jpeg"]];
     [cell.titleLab setText:@"2018年（上）"];
     [cell.titleLab setTop:cell.imageView.bottom];
@@ -70,7 +71,7 @@
     {
         UIImage *add = [UIImage imageNamed:@"加"];
         [cell.imageView setSize:add.size];
-        [cell.imageView setCenterX:cell.width/2];
+        [cell.imageView setCenterX:(DIF_SCREEN_WIDTH)/3/2];
         [cell.imageView setCenterY:cell.height/2];
         [cell.imageView setImage:add];
         [cell.titleLab setText:@"逛书城"];
@@ -93,7 +94,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((DIF_SCREEN_WIDTH-60)/3, DIF_PX(160));
+    return CGSizeMake(m_ContentView.width/3, DIF_PX(160));
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section

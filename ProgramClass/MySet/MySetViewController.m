@@ -41,14 +41,41 @@
         DIF_WeakSelf(self)
         [m_BaseView setSelectBlock:^(NSIndexPath *indexPath, id model) {
             DIF_StrongSelf
-            switch (indexPath.row)
+            switch (indexPath.section)
             {
-                case -1:
+                case -2:
                     [strongSelf loadViewController:@"LoginViewController" hidesBottomBarWhenPushed:NO];
                     break;
-                    
-                case 7:
-                    [strongSelf loadViewController:@"SettingViewController" hidesBottomBarWhenPushed:NO];
+                case -1:
+                {
+                    switch (indexPath.row)
+                    {
+                        case 0:
+                            [strongSelf loadViewController:@"BookShelfViewController" hidesBottomBarWhenPushed:NO];
+                            break;
+                        case 1:
+                            [strongSelf loadViewController:@"SubmissionNotifyViewController" hidesBottomBarWhenPushed:NO];
+                            break;
+                        case 2:
+                            [strongSelf loadViewController:@"PayInputDetailViewController" hidesBottomBarWhenPushed:NO];
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                    break;
+                case 0:
+                {
+                    switch (indexPath.row)
+                    {
+                        case 7:
+                            [strongSelf loadViewController:@"SettingViewController" hidesBottomBarWhenPushed:NO];
+                            break;
+                            
+                        default:
+                            break;
+                    }
+                }
                     break;
                 default:
                     break;

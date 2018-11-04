@@ -292,22 +292,22 @@
     {
         case 0:
         {
-            CGFloat widht = (DIF_SCREEN_WIDTH)/4;
+            CGFloat widht = (m_ContentView.width)/4;
             return CGSizeMake(widht, DIF_PX(190/2));
         }
         case 1:
         {
-            CGFloat widht = (DIF_SCREEN_WIDTH)/2;
+            CGFloat widht = (m_ContentView.width)/2;
             return CGSizeMake(widht, DIF_PX(82));
         }
         case 2:
         {
-            CGFloat widht = (DIF_SCREEN_WIDTH)/2;
+            CGFloat widht = (m_ContentView.width)/2;
             return CGSizeMake(widht, DIF_PX(84));
         }
         default:
         {
-            CGFloat widht = (DIF_SCREEN_WIDTH)/2;
+            CGFloat widht = (m_ContentView.width)/2;
             return CGSizeMake(widht, DIF_PX(276));
         }
     }

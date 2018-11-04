@@ -157,7 +157,7 @@
     NSArray *videoList = self.allDataDic[@"list"];
     NSDictionary *videoDic = videoList[indexPath.row];
     NSArray *imgUrlList = videoDic[@"imgUrlList"];
-    return CGSizeMake(DIF_SCREEN_WIDTH, imgUrlList.count <= 1? DIF_PX(92):DIF_PX(164));
+    return CGSizeMake(m_ContentView.width, imgUrlList.count <= 1? DIF_PX(92):DIF_PX(164));
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section

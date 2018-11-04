@@ -48,6 +48,10 @@
 		7F8B6A1221822B6900F08519 /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8B6A1021822B6900F08519 /* ForgetPasswordViewController.xib */; };
 		7F8B6A1621822C9C00F08519 /* ForgetPwdVerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B6A1421822C9C00F08519 /* ForgetPwdVerifyViewController.m */; };
 		7F8B6A1721822C9C00F08519 /* ForgetPwdVerifyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8B6A1521822C9C00F08519 /* ForgetPwdVerifyViewController.xib */; };
+		7FA1F0E7218EFBED00E020A8 /* WebShowRightTypeListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA1F0E6218EFBED00E020A8 /* WebShowRightTypeListView.m */; };
+		7FA1F0EC218F52A400E020A8 /* PayInputDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA1F0EA218F52A400E020A8 /* PayInputDetailViewController.m */; };
+		7FA1F0ED218F52A400E020A8 /* PayInputDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA1F0EB218F52A400E020A8 /* PayInputDetailViewController.xib */; };
+		7FA1F0F0218F563B00E020A8 /* CommonHeaderPageListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA1F0EF218F563B00E020A8 /* CommonHeaderPageListView.m */; };
 		7FA3EB52218A046D004A6C03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA3EB51218A046D004A6C03 /* Assets.xcassets */; };
 		7FA80F88217F7B7000CD213F /* WebShopTwoPictureViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA80F87217F7B7000CD213F /* WebShopTwoPictureViewCell.m */; };
 		7FA80F8B217F7C9D00CD213F /* WebShopOnePictureMoneyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA80F8A217F7C9D00CD213F /* WebShopOnePictureMoneyViewCell.m */; };
@@ -270,6 +274,13 @@
 		7F8B6A1321822C9C00F08519 /* ForgetPwdVerifyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForgetPwdVerifyViewController.h; sourceTree = "<group>"; };
 		7F8B6A1421822C9C00F08519 /* ForgetPwdVerifyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdVerifyViewController.m; sourceTree = "<group>"; };
 		7F8B6A1521822C9C00F08519 /* ForgetPwdVerifyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgetPwdVerifyViewController.xib; sourceTree = "<group>"; };
+		7FA1F0E5218EFBED00E020A8 /* WebShowRightTypeListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebShowRightTypeListView.h; sourceTree = "<group>"; };
+		7FA1F0E6218EFBED00E020A8 /* WebShowRightTypeListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebShowRightTypeListView.m; sourceTree = "<group>"; };
+		7FA1F0E9218F52A400E020A8 /* PayInputDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayInputDetailViewController.h; sourceTree = "<group>"; };
+		7FA1F0EA218F52A400E020A8 /* PayInputDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayInputDetailViewController.m; sourceTree = "<group>"; };
+		7FA1F0EB218F52A400E020A8 /* PayInputDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayInputDetailViewController.xib; sourceTree = "<group>"; };
+		7FA1F0EE218F563B00E020A8 /* CommonHeaderPageListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonHeaderPageListView.h; sourceTree = "<group>"; };
+		7FA1F0EF218F563B00E020A8 /* CommonHeaderPageListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonHeaderPageListView.m; sourceTree = "<group>"; };
 		7FA3EB51218A046D004A6C03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FA3EB53218A0CDF004A6C03 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		7FA80F86217F7B7000CD213F /* WebShopTwoPictureViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebShopTwoPictureViewCell.h; sourceTree = "<group>"; };
@@ -779,6 +790,16 @@
 			path = ForgetPassword;
 			sourceTree = "<group>";
 		};
+		7FA1F0E8218F527E00E020A8 /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				7FA1F0E9218F52A400E020A8 /* PayInputDetailViewController.h */,
+				7FA1F0EA218F52A400E020A8 /* PayInputDetailViewController.m */,
+				7FA1F0EB218F52A400E020A8 /* PayInputDetailViewController.xib */,
+			);
+			path = Pay;
+			sourceTree = "<group>";
+		};
 		7FA8A214217A33F0000BB44A /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -912,6 +933,8 @@
 			children = (
 				7FA8A262217A33F0000BB44A /* AJPhotoBrowser */,
 				7FA8A26B217A33F0000BB44A /* CommonSelectOneLIne */,
+				7FA1F0EE218F563B00E020A8 /* CommonHeaderPageListView.h */,
+				7FA1F0EF218F563B00E020A8 /* CommonHeaderPageListView.m */,
 			);
 			path = CommonViewController;
 			sourceTree = "<group>";
@@ -1266,6 +1289,8 @@
 				7FF62ECF217CCDF6009190F0 /* WebShowBaseView.m */,
 				7FA80F8C217F8AF600CD213F /* WebShowViewCell.h */,
 				7FA80F8D217F8AF600CD213F /* WebShowViewCell.m */,
+				7FA1F0E5218EFBED00E020A8 /* WebShowRightTypeListView.h */,
+				7FA1F0E6218EFBED00E020A8 /* WebShowRightTypeListView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1288,6 +1313,7 @@
 		7FF62ED1217CD03B009190F0 /* MySet */ = {
 			isa = PBXGroup;
 			children = (
+				7FA1F0E8218F527E00E020A8 /* Pay */,
 				7F23FB8A2185F8AA00130DA5 /* SubmissionNotify */,
 				7F2236C12184C871000792C0 /* Setting */,
 				7FF62ED2217CD03B009190F0 /* View */,
@@ -1389,6 +1415,7 @@
 				7FA8A4F0217A33F3000BB44A /* popRec_8.png in Resources */,
 				7FA8A4F6217A33F3000BB44A /* popSend_5.png in Resources */,
 				7FA8A4ED217A33F3000BB44A /* popRec_5.png in Resources */,
+				7FA1F0ED218F52A400E020A8 /* PayInputDetailViewController.xib in Resources */,
 				7F8B6A0C218228CB00F08519 /* RegisterSetPwdViewController.xib in Resources */,
 				7FA8A4EC217A33F3000BB44A /* popRec_4.png in Resources */,
 				7FA8A4F1217A33F3000BB44A /* popRec_9.png in Resources */,
@@ -1543,6 +1570,7 @@
 				7FA8A5DE217A33F3000BB44A /* NSString+Extension_NSString.m in Sources */,
 				7FA8A4DC217A33F2000BB44A /* CustomRoundButton.m in Sources */,
 				7FA8A4D3217A33F2000BB44A /* CommonPopShareView.m in Sources */,
+				7FA1F0F0218F563B00E020A8 /* CommonHeaderPageListView.m in Sources */,
 				7FEE8E78217CE87300ECF9AA /* MySetTableViewCell.m in Sources */,
 				7F6E2617218617BB004D9CE7 /* VideoPlayerViewController.m in Sources */,
 				7FF62ECA217CCD81009190F0 /* WebShopBaseView.m in Sources */,
@@ -1555,6 +1583,7 @@
 				7FA8A5BD217A33F3000BB44A /* RootViewController.m in Sources */,
 				7FA8A5E4217A33F3000BB44A /* PlaceTextView.m in Sources */,
 				7FA8A4C8217A33F2000BB44A /* RSAEncryptor.m in Sources */,
+				7FA1F0EC218F52A400E020A8 /* PayInputDetailViewController.m in Sources */,
 				7FA8A5E9217A33F3000BB44A /* UIImage+ConvertBase64.m in Sources */,
 				7F8B69FD2182168600F08519 /* HotVideoListBaseView.m in Sources */,
 				7FA8A4DF217A33F2000BB44A /* AJPhotoZoomingScrollView.m in Sources */,
@@ -1589,6 +1618,7 @@
 				7FA8A5CD217A33F3000BB44A /* SpecialNewsViewTextCell.m in Sources */,
 				7FA8A5CA217A33F3000BB44A /* SpecialNewsBaseView.m in Sources */,
 				7F2236C72184C988000792C0 /* SettingViewCell.m in Sources */,
+				7FA1F0E7218EFBED00E020A8 /* WebShowRightTypeListView.m in Sources */,
 				7FA8A5E2217A33F3000BB44A /* NSString+Null.m in Sources */,
 				7FA8A4E8217A33F3000BB44A /* CustomerServerViewController.m in Sources */,
 				7FA8A5C9217A33F3000BB44A /* SpecialNewsViewController.m in Sources */,

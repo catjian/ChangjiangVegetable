@@ -18,7 +18,7 @@
         [self setBackgroundColor:DIF_HEXCOLOR(@"")];
         
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 6, DIF_PX(96), DIF_PX(130))];
-        [self.imageView setCenterX:self.width/2];
+        [self.imageView setCenterX:(DIF_SCREEN_WIDTH)/3/2];
         [self.contentView addSubview:self.imageView];
         
         self.titleLab = [[UILabel alloc] initWithFrame:CGRectMake(self.imageView.left, self.imageView.bottom, self.imageView.width, DIF_PX(20))];

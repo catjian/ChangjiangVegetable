@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PayInputDetailViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Voc-9m-QUH">
+                    <rect key="frame" x="16" y="32.5" width="100" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="F9e-w9-Z7q"/>
+                        <constraint firstAttribute="width" constant="100" id="Uhe-a7-l8c"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment content="付款人姓名">
+                            <attributes>
+                                <color key="NSColor" red="0.062745098039215685" green="0.062745098039215685" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="NSFont" size="16" name=".PingFangSC-Regular"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content=" ">
+                            <attributes>
+                                <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="*">
+                            <attributes>
+                                <color key="NSColor" red="0.89803921568627454" green="0.10980392156862745" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请填写付款人姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ffs-B0-e7b">
+                    <rect key="frame" x="126" y="30" width="239" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="zQN-KO-dBK"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请填写付款人电话" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AWj-Aa-7UZ">
+                    <rect key="frame" x="126" y="75" width="239" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Oz7-Eq-oKc"/>
+                        <constraint firstAttribute="height" constant="30" id="T26-se-fC7"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请填写付款金额" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UmW-w4-dxW">
+                    <rect key="frame" x="126" y="120" width="239" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="5Qo-aP-cvy"/>
+                        <constraint firstAttribute="height" constant="30" id="ImH-1u-Ys4"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请填写广告款、版面费等" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LZp-lt-7e6">
+                    <rect key="frame" x="126" y="165" width="239" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="HpJ-T8-q4w"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="LHe-oo-XkD"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfd-1r-TaR">
+                    <rect key="frame" x="16" y="77.5" width="100" height="25"/>
+                    <attributedString key="attributedText">
+                        <fragment content="付款人电话">
+                            <attributes>
+                                <color key="NSColor" red="0.062745098039215685" green="0.062745098039215685" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="NSFont" size="16" name=".PingFangSC-Regular"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content=" ">
+                            <attributes>
+                                <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="*">
+                            <attributes>
+                                <color key="NSColor" red="0.89803921568627454" green="0.10980392156862745" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Bq-Pf-xL2">
+                    <rect key="frame" x="16" y="122.5" width="100" height="25"/>
+                    <attributedString key="attributedText">
+                        <fragment content="付款金额">
+                            <attributes>
+                                <color key="NSColor" red="0.062745098039215685" green="0.062745098039215685" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="NSFont" size="16" name=".PingFangSC-Regular"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content=" ">
+                            <attributes>
+                                <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="*">
+                            <attributes>
+                                <color key="NSColor" red="0.89803921568627454" green="0.10980392156862745" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gP-qo-a68">
+                    <rect key="frame" x="16" y="167.5" width="100" height="25"/>
+                    <attributedString key="attributedText">
+                        <fragment content="付款事项">
+                            <attributes>
+                                <color key="NSColor" red="0.062745098039215685" green="0.062745098039215685" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="NSFont" size="16" name=".PingFangSC-Regular"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content=" ">
+                            <attributes>
+                                <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="*">
+                            <attributes>
+                                <color key="NSColor" red="0.89803921568627454" green="0.10980392156862745" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="LZp-lt-7e6" firstAttribute="width" secondItem="UmW-w4-dxW" secondAttribute="width" id="05i-eQ-Y9a"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="ffs-B0-e7b" secondAttribute="trailing" constant="10" id="2vH-5l-ctc"/>
+                <constraint firstItem="9gP-qo-a68" firstAttribute="centerY" secondItem="LZp-lt-7e6" secondAttribute="centerY" id="3dg-ud-aYI"/>
+                <constraint firstItem="ffs-B0-e7b" firstAttribute="leading" secondItem="Voc-9m-QUH" secondAttribute="trailing" constant="10" id="48w-1y-kTS"/>
+                <constraint firstItem="UmW-w4-dxW" firstAttribute="top" secondItem="AWj-Aa-7UZ" secondAttribute="bottom" constant="15" id="7wj-Z0-BoB"/>
+                <constraint firstItem="ffs-B0-e7b" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="10" id="Anc-0G-1KN"/>
+                <constraint firstItem="4Bq-Pf-xL2" firstAttribute="height" secondItem="gfd-1r-TaR" secondAttribute="height" id="C6V-SK-rjQ"/>
+                <constraint firstItem="gfd-1r-TaR" firstAttribute="height" secondItem="Voc-9m-QUH" secondAttribute="height" id="CVw-Gd-T7s"/>
+                <constraint firstItem="9gP-qo-a68" firstAttribute="height" secondItem="4Bq-Pf-xL2" secondAttribute="height" id="GSq-iU-CPu"/>
+                <constraint firstItem="4Bq-Pf-xL2" firstAttribute="width" secondItem="gfd-1r-TaR" secondAttribute="width" id="GT9-da-FcT"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="LZp-lt-7e6" secondAttribute="trailing" constant="10" id="H5J-Mu-Z6N"/>
+                <constraint firstItem="Voc-9m-QUH" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="16" id="Knb-57-L6y"/>
+                <constraint firstItem="AWj-Aa-7UZ" firstAttribute="width" secondItem="ffs-B0-e7b" secondAttribute="width" id="QJC-F8-4xy"/>
+                <constraint firstItem="9gP-qo-a68" firstAttribute="centerX" secondItem="4Bq-Pf-xL2" secondAttribute="centerX" id="U89-a8-rzM"/>
+                <constraint firstItem="gfd-1r-TaR" firstAttribute="width" secondItem="Voc-9m-QUH" secondAttribute="width" id="Ud5-9g-Sgg"/>
+                <constraint firstItem="gfd-1r-TaR" firstAttribute="centerY" secondItem="AWj-Aa-7UZ" secondAttribute="centerY" id="bME-50-8Ie"/>
+                <constraint firstItem="gfd-1r-TaR" firstAttribute="leading" secondItem="Voc-9m-QUH" secondAttribute="leading" id="cbO-Hg-Ba4"/>
+                <constraint firstItem="AWj-Aa-7UZ" firstAttribute="top" secondItem="ffs-B0-e7b" secondAttribute="bottom" constant="15" id="dRf-D1-LBC"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="AWj-Aa-7UZ" secondAttribute="trailing" constant="10" id="drX-Ae-I0C"/>
+                <constraint firstItem="LZp-lt-7e6" firstAttribute="top" secondItem="UmW-w4-dxW" secondAttribute="bottom" constant="15" id="ill-NB-sTs"/>
+                <constraint firstItem="UmW-w4-dxW" firstAttribute="width" secondItem="AWj-Aa-7UZ" secondAttribute="width" id="mih-Yp-gdc"/>
+                <constraint firstItem="9gP-qo-a68" firstAttribute="width" secondItem="4Bq-Pf-xL2" secondAttribute="width" id="min-om-dTC"/>
+                <constraint firstItem="4Bq-Pf-xL2" firstAttribute="centerX" secondItem="gfd-1r-TaR" secondAttribute="centerX" id="nuB-R0-KEi"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="UmW-w4-dxW" secondAttribute="trailing" constant="10" id="pis-eZ-RaI"/>
+                <constraint firstItem="Voc-9m-QUH" firstAttribute="centerY" secondItem="ffs-B0-e7b" secondAttribute="centerY" id="tWN-9b-AGu"/>
+                <constraint firstItem="4Bq-Pf-xL2" firstAttribute="centerY" secondItem="UmW-w4-dxW" secondAttribute="centerY" id="wYz-P9-Wp8"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="-151" y="148"/>
+        </view>
+    </objects>
+</document>
