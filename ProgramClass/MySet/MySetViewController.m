@@ -68,6 +68,12 @@
                 {
                     switch (indexPath.row)
                     {
+                        case 4:
+                            [strongSelf loadViewController:@"AddressAddViewController" hidesBottomBarWhenPushed:NO];
+                            break;
+                        case 6:
+                            [strongSelf loadViewController:@"AboutOurViewController" hidesBottomBarWhenPushed:NO];
+                            break;
                         case 7:
                             [strongSelf loadViewController:@"SettingViewController" hidesBottomBarWhenPushed:NO];
                             break;

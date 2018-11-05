@@ -23,6 +23,8 @@
 		7F2BB05A217E2BA30082BB25 /* RootVideoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2BB059217E2BA30082BB25 /* RootVideoViewCell.m */; };
 		7F2E84A5217ADC7100C92C8C /* VideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E84A4217ADC7100C92C8C /* VideoListViewController.m */; };
 		7F2E84A8217ADC9A00C92C8C /* VideoListBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E84A7217ADC9A00C92C8C /* VideoListBaseView.m */; };
+		7F3A05F321908C1900F76E25 /* PayInputContinueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A05F121908C1900F76E25 /* PayInputContinueViewController.m */; };
+		7F3A05F421908C1900F76E25 /* PayInputContinueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F3A05F221908C1900F76E25 /* PayInputContinueViewController.xib */; };
 		7F6E2617218617BB004D9CE7 /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E2616218617BB004D9CE7 /* VideoPlayerViewController.m */; };
 		7F6E2619218619BE004D9CE7 /* 150511_JiveBike.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7F6E2618218619BE004D9CE7 /* 150511_JiveBike.mov */; };
 		7F6E261C21861B3D004D9CE7 /* VideoPlayerBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E261B21861B3D004D9CE7 /* VideoPlayerBaseView.m */; };
@@ -184,6 +186,10 @@
 		7FA8A5F2217A33F3000BB44A /* UIView+CornerSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A4B4217A33F2000BB44A /* UIView+CornerSquare.m */; };
 		7FA8A5F3217A33F3000BB44A /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A4B6217A33F2000BB44A /* UIView+SDAutoLayout.m */; };
 		7FA8A5F4217A33F3000BB44A /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A4B8217A33F2000BB44A /* UIViewExt.m */; };
+		7FC2CB242190A2E100BD4E0D /* AddressAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC2CB222190A2E100BD4E0D /* AddressAddViewController.m */; };
+		7FC2CB252190A2E100BD4E0D /* AddressAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC2CB232190A2E100BD4E0D /* AddressAddViewController.xib */; };
+		7FC2CB292190A53B00BD4E0D /* AboutOurViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC2CB272190A53B00BD4E0D /* AboutOurViewController.m */; };
+		7FC2CB2A2190A53B00BD4E0D /* AboutOurViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC2CB282190A53B00BD4E0D /* AboutOurViewController.xib */; };
 		7FD4D61C217F5BB4007DA159 /* VideoListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4D61B217F5BB4007DA159 /* VideoListViewCell.m */; };
 		7FD4D61F217F77A0007DA159 /* WebShopLeftOnePictureViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4D61E217F77A0007DA159 /* WebShopLeftOnePictureViewCell.m */; };
 		7FEE8E78217CE87300ECF9AA /* MySetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE8E77217CE87300ECF9AA /* MySetTableViewCell.m */; };
@@ -230,6 +236,9 @@
 		7F2E84A4217ADC7100C92C8C /* VideoListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoListViewController.m; sourceTree = "<group>"; };
 		7F2E84A6217ADC9A00C92C8C /* VideoListBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoListBaseView.h; sourceTree = "<group>"; };
 		7F2E84A7217ADC9A00C92C8C /* VideoListBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoListBaseView.m; sourceTree = "<group>"; };
+		7F3A05F021908C1900F76E25 /* PayInputContinueViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayInputContinueViewController.h; sourceTree = "<group>"; };
+		7F3A05F121908C1900F76E25 /* PayInputContinueViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayInputContinueViewController.m; sourceTree = "<group>"; };
+		7F3A05F221908C1900F76E25 /* PayInputContinueViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayInputContinueViewController.xib; sourceTree = "<group>"; };
 		7F6E2615218617BB004D9CE7 /* VideoPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayerViewController.h; sourceTree = "<group>"; };
 		7F6E2616218617BB004D9CE7 /* VideoPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
 		7F6E2618218619BE004D9CE7 /* 150511_JiveBike.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 150511_JiveBike.mov; sourceTree = "<group>"; };
@@ -518,6 +527,12 @@
 		7FA8A4B7217A33F2000BB44A /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		7FA8A4B8217A33F2000BB44A /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
 		7FA8A5F6217A3446000BB44A /* ChangjiangVegetable-PCH.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChangjiangVegetable-PCH.pch"; sourceTree = "<group>"; };
+		7FC2CB212190A2E100BD4E0D /* AddressAddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressAddViewController.h; sourceTree = "<group>"; };
+		7FC2CB222190A2E100BD4E0D /* AddressAddViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressAddViewController.m; sourceTree = "<group>"; };
+		7FC2CB232190A2E100BD4E0D /* AddressAddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressAddViewController.xib; sourceTree = "<group>"; };
+		7FC2CB262190A53B00BD4E0D /* AboutOurViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutOurViewController.h; sourceTree = "<group>"; };
+		7FC2CB272190A53B00BD4E0D /* AboutOurViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutOurViewController.m; sourceTree = "<group>"; };
+		7FC2CB282190A53B00BD4E0D /* AboutOurViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutOurViewController.xib; sourceTree = "<group>"; };
 		7FD4D61A217F5BB4007DA159 /* VideoListViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoListViewCell.h; sourceTree = "<group>"; };
 		7FD4D61B217F5BB4007DA159 /* VideoListViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoListViewCell.m; sourceTree = "<group>"; };
 		7FD4D61D217F77A0007DA159 /* WebShopLeftOnePictureViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebShopLeftOnePictureViewCell.h; sourceTree = "<group>"; };
@@ -796,6 +811,9 @@
 				7FA1F0E9218F52A400E020A8 /* PayInputDetailViewController.h */,
 				7FA1F0EA218F52A400E020A8 /* PayInputDetailViewController.m */,
 				7FA1F0EB218F52A400E020A8 /* PayInputDetailViewController.xib */,
+				7F3A05F021908C1900F76E25 /* PayInputContinueViewController.h */,
+				7F3A05F121908C1900F76E25 /* PayInputContinueViewController.m */,
+				7F3A05F221908C1900F76E25 /* PayInputContinueViewController.xib */,
 			);
 			path = Pay;
 			sourceTree = "<group>";
@@ -1272,6 +1290,16 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		7FC2CB202190A2B100BD4E0D /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				7FC2CB212190A2E100BD4E0D /* AddressAddViewController.h */,
+				7FC2CB222190A2E100BD4E0D /* AddressAddViewController.m */,
+				7FC2CB232190A2E100BD4E0D /* AddressAddViewController.xib */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
 		7FF62EC2217CCD26009190F0 /* WebShow */ = {
 			isa = PBXGroup;
 			children = (
@@ -1313,12 +1341,16 @@
 		7FF62ED1217CD03B009190F0 /* MySet */ = {
 			isa = PBXGroup;
 			children = (
+				7FC2CB202190A2B100BD4E0D /* Address */,
 				7FA1F0E8218F527E00E020A8 /* Pay */,
 				7F23FB8A2185F8AA00130DA5 /* SubmissionNotify */,
 				7F2236C12184C871000792C0 /* Setting */,
 				7FF62ED2217CD03B009190F0 /* View */,
 				7FF62ED3217CD053009190F0 /* MySetViewController.h */,
 				7FF62ED4217CD053009190F0 /* MySetViewController.m */,
+				7FC2CB262190A53B00BD4E0D /* AboutOurViewController.h */,
+				7FC2CB272190A53B00BD4E0D /* AboutOurViewController.m */,
+				7FC2CB282190A53B00BD4E0D /* AboutOurViewController.xib */,
 			);
 			path = MySet;
 			sourceTree = "<group>";
@@ -1418,6 +1450,7 @@
 				7FA1F0ED218F52A400E020A8 /* PayInputDetailViewController.xib in Resources */,
 				7F8B6A0C218228CB00F08519 /* RegisterSetPwdViewController.xib in Resources */,
 				7FA8A4EC217A33F3000BB44A /* popRec_4.png in Resources */,
+				7FC2CB252190A2E100BD4E0D /* AddressAddViewController.xib in Resources */,
 				7FA8A4F1217A33F3000BB44A /* popRec_9.png in Resources */,
 				7FA8A4E9217A33F3000BB44A /* popRec_1.png in Resources */,
 				7F6E2619218619BE004D9CE7 /* 150511_JiveBike.mov in Resources */,
@@ -1426,6 +1459,7 @@
 				7F8B6A1221822B6900F08519 /* ForgetPasswordViewController.xib in Resources */,
 				7FA8A4F4217A33F3000BB44A /* popSend_3.png in Resources */,
 				7FA8A4F5217A33F3000BB44A /* popSend_4.png in Resources */,
+				7F3A05F421908C1900F76E25 /* PayInputContinueViewController.xib in Resources */,
 				7FA8A4EB217A33F3000BB44A /* popRec_3.png in Resources */,
 				7FA8A4F2217A33F3000BB44A /* popSend_1.png in Resources */,
 				7F8B6A1721822C9C00F08519 /* ForgetPwdVerifyViewController.xib in Resources */,
@@ -1440,6 +1474,7 @@
 				7FA8A4DA217A33F2000BB44A /* del_btn@2x.png in Resources */,
 				7FA8A4F7217A33F3000BB44A /* popSend_6.png in Resources */,
 				7FA8A4DB217A33F2000BB44A /* del_btn@3x.png in Resources */,
+				7FC2CB2A2190A53B00BD4E0D /* AboutOurViewController.xib in Resources */,
 				7FA8A4F9217A33F3000BB44A /* popSend_8.png in Resources */,
 				7FA8A501217A33F3000BB44A /* ModifyPasswordViewController.xib in Resources */,
 				7FA3EB52218A046D004A6C03 /* Assets.xcassets in Resources */,
@@ -1600,6 +1635,7 @@
 				7F8B6A1121822B6900F08519 /* ForgetPasswordViewController.m in Sources */,
 				7FA8A4FE217A33F3000BB44A /* IMReciveViewCell.m in Sources */,
 				7FA8A5D9217A33F3000BB44A /* NSObject+Null.m in Sources */,
+				7FC2CB242190A2E100BD4E0D /* AddressAddViewController.m in Sources */,
 				7FA8A4E2217A33F2000BB44A /* CommonSelectOneLineViewController.m in Sources */,
 				7FA8A4BE217A33F2000BB44A /* CommonDate.m in Sources */,
 				7FA8A4D6217A33F2000BB44A /* CommonSheetView.m in Sources */,
@@ -1613,6 +1649,7 @@
 				7FA8A5ED217A33F3000BB44A /* UIImageView+CornerRadius.m in Sources */,
 				7FA8A4DE217A33F2000BB44A /* AJPhotoTapDetectingImageView.m in Sources */,
 				7FA8A5EE217A33F3000BB44A /* UILabel+CallPhoneExtension.m in Sources */,
+				7F3A05F321908C1900F76E25 /* PayInputContinueViewController.m in Sources */,
 				7FA8A4CC217A33F2000BB44A /* CommonContentSubView.m in Sources */,
 				7FA8A4FD217A33F3000BB44A /* IMInpuerView.m in Sources */,
 				7FA8A5CD217A33F3000BB44A /* SpecialNewsViewTextCell.m in Sources */,
@@ -1642,6 +1679,7 @@
 				7F6E261C21861B3D004D9CE7 /* VideoPlayerBaseView.m in Sources */,
 				7F8B6A1621822C9C00F08519 /* ForgetPwdVerifyViewController.m in Sources */,
 				7FA8A5EA217A33F3000BB44A /* UIImage+CornerRadius.m in Sources */,
+				7FC2CB292190A53B00BD4E0D /* AboutOurViewController.m in Sources */,
 				7FA8A5E3217A33F3000BB44A /* NSString+TransformToPinYin.m in Sources */,
 				7FA8A4DD217A33F2000BB44A /* AJPhotoBrowserViewController.m in Sources */,
 				7FA8A4D0217A33F2000BB44A /* CommonPageControlView.m in Sources */,

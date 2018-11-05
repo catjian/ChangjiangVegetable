@@ -12,6 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PayInputDetailViewController">
             <connections>
+                <outlet property="allMoneyLab" destination="QbT-Iu-Rth" id="ea0-jv-Ros"/>
+                <outlet property="moneyTF" destination="UmW-w4-dxW" id="jRf-YN-99h"/>
+                <outlet property="nameTF" destination="ffs-B0-e7b" id="qV9-qm-Ad2"/>
+                <outlet property="nextBtn" destination="qMH-ln-zeY" id="cFt-YH-Hdo"/>
+                <outlet property="phoneTF" destination="AWj-Aa-7UZ" id="kDb-Qf-th2"/>
+                <outlet property="remarkTF" destination="LZp-lt-7e6" id="1Ya-ZP-oxm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -62,7 +68,6 @@
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请填写付款人电话" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AWj-Aa-7UZ">
                     <rect key="frame" x="126" y="75" width="239" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Oz7-Eq-oKc"/>
                         <constraint firstAttribute="height" constant="30" id="T26-se-fC7"/>
                     </constraints>
                     <nil key="textColor"/>
@@ -72,7 +77,6 @@
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请填写付款金额" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UmW-w4-dxW">
                     <rect key="frame" x="126" y="120" width="239" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="5Qo-aP-cvy"/>
                         <constraint firstAttribute="height" constant="30" id="ImH-1u-Ys4"/>
                     </constraints>
                     <nil key="textColor"/>
@@ -83,7 +87,6 @@
                     <rect key="frame" x="126" y="165" width="239" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="HpJ-T8-q4w"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="LHe-oo-XkD"/>
                     </constraints>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -167,6 +170,48 @@
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbT-Iu-Rth">
+                    <rect key="frame" x="12" y="599" width="248" height="38"/>
+                    <attributedString key="attributedText">
+                        <fragment content="合计：">
+                            <attributes>
+                                <color key="NSColor" red="0.062745098039215685" green="0.062745098039215685" blue="0.062745098039215685" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="14" name=".PingFangSC-Regular"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="0.00">
+                            <attributes>
+                                <color key="NSColor" red="0.9882352941176471" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="元">
+                            <attributes>
+                                <color key="NSColor" red="0.062745098039215685" green="0.062745098039215685" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="NSFont" size="14" name=".PingFangSC-Regular"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMH-ln-zeY">
+                    <rect key="frame" x="270" y="599" width="93" height="38"/>
+                    <color key="backgroundColor" red="0.80392156862745101" green="0.019607843137254902" blue="0.019607843137254902" alpha="0.5" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="93" id="PP0-QU-2VG"/>
+                        <constraint firstAttribute="height" constant="38" id="VCs-I9-a7c"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="下一步">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="nextButtonEvent:" destination="-1" eventType="touchUpInside" id="fGN-7U-w63"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -181,14 +226,20 @@
                 <constraint firstItem="9gP-qo-a68" firstAttribute="height" secondItem="4Bq-Pf-xL2" secondAttribute="height" id="GSq-iU-CPu"/>
                 <constraint firstItem="4Bq-Pf-xL2" firstAttribute="width" secondItem="gfd-1r-TaR" secondAttribute="width" id="GT9-da-FcT"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="LZp-lt-7e6" secondAttribute="trailing" constant="10" id="H5J-Mu-Z6N"/>
+                <constraint firstItem="QbT-Iu-Rth" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="12" id="IRj-WS-UR9"/>
+                <constraint firstItem="QbT-Iu-Rth" firstAttribute="height" secondItem="qMH-ln-zeY" secondAttribute="height" id="JGH-8c-qxZ"/>
                 <constraint firstItem="Voc-9m-QUH" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="16" id="Knb-57-L6y"/>
+                <constraint firstItem="QbT-Iu-Rth" firstAttribute="centerY" secondItem="qMH-ln-zeY" secondAttribute="centerY" id="PRF-yh-j6o"/>
                 <constraint firstItem="AWj-Aa-7UZ" firstAttribute="width" secondItem="ffs-B0-e7b" secondAttribute="width" id="QJC-F8-4xy"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="qMH-ln-zeY" secondAttribute="trailing" constant="12" id="Qxw-2Q-ohb"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="qMH-ln-zeY" secondAttribute="bottom" constant="30" id="SnW-xM-uLb"/>
                 <constraint firstItem="9gP-qo-a68" firstAttribute="centerX" secondItem="4Bq-Pf-xL2" secondAttribute="centerX" id="U89-a8-rzM"/>
                 <constraint firstItem="gfd-1r-TaR" firstAttribute="width" secondItem="Voc-9m-QUH" secondAttribute="width" id="Ud5-9g-Sgg"/>
                 <constraint firstItem="gfd-1r-TaR" firstAttribute="centerY" secondItem="AWj-Aa-7UZ" secondAttribute="centerY" id="bME-50-8Ie"/>
                 <constraint firstItem="gfd-1r-TaR" firstAttribute="leading" secondItem="Voc-9m-QUH" secondAttribute="leading" id="cbO-Hg-Ba4"/>
                 <constraint firstItem="AWj-Aa-7UZ" firstAttribute="top" secondItem="ffs-B0-e7b" secondAttribute="bottom" constant="15" id="dRf-D1-LBC"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="AWj-Aa-7UZ" secondAttribute="trailing" constant="10" id="drX-Ae-I0C"/>
+                <constraint firstItem="qMH-ln-zeY" firstAttribute="leading" secondItem="QbT-Iu-Rth" secondAttribute="trailing" constant="10" id="dyw-Vz-Gdw"/>
                 <constraint firstItem="LZp-lt-7e6" firstAttribute="top" secondItem="UmW-w4-dxW" secondAttribute="bottom" constant="15" id="ill-NB-sTs"/>
                 <constraint firstItem="UmW-w4-dxW" firstAttribute="width" secondItem="AWj-Aa-7UZ" secondAttribute="width" id="mih-Yp-gdc"/>
                 <constraint firstItem="9gP-qo-a68" firstAttribute="width" secondItem="4Bq-Pf-xL2" secondAttribute="width" id="min-om-dTC"/>
@@ -198,7 +249,7 @@
                 <constraint firstItem="4Bq-Pf-xL2" firstAttribute="centerY" secondItem="UmW-w4-dxW" secondAttribute="centerY" id="wYz-P9-Wp8"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-151" y="148"/>
+            <point key="canvasLocation" x="-942" y="130"/>
         </view>
     </objects>
 </document>

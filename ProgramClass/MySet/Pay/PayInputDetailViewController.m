@@ -10,6 +10,13 @@
 
 @interface PayInputDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *nextBtn;
+@property (weak, nonatomic) IBOutlet UITextField *nameTF;
+@property (weak, nonatomic) IBOutlet UITextField *phoneTF;
+@property (weak, nonatomic) IBOutlet UITextField *moneyTF;
+@property (weak, nonatomic) IBOutlet UITextField *remarkTF;
+@property (weak, nonatomic) IBOutlet UILabel *allMoneyLab;
+
 @end
 
 @implementation PayInputDetailViewController
@@ -27,6 +34,11 @@
     [self.navigationController setNavigationBarHidden:NO];
     DIF_HideTabBarAnimation(YES);
     [self setNavTarBarTitle:@"我要付款"];
+    [self.nextBtn.layer setCornerRadius:self.nextBtn.height/2];
+}
+
+- (IBAction)nextButtonEvent:(id)sender {
+    [self loadViewController:@"PayInputContinueViewController" hidesBottomBarWhenPushed:NO];
 }
 
 @end
