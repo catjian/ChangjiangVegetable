@@ -30,7 +30,7 @@
     {
         [titles addObject:dic[@"menuName"]];
     }
-    CommonPageControlView *pageView = [[CommonPageControlView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, 40)
+    CommonPageControlView *pageView = [[CommonPageControlView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(40))
                                                                             titles:titles
                                                                           oneWidth:self.oneWidth];
     [self addSubview:pageView];
@@ -44,7 +44,7 @@
 
 - (void)createCollectionView
 {
-    m_ContentView = [[BaseTableView alloc] initWithFrame:CGRectMake(0, 40, self.width, self.height) style:UITableViewStylePlain];
+    m_ContentView = [[BaseTableView alloc] initWithFrame:CGRectMake(0, DIF_PX(40), self.width, self.height) style:UITableViewStylePlain];
     [m_ContentView setDelegate:self];
     [m_ContentView setDataSource:self];
     [m_ContentView setSeparatorStyle:UITableViewCellSeparatorStyleNone];

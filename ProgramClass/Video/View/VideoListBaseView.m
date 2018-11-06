@@ -24,15 +24,19 @@
     if (self)
     {
         [self setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
-        [self createPageController];
     }
     return self;
 }
 
 - (void)createPageController
 {
-    CommonPageControlView *pageView = [[CommonPageControlView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH-34, 40)
-                                                                            titles:@[@"品种导航",@"庄稼医生",@"菜园机械",@"栽培技术"]
+    NSMutableArray *titles = [NSMutableArray array];
+    for (NSDictionary *dic in self.channelArray)
+    {
+        [titles addObject:dic[@"menuName"]];
+    }
+    CommonPageControlView *pageView = [[CommonPageControlView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH-DIF_PX(34), DIF_PX(40))
+                                                                            titles:titles
                                                                           oneWidth:(DIF_SCREEN_WIDTH-34)/4-12];
     [self addSubview:pageView];
     DIF_WeakSelf(self)
@@ -41,20 +45,29 @@
     }];
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setFrame:CGRectMake(pageView.right+6, 0, 22, 40)];
+    [btn setFrame:CGRectMake(pageView.right+DIF_PX(6), 0, DIF_PX(22), DIF_PX(40))];
     [btn setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
 //    [btn setTitle:@"E" forState:UIControlStateNormal];
     [btn setImage:[UIImage imageNamed:@"菜单"] forState:UIControlStateNormal];
     [btn setTitleColor:DIF_HEXCOLOR(@"808080") forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(pageControlSelectChannelButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:btn];
     [self createCollectionView];
+}
+
+- (void)pageControlSelectChannelButtonEvent:(UIButton *)btn
+{
+    if (self.selectChannelBlock)
+    {
+        self.selectChannelBlock();
+    }
 }
 
 - (void)createCollectionView
 {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    m_ContentView = [[BaseCollectionView alloc] initWithFrame:CGRectMake(0, 40, self.width, self.height)
+    m_ContentView = [[BaseCollectionView alloc] initWithFrame:CGRectMake(0, DIF_PX(40), self.width, self.height)
                                               ScrollDirection:UICollectionViewScrollDirectionVertical
                                                 CellClassName:@"RootViewCell"];
     [m_ContentView registerClass:[UICollectionReusableView class]
@@ -69,6 +82,7 @@
 - (void)setAllDataDic:(NSDictionary *)allDataDic
 {
     _allDataDic = allDataDic;
+    [self createPageController];
     [m_ContentView reloadData];
 }
 
@@ -103,7 +117,7 @@
     [cell.titleLab setText:videoDic[@"title"]];
     NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",[videoDic[@"watchNum"] intValue]]];
     [placeholder attatchImage:[UIImage imageNamed:@"浏览"]
-                   imageFrame:CGRectMake(0, -(cell.detailLab.height-14)/2, 20, 11)
+                   imageFrame:CGRectMake(0, -(cell.detailLab.height-11)/2, 20, 11)
                         Range:NSMakeRange(0, 0)];
     [cell.detailLab setAttributedText:placeholder];
     [cell.zanBtn setTitle:[NSString stringWithFormat:@"%d",[videoDic[@"likeNum"] intValue]]

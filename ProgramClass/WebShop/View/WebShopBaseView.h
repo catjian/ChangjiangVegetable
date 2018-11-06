@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WebShopBaseView : UIView
 
+@property (nonatomic, copy) tableViewSelectRowAtIndexPathBlock selectBlock;
 @property (nonatomic, strong) NSDictionary *allDataDic;
 
 @end

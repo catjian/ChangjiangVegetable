@@ -36,7 +36,7 @@
     {
         [titles addObject:dic[@"menuName"]];
     }
-    CommonPageControlView *pageView = [[CommonPageControlView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH-34, 40)
+    CommonPageControlView *pageView = [[CommonPageControlView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH-DIF_PX(34), DIF_PX(40))
                                                                             titles:titles
                                                                           oneWidth:(DIF_SCREEN_WIDTH-34)/4-12];
     [self addSubview:pageView];
@@ -47,7 +47,7 @@
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
-    [btn setFrame:CGRectMake(pageView.right+6, 0, 22, 40)];
+    [btn setFrame:CGRectMake(pageView.right+DIF_PX(6), 0, DIF_PX(22), DIF_PX(40))];
     [btn setImage:[UIImage imageNamed:@"菜单"] forState:UIControlStateNormal];
 //    [btn setTitle:@"E" forState:UIControlStateNormal];
     [btn setTitleColor:DIF_HEXCOLOR(@"808080") forState:UIControlStateNormal];
@@ -68,7 +68,7 @@
 {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    m_ContentView = [[BaseCollectionView alloc] initWithFrame:CGRectMake(0, 40, self.width, self.height)
+    m_ContentView = [[BaseCollectionView alloc] initWithFrame:CGRectMake(0, DIF_PX(40), self.width, self.height)
                                               ScrollDirection:UICollectionViewScrollDirectionVertical
                                                 CellClassName:@"RootViewCell"];
     [m_ContentView registerClass:[UICollectionReusableView class]

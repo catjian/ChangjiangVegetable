@@ -44,6 +44,11 @@
     {
         m_BaseView = [[WebShopBaseView alloc] initWithFrame:self.view.bounds];
         [self.view addSubview:m_BaseView];
+        DIF_WeakSelf(self)
+        [m_BaseView setSelectBlock:^(NSIndexPath *indexPath, id model) {
+            DIF_StrongSelf
+            [strongSelf loadViewController:@"ShopTypeListViewController" hidesBottomBarWhenPushed:YES];
+        }];
     }
     [self httpRequestGetShopData];
 }

@@ -60,6 +60,7 @@
                             [strongSelf loadViewController:@"PayInputDetailViewController" hidesBottomBarWhenPushed:NO];
                             break;
                         default:
+                            [strongSelf loadViewController:@"MyOrderViewController" hidesBottomBarWhenPushed:NO];
                             break;
                     }
                 }
@@ -68,6 +69,13 @@
                 {
                     switch (indexPath.row)
                     {
+                        case 1:
+                            [strongSelf loadViewController:@"MyCommentViewController" hidesBottomBarWhenPushed:NO];
+                            break;
+                        case 2:
+                        case 3:
+                            [strongSelf loadViewController:@"SubscribeViewController" hidesBottomBarWhenPushed:NO];
+                            break;
                         case 4:
                             [strongSelf loadViewController:@"AddressAddViewController" hidesBottomBarWhenPushed:NO];
                             break;

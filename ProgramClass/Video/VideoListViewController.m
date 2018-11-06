@@ -68,8 +68,20 @@
                     break;
             }
         }];
+        [m_BaseView setSelectChannelBlock:^{
+            DIF_StrongSelf
+            SelectChannelViewController *vc = [strongSelf loadViewController:@"SelectChannelViewController"];
+            [vc setNavTarBarTitle:@"我的频道"];
+            NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+            for (int i = 0; i < strongSelf->m_BaseView.channelArray.count; i++)
+            {
+                NSDictionary *channelDic = strongSelf->m_BaseView.channelArray[i];
+                [dic setObject:channelDic[@"menuName"] forKey:[@(i) stringValue]];
+            }
+            vc.channelData = dic;
+        }];
     }
-    [self httpRequestGetVideoDataByMenuId];
+    [self httpRequestGetMenuList];
 }
 
 - (void)rightBarButtonItemAction:(UIButton *)btn
@@ -152,6 +164,27 @@
 }
 
 #pragma mark - Http Request
+
+- (void)httpRequestGetMenuList
+{
+    [CommonHUD showHUD];
+    DIF_WeakSelf(self)
+    [DIF_CommonHttpAdapter httpRequestGetMenuListWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+        if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
+        {
+            DIF_StrongSelf
+            [CommonHUD hideHUD];
+            [strongSelf->m_BaseView setChannelArray:responseModel[@"data"]];
+            [strongSelf httpRequestGetVideoDataByMenuId];
+        }
+        else
+        {
+            [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
+        }
+    } FailedBlcok:^(NSError *error) {
+        [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
+    }];
+}
 
 - (void)httpRequestGetVideoDataByMenuId
 {

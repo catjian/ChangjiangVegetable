@@ -65,23 +65,18 @@
                     switch (indexPath.row)
                     {
                         case 0:
-                        {                            
                             [strongSelf loadViewController:@"HotInformationViewController" hidesBottomBarWhenPushed:NO];
-                        }
                             break;
                         case 1:
-                        {
                             [strongSelf loadViewController:@"BookStoreViewController" hidesBottomBarWhenPushed:NO];
-                        }
                             break;
                         case 2:
                             break;
-                        case 4:
-                        {
-                            [strongSelf loadViewController:@"SubmissionNotifyViewController" hidesBottomBarWhenPushed:NO];
-                        }
+                        case 3:
+                            [strongSelf loadViewController:@"ShopInformationViewController" hidesBottomBarWhenPushed:NO];
                             break;
                         default:
+                            [strongSelf loadViewController:@"SubmissionNotifyViewController" hidesBottomBarWhenPushed:NO];
                             break;
                     }
                 }
