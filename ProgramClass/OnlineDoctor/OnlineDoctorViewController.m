@@ -1,38 +1,38 @@
 //
-//  BookStoreViewController.m
+//  OnlineDoctorViewController.m
 //  ChangjiangVegetable
 //
-//  Created by jian zhang on 2018/10/28.
+//  Created by jian zhang on 2018/11/7.
 //  Copyright © 2018年 jian zhang. All rights reserved.
 //
 
-#import "BookStoreViewController.h"
-#import "BookStoreBaseView.h"
+#import "OnlineDoctorViewController.h"
+#import "OnlineDoctorBaseView.h"
 
-@interface BookStoreViewController () <UITextFieldDelegate>
+@interface OnlineDoctorViewController () <UITextFieldDelegate>
 
 @end
 
-@implementation BookStoreViewController
+@implementation OnlineDoctorViewController
 {
-    BookStoreBaseView *m_BaseView;
+    OnlineDoctorBaseView *m_BaseView;
     UIView *m_SearchView;
     UITextField *m_SearchTextField;
-    NSArray *m_Articleclassify;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     DIF_HideTabBarAnimation(YES);
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    DIF_HideTabBarAnimation(NO);
-    //        [self setLeftItemWithContentName::@"返回"];
-    [self setRightItemWithContentName:@"杂志期刊2"];
+    [self.navigationController setNavigationBarHidden:NO];
+    DIF_HideTabBarAnimation(YES);
+    [self setRightItemWithContentName:@"发布"];
     [self createSearchView];
     [self.navigationItem setTitleView:m_SearchView];
 }
@@ -42,16 +42,17 @@
     [super viewDidAppear:animated];
     if (!m_BaseView)
     {
-        m_BaseView = [[BookStoreBaseView alloc] initWithFrame:self.view.bounds];
+        m_BaseView = [[OnlineDoctorBaseView alloc] initWithFrame:self.view.bounds];
         [self.view addSubview:m_BaseView];
     }
-    [self httpRequestGetReadBookBanner];
+    [self httpRequestGetOnlineDoctorData];
 }
 
 - (void)rightBarButtonItemAction:(UIButton *)btn
 {
-    [self loadViewController:@"BookShelfViewController"];
+    [self.view endEditing:YES];
 }
+
 
 #pragma mark - Search Event Object
 
@@ -115,41 +116,42 @@
     return YES;
 }
 
+
 #pragma mark - Http Request
 
-- (void)httpRequestGetReadBookBanner
+- (void)httpRequestGetOnlineDoctorData
 {
     [CommonHUD showHUD];
     DIF_WeakSelf(self)
-    [DIF_CommonHttpAdapter httpRequestGetReadBookBannerWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+    [DIF_CommonHttpAdapter httpRequestGetOnlineDoctorDataWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
         DIF_StrongSelf
         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
         {
             [CommonHUD hideHUD];
-            [strongSelf->m_BaseView setBannerArr:responseModel[@"data"][@"banner"]];
+            [strongSelf->m_BaseView setDoctorDic:responseModel[@"data"]];
         }
         else
         {
             [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
         }
-        [strongSelf httpRequestPostGetBookList];
+        [strongSelf httpRequestPostgGetOnlineDoctorArticleList];
     } FailedBlcok:^(NSError *error) {
         DIF_StrongSelf
         [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
-        [strongSelf httpRequestPostGetBookList];
+        [strongSelf httpRequestPostgGetOnlineDoctorArticleList];
     }];
 }
 
-- (void)httpRequestPostGetBookList
+- (void)httpRequestPostgGetOnlineDoctorArticleList
 {
     [CommonHUD showHUD];
     DIF_WeakSelf(self)
-    [DIF_CommonHttpAdapter httpRequestPostGetBookListWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+    [DIF_CommonHttpAdapter httpRequestPostGetOnlineDoctorArticleListWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
         {
             DIF_StrongSelf
             [CommonHUD hideHUD];
-            [strongSelf->m_BaseView setBookListArr:responseModel[@"data"][@"list"]];
+            [strongSelf->m_BaseView setArticleList:responseModel[@"data"][@"list"]];
         }
         else
         {
@@ -159,5 +161,4 @@
         [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
     }];
 }
-
 @end

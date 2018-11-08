@@ -10,7 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, SubscribeViewControllerType) {
+    SubscribeViewControllerType_Collection,
+    SubscribeViewControllerType_History,
+};
+
 @interface SubscribeViewController : BaseViewController
+
+@property (nonatomic) SubscribeViewControllerType conType;
 
 @end
 

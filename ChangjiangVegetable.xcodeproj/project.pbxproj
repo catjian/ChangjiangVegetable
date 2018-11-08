@@ -190,6 +190,9 @@
 		7FA8A5F2217A33F3000BB44A /* UIView+CornerSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A4B4217A33F2000BB44A /* UIView+CornerSquare.m */; };
 		7FA8A5F3217A33F3000BB44A /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A4B6217A33F2000BB44A /* UIView+SDAutoLayout.m */; };
 		7FA8A5F4217A33F3000BB44A /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A4B8217A33F2000BB44A /* UIViewExt.m */; };
+		7FB0495D2193314A00EFB0B2 /* OnlineDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB0495C2193314A00EFB0B2 /* OnlineDoctorViewController.m */; };
+		7FB049612193315B00EFB0B2 /* OnlineDoctorBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB049602193315B00EFB0B2 /* OnlineDoctorBaseView.m */; };
+		7FB049642193364400EFB0B2 /* OnlineDoctorViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB049632193364400EFB0B2 /* OnlineDoctorViewCell.m */; };
 		7FBF21762191DF4B00CCBA42 /* MyCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF21752191DF4B00CCBA42 /* MyCommentViewController.m */; };
 		7FBF21792191DFFA00CCBA42 /* MyCommentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF21782191DFFA00CCBA42 /* MyCommentViewCell.m */; };
 		7FBF217D2191E7EC00CCBA42 /* SubscribeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF217C2191E7EC00CCBA42 /* SubscribeViewController.m */; };
@@ -545,6 +548,12 @@
 		7FA8A4B7217A33F2000BB44A /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		7FA8A4B8217A33F2000BB44A /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
 		7FA8A5F6217A3446000BB44A /* ChangjiangVegetable-PCH.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChangjiangVegetable-PCH.pch"; sourceTree = "<group>"; };
+		7FB0495B2193314A00EFB0B2 /* OnlineDoctorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnlineDoctorViewController.h; sourceTree = "<group>"; };
+		7FB0495C2193314A00EFB0B2 /* OnlineDoctorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnlineDoctorViewController.m; sourceTree = "<group>"; };
+		7FB0495F2193315B00EFB0B2 /* OnlineDoctorBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnlineDoctorBaseView.h; sourceTree = "<group>"; };
+		7FB049602193315B00EFB0B2 /* OnlineDoctorBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnlineDoctorBaseView.m; sourceTree = "<group>"; };
+		7FB049622193364400EFB0B2 /* OnlineDoctorViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnlineDoctorViewCell.h; sourceTree = "<group>"; };
+		7FB049632193364400EFB0B2 /* OnlineDoctorViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnlineDoctorViewCell.m; sourceTree = "<group>"; };
 		7FBF21742191DF4B00CCBA42 /* MyCommentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCommentViewController.h; sourceTree = "<group>"; };
 		7FBF21752191DF4B00CCBA42 /* MyCommentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCommentViewController.m; sourceTree = "<group>"; };
 		7FBF21772191DFFA00CCBA42 /* MyCommentViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCommentViewCell.h; sourceTree = "<group>"; };
@@ -1051,6 +1060,7 @@
 		7FA8A276217A33F1000BB44A /* ProgramClass */ = {
 			isa = PBXGroup;
 			children = (
+				7FB0495A2193313A00EFB0B2 /* OnlineDoctor */,
 				7F35914E2191FCA2008562CC /* ShopInformation */,
 				7F23FB782185EAC400130DA5 /* BookStore */,
 				7F2236B62184B129000792C0 /* SelectChannel */,
@@ -1342,6 +1352,27 @@
 				7FA8A4B8217A33F2000BB44A /* UIViewExt.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		7FB0495A2193313A00EFB0B2 /* OnlineDoctor */ = {
+			isa = PBXGroup;
+			children = (
+				7FB0495E2193314D00EFB0B2 /* View */,
+				7FB0495B2193314A00EFB0B2 /* OnlineDoctorViewController.h */,
+				7FB0495C2193314A00EFB0B2 /* OnlineDoctorViewController.m */,
+			);
+			path = OnlineDoctor;
+			sourceTree = "<group>";
+		};
+		7FB0495E2193314D00EFB0B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7FB0495F2193315B00EFB0B2 /* OnlineDoctorBaseView.h */,
+				7FB049602193315B00EFB0B2 /* OnlineDoctorBaseView.m */,
+				7FB049622193364400EFB0B2 /* OnlineDoctorViewCell.h */,
+				7FB049632193364400EFB0B2 /* OnlineDoctorViewCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		7FBF21732191DF3500CCBA42 /* MyComment */ = {
@@ -1760,12 +1791,14 @@
 				7FA8A5DD217A33F3000BB44A /* NSString+ConvertHex.m in Sources */,
 				7FA8A4FF217A33F3000BB44A /* IMSendViewCell.m in Sources */,
 				7FA8A5D1217A33F3000BB44A /* BaseTabBarController.m in Sources */,
+				7FB049642193364400EFB0B2 /* OnlineDoctorViewCell.m in Sources */,
 				7FA8A5D3217A33F3000BB44A /* BaseTableViewCell.m in Sources */,
 				7F88DB05217A0D550081DF97 /* AppDelegate.m in Sources */,
 				7FA8A5C6217A33F3000BB44A /* ArticleclassifyModel.m in Sources */,
 				7F8B69F421820B9200F08519 /* HotInformationThreePictureCell.m in Sources */,
 				7FA8A4CF217A33F2000BB44A /* CommonMorePickerView.m in Sources */,
 				7FA8A4E1217A33F2000BB44A /* CommonSelectOneLineView.m in Sources */,
+				7FB049612193315B00EFB0B2 /* OnlineDoctorBaseView.m in Sources */,
 				7FBF21842191E9B600CCBA42 /* MyOrderViewController.m in Sources */,
 				7FA8A5BF217A33F3000BB44A /* RootViewCell.m in Sources */,
 				7F8B6A0121821E7B00F08519 /* LoginViewController.m in Sources */,
@@ -1786,6 +1819,7 @@
 				7F35914A2191F5B0008562CC /* ShopTypeListViewController.m in Sources */,
 				7FA8A5CF217A33F3000BB44A /* BaseLable.m in Sources */,
 				7FA8A5D4217A33F3000BB44A /* BaseViewController.m in Sources */,
+				7FB0495D2193314A00EFB0B2 /* OnlineDoctorViewController.m in Sources */,
 				7FA8A5F3217A33F3000BB44A /* UIView+SDAutoLayout.m in Sources */,
 				7FA8A4C6217A33F2000BB44A /* CommonVerify.m in Sources */,
 				7FA8A5F1217A33F3000BB44A /* UIView+BackHexColor.m in Sources */,
@@ -1926,6 +1960,11 @@
 					"$(PROJECT_DIR)/IMSDK",
 				);
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ChangjiangVegetable/ChangjiangVegetable-PCH.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					DEBUG_MODE,
+				);
 				INFOPLIST_FILE = ChangjiangVegetable/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

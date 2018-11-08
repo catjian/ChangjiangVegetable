@@ -74,4 +74,53 @@ static NSString * const BaseUrl = @"https://www.easy-mock.com/mock/5bd1b55b5e38a
 #pragma mark - 获取热门推荐视频列表
 - (void)httpRequestPostGeHotVideoListWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                            FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 获取我要读刊界面的Banner
+- (void)httpRequestGetReadBookBannerWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                          FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 根据类型获取读刊数据列表
+- (void)httpRequestPostGetBookListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                        FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 获取我的书刊列表
+- (void)httpRequestPostGetMyBookListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                          FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 获取在线问诊的头部两部分数据
+- (void)httpRequestGetOnlineDoctorDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                            FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 在线问诊列表数据，分页
+- (void)httpRequestPostGetOnlineDoctorArticleListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                                       FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 获取供求信息列表 传参type
+- (void)httpRequestPostGetSupportInfoListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                               FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 根据菜单id获取我的评论列表
+- (void)httpRequestPostGetFeedbackListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                            FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 根据菜单id获取我的收藏列表
+- (void)httpRequestPostGetCollectionListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                              FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 根据菜单id获取我的历史记录列表
+- (void)httpRequestPostGetHistoryListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                           FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 获取用户地址信息
+- (void)httpRequestPostGetCustomAddressWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 获取订单列表，传参type区分：全部，待发货等状态
+- (void)httpRequestPostGetOrderListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                         FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 获取物流信息
+- (void)httpRequestPostGetExpressInfoWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                           FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 @end
+

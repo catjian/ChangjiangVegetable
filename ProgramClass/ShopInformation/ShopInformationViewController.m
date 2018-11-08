@@ -11,6 +11,8 @@
 
 @interface ShopInformationViewController () <UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate>
 
+@property (nonatomic, strong) NSArray *supportInfoList;
+
 @end
 
 @implementation ShopInformationViewController
@@ -35,8 +37,14 @@
     [self setRightItemWithContentName:@"发布"];
     [self createSearchView];
     [self.navigationItem setTitleView:m_SearchView];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     [self createPageController];
     [self createCollectionView];
+    [self httpRequestPostGetSupportInfoList];
 }
 
 - (void)rightBarButtonItemAction:(UIButton *)btn
@@ -67,12 +75,12 @@
 
 - (void)createCollectionView
 {
-    m_ContentView = [[BaseTableView alloc] initWithFrame:CGRectMake(0, DIF_PX(32), self.view.width, self.view.height) style:UITableViewStylePlain];
+    m_ContentView = [[BaseTableView alloc] initWithFrame:CGRectMake(0, DIF_PX(32), self.view.width, self.view.height-DIF_PX(32)) style:UITableViewStylePlain];
     [m_ContentView setDelegate:self];
     [m_ContentView setDataSource:self];
     [m_ContentView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [m_ContentView setBackgroundColor:DIF_HEXCOLOR(@"f4f4f4")];
-    [m_ContentView setContentInset:UIEdgeInsetsMake(0, 0, 100, 0)];
+//    [m_ContentView setContentInset:UIEdgeInsetsMake(0, 0, 100, 0)];
     [self.view addSubview:m_ContentView];
 }
 
@@ -142,7 +150,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.supportInfoList.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -157,7 +165,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ShopInformationViewCell *cell = [ShopInformationViewCell cellClassName:@"ShopInformationViewCell" InTableView:tableView forContenteMode:nil];
+    ShopInformationViewCell *cell = [ShopInformationViewCell cellClassName:@"ShopInformationViewCell"
+                                                               InTableView:tableView
+                                                           forContenteMode:self.supportInfoList[indexPath.row]];
     return cell;
 }
 
@@ -166,6 +176,29 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(8))];
     [view setBackgroundColor:DIF_HEXCOLOR(@"f4f4f4")];
     return view;
+}
+
+#pragma mark - Http Request
+
+- (void)httpRequestPostGetSupportInfoList
+{
+    [CommonHUD showHUD];
+    DIF_WeakSelf(self)
+    [DIF_CommonHttpAdapter httpRequestPostGetSupportInfoListWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+        DIF_StrongSelf
+        if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
+        {
+            [CommonHUD hideHUD];
+            strongSelf.supportInfoList = responseModel[@"data"][@"list"];
+            [strongSelf->m_ContentView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+        }
+        else
+        {
+            [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
+        }
+    } FailedBlcok:^(NSError *error) {
+        [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
+    }];
 }
 
 @end

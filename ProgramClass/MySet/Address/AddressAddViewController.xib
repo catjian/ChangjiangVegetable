@@ -12,6 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddressAddViewController">
             <connections>
+                <outlet property="addressInfoTF" destination="giC-g4-JQh" id="W2Q-uv-ZDb"/>
+                <outlet property="cityTF" destination="5pR-oI-ckY" id="0pP-xO-bfq"/>
+                <outlet property="countyTF" destination="Fz7-pm-fBY" id="vHy-tf-3RN"/>
+                <outlet property="nameLab" destination="1rp-DH-Abl" id="uK0-6p-oqJ"/>
+                <outlet property="phoneTF" destination="gnI-YT-fjg" id="Ueu-9n-2h9"/>
+                <outlet property="provinceTF" destination="26d-1K-sNq" id="Tas-JI-3lB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -150,7 +156,7 @@
                 <constraint firstItem="MAf-8N-dsD" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="mRF-NO-JEw"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-183" y="130"/>
+            <point key="canvasLocation" x="-414" y="130"/>
         </view>
     </objects>
 </document>

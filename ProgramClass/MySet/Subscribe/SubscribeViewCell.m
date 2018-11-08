@@ -58,4 +58,12 @@
     return self;
 }
 
+- (void)loadData:(NSDictionary *)model
+{
+    [self.detailLab setText:model[@"articleTitle"]];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:model[@"articleImgUrl"]]];
+    [self.dateLab setText:model[@"createDate"]];
+    [self.readNumLab setText:[NSString stringWithFormat:@"阅读量：%d",[model[@"watchNum"] intValue]]];
+}
+
 @end

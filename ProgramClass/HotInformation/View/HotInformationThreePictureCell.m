@@ -22,7 +22,7 @@
         [self.titleLab setLineBreakMode:NSLineBreakByCharWrapping];
         [self.contentView addSubview:self.titleLab];
         
-        CGFloat screenWidth = (DIF_SCREEN_WIDTH-12*2-4*2)/3;
+        CGFloat screenWidth = (DIF_SCREEN_WIDTH-DIF_PX(12*2+4*2))/3;
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(DIF_PX(12), self.titleLab.bottom, screenWidth, DIF_PX(74))];
         [self.contentView addSubview:self.imageView];
         self.imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(self.imageView.right+DIF_PX(4), self.imageView.top, self.imageView.width, self.imageView.height)];

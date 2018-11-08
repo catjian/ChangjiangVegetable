@@ -41,13 +41,13 @@ static CommonHttpAdapter *comHttp = nil;
 - (void)initAFNSession
 {
     httpSessionManager = nil;
-//    NSString *requsetType = @"https";
-//    if (![DIF_CommonCurrentUser.serviceHost isEqualToString:@"192.168.100.243:51120"])
-//    {
-//        requsetType = @"http";
-//    }
-//    m_BaseUrl = [NSString stringWithFormat:@"%@://%@:%@/%@/",requsetType,DIF_CommonCurrentUser.serviceHost,DIF_CommonCurrentUser.servicePort,DIF_CommonCurrentUser.serviceName];
-//    m_BaseUrl = @"http://192.168.100.243:51120";
+    //    NSString *requsetType = @"https";
+    //    if (![DIF_CommonCurrentUser.serviceHost isEqualToString:@"192.168.100.243:51120"])
+    //    {
+    //        requsetType = @"http";
+    //    }
+    //    m_BaseUrl = [NSString stringWithFormat:@"%@://%@:%@/%@/",requsetType,DIF_CommonCurrentUser.serviceHost,DIF_CommonCurrentUser.servicePort,DIF_CommonCurrentUser.serviceName];
+    //    m_BaseUrl = @"http://192.168.100.243:51120";
     httpSessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:BaseUrl]];
     [httpSessionManager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
     httpSessionManager.requestSerializer.timeoutInterval = 30;
@@ -55,25 +55,25 @@ static CommonHttpAdapter *comHttp = nil;
     AFJSONResponseSerializer *response = (AFJSONResponseSerializer *)httpSessionManager.responseSerializer;
     httpSessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/xml",@"application/json", @"text/json", @"text/javascript",@"text/html",@"application/x-www-form-urlencoded", nil];
     response.removesKeysWithNullValues = YES;
-//    if ([DIF_CommonCurrentUser.serviceHost isEqualToString:@"www.jlxxxfw.cn"])
-//    {
-//        [self setHttpsCertificate];
-//    }
+    //    if ([DIF_CommonCurrentUser.serviceHost isEqualToString:@"www.jlxxxfw.cn"])
+    //    {
+    //        [self setHttpsCertificate];
+    //    }
 }
 
 - (void)setBaseUrl:(NSString *)url
 {
-//    NSString *requsetType = @"https";
-//    if (![DIF_CommonCurrentUser.serviceHost isEqualToString:@"www.jlxxxfw.cn"])
-//    {
-//        requsetType = @"http";
-//    }
+    //    NSString *requsetType = @"https";
+    //    if (![DIF_CommonCurrentUser.serviceHost isEqualToString:@"www.jlxxxfw.cn"])
+    //    {
+    //        requsetType = @"http";
+    //    }
     m_BaseUrl = [NSString stringWithFormat:@"%@/",url];
     [httpSessionManager setBaseURL:[NSURL URLWithString:m_BaseUrl]];
-//    if ([DIF_CommonCurrentUser.serviceHost isEqualToString:@"www.jlxxxfw.cn"])
-//    {
-//        [self setHttpsCertificate];
-//    }
+    //    if ([DIF_CommonCurrentUser.serviceHost isEqualToString:@"www.jlxxxfw.cn"])
+    //    {
+    //        [self setHttpsCertificate];
+    //    }
 }
 
 -(BOOL) connectedToNetwork
@@ -104,15 +104,15 @@ static CommonHttpAdapter *comHttp = nil;
 
 - (void)setHttpsCertificate
 {
-//    __block NSString *cerPath = [[NSBundle mainBundle] pathForResource:@"appClient" ofType:@"cer"];
-//    NSData *cerData = [NSData dataWithContentsOfFile:cerPath];
-//    securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
-//    securityPolicy.allowInvalidCertificates = YES;
-////    securityPolicy.validatesDomainName = NO;
-//    NSSet *set = [[NSSet alloc] initWithObjects:cerData, nil];
-//    securityPolicy.pinnedCertificates = set;
-//
-//    httpSessionManager.securityPolicy = securityPolicy;
+    //    __block NSString *cerPath = [[NSBundle mainBundle] pathForResource:@"appClient" ofType:@"cer"];
+    //    NSData *cerData = [NSData dataWithContentsOfFile:cerPath];
+    //    securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
+    //    securityPolicy.allowInvalidCertificates = YES;
+    ////    securityPolicy.validatesDomainName = NO;
+    //    NSSet *set = [[NSSet alloc] initWithObjects:cerData, nil];
+    //    securityPolicy.pinnedCertificates = set;
+    //
+    //    httpSessionManager.securityPolicy = securityPolicy;
 }
 
 - (NSString *)parametersToString:(NSDictionary *)params
@@ -282,11 +282,11 @@ static CommonHttpAdapter *comHttp = nil;
         block?block(ENUM_COMMONHTTP_RESPONSE_TYPE_FAULSE,@{@"message":DIF_HTTP_REQUEST_PARMS_NULL}):nil;
         return;
     }
-//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parms
-//                                                       options:NSJSONWritingPrettyPrinted error:nil];
-//    // NSData转为NSString
-//    NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-//    DebugLog(@"command = %@\nresponseObject = %@",command,jsonStr);
+    //    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parms
+    //                                                       options:NSJSONWritingPrettyPrinted error:nil];
+    //    // NSData转为NSString
+    //    NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    //    DebugLog(@"command = %@\nresponseObject = %@",command,jsonStr);
     NSMutableURLRequest *request =
     [self reWrteCreateHttpRequstWithMethod:@"POST"
                                  URLString:[command stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]
@@ -326,9 +326,9 @@ static CommonHttpAdapter *comHttp = nil;
 
 #pragma mark - Put请求
 - (void)HttpPutRequestWithCommand:(NSString *)command
-                        parameters:(NSDictionary *)parms
-                     ResponseBlock:(CommonHttpResponseBlock)block
-                       FailedBlcok:(CommonHttpResponseFailed)failedBlock
+                       parameters:(NSDictionary *)parms
+                    ResponseBlock:(CommonHttpResponseBlock)block
+                      FailedBlcok:(CommonHttpResponseFailed)failedBlock
 {
     if (![self connectedToNetwork])
     {
@@ -356,7 +356,7 @@ static CommonHttpAdapter *comHttp = nil;
     [self httpRequest:request
              progress:nil
               success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//                  DebugLog(@"responseObject = %@",responseObject);
+                  //                  DebugLog(@"responseObject = %@",responseObject);
                   if (block)
                   {
                       if ([responseObject[@"code"] integerValue] == 200)
@@ -537,9 +537,9 @@ static CommonHttpAdapter *comHttp = nil;
          {
              if ([responseObject[@"code"] integerValue] == 604)
              {
-//                 [self refreshAccessTokenWithSuccessBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
-//                     [self HttpGetRequestWithCommand:command parameters:parms ResponseBlock:block FailedBlcok:failedBlock];
-//                 }];
+                 //                 [self refreshAccessTokenWithSuccessBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+                 //                     [self HttpGetRequestWithCommand:command parameters:parms ResponseBlock:block FailedBlcok:failedBlock];
+                 //                 }];
                  DIF_POP_TO_LOGIN
              }
              else
@@ -630,4 +630,125 @@ static CommonHttpAdapter *comHttp = nil;
                          FailedBlcok:failedBlock];
 }
 
+#pragma mark - 获取我要读刊界面的Banner
+- (void)httpRequestGetReadBookBannerWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                          FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"getReadBookBanner"
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+#pragma mark - 根据类型获取读刊数据列表
+- (void)httpRequestPostGetBookListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                        FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostRequestWithCommand:@"getBookList"
+                          parameters:nil
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 获取我的书刊列表
+- (void)httpRequestPostGetMyBookListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                          FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostRequestWithCommand:@"getMyBookList"
+                          parameters:nil
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 获取在线问诊的头部两部分数据
+- (void)httpRequestGetOnlineDoctorDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                            FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"getOnlineDoctorData"
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+#pragma mark - 在线问诊列表数据，分页
+- (void)httpRequestPostGetOnlineDoctorArticleListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                                       FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostRequestWithCommand:@"getOnlineDoctorArticleList"
+                          parameters:nil
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+
+#pragma mark - 获取供求信息列表 传参type
+- (void)httpRequestPostGetSupportInfoListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                               FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostRequestWithCommand:@"getSupportInfoList"
+                          parameters:nil
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 根据菜单id获取我的评论列表
+- (void)httpRequestPostGetFeedbackListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                            FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostRequestWithCommand:@"getFeedbackList"
+                          parameters:nil
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+#pragma mark - 根据菜单id获取我的收藏列表
+- (void)httpRequestPostGetCollectionListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                              FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostRequestWithCommand:@"getCollectionList"
+                          parameters:nil
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 根据菜单id获取我的历史记录列表
+- (void)httpRequestPostGetHistoryListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                           FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostRequestWithCommand:@"getHistoryList"
+                          parameters:nil
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 获取用户地址信息
+- (void)httpRequestPostGetCustomAddressWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostRequestWithCommand:@"getCustomAddress"
+                          parameters:nil
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 获取订单列表，传参type区分：全部，待发货等状态
+- (void)httpRequestPostGetOrderListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                         FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostRequestWithCommand:@"getOrderList"
+                          parameters:nil
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 获取物流信息
+- (void)httpRequestPostGetExpressInfoWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                           FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostRequestWithCommand:@"getExpressInfo"
+                          parameters:nil
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
 @end
+

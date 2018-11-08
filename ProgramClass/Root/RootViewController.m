@@ -71,6 +71,7 @@
                             [strongSelf loadViewController:@"BookStoreViewController" hidesBottomBarWhenPushed:NO];
                             break;
                         case 2:
+                            [strongSelf loadViewController:@"OnlineDoctorViewController" hidesBottomBarWhenPushed:NO];
                             break;
                         case 3:
                             [strongSelf loadViewController:@"ShopInformationViewController" hidesBottomBarWhenPushed:NO];
@@ -139,7 +140,7 @@
     [placeholder FontAttributeNameWithFont:DIF_UIFONTOFSIZE(14) Range:NSMakeRange(0, placeholder.length)];
     [placeholder ForegroundColorAttributeNamWithColor:DIF_HEXCOLOR(@"cccccc") Range:NSMakeRange(0, placeholder.length)];
     [placeholder attatchImage:[UIImage imageNamed:@"椭圆1"]
-                   imageFrame:CGRectMake(0, -(m_SearchTextField.height-18)/2, 18, 18)
+                   imageFrame:CGRectMake(0, -4, 18, 18)
                         Range:NSMakeRange(0, 0)];
     [m_SearchTextField setAttributedPlaceholder:placeholder];
 }

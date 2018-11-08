@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BookStoreBaseView : UIView
 
+@property (nonatomic, copy) tableViewSelectRowAtIndexPathBlock selectBlock;
+@property (nonatomic, strong) NSArray *bannerArr;
+@property (nonatomic, strong) NSArray *bookListArr;
+
 @end
 
 NS_ASSUME_NONNULL_END

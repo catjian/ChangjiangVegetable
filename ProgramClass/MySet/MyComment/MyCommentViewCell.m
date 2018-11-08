@@ -76,4 +76,15 @@
     return self;
 }
 
+- (void)loadData:(NSDictionary *)model
+{
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model[@"userPortraitUrl"]]];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:model[@"articleImgUrl"]]];
+    [self.titleLab setText:model[@"userName"]];
+    [self.subtitleLab setText:model[@"articleTitle"]];
+    [self.detailLab setText:model[@"feedbackContent"]];
+    [self.dateLab setText:model[@"createDate"]];
+    [self.readNumLab setText:[NSString stringWithFormat:@"阅读量：%d",[model[@"watchNum"] intValue]]];
+}
+
 @end

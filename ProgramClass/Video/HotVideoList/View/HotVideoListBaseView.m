@@ -74,7 +74,7 @@
     [cell.titleLab setText:videoDic[@"title"]];
     NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",[videoDic[@"watchNum"] intValue]]];
     [placeholder attatchImage:[UIImage imageNamed:@"浏览"]
-                   imageFrame:CGRectMake(0, -(cell.detailLab.height-14)/2, 20, 11)
+                   imageFrame:CGRectMake(0, 0, 20, 11)
                         Range:NSMakeRange(0, 0)];
     [cell.detailLab setAttributedText:placeholder];
     [cell.zanBtn setTitle:[NSString stringWithFormat:@"%d",[videoDic[@"likeNum"] intValue]]

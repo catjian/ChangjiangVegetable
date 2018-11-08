@@ -46,6 +46,14 @@
     [m_ContentView setBackgroundColor:DIF_HEXCOLOR(@"")];
 }
 
+- (void)setBookListArr:(NSArray *)bookListArr
+{
+    _bookListArr = bookListArr;
+    [m_ContentView performSelectorOnMainThread:@selector(reloadData)
+                                    withObject:nil
+                                 waitUntilDone:NO];
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -55,7 +63,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 14;
+    return self.bookListArr.count+1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -64,10 +72,8 @@
     BookCoverCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     [cell.imageView setFrame:CGRectMake(0, 6, DIF_PX(96), DIF_PX(130))];
     [cell.imageView setCenterX:(DIF_SCREEN_WIDTH)/3/2];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2532/25326440/raw_1537325759.jpeg"]];
-    [cell.titleLab setText:@"2018年（上）"];
     [cell.titleLab setTop:cell.imageView.bottom];
-    if (indexPath.row == 13)
+    if (indexPath.row == self.bookListArr.count)
     {
         UIImage *add = [UIImage imageNamed:@"加"];
         [cell.imageView setSize:add.size];
@@ -76,6 +82,12 @@
         [cell.imageView setImage:add];
         [cell.titleLab setText:@"逛书城"];
         [cell.titleLab setTop:cell.imageView.bottom];
+    }
+    else
+    {
+        NSDictionary *bookDic = self.bookListArr[indexPath.row];
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:bookDic[@"bookImgUrl"]]];
+        [cell.titleLab setText:bookDic[@"bookName"]];
     }
     return cell;
 }
@@ -88,6 +100,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.selectBlock)
+    {
+        self.selectBlock(indexPath, nil);
+    }
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout

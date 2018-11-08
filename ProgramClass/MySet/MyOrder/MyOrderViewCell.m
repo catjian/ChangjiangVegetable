@@ -104,4 +104,19 @@
     return self;
 }
 
+- (void)loadData:(NSDictionary *)model
+{
+    [self.addressLab setText:model[@"shopName"]];
+    [self.statusLab setText:model[@"orderStatusName"]];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:model[@"goodsImgUrl"]]];
+    [self.detailLab setText:model[@"goodsName"]];
+    [self.singleMoneyLab setText:[NSString stringWithFormat:@"￥%@",[model[@"goodsPrice"] stringValue]]];
+    NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"共%d件商品  合计： %@ 元",
+                                                                                           [model[@"goodsNum"] intValue],[model[@"orderTotalPrice"] stringValue]]];
+    NSRange range = [attStr.string rangeOfString:@"合计："];
+    [attStr ForegroundColorAttributeNamWithColor:DIF_HEXCOLOR(@"fc6060")
+                                           Range:NSMakeRange(range.location+range.length, attStr.string.length - range.length-range.location-1)];
+    [self.allMoneyLab setAttributedText:attStr];
+}
+
 @end

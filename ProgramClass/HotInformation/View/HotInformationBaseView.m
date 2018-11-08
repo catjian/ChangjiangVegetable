@@ -128,9 +128,16 @@
             [cell.imageView3 sd_setImageWithURL:[NSURL URLWithString:imgUrlList[2]]];
         }
         [cell.titleLab setText:videoDic[@"title"]];
-        //        NSString *date = [CommonDate dateToString:[NSDate dateWithTimeIntervalSince1970:[videoDic[@"createDate"] integerValue]/1000]
-        //                                          Formate:@"yyyy年MM月dd日"];
-        [cell.detailLab setText:[NSString stringWithFormat:@"%@    阅读量：%d@",videoDic[@"createDate"],[videoDic[@"readNum"] intValue]]];
+        if ([videoDic[@"createDate"] isKindOfClass:[NSNumber class]])
+        {
+            NSString *date = [CommonDate dateToString:[NSDate dateWithTimeIntervalSince1970:[videoDic[@"createDate"] integerValue]/1000]
+                                              Formate:@"yyyy年MM月dd日"];
+            [cell.detailLab setText:[NSString stringWithFormat:@"%@    阅读量：%d@",date,[videoDic[@"readNum"] intValue]]];
+        }
+        else
+        {
+            [cell.detailLab setText:[NSString stringWithFormat:@"%@    阅读量：%d@",videoDic[@"createDate"],[videoDic[@"readNum"] intValue]]];
+        }
         return cell;
     }
 }

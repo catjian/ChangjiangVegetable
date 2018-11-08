@@ -37,9 +37,15 @@
     [contentView setTag:1000];
     [self addSubview:contentView];
     
-    UIImageView *headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(100))];
-    [headerImageView sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2504/25043337/raw_1536734004.jpeg"]];
+    CommonADAutoView *headerImageView = [[CommonADAutoView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(100))];
+    [headerImageView setTag:10001];
+    [headerImageView setBackgroundColor:DIF_HEXCOLOR(@"017aff")];
     [contentView addSubview:headerImageView];
+    [headerImageView setSelectBlock:^(NSInteger page) {
+    }];
+    NSMutableArray *picArr = [NSMutableArray array];
+    [picArr addObject:@"https://free.modao.cc/uploads3/images/2504/25041835/raw_1536733080.jpeg"];
+    headerImageView.picArr = picArr;
     
     UIView *buttonsView = [[UIView alloc] initWithFrame:CGRectMake(0, headerImageView.bottom, DIF_SCREEN_WIDTH, DIF_PX(50))];
     [contentView addSubview:buttonsView];
@@ -88,6 +94,24 @@
     [m_ContentView setBackgroundColor:DIF_HEXCOLOR(@"")];
 }
 
+- (void)setBannerArr:(NSArray *)bannerArr
+{
+    _bannerArr = bannerArr;
+    CommonADAutoView *adView = [[self viewWithTag:1000] viewWithTag:10001];
+    if (self.bannerArr.count > 0)
+    {
+        adView.picArr = bannerArr;
+    }
+}
+
+- (void)setBookListArr:(NSArray *)bookListArr
+{
+    _bookListArr = bookListArr;
+    [m_ContentView performSelectorOnMainThread:@selector(reloadData)
+                                    withObject:nil
+                                 waitUntilDone:NO];
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -97,15 +121,16 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 14;
+    return self.bookListArr.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"CELLIDENTIFIER";
     BookCoverCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"https://free.modao.cc/uploads3/images/2532/25326440/raw_1537325759.jpeg"]];
-    [cell.titleLab setText:@"2018年（上）"];
+    NSDictionary *bookDic = self.bookListArr[indexPath.row];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:bookDic[@"bookImgUrl"]]];
+    [cell.titleLab setText:bookDic[@"bookName"]];
     return cell;
 }
 

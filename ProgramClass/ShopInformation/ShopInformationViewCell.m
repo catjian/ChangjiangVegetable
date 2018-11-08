@@ -57,7 +57,7 @@
         
         NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",8888]];
         [placeholder attatchImage:[UIImage imageNamed:@"浏览"]
-                       imageFrame:CGRectMake(0, -(self.iconView.height-11)/2, 20, 11)
+                       imageFrame:CGRectMake(0, 0, 20, 11)
                             Range:NSMakeRange(0, 0)];
         self.readNumLab = [[UILabel alloc] initWithFrame:CGRectMake(self.nameLab.right+DIF_PX(10), self.iconView.top, DIF_PX(64), self.iconView.height)];
         [self.readNumLab setFont:DIF_DIFONTOFSIZE(14)];
@@ -75,10 +75,9 @@
         [self.commentNumLab setAttributedText:placeholder];
         [backView addSubview:self.commentNumLab];
         
-        
         placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",8888]];
         [placeholder attatchImage:[UIImage imageNamed:@"点赞3"]
-                       imageFrame:CGRectMake(0, -(self.iconView.height-16)/2, 16, 16)
+                       imageFrame:CGRectMake(0, -2, 16, 16)
                             Range:NSMakeRange(0, 0)];
         self.zanNumLab = [[UILabel alloc] initWithFrame:CGRectMake(self.commentNumLab.right+DIF_PX(10), self.readNumLab.top, self.readNumLab.width, self.readNumLab.height)];
         [self.zanNumLab setFont:DIF_DIFONTOFSIZE(14)];
@@ -87,6 +86,30 @@
         [backView addSubview:self.zanNumLab];
     }
     return self;
+}
+
+- (void)loadData:(NSDictionary *)model
+{
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model[@"userPortraitUrl"]]];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:model[@"imgUrl"]]];
+    [self.nameLab setText:model[@"userName"]];
+    [self.titleLab setText:model[@"title"]];
+    [self.detailLab setText:model[@"content"]];
+    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",[model[@"watchNum"] intValue]]];
+    [placeholder attatchImage:[UIImage imageNamed:@"浏览"]
+                   imageFrame:CGRectMake(0, 0, 20, 11)
+                        Range:NSMakeRange(0, 0)];
+    [self.readNumLab setAttributedText:placeholder];
+    placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",[model[@"feedbackNum"] intValue]]];
+    [placeholder attatchImage:[UIImage imageNamed:@"消息"]
+                   imageFrame:CGRectMake(0, -(self.iconView.height-18)/2, 18, 18)
+                        Range:NSMakeRange(0, 0)];
+    [self.commentNumLab setAttributedText:placeholder];
+    placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",[model[@"likeNum"] intValue]]];
+    [placeholder attatchImage:[UIImage imageNamed:@"点赞3"]
+                   imageFrame:CGRectMake(0, -2, 16, 16)
+                        Range:NSMakeRange(0, 0)];
+    [self.zanNumLab setAttributedText:placeholder];
 }
 
 @end

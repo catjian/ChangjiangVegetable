@@ -11,6 +11,8 @@
 
 @interface MyCommentViewController ()<UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) NSArray *feedbackList;
+
 @end
 
 @implementation MyCommentViewController
@@ -33,8 +35,14 @@
     DIF_HideTabBarAnimation(YES);
     [self setNavTarBarTitle:@"我的评论"];
     m_ChannelArray = @[@{@"menuName":@"资讯"},@{@"menuName":@"视频"},@{@"menuName":@"店铺"},@{@"menuName":@"商品"},@{@"menuName":@"网展"},@{@"menuName":@"远程问诊"}];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     [self createPageController];
     [self createCollectionView];
+    [self httpRequestPostGetFeedbackList];
 }
 
 - (void)createPageController
@@ -55,7 +63,7 @@
 
 - (void)createCollectionView
 {
-    m_ContentView = [[BaseTableView alloc] initWithFrame:CGRectMake(0, DIF_PX(40), self.view.width, self.view.height) style:UITableViewStylePlain];
+    m_ContentView = [[BaseTableView alloc] initWithFrame:CGRectMake(0, DIF_PX(40), self.view.width, self.view.height-DIF_PX(40)) style:UITableViewStylePlain];
     [m_ContentView setDelegate:self];
     [m_ContentView setDataSource:self];
     [m_ContentView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
@@ -67,7 +75,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.feedbackList.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -82,7 +90,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MyCommentViewCell *cell = [MyCommentViewCell cellClassName:@"MyCommentViewCell" InTableView:tableView forContenteMode:nil];
+    MyCommentViewCell *cell = [MyCommentViewCell cellClassName:@"MyCommentViewCell"
+                                                   InTableView:tableView
+                                               forContenteMode:self.feedbackList[indexPath.row]];
     return cell;
 }
 
@@ -93,4 +103,26 @@
     return view;
 }
 
+#pragma mark - Http Request
+
+- (void)httpRequestPostGetFeedbackList
+{
+    [CommonHUD showHUD];
+    DIF_WeakSelf(self)
+    [DIF_CommonHttpAdapter httpRequestPostGetFeedbackListWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+        DIF_StrongSelf
+        if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
+        {
+            [CommonHUD hideHUD];
+            strongSelf.feedbackList = responseModel[@"data"][@"list"];
+            [strongSelf->m_ContentView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+        }
+        else
+        {
+            [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
+        }
+    } FailedBlcok:^(NSError *error) {
+        [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
+    }];
+}
 @end
