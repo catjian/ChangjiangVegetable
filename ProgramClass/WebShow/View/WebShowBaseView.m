@@ -116,7 +116,7 @@
         }
         CommonADAutoView *adView = [titleView viewWithTag:10001];
         NSMutableArray *picArr = [NSMutableArray array];
-        [picArr addObject:@"https://free.modao.cc/uploads3/images/2504/25041835/raw_1536733080.jpeg"];
+        [picArr addObject:@{@"image_url":@"https://free.modao.cc/uploads3/images/2504/25041835/raw_1536733080.jpeg"}];
         if (self.allDataDic[@"banner"] && [self.allDataDic[@"banner"] count] > 0)
         {
             [picArr removeAllObjects];

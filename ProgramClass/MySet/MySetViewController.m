@@ -59,8 +59,11 @@
                         case 2:
                             [strongSelf loadViewController:@"PayInputDetailViewController" hidesBottomBarWhenPushed:NO];
                             break;
-                        default:
+                        case 3:
                             [strongSelf loadViewController:@"MyOrderViewController" hidesBottomBarWhenPushed:NO];
+                            break;
+                        default:
+                            [strongSelf httpRequestSignIn];
                             break;
                     }
                 }
@@ -96,6 +99,54 @@
             }
         }];
     }
+    [self httpRequestGetUser];
+}
+
+#pragma mark - http request
+
+- (void)httpRequestGetUser
+{
+    [CommonHUD showHUD];
+    DIF_WeakSelf(self)
+    [DIF_CommonHttpAdapter
+     httpRequestGetUserWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+        if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
+        {
+            DIF_StrongSelf
+            NSDictionary *responseData = responseModel[@"data"];
+            DIF_CommonCurrentUser.userInfo = responseData;
+            [strongSelf->m_BaseView performSelectorOnMainThread:@selector(reloadData)
+                                                     withObject:nil
+                                                  waitUntilDone:NO];
+            [CommonHUD hideHUD];
+        }
+        else
+        {
+            [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
+        }
+    }
+     FailedBlcok:^(NSError *error) {
+         [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
+     }];
+}
+
+- (void)httpRequestSignIn
+{
+    [CommonHUD showHUD];
+    [DIF_CommonHttpAdapter
+     httpRequestSignInWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
+         {
+             [CommonHUD delayShowHUDWithMessage:@"签到成功"];
+         }
+         else
+         {
+             [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
+         }
+     }
+     FailedBlcok:^(NSError *error) {
+         [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
+     }];
 }
 
 @end

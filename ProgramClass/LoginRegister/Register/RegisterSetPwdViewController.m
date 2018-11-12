@@ -39,7 +39,38 @@
 
 - (IBAction)finishButtonEvent:(id)sender
 {
-    [self.navigationController popToRootViewControllerAnimated:YES];    
+    if(self.passwordTF.text.isNull)
+    {
+        [CommonHUD delayShowHUDWithMessage:@"请输入密码"];
+        return;
+    }
+    [CommonHUD showHUDWithMessage:@"正在注册..."];
+    DIF_WeakSelf(self)
+    [DIF_CommonHttpAdapter
+     httpRequestRegisterWithMobile:self.phoneNum
+     NewPassword:self.passwordTF.text
+     VerifyCode:self.verifycode
+     ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
+         {
+             DIF_StrongSelf
+             for(UIViewController *vc in strongSelf.navigationController.viewControllers)
+             {
+                 if ([vc isKindOfClass:[LoginViewController class]])
+                 {
+                     [strongSelf.navigationController popToViewController:vc animated:YES];
+                 }
+             }
+             [CommonHUD delayShowHUDWithMessage:@"注册成功"];
+         }
+         else
+         {
+             [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
+         }
+     }
+     FailedBlcok:^(NSError *error) {
+         [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
+     }];
 }
 
 @end

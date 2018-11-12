@@ -27,6 +27,8 @@
 @property (nonatomic, copy) NSString *accessToken;
 @property (nonatomic, copy) NSString *refreshToken;
 
+@property (nonatomic, strong) NSDictionary *userInfo;
+
 
 
 + (CommonCurrentUser *)sharedInstance;

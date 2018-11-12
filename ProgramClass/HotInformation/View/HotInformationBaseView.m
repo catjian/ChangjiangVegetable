@@ -53,7 +53,6 @@
     [btn setTitleColor:DIF_HEXCOLOR(@"808080") forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(pageControlSelectChannelButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:btn];
-    [self createCollectionView];
 }
 
 - (void)pageControlSelectChannelButtonEvent:(UIButton *)btn
@@ -80,10 +79,16 @@
 //    [m_ContentView setContentInset:UIEdgeInsetsMake(0, 0, 90, 0)];
 }
 
+- (void)setChannelArray:(NSArray *)channelArray
+{
+    _channelArray = channelArray;
+    [self createPageController];
+}
+
 - (void)setAllDataDic:(NSDictionary *)allDataDic
 {
     _allDataDic = allDataDic;
-    [self createPageController];
+    [self createCollectionView];
     [m_ContentView reloadData];
 }
 

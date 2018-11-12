@@ -107,7 +107,14 @@
             }
         }];
     }
-    [self httpRequestGetMainData];
+    if(DIF_CommonHttpAdapter.access_token)
+    {
+        [self httpRequestGetMainData];
+    }
+    else
+    {
+        [self loadViewController:@"LoginViewController" hidesBottomBarWhenPushed:NO];
+    }
 }
 
 #pragma mark - Search Event Object

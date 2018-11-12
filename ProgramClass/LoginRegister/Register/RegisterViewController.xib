@@ -38,7 +38,7 @@
                     </constraints>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOA-Ef-DPn">
                     <rect key="frame" x="0.0" y="66" width="375" height="1"/>
@@ -54,7 +54,7 @@
                     </constraints>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xTB-hQ-vi8">
                     <rect key="frame" x="0.0" y="112" width="375" height="1"/>
@@ -77,7 +77,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZH-kL-q8Q">
-                    <rect key="frame" x="77" y="138" width="220" height="42"/>
+                    <rect key="frame" x="77.5" y="138" width="220" height="42"/>
                     <color key="backgroundColor" red="0.8980392157" green="0.23529411759999999" blue="0.10980392160000001" alpha="0.5" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="220" id="69C-Wc-OLL"/>

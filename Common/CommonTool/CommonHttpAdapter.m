@@ -175,6 +175,10 @@ static CommonHttpAdapter *comHttp = nil;
         }
         return nil;
     }
+    if (self.access_token && self.access_token.length > 0)
+    {
+        [request setValue:self.access_token forHTTPHeaderField:@"Authorization"];
+    }
     return request;
 }
 
@@ -282,15 +286,19 @@ static CommonHttpAdapter *comHttp = nil;
         block?block(ENUM_COMMONHTTP_RESPONSE_TYPE_FAULSE,@{@"message":DIF_HTTP_REQUEST_PARMS_NULL}):nil;
         return;
     }
-    //    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parms
-    //                                                       options:NSJSONWritingPrettyPrinted error:nil];
-    //    // NSData转为NSString
-    //    NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    //    DebugLog(@"command = %@\nresponseObject = %@",command,jsonStr);
+    if (parms)
+    {
+        command = [command stringByAppendingFormat:@"?%@",[self parametersToString:parms]];
+    }
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parms
+                                                       options:NSJSONWritingPrettyPrinted error:nil];
+    // NSData转为NSString
+    NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    DebugLog(@"command = %@\nresponseObject = %@",command,jsonStr);
     NSMutableURLRequest *request =
     [self reWrteCreateHttpRequstWithMethod:@"POST"
                                  URLString:[command stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]
-                                parameters:parms
+                                parameters:nil
                                    failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                                        DebugLog(@"error = %@",error);
                                        if (failedBlock)
@@ -322,6 +330,32 @@ static CommonHttpAdapter *comHttp = nil;
                       failedBlock(error);
                   }
               }];
+}
+
+#pragma mark - 刷新accessToken
+
+- (void)refreshAccessTokenWithSuccessBlock:(CommonHttpResponseBlock)block
+{
+    [self HttpPostRequestWithCommand:@"/yangtze_veg/auth/refresh"
+                          parameters:@{@"refreshToken":self.refresh_token}
+                       ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+                           if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
+                           {
+                               NSDictionary *responseData = responseModel[@"data"];
+                               DIF_CommonCurrentUser.accessToken = responseData[@"token"];
+                               DIF_CommonCurrentUser.refreshToken = responseData[@"refresh_token"];
+                               DIF_CommonHttpAdapter.access_token = DIF_CommonCurrentUser.accessToken;
+                               DIF_CommonHttpAdapter.refresh_token = DIF_CommonCurrentUser.refreshToken;
+                               block?block(ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS, nil):[CommonHUD delayShowHUDWithMessage:@"秘钥已刷新，请重试"];
+                           }
+                           else
+                           {
+                               [CommonHUD delayShowHUDWithMessage:@"账户过期，请重新登录"];
+                               //                               DIF_POP_TO_LOGIN
+                           }
+                       } FailedBlcok:^(NSError *error) {
+                           [CommonHUD delayShowHUDWithMessage:DIF_Request_NET_ERROR];
+                       }];
 }
 
 #pragma mark - Put请求
@@ -560,11 +594,119 @@ static CommonHttpAdapter *comHttp = nil;
 }
 
 #pragma mark - Interface
+
+#pragma mark - 登录接口
+- (void)httpRequestLoginWithMobile:(NSString *)mobile
+                          Password:(NSString *)password
+                     ResponseBlock:(CommonHttpResponseBlock)successBlock
+                       FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    if (mobile.isNull || password.isNull)
+    {
+        failedBlock([NSError errorWithDomain:DIF_HTTP_REQUEST_PARMS_NULL
+                                        code:-100
+                                    userInfo:@{@"errorMsg":DIF_HTTP_REQUEST_PARMS_NULL}]);
+    }
+    [self HttpPostRequestWithCommand:@"/yangtze_veg/auth/login"
+                          parameters:@{@"mobile":mobile, @"password":password}
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 忘记密码获取验证码
+- (void)httpRequestGetForgotPasswordVerifycodeWithMobile:(NSString *)mobile
+                                           ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    if (mobile.isNull)
+    {
+        failedBlock([NSError errorWithDomain:DIF_HTTP_REQUEST_PARMS_NULL
+                                        code:-100
+                                    userInfo:@{@"errorMsg":DIF_HTTP_REQUEST_PARMS_NULL}]);
+    }
+    [self HttpPostRequestWithCommand:@"/yangtze_veg/register/getForgotPasswordVerifycode"
+                          parameters:@{@"mobile":mobile}
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 忘记密码1
+- (void)httpRequestForgotPassword1WithMobile:(NSString *)mobile
+                               ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                 FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    if (mobile.isNull)
+    {
+        failedBlock([NSError errorWithDomain:DIF_HTTP_REQUEST_PARMS_NULL
+                                        code:-100
+                                    userInfo:@{@"errorMsg":DIF_HTTP_REQUEST_PARMS_NULL}]);
+    }
+    [self HttpPostRequestWithCommand:@"/yangtze_veg/register/forgotPassword1"
+                          parameters:@{@"mobile":mobile}
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 忘记密码2
+- (void)httpRequestForgotPassword2WithMobile:(NSString *)mobile
+                                 NewPassword:(NSString *)password
+                                  VerifyCode:(NSString *)verifycode
+                               ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                 FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    if (mobile.isNull || password.isNull || verifycode.isNull)
+    {
+        failedBlock([NSError errorWithDomain:DIF_HTTP_REQUEST_PARMS_NULL
+                                        code:-100
+                                    userInfo:@{@"errorMsg":DIF_HTTP_REQUEST_PARMS_NULL}]);
+    }
+    [self HttpPostRequestWithCommand:@"/yangtze_veg/register/forgotPassword2"
+                          parameters:@{@"mobile":mobile, @"newpwd":password,@"verifycode":verifycode}
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 注册获取验证码 /yangtze_veg/register/getVerifycode
+- (void)httpRequestGetVerifycodeWithMobile:(NSString *)mobile
+                             ResponseBlock:(CommonHttpResponseBlock)successBlock
+                               FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    if (mobile.isNull)
+    {
+        failedBlock([NSError errorWithDomain:DIF_HTTP_REQUEST_PARMS_NULL
+                                        code:-100
+                                    userInfo:@{@"errorMsg":DIF_HTTP_REQUEST_PARMS_NULL}]);
+    }
+    [self HttpPostRequestWithCommand:@"/yangtze_veg/register/getVerifycode"
+                          parameters:@{@"mobile":mobile}
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 注册 /yangtze_veg/register/register
+- (void)httpRequestRegisterWithMobile:(NSString *)mobile
+                          NewPassword:(NSString *)password
+                           VerifyCode:(NSString *)verifycode
+                        ResponseBlock:(CommonHttpResponseBlock)successBlock
+                          FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    if (mobile.isNull || password.isNull)
+    {
+        failedBlock([NSError errorWithDomain:DIF_HTTP_REQUEST_PARMS_NULL
+                                        code:-100
+                                    userInfo:@{@"errorMsg":DIF_HTTP_REQUEST_PARMS_NULL}]);
+    }
+    [self HttpPostRequestWithCommand:@"/yangtze_veg/register/register"
+                          parameters:@{@"mobile":mobile, @"password":password,@"verifycode":verifycode}
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
 #pragma mark - 获取首页数据接口
 - (void)httpRequestGetMainDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                     FailedBlcok:(CommonHttpResponseFailed)failedBlock
 {
-    [self HttpGetRequestWithCommand:@"getMainData"
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/getMainData"
                          parameters:nil
                       ResponseBlock:successBlock
                         FailedBlcok:failedBlock];
@@ -574,7 +716,7 @@ static CommonHttpAdapter *comHttp = nil;
 - (void)httpRequestGetMenuListWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                     FailedBlcok:(CommonHttpResponseFailed)failedBlock
 {
-    [self HttpGetRequestWithCommand:@"getMenuList"
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/cms/getMenuList"
                          parameters:nil
                       ResponseBlock:successBlock
                         FailedBlcok:failedBlock];
@@ -594,7 +736,7 @@ static CommonHttpAdapter *comHttp = nil;
 - (void)httpRequestGetShopDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                     FailedBlcok:(CommonHttpResponseFailed)failedBlock
 {
-    [self HttpGetRequestWithCommand:@"getShopData"
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/getShopData"
                          parameters:nil
                       ResponseBlock:successBlock
                         FailedBlcok:failedBlock];
@@ -611,11 +753,18 @@ static CommonHttpAdapter *comHttp = nil;
 }
 
 #pragma mark - 根据菜单ID获取资讯列表
-- (void)httpRequestGetTopicListByMenuIdWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock
+- (void)httpRequestGetTopicListByMenuIdWithMenuId:(NSString *)menuId
+                                         indePage:(NSString *)indePage
+                                         pageSize:(NSString *)pageSize
+                                              key:(NSString *)key
+                                    ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                      FailedBlcok:(CommonHttpResponseFailed)failedBlock
 {
-    [self HttpGetRequestWithCommand:@"getTopicListByMenuId"
-                         parameters:nil
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/cms/getTopicListByMenuId"
+                         parameters:@{@"menuId":menuId,
+                                      @"indePage":indePage,
+                                      @"pageSize":pageSize,
+                                      @"key":key}
                       ResponseBlock:successBlock
                         FailedBlcok:failedBlock];
 }
@@ -748,6 +897,26 @@ static CommonHttpAdapter *comHttp = nil;
                           parameters:nil
                        ResponseBlock:successBlock
                          FailedBlcok:failedBlock];
+}
+
+#pragma mark - 获取物流信息
+- (void)httpRequestGetUserWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/mycenter/getUser"
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+#pragma mark - 获取物流信息
+- (void)httpRequestSignInWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                               FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/mycenter/signIn"
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
 }
 
 @end

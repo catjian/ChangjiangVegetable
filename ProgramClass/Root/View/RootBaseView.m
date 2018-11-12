@@ -55,12 +55,15 @@
 
 - (void)runNoticeLab
 {
-    [m_NoticeLab setAlpha:0];
-    [m_NoticeLab setText:@"这次的黑锅，农药表示不背！木耳打药视频"];
+    [m_NoticeLab setText:@"暂无消息"];
     NSDictionary *list = self.allDataDic[@"list"];
     NSArray *noticeList = list[@"noticeList"];
-    [m_NoticeLab setText:noticeList[m_noticeIndex]];
-    m_noticeIndex = ++m_noticeIndex >= noticeList.count?0:m_noticeIndex;
+    if (noticeList.count > 0)
+    {
+        [m_NoticeLab setText:noticeList[m_noticeIndex]];
+        m_noticeIndex = ++m_noticeIndex >= noticeList.count?0:m_noticeIndex;
+    }
+    [m_NoticeLab setAlpha:0];
     DIF_WeakSelf(self)
     [UIView animateWithDuration:2 animations:^{
         DIF_StrongSelf
@@ -268,7 +271,7 @@
                 }
                 CommonADAutoView *adView = [titleView viewWithTag:10001];
                 NSMutableArray *picArr = [NSMutableArray array];
-                [picArr addObject:@"https://free.modao.cc/uploads3/images/2504/25041835/raw_1536733080.jpeg"];
+                [picArr addObject:@{@"image_url":@"https://free.modao.cc/uploads3/images/2504/25041835/raw_1536733080.jpeg"}];
                 if (self.allDataDic[@"banner"] && [self.allDataDic[@"banner"] count] > 0)
                 {
                     [picArr removeAllObjects];

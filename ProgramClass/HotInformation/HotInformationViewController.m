@@ -146,7 +146,10 @@
             DIF_StrongSelf
             [CommonHUD hideHUD];
             [strongSelf->m_BaseView setChannelArray:responseModel[@"data"]];
-            [strongSelf httpRequestGetTopicListByMenuId];
+            [strongSelf httpRequestGetTopicListByMenuId:responseModel[@"data"][0][@"menuId"]
+                                               indePage:@"1"
+                                               pageSize:@"10"
+                                                    key:@""];
         }
         else
         {
@@ -157,11 +160,19 @@
     }];
 }
 
-- (void)httpRequestGetTopicListByMenuId
+- (void)httpRequestGetTopicListByMenuId:(NSString *)menuId
+                               indePage:(NSString *)indePage
+                               pageSize:(NSString *)pageSize
+                                    key:(NSString *)key
 {
     [CommonHUD showHUD];
     DIF_WeakSelf(self)
-    [DIF_CommonHttpAdapter httpRequestGetTopicListByMenuIdWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+    [DIF_CommonHttpAdapter
+     httpRequestGetTopicListByMenuIdWithMenuId:menuId
+     indePage:indePage
+     pageSize:pageSize
+     key:key
+     ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
         {
             DIF_StrongSelf
@@ -172,7 +183,8 @@
         {
             [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
         }
-    } FailedBlcok:^(NSError *error) {
+    }
+     FailedBlcok:^(NSError *error) {
         [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
     }];
 }

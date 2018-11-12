@@ -24,9 +24,13 @@ typedef void(^CommonHttpResponseBlock)(ENUM_COMMONHTTP_RESPONSE_TYPE type, id re
 typedef void(^CommonHttpResponseFailed)(NSError *error);
 typedef void(^CommonHttpResponseProgress)(NSProgress *progress);
 
-static NSString * const BaseUrl = @"https://www.easy-mock.com/mock/5bd1b55b5e38a677f659a8e0/cjveg";
+//static NSString * const BaseUrl = @"https://www.easy-mock.com/mock/5bd1b55b5e38a677f659a8e0/cjveg";
+static NSString * const BaseUrl = @"http://swot.subject.net.cn:8787";
 
 @interface CommonHttpAdapter : NSObject
+
+@property (nonatomic, strong) NSString *access_token;
+@property (nonatomic, strong) NSString *refresh_token;
 
 + (CommonHttpAdapter *)sharedCommonHttp;
 
@@ -46,6 +50,41 @@ static NSString * const BaseUrl = @"https://www.easy-mock.com/mock/5bd1b55b5e38a
 - (NSString *)httpRequestUploadImageFile:(UIImage *)image
                            ResponseBlock:(CommonHttpResponseBlock)successBlock
                              FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 登录接口
+- (void)httpRequestLoginWithMobile:(NSString *)mobile
+                          Password:(NSString *)password
+                     ResponseBlock:(CommonHttpResponseBlock)successBlock
+                       FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 忘记密码获取验证码
+- (void)httpRequestGetForgotPasswordVerifycodeWithMobile:(NSString *)mobile
+                                           ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 忘记密码1
+- (void)httpRequestForgotPassword1WithMobile:(NSString *)mobile
+                               ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                 FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 忘记密码2
+- (void)httpRequestForgotPassword2WithMobile:(NSString *)mobile
+                                 NewPassword:(NSString *)password
+                                  VerifyCode:(NSString *)verifycode
+                               ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                 FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 注册获取验证码 /yangtze_veg/register/getVerifycode
+- (void)httpRequestGetVerifycodeWithMobile:(NSString *)mobile
+                             ResponseBlock:(CommonHttpResponseBlock)successBlock
+                               FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 注册 /yangtze_veg/register/register
+- (void)httpRequestRegisterWithMobile:(NSString *)mobile
+                          NewPassword:(NSString *)password
+                           VerifyCode:(NSString *)verifycode
+                        ResponseBlock:(CommonHttpResponseBlock)successBlock
+                          FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
 #pragma mark - 获取首页数据接口
 - (void)httpRequestGetMainDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
@@ -68,8 +107,12 @@ static NSString * const BaseUrl = @"https://www.easy-mock.com/mock/5bd1b55b5e38a
                                       FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
 #pragma mark - 根据菜单ID获取资讯列表
-- (void)httpRequestGetTopicListByMenuIdWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+- (void)httpRequestGetTopicListByMenuIdWithMenuId:(NSString *)menuId
+                                         indePage:(NSString *)indePage
+                                         pageSize:(NSString *)pageSize
+                                              key:(NSString *)key
+                                    ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                      FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
 #pragma mark - 获取热门推荐视频列表
 - (void)httpRequestPostGeHotVideoListWithResponseBlock:(CommonHttpResponseBlock)successBlock
@@ -122,5 +165,13 @@ static NSString * const BaseUrl = @"https://www.easy-mock.com/mock/5bd1b55b5e38a
 #pragma mark - 获取物流信息
 - (void)httpRequestPostGetExpressInfoWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                            FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 获取物流信息
+- (void)httpRequestGetUserWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 获取物流信息
+- (void)httpRequestSignInWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                               FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 @end
 

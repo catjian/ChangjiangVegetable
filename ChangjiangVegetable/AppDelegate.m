@@ -51,6 +51,12 @@
     [self loadWindowRootTabbarViewController];
     [self.window makeKeyAndVisible];
     
+    if(DIF_CommonCurrentUser.accessToken)
+    {
+        DIF_CommonHttpAdapter.access_token = DIF_CommonCurrentUser.accessToken;
+        DIF_CommonHttpAdapter.refresh_token = DIF_CommonCurrentUser.refreshToken;
+    }
+    
     [[IQKeyboardManager sharedManager] setToolbarDoneBarButtonItemText:@"完成"];
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
     return YES;

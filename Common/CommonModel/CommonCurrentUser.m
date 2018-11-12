@@ -16,6 +16,7 @@
 @synthesize pageSize = _pageSize;
 @synthesize accessToken = _accessToken;
 @synthesize refreshToken = _refreshToken;
+@synthesize userInfo = _userInfo;
 
 + (CommonCurrentUser *)sharedInstance
 {    
@@ -251,6 +252,22 @@
 {
     _refreshToken = refreshToken;
     [[NSUserDefaults standardUserDefaults] setObject:refreshToken forKey:@"refresh_token"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSDictionary *)userInfo
+{
+    if (!_userInfo)
+    {
+        _userInfo = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"userInfo"];
+    }
+    return _userInfo;
+}
+
+- (void)setUserInfo:(NSDictionary *)userInfo
+{
+    _userInfo = userInfo;
+    [[NSUserDefaults standardUserDefaults] setObject:userInfo forKey:@"userInfo"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
