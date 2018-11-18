@@ -16,6 +16,7 @@
 @implementation BookStoreBaseView
 {
     BaseCollectionView *m_ContentView;
+    UIWebView *m_webView;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -23,8 +24,9 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        [self createTopButtonsView];
-        [self createCollectionView];
+//        [self createTopButtonsView];
+//        [self createCollectionView];
+        [self createWebView];
         [self setBackgroundColor:DIF_HEXCOLOR(@"f6f6f6")];
     }
     return self;
@@ -75,6 +77,13 @@
     [segment setTintColor:[UIColor greenColor]];
     [segment setSelectedSegmentIndex:0];
     [buttonsView addSubview:segment];
+}
+
+- (void)createWebView
+{
+    m_webView = [[UIWebView alloc] initWithFrame:self.bounds];
+    [m_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://wk.creativesky.cn/ctxf"]]];
+    [self addSubview:m_webView];
 }
 
 - (void)createCollectionView

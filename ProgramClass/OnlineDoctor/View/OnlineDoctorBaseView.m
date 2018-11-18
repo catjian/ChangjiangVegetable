@@ -20,7 +20,6 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        [self createCollectionView];
     }
     return self;
 }
@@ -70,6 +69,14 @@
     [m_ContentView setBackgroundColor:DIF_HEXCOLOR(@"f4f4f4")];
 //    [m_ContentView setContentInset:UIEdgeInsetsMake(0, 0, 100, 0)];
     [self addSubview:m_ContentView];
+    [m_ContentView setRefreshBlock:self.refreshBlock];
+    [m_ContentView setLoadMoreBlock:self.loadMoreBlock];
+}
+
+- (void)endRefresh
+{
+    [m_ContentView endRefresh];
+    [m_ContentView setContentOffset:CGPointMake(0, 0)];
 }
 
 -(void)setArticleList:(NSArray *)articleList

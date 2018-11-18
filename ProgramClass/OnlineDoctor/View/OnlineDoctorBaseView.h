@@ -12,8 +12,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface OnlineDoctorBaseView : UIView <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, copy, readwrite) tableViewHeaderRefreshBlock refreshBlock;
+@property (nonatomic, copy, readwrite) tableViewLoadMoreBlock loadMoreBlock;
 @property (nonatomic, strong) NSDictionary *doctorDic;
 @property (nonatomic, strong) NSArray *articleList;
+
+- (void)createCollectionView;
+- (void)endRefresh;
 
 @end
 

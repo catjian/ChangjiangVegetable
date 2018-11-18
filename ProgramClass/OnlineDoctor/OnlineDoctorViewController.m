@@ -44,8 +44,17 @@
     {
         m_BaseView = [[OnlineDoctorBaseView alloc] initWithFrame:self.view.bounds];
         [self.view addSubview:m_BaseView];
+        DIF_WeakSelf(self)
+        [m_BaseView setRefreshBlock:^{
+            DIF_StrongSelf
+            [strongSelf httpRequestGetOnlineDoctorData];
+        }];
+        [m_BaseView setLoadMoreBlock:^(NSInteger page) {
+            DIF_StrongSelf
+            [strongSelf httpRequestPostgGetOnlineDoctorArticleList:page+1];
+        }];
+        [m_BaseView createCollectionView];
     }
-    [self httpRequestGetOnlineDoctorData];
 }
 
 - (void)rightBarButtonItemAction:(UIButton *)btn
@@ -134,31 +143,34 @@
         {
             [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
         }
-        [strongSelf httpRequestPostgGetOnlineDoctorArticleList];
+        [strongSelf httpRequestPostgGetOnlineDoctorArticleList:1];
     } FailedBlcok:^(NSError *error) {
         DIF_StrongSelf
         [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
-        [strongSelf httpRequestPostgGetOnlineDoctorArticleList];
+        [strongSelf httpRequestPostgGetOnlineDoctorArticleList:1];
     }];
 }
 
-- (void)httpRequestPostgGetOnlineDoctorArticleList
+- (void)httpRequestPostgGetOnlineDoctorArticleList:(NSInteger)page
 {
     [CommonHUD showHUD];
     DIF_WeakSelf(self)
-    [DIF_CommonHttpAdapter httpRequestPostGetOnlineDoctorArticleListWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
-        if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
-        {
-            DIF_StrongSelf
-            [CommonHUD hideHUD];
-            [strongSelf->m_BaseView setArticleList:responseModel[@"data"][@"list"]];
-        }
-        else
-        {
-            [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
-        }
-    } FailedBlcok:^(NSError *error) {
-        [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
-    }];
+    [DIF_CommonHttpAdapter
+     httpRequestGetOnlineDoctorArticleListWithIndePage:[@(page) stringValue]
+     ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
+         {
+             DIF_StrongSelf
+             [CommonHUD hideHUD];
+             [strongSelf->m_BaseView setArticleList:responseModel[@"data"][@"list"]];
+             [strongSelf->m_BaseView endRefresh];
+         }
+         else
+         {
+             [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
+         }
+     } FailedBlcok:^(NSError *error) {
+         [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
+     }];
 }
 @end

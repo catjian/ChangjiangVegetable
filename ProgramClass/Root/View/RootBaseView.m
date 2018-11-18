@@ -60,7 +60,7 @@
     NSArray *noticeList = list[@"noticeList"];
     if (noticeList.count > 0)
     {
-        [m_NoticeLab setText:noticeList[m_noticeIndex]];
+        [m_NoticeLab setText:noticeList[m_noticeIndex][@"title"]];
         m_noticeIndex = ++m_noticeIndex >= noticeList.count?0:m_noticeIndex;
     }
     [m_NoticeLab setAlpha:0];
@@ -191,7 +191,7 @@
             [m_ContentView registerClass:[RootViewLoanCell class] forCellWithReuseIdentifier:cellIdentifier];
             RootViewLoanCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
             NSArray<NSDictionary *> *newGoodsList = list[@"newGoodsList"];
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:newGoodsList[indexPath.row][@"imgUrl"]]];
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:newGoodsList[indexPath.row][@"primary_pic_url"]]];
             [cell.titleLab setText:newGoodsList[indexPath.row][@"name"]];
             return cell;
         }
@@ -203,7 +203,7 @@
             NSArray<NSDictionary *> *discountGoodsList = list[@"discountGoodsList"];
             [cell.titleLab setText:discountGoodsList[indexPath.row][@"discountTitle"]];
             [cell.detailLab setText:discountGoodsList[indexPath.row][@"discountSubTtitle"]];
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:discountGoodsList[indexPath.row][@"imgUrl"]]];
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:discountGoodsList[indexPath.row][@"primary_pic_url"]]];
             return cell;
         }
         case 4:
@@ -212,7 +212,7 @@
             [m_ContentView registerClass:[RooViewNewsCell class] forCellWithReuseIdentifier:cellIdentifier];
             RooViewNewsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
             NSArray<NSDictionary *> *hotTopicsList = list[@"hotTopicsList"];
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:hotTopicsList[indexPath.row][@"imgUrl"]]];
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:hotTopicsList[indexPath.row][@"image"]]];
             [cell.titleLab setText:hotTopicsList[indexPath.row][@"title"]];
             NSString *date = [CommonDate dateToString:[NSDate dateWithTimeIntervalSince1970:[hotTopicsList[indexPath.row][@"createDate"] integerValue]/1000]
                                               Formate:@"yyyy年MM月dd日"];
@@ -226,7 +226,7 @@
             [m_ContentView registerClass:[RootVideoViewCell class] forCellWithReuseIdentifier:cellIdentifier];
             RootVideoViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
             NSArray<NSDictionary *> *newVideoList = list[@"newVideoList"];
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:newVideoList[indexPath.row][@"videoFirstFrameUrl"]]];
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:newVideoList[indexPath.row][@"image"]]];
             [cell.titleLab setText:newVideoList[indexPath.row][@"title"]];
             return cell;
         }

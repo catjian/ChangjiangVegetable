@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ForgetPwdVerifyViewController : BaseViewController
 
+@property (nonatomic, copy) NSString *phoneNum;
 @end
 
 NS_ASSUME_NONNULL_END

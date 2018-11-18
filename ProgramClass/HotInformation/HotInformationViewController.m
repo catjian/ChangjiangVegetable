@@ -44,6 +44,14 @@
         m_BaseView = [[HotInformationBaseView alloc] initWithFrame:self.view.bounds];
         [self.view addSubview:m_BaseView];
         DIF_WeakSelf(self)
+        [m_BaseView setPageSelectBlock:^(NSInteger page) {
+            DIF_StrongSelf
+            NSDictionary *channelDic = strongSelf->m_BaseView.channelArray[page];
+            [strongSelf httpRequestGetTopicListByMenuId:channelDic[@"menuId"]
+                                               indePage:@"1"
+                                               pageSize:@"10"
+                                                    key:@""];
+        }];
         [m_BaseView setSelectChannelBlock:^{
             DIF_StrongSelf
             SelectChannelViewController *vc = [strongSelf loadViewController:@"SelectChannelViewController"];

@@ -33,7 +33,8 @@
     DIF_HideTabBarAnimation(NO);
     //        [self setLeftItemWithContentName::@"返回"];
     [self setRightItemWithContentName:@"杂志期刊2"];
-    [self createSearchView];
+    [self setNavTarBarTitle:@"我要读刊"];
+//    [self createSearchView];
     [self.navigationItem setTitleView:m_SearchView];
 }
 
@@ -45,7 +46,7 @@
         m_BaseView = [[BookStoreBaseView alloc] initWithFrame:self.view.bounds];
         [self.view addSubview:m_BaseView];
     }
-    [self httpRequestGetReadBookBanner];
+//    [self httpRequestGetReadBookBanner];
 }
 
 - (void)rightBarButtonItemAction:(UIButton *)btn
@@ -136,7 +137,7 @@
     } FailedBlcok:^(NSError *error) {
         DIF_StrongSelf
         [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
-        [strongSelf httpRequestPostGetBookList];
+//        [strongSelf httpRequestPostGetBookList];
     }];
 }
 

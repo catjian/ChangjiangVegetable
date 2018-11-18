@@ -19,6 +19,9 @@
 @end
 
 @implementation ForgetPwdVerifyViewController
+{
+    NSInteger m_TimerNum;    
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -32,6 +35,7 @@
     [super viewDidLoad];
     DIF_HideTabBarAnimation(YES);
     [self.navigationController setNavigationBarHidden:NO];
+    m_TimerNum = 60;
     // Do any additional setup after loading the view from its nib.
     [self.view setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
     [self setNavTarBarTitle:@"忘记密码"];
@@ -40,24 +44,87 @@
     [self.verifyBtn.layer setCornerRadius:5];
     [self.verifyBtn.layer setBorderColor:DIF_HEXCOLOR(@"#999999").CGColor];
     [self.verifyBtn.layer setBorderWidth:1];
+    [self.phoneLab setText:[NSString stringWithFormat:@"%@*****%@", [self.phoneNum substringToIndex:3],
+                            [self.phoneNum substringFromIndex:self.phoneNum.length-2]]];
+}
+
+- (void)updateVerifyButtonTitle
+{
+    m_TimerNum--;
+    [self.verifyBtn setTitle:[NSString stringWithFormat:@"%ld秒后重试",m_TimerNum] forState:UIControlStateNormal];
+    if (m_TimerNum!= 0)
+    {
+        [self performSelector:@selector(updateVerifyButtonTitle)
+                   withObject:nil
+                   afterDelay:1];
+    }
+    else
+    {
+        m_TimerNum = 60;
+    }
 }
 
 #pragma mark - Button Events
 
+- (IBAction)getVerifyCodeButtonEvent:(id)sender
+{
+    [CommonHUD showHUDWithMessage:@"获取验证码中..."];
+    DIF_WeakSelf(self)
+    [DIF_CommonHttpAdapter
+     httpRequestGetForgotPasswordVerifycodeWithMobile:self.phoneNum
+     ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
+         {
+             DIF_StrongSelf
+             [strongSelf updateVerifyButtonTitle];
+             [CommonHUD delayShowHUDWithMessage:@"获取验证码成功"];
+         }
+         else
+         {
+             [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
+         }
+     }
+     FailedBlcok:^(NSError *error) {
+         [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
+         
+     }];
+}
+
 - (IBAction)nextButtonEvent:(id)sender
 {
-    UIViewController *vc = nil;
-    for (UIViewController *navc in self.navigationController.viewControllers)
-    {
-        if ([NSStringFromClass(navc.class) isEqualToString:@"LoginViewController"])
-        {
-            vc = navc;
-        }
-    }
-    if (vc)
-    {
-        [self.navigationController popToViewController:vc animated:YES];
-    }
+    [CommonHUD showHUDWithMessage:@"修改密码中..."];
+    DIF_WeakSelf(self)
+    [DIF_CommonHttpAdapter
+     httpRequestForgotPassword2WithMobile:self.phoneNum
+     NewPassword:self.passwordTF.text
+     VerifyCode:self.verifyTF.text
+     ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
+         {
+             DIF_StrongSelf
+             [CommonHUD delayShowHUDWithMessage:@"修改密码成功"];
+             UIViewController *vc = nil;
+             for (UIViewController *navc in self.navigationController.viewControllers)
+             {
+                 if ([NSStringFromClass(navc.class) isEqualToString:@"LoginViewController"])
+                 {
+                     vc = navc;
+                 }
+             }
+             if (vc)
+             {
+                 [strongSelf.navigationController popToViewController:vc animated:YES];
+             }
+         }
+         else
+         {
+             [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
+         }
+     }
+     FailedBlcok:^(NSError *error) {
+         [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
+         
+     }];
 }
 
 @end

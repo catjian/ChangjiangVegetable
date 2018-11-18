@@ -41,9 +41,7 @@
                                                                           oneWidth:(DIF_SCREEN_WIDTH-34)/4-12];
     [self addSubview:pageView];
     DIF_WeakSelf(self)
-    [pageView setSelectBlock:^(NSInteger page) {
-        DIF_StrongSelf
-    }];
+    [pageView setSelectBlock:self.pageSelectBlock];
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];

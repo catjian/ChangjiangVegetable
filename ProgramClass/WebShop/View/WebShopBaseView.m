@@ -102,9 +102,9 @@
             [m_ContentView registerClass:[WebShopLeftOnePictureViewCell class] forCellWithReuseIdentifier:cellIdentifier];
             WebShopLeftOnePictureViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
             NSArray<NSDictionary *> *recommendShopList = list[@"recommendShopList"];
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:recommendShopList[indexPath.row][@"shopImgUrl"]]];
-            [cell.titleLab setText:recommendShopList[indexPath.row][@"shopName"]];
-            [cell.detailLab setText:recommendShopList[indexPath.row][@"shopSummary"]];
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:recommendShopList[indexPath.row][@"logo"]]];
+            [cell.titleLab setText:recommendShopList[indexPath.row][@"name"]];
+            [cell.detailLab setText:recommendShopList[indexPath.row][@"comment"]];
             return cell;
         }
         case 2:
@@ -113,9 +113,9 @@
             [m_ContentView registerClass:[WebShopTwoPictureViewCell class] forCellWithReuseIdentifier:cellIdentifier];
             WebShopTwoPictureViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
             NSArray<NSDictionary *> *recommendGoodsList = list[@"recommendGoodsList"];
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:recommendGoodsList[indexPath.row][@"goodsImgUrl"]]];
-            [cell.titleLab setText:recommendGoodsList[indexPath.row][@"goodsName"]];
-            [cell.moneyLab setText:[NSString stringWithFormat:@"￥ %@",recommendGoodsList[indexPath.row][@"goodsPrice"]]];
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:recommendGoodsList[indexPath.row][@"primary_pic_url"]]];
+            [cell.titleLab setText:recommendGoodsList[indexPath.row][@"name"]];
+            [cell.moneyLab setText:[NSString stringWithFormat:@"￥ %@",recommendGoodsList[indexPath.row][@"retail_price"]]];
             [cell setShowRightPicture:NO];
 //            if (indexPath.row > 1)
 //            {

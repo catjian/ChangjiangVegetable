@@ -25,7 +25,7 @@ typedef void(^CommonHttpResponseFailed)(NSError *error);
 typedef void(^CommonHttpResponseProgress)(NSProgress *progress);
 
 //static NSString * const BaseUrl = @"https://www.easy-mock.com/mock/5bd1b55b5e38a677f659a8e0/cjveg";
-static NSString * const BaseUrl = @"http://swot.subject.net.cn:8787";
+static NSString * const BaseUrl = @"http://139.159.239.153";
 
 @interface CommonHttpAdapter : NSObject
 
@@ -51,17 +51,16 @@ static NSString * const BaseUrl = @"http://swot.subject.net.cn:8787";
                            ResponseBlock:(CommonHttpResponseBlock)successBlock
                              FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
+
+#pragma mark - Interface
+#pragma mark - 登录授权接口
 #pragma mark - 登录接口
 - (void)httpRequestLoginWithMobile:(NSString *)mobile
                           Password:(NSString *)password
                      ResponseBlock:(CommonHttpResponseBlock)successBlock
                        FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
-#pragma mark - 忘记密码获取验证码
-- (void)httpRequestGetForgotPasswordVerifycodeWithMobile:(NSString *)mobile
-                                           ResponseBlock:(CommonHttpResponseBlock)successBlock
-                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock;
-
+#pragma mark - 注册接口
 #pragma mark - 忘记密码1
 - (void)httpRequestForgotPassword1WithMobile:(NSString *)mobile
                                ResponseBlock:(CommonHttpResponseBlock)successBlock
@@ -73,6 +72,11 @@ static NSString * const BaseUrl = @"http://swot.subject.net.cn:8787";
                                   VerifyCode:(NSString *)verifycode
                                ResponseBlock:(CommonHttpResponseBlock)successBlock
                                  FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 忘记密码获取验证码
+- (void)httpRequestGetForgotPasswordVerifycodeWithMobile:(NSString *)mobile
+                                           ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
 #pragma mark - 注册获取验证码 /yangtze_veg/register/getVerifycode
 - (void)httpRequestGetVerifycodeWithMobile:(NSString *)mobile
@@ -86,25 +90,85 @@ static NSString * const BaseUrl = @"http://swot.subject.net.cn:8787";
                         ResponseBlock:(CommonHttpResponseBlock)successBlock
                           FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
+#pragma mark - app主功能接口文档
 #pragma mark - 获取首页数据接口
 - (void)httpRequestGetMainDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                     FailedBlcok:(CommonHttpResponseFailed)failedBlock;
-
-#pragma mark - 获取关注的菜单列表
-- (void)httpRequestGetMenuListWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock;
-
-#pragma mark - 获取视频数据
-- (void)httpRequestGetVideoDataByMenuIdWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
 #pragma mark - 获取商城页面数据
 - (void)httpRequestGetShopDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                     FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
-#pragma mark - 获取网展页面数据
-- (void)httpRequestGetOnlineDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
+#pragma mark - 获取商品列表
+- (void)httpRequestGetListByGoodsWithVendorId:(NSString *)vendorId  //供应商id
+                                     indePage:(NSString *)indePage
+                                ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                  FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 获取用户的收货地址接口
+- (void)httpRequestGetAddressWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                   FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 获取用户信息
+- (void)httpRequestGetUserWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 签到
+- (void)httpRequestSignInWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                               FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 更新用户资料
+
+/**
+ 更新用户资料
+ 
+ @param params {
+ "avatar": "string",
+ "birthday": "2018-11-18T13:44:57.955Z",
+ "gender": 0,
+ "id": 0,
+ "last_login_ip": "string",
+ "last_login_time": "2018-11-18T13:44:57.955Z",
+ "mobile": "string",
+ "nickname": "string",
+ "password": "string",
+ "register_ip": "string",
+ "register_time": "2018-11-18T13:44:57.955Z",
+ "userLevel": "string",
+ "userScore": 0,
+ "user_level_id": 0,
+ "username": "string",
+ "weixin_openid": "string"
+ }
+ @param successBlock suc
+ @param failedBlock fail
+ */
+- (void)httpRequestPostUserUpdateWithParams:(NSDictionary *)params
+                              ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 收货地址
+#pragma mark - 删除指定的收货地址
+- (void)httpRequestAddressDeleteWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                       FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 删除指定的收货地址
+- (void)httpRequestGetAddressDetailWithID:(NSString *)addId
+                            ResponseBlock:(CommonHttpResponseBlock)successBlock
+                              FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 获取用户的收货地址接口
+- (void)httpRequestGetAddressListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                       FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 添加或更新收货地址
+- (void)httpRequestAddressSaveWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 资讯接口
+#pragma mark - 获取关注的菜单列表
+- (void)httpRequestGetMenuListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
 #pragma mark - 根据菜单ID获取资讯列表
 - (void)httpRequestGetTopicListByMenuIdWithMenuId:(NSString *)menuId
@@ -112,6 +176,133 @@ static NSString * const BaseUrl = @"http://swot.subject.net.cn:8787";
                                          pageSize:(NSString *)pageSize
                                               key:(NSString *)key
                                     ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                      FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 远程问诊
+#pragma mark - 获取在线问诊的头部两部分数据
+- (void)httpRequestGetOnlineDoctorDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                            FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 在线问诊列表数据，分页
+- (void)httpRequestGetOnlineDoctorCommentWithArticleId:(NSString *)articleId
+                                         ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                           FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 在线问诊 获取问诊的回帖信息
+- (void)httpRequestGetOnlineDoctorArticleListWithIndePage:(NSString *)indePage
+                                            ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                              FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 商品相关
+#pragma mark - 获取分类下的商品
+- (void)httpRequestGetGoodsCategoryWithCategoryId:(NSString *)categoryId
+                            ResponseBlock:(CommonHttpResponseBlock)successBlock
+                              FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 在售的商品总数
+- (void)httpRequestGetGoodsCountaWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                       FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 商品详情页数据
+- (void)httpRequestGetGoodsDetailWithID:(NSString *)goodId
+                               referrer:(NSString *)referrer
+                          ResponseBlock:(CommonHttpResponseBlock)successBlock
+                            FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 商品渠道
+- (void)httpRequestGetGoodsGalleryWithID:(NSString *)goodId
+                           ResponseBlock:(CommonHttpResponseBlock)successBlock
+                             FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 人气推荐
+- (void)httpRequestGetGoodsHotWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 人气商品列表
+- (void)httpRequestGetHotGoodsListWithCategoryId:(NSString *)categoryId
+                                           Order:(NSString *)order
+                                            Sort:(NSString *)sort
+                                   ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                     FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 商品首页
+- (void)httpRequestGetGoodsIndexWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 获取商品列表
+- (void)httpRequestGetGoodsListWithCategoryId:(NSString *)categoryId
+                                         BrandId:(NSString *)brandId
+                                           IsHot:(NSString *)isHot
+                                           IsNew:(NSString *)isNew
+                                           Order:(NSString *)order
+                                            Page:(NSString *)page
+                                         KeyWord:(NSString *)key
+                                         Sort:(NSString *)sort
+                                   ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                     FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 新品首发
+- (void)httpRequestGetGoodsNewWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 获取商品列表
+- (void)httpRequestGetGoodsProductListWithCategoryId:(NSString *)categoryId
+                                            Discount:(NSString *)discount
+                                               IsNew:(NSString *)isNew
+                                               Order:(NSString *)order
+                                                Page:(NSString *)page
+                                                Sort:(NSString *)sort
+                                       ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                         FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 商品详情页
+- (void)httpRequestGetGoodsRelatedWithID:(NSString *)goodId
+                           ResponseBlock:(CommonHttpResponseBlock)successBlock
+                             FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 获取商品规格信息
+- (void)httpRequestGetGoodsSKUWithGoodsID:(NSString *)goodsId
+                                   GoodId:(NSString *)goodId
+                            ResponseBlock:(CommonHttpResponseBlock)successBlock
+                              FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - TransferCoupon
+- (void)httpRequestGetGoodsTransferCouponWithGoodsID:(NSString *)goodsId
+                                            Referrer:(NSString *)referrer
+                                            SendType:(NSString *)sendType
+                                       ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                         FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 订单相关
+#pragma mark - 取消订单
+- (void)httpRequestGetCancelOrderWithOrderId:(NSString *)orderId
+                               ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                 FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 确认收货
+- (void)httpRequestGetConfirmOrderWithOrderId:(NSString *)orderId
+                                ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                  FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 获取订单详情
+- (void)httpRequestGetOrderDetailWithOrderId:(NSString *)orderId
+                                ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                  FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 获取订单物流
+- (void)httpRequestGetLogisticsWithShippingCode:(NSString *)shippingCode
+                                     ShippingNo:(NSString *)shippingNo
+                                  ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 订单首页
+- (void)httpRequestGetOrderIndexWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                      FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 获取订单列表
+- (void)httpRequestGetOrderListWithPage:(NSString *)page
+                         EvaluateStatus:(NSString *)evaluate_status
+                            OrderStatus:(NSString *)order_status
+                          ResponseBlock:(CommonHttpResponseBlock)successBlock
+                            FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 订单提交
+- (void)httpRequestPostOrderSubmitWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                        FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+
+
+
+
+#pragma mark - 获取视频数据
+- (void)httpRequestGetVideoDataByMenuIdWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+
+#pragma mark - 获取网展页面数据
+- (void)httpRequestGetOnlineDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                       FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
 #pragma mark - 获取热门推荐视频列表
@@ -130,13 +321,6 @@ static NSString * const BaseUrl = @"http://swot.subject.net.cn:8787";
 - (void)httpRequestPostGetMyBookListWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                           FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
-#pragma mark - 获取在线问诊的头部两部分数据
-- (void)httpRequestGetOnlineDoctorDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                                            FailedBlcok:(CommonHttpResponseFailed)failedBlock;
-
-#pragma mark - 在线问诊列表数据，分页
-- (void)httpRequestPostGetOnlineDoctorArticleListWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                                                       FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
 #pragma mark - 获取供求信息列表 传参type
 - (void)httpRequestPostGetSupportInfoListWithResponseBlock:(CommonHttpResponseBlock)successBlock
@@ -145,7 +329,6 @@ static NSString * const BaseUrl = @"http://swot.subject.net.cn:8787";
 #pragma mark - 根据菜单id获取我的评论列表
 - (void)httpRequestPostGetFeedbackListWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock;
-
 #pragma mark - 根据菜单id获取我的收藏列表
 - (void)httpRequestPostGetCollectionListWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                               FailedBlcok:(CommonHttpResponseFailed)failedBlock;
@@ -154,9 +337,6 @@ static NSString * const BaseUrl = @"http://swot.subject.net.cn:8787";
 - (void)httpRequestPostGetHistoryListWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                            FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
-#pragma mark - 获取用户地址信息
-- (void)httpRequestPostGetCustomAddressWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
 #pragma mark - 获取订单列表，传参type区分：全部，待发货等状态
 - (void)httpRequestPostGetOrderListWithResponseBlock:(CommonHttpResponseBlock)successBlock
@@ -166,12 +346,5 @@ static NSString * const BaseUrl = @"http://swot.subject.net.cn:8787";
 - (void)httpRequestPostGetExpressInfoWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                            FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
-#pragma mark - 获取物流信息
-- (void)httpRequestGetUserWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                                FailedBlcok:(CommonHttpResponseFailed)failedBlock;
-
-#pragma mark - 获取物流信息
-- (void)httpRequestSignInWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                               FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 @end
 

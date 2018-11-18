@@ -80,7 +80,7 @@
          {
              DIF_StrongSelf
              [strongSelf updateVerifyButtonTitle];
-             [CommonHUD delayShowHUDWithMessage:@"登录成功"];
+             [CommonHUD delayShowHUDWithMessage:@"获取验证码成功"];
          }
          else
          {

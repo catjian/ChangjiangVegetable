@@ -286,15 +286,16 @@ static CommonHttpAdapter *comHttp = nil;
         block?block(ENUM_COMMONHTTP_RESPONSE_TYPE_FAULSE,@{@"message":DIF_HTTP_REQUEST_PARMS_NULL}):nil;
         return;
     }
-    if (parms)
+    if (parms != nil)
     {
         command = [command stringByAppendingFormat:@"?%@",[self parametersToString:parms]];
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parms
+                                                           options:NSJSONWritingPrettyPrinted error:nil];
+        // NSData转为NSString
+        NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        DebugLog(@"parameters = %@",jsonStr);
     }
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parms
-                                                       options:NSJSONWritingPrettyPrinted error:nil];
-    // NSData转为NSString
-    NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    DebugLog(@"command = %@\nresponseObject = %@",command,jsonStr);
+    DebugLog(@"command = %@",command);
     NSMutableURLRequest *request =
     [self reWrteCreateHttpRequstWithMethod:@"POST"
                                  URLString:[command stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]
@@ -594,7 +595,7 @@ static CommonHttpAdapter *comHttp = nil;
 }
 
 #pragma mark - Interface
-
+#pragma mark - 登录授权接口
 #pragma mark - 登录接口
 - (void)httpRequestLoginWithMobile:(NSString *)mobile
                           Password:(NSString *)password
@@ -613,23 +614,7 @@ static CommonHttpAdapter *comHttp = nil;
                          FailedBlcok:failedBlock];
 }
 
-#pragma mark - 忘记密码获取验证码
-- (void)httpRequestGetForgotPasswordVerifycodeWithMobile:(NSString *)mobile
-                                           ResponseBlock:(CommonHttpResponseBlock)successBlock
-                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock
-{
-    if (mobile.isNull)
-    {
-        failedBlock([NSError errorWithDomain:DIF_HTTP_REQUEST_PARMS_NULL
-                                        code:-100
-                                    userInfo:@{@"errorMsg":DIF_HTTP_REQUEST_PARMS_NULL}]);
-    }
-    [self HttpPostRequestWithCommand:@"/yangtze_veg/register/getForgotPasswordVerifycode"
-                          parameters:@{@"mobile":mobile}
-                       ResponseBlock:successBlock
-                         FailedBlcok:failedBlock];
-}
-
+#pragma mark - 注册接口
 #pragma mark - 忘记密码1
 - (void)httpRequestForgotPassword1WithMobile:(NSString *)mobile
                                ResponseBlock:(CommonHttpResponseBlock)successBlock
@@ -662,6 +647,23 @@ static CommonHttpAdapter *comHttp = nil;
     }
     [self HttpPostRequestWithCommand:@"/yangtze_veg/register/forgotPassword2"
                           parameters:@{@"mobile":mobile, @"newpwd":password,@"verifycode":verifycode}
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 忘记密码获取验证码
+- (void)httpRequestGetForgotPasswordVerifycodeWithMobile:(NSString *)mobile
+                                           ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    if (mobile.isNull)
+    {
+        failedBlock([NSError errorWithDomain:DIF_HTTP_REQUEST_PARMS_NULL
+                                        code:-100
+                                    userInfo:@{@"errorMsg":DIF_HTTP_REQUEST_PARMS_NULL}]);
+    }
+    [self HttpPostRequestWithCommand:@"/yangtze_veg/register/getForgotPasswordVerifycode"
+                          parameters:@{@"mobile":mobile}
                        ResponseBlock:successBlock
                          FailedBlcok:failedBlock];
 }
@@ -702,31 +704,12 @@ static CommonHttpAdapter *comHttp = nil;
                          FailedBlcok:failedBlock];
 }
 
+#pragma mark - app主功能接口文档
 #pragma mark - 获取首页数据接口
 - (void)httpRequestGetMainDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                     FailedBlcok:(CommonHttpResponseFailed)failedBlock
 {
     [self HttpGetRequestWithCommand:@"/yangtze_veg/getMainData"
-                         parameters:nil
-                      ResponseBlock:successBlock
-                        FailedBlcok:failedBlock];
-}
-
-#pragma mark - 获取关注的菜单列表
-- (void)httpRequestGetMenuListWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock
-{
-    [self HttpGetRequestWithCommand:@"/yangtze_veg/cms/getMenuList"
-                         parameters:nil
-                      ResponseBlock:successBlock
-                        FailedBlcok:failedBlock];
-}
-
-#pragma mark - 获取视频数据
-- (void)httpRequestGetVideoDataByMenuIdWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock
-{
-    [self HttpGetRequestWithCommand:@"getVideoDataByMenuId"
                          parameters:nil
                       ResponseBlock:successBlock
                         FailedBlcok:failedBlock];
@@ -742,11 +725,135 @@ static CommonHttpAdapter *comHttp = nil;
                         FailedBlcok:failedBlock];
 }
 
-#pragma mark - 获取网展页面数据
-- (void)httpRequestGetOnlineDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
+#pragma mark - 获取商品列表
+- (void)httpRequestGetListByGoodsWithVendorId:(NSString *)vendorId  //供应商id
+                                     indePage:(NSString *)indePage
+                                ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                  FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    NSDictionary *parmas = @{@"vendorId":vendorId,
+                             @"indePage":indePage,
+                             @"pageSize":@"10"};
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/getListByGoods"
+                         parameters:parmas
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+#pragma mark - 获取用户的收货地址接口
+- (void)httpRequestGetAddressWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                   FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostRequestWithCommand:@"/yangtze_veg/mycenter/address/list"
+                          parameters:nil
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 获取用户信息
+- (void)httpRequestGetUserWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/mycenter/getUser"
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+#pragma mark - 签到
+- (void)httpRequestSignInWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                               FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/mycenter/signIn"
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+#pragma mark - 更新用户资料
+
+/**
+ 更新用户资料
+
+ @param params {
+                     "avatar": "string",
+                     "birthday": "2018-11-18T13:44:57.955Z",
+                     "gender": 0,
+                     "id": 0,
+                     "last_login_ip": "string",
+                     "last_login_time": "2018-11-18T13:44:57.955Z",
+                     "mobile": "string",
+                     "nickname": "string",
+                     "password": "string",
+                     "register_ip": "string",
+                     "register_time": "2018-11-18T13:44:57.955Z",
+                     "userLevel": "string",
+                     "userScore": 0,
+                     "user_level_id": 0,
+                     "username": "string",
+                     "weixin_openid": "string"
+                }
+ @param successBlock suc
+ @param failedBlock fail
+ */
+- (void)httpRequestPostUserUpdateWithParams:(NSDictionary *)params
+                              ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/mycenter/userUpdate"
+                         parameters:params
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+#pragma mark - 收货地址
+#pragma mark - 删除指定的收货地址
+- (void)httpRequestAddressDeleteWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                       FailedBlcok:(CommonHttpResponseFailed)failedBlock
 {
-    [self HttpGetRequestWithCommand:@"getOnlineData"
+    [self HttpPostRequestWithCommand:@"/yangtze_veg/address/delete"
+                          parameters:nil
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 删除指定的收货地址
+- (void)httpRequestGetAddressDetailWithID:(NSString *)addId
+                            ResponseBlock:(CommonHttpResponseBlock)successBlock
+                              FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/address/detail"
+                         parameters:@{@"id":addId}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+#pragma mark - 获取用户的收货地址接口
+- (void)httpRequestGetAddressListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                       FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostRequestWithCommand:@"/yangtze_veg/address/list"
+                          parameters:nil
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 添加或更新收货地址
+- (void)httpRequestAddressSaveWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostRequestWithCommand:@"/yangtze_veg/address/save"
+                          parameters:nil
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 资讯接口
+#pragma mark - 获取关注的菜单列表
+- (void)httpRequestGetMenuListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/cms/getMenuList"
                          parameters:nil
                       ResponseBlock:successBlock
                         FailedBlcok:failedBlock];
@@ -760,11 +867,310 @@ static CommonHttpAdapter *comHttp = nil;
                                     ResponseBlock:(CommonHttpResponseBlock)successBlock
                                       FailedBlcok:(CommonHttpResponseFailed)failedBlock
 {
+    NSDictionary *parmas = @{@"menuId":menuId,
+                             @"indePage":indePage,
+                             @"pageSize":pageSize,
+                             @"key":key};
+    if (key.isNull)
+    {
+        parmas = @{@"menuId":menuId,
+                   @"indePage":indePage,
+                   @"pageSize":pageSize};
+    }
     [self HttpGetRequestWithCommand:@"/yangtze_veg/cms/getTopicListByMenuId"
-                         parameters:@{@"menuId":menuId,
-                                      @"indePage":indePage,
-                                      @"pageSize":pageSize,
-                                      @"key":key}
+                         parameters:parmas
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+#pragma mark - 远程问诊
+#pragma mark - 获取在线问诊的头部两部分数据
+- (void)httpRequestGetOnlineDoctorDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                            FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/remoteDiagnosis/getOnlineDoctorData"
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+#pragma mark - 在线问诊列表数据，分页
+- (void)httpRequestGetOnlineDoctorCommentWithArticleId:(NSString *)articleId
+                                         ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                           FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    
+    [self HttpGetRequestWithCommand:[@"/angtze_veg/remoteDiagnosis/getComment/" stringByAppendingString:articleId]
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+#pragma mark - 在线问诊 获取问诊的回帖信息
+- (void)httpRequestGetOnlineDoctorArticleListWithIndePage:(NSString *)indePage
+                                            ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                              FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/remoteDiagnosis/getOnlineDoctorArticleList"
+                         parameters:@{@"indePage":indePage,@"pageSize":@"10"}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+#pragma mark - 商品相关
+#pragma mark - 获取分类下的商品
+- (void)httpRequestGetGoodsCategoryWithCategoryId:(NSString *)categoryId
+                                    ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                      FailedBlcok:(CommonHttpResponseFailed)failedBlock{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/goods/category"
+                         parameters:@{@"categoryId":categoryId}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - 在售的商品总数
+- (void)httpRequestGetGoodsCountaWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                       FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/goods/count"
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - 商品详情页数据
+- (void)httpRequestGetGoodsDetailWithID:(NSString *)goodId
+                               referrer:(NSString *)referrer
+                          ResponseBlock:(CommonHttpResponseBlock)successBlock
+                            FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/goods/detail"
+                         parameters:@{@"goodId":goodId,@"referrer":referrer}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - 商品渠道
+- (void)httpRequestGetGoodsGalleryWithID:(NSString *)goodId
+                           ResponseBlock:(CommonHttpResponseBlock)successBlock
+                             FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/goods/goodsGallery"
+                         parameters:@{@"goodId":goodId}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - 人气推荐
+- (void)httpRequestGetGoodsHotWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/goods/hot"
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - 人气商品列表
+- (void)httpRequestGetHotGoodsListWithCategoryId:(NSString *)categoryId
+                                           Order:(NSString *)order
+                                            Sort:(NSString *)sort
+                                   ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                     FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/goods/hotGoodsList"
+                         parameters:@{@"categoryId":categoryId,@"order":order}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - 商品首页
+- (void)httpRequestGetGoodsIndexWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                      FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/goods/index"
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - 获取商品列表
+- (void)httpRequestGetGoodsListWithCategoryId:(NSString *)categoryId
+                                      BrandId:(NSString *)brandId
+                                        IsHot:(NSString *)isHot
+                                        IsNew:(NSString *)isNew
+                                        Order:(NSString *)order
+                                         Page:(NSString *)page
+                                      KeyWord:(NSString *)key
+                                         Sort:(NSString *)sort
+                                ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                  FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/goods/list"
+                         parameters:@{@"categoryId":categoryId,
+                                      @"brandId":brandId,
+                                      @"isHot":isHot,
+                                      @"isNew":isNew,
+                                      @"order":order,
+                                      @"page":page}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - 新品首发
+- (void)httpRequestGetGoodsNewWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/goods/new"
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - 获取商品列表
+- (void)httpRequestGetGoodsProductListWithCategoryId:(NSString *)categoryId
+                                            Discount:(NSString *)discount
+                                               IsNew:(NSString *)isNew
+                                               Order:(NSString *)order
+                                                Page:(NSString *)page
+                                                Sort:(NSString *)sort
+                                       ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                         FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/goods/productlist"
+                         parameters:@{@"categoryId":categoryId,
+                                      @"discount":discount,
+                                      @"isNew":isNew,
+                                      @"order":order,
+                                      @"page":page}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - 商品详情页
+- (void)httpRequestGetGoodsRelatedWithID:(NSString *)goodId
+                           ResponseBlock:(CommonHttpResponseBlock)successBlock
+                             FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/goods/related"
+                         parameters:@{@"goodId":goodId}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - 获取商品规格信息
+- (void)httpRequestGetGoodsSKUWithGoodsID:(NSString *)goodsId
+                                   GoodId:(NSString *)goodId
+                            ResponseBlock:(CommonHttpResponseBlock)successBlock
+                              FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/goods/sku"
+                         parameters:@{@"goodsId":goodsId,@"goodId":goodId}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - TransferCoupon
+- (void)httpRequestGetGoodsTransferCouponWithGoodsID:(NSString *)goodsId
+                                            Referrer:(NSString *)referrer
+                                            SendType:(NSString *)sendType
+                                       ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                         FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/goods/transferCoupon"
+                         parameters:@{@"goodsId":goodsId,@"referrer":referrer,@"send_type":sendType}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+#pragma mark - 订单相关
+#pragma mark - 取消订单
+- (void)httpRequestGetCancelOrderWithOrderId:(NSString *)orderId
+                               ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                 FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/order/cancelOrder"
+                         parameters:@{@"orderId":orderId}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - 确认收货
+- (void)httpRequestGetConfirmOrderWithOrderId:(NSString *)orderId
+                                ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                  FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/order/confirmOrder"
+                         parameters:@{@"orderId":orderId}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - 获取订单详情
+- (void)httpRequestGetOrderDetailWithOrderId:(NSString *)orderId
+                               ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                 FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/order/detail"
+                         parameters:@{@"orderId":orderId}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - 获取订单物流
+- (void)httpRequestGetLogisticsWithShippingCode:(NSString *)shippingCode
+                                     ShippingNo:(NSString *)shippingNo
+                                  ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/order/getLogistics"
+                         parameters:@{@"shippingCode":shippingCode,@"shippingNo":shippingNo}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - 订单首页
+- (void)httpRequestGetOrderIndexWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                      FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/order/index"
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - 获取订单列表
+- (void)httpRequestGetOrderListWithPage:(NSString *)page
+                         EvaluateStatus:(NSString *)evaluate_status
+                            OrderStatus:(NSString *)order_status
+                          ResponseBlock:(CommonHttpResponseBlock)successBlock
+                            FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/order/list"
+                         parameters:@{@"page":page,@"evaluate_status":evaluate_status,@"order_status":order_status}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - 订单提交
+- (void)httpRequestPostOrderSubmitWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                        FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/order/submit"
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+
+
+
+
+
+
+
+
+
+#pragma mark - 获取视频数据
+- (void)httpRequestGetVideoDataByMenuIdWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"getVideoDataByMenuId"
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+
+
+#pragma mark - 获取网展页面数据
+- (void)httpRequestGetOnlineDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                      FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"getOnlineData"
+                         parameters:nil
                       ResponseBlock:successBlock
                         FailedBlcok:failedBlock];
 }
@@ -809,25 +1215,6 @@ static CommonHttpAdapter *comHttp = nil;
                          FailedBlcok:failedBlock];
 }
 
-#pragma mark - 获取在线问诊的头部两部分数据
-- (void)httpRequestGetOnlineDoctorDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                                            FailedBlcok:(CommonHttpResponseFailed)failedBlock
-{
-    [self HttpGetRequestWithCommand:@"getOnlineDoctorData"
-                         parameters:nil
-                      ResponseBlock:successBlock
-                        FailedBlcok:failedBlock];
-}
-
-#pragma mark - 在线问诊列表数据，分页
-- (void)httpRequestPostGetOnlineDoctorArticleListWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                                                       FailedBlcok:(CommonHttpResponseFailed)failedBlock
-{
-    [self HttpPostRequestWithCommand:@"getOnlineDoctorArticleList"
-                          parameters:nil
-                       ResponseBlock:successBlock
-                         FailedBlcok:failedBlock];
-}
 
 
 #pragma mark - 获取供求信息列表 传参type
@@ -899,25 +1286,6 @@ static CommonHttpAdapter *comHttp = nil;
                          FailedBlcok:failedBlock];
 }
 
-#pragma mark - 获取物流信息
-- (void)httpRequestGetUserWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                                FailedBlcok:(CommonHttpResponseFailed)failedBlock
-{
-    [self HttpGetRequestWithCommand:@"/yangtze_veg/mycenter/getUser"
-                         parameters:nil
-                      ResponseBlock:successBlock
-                        FailedBlcok:failedBlock];
-}
-
-#pragma mark - 获取物流信息
-- (void)httpRequestSignInWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                               FailedBlcok:(CommonHttpResponseFailed)failedBlock
-{
-    [self HttpGetRequestWithCommand:@"/yangtze_veg/mycenter/signIn"
-                         parameters:nil
-                      ResponseBlock:successBlock
-                        FailedBlcok:failedBlock];
-}
 
 @end
 

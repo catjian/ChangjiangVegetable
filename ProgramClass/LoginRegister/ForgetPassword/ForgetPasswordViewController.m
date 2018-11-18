@@ -7,6 +7,7 @@
 //
 
 #import "ForgetPasswordViewController.h"
+#import "ForgetPwdVerifyViewController.h"
 
 @interface ForgetPasswordViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
@@ -39,7 +40,8 @@
 
 - (IBAction)nextButtonEvent:(id)sender
 {
-    [self loadViewController:@"ForgetPwdVerifyViewController"];
+    ForgetPwdVerifyViewController *vc = [self loadViewController:@"ForgetPwdVerifyViewController"];
+    vc.phoneNum = self.phoneTF.text;
 }
 
 @end

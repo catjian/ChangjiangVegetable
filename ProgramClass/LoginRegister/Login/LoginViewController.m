@@ -39,6 +39,11 @@
     [self.registBtn.layer setCornerRadius:5];
     [self.registBtn.layer setBorderColor:DIF_HEXCOLOR(@"#E53C1C").CGColor];
     [self.registBtn.layer setBorderWidth:1];
+    if(!DIF_CommonHttpAdapter.access_token)
+    {
+        [self.navigationItem setLeftBarButtonItem:nil];
+        [self.navigationItem setHidesBackButton:YES];
+    }
 }
 
 #pragma mark - Button Events

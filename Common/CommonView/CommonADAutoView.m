@@ -52,9 +52,16 @@
     }
     for(int i = 0; i < self.picArr.count; i++)
     {
-        NSDictionary *picDic = self.picArr[i];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i*self.width, 0, self.width, self.height)];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:picDic[@"image_url"]] placeholderImage:[UIImage imageNamed:@"轮播图-banner01"]];
+        id picDic = self.picArr[i];
+        if ([picDic isKindOfClass:[NSDictionary class]])
+        {
+            [imageView sd_setImageWithURL:[NSURL URLWithString:picDic[@"image_url"]] placeholderImage:[UIImage imageNamed:@"轮播图-banner01"]];
+        }
+        else if([picDic isKindOfClass:[NSString class]])
+        {
+            [imageView sd_setImageWithURL:[NSURL URLWithString:self.picArr[i]] placeholderImage:[UIImage imageNamed:@"轮播图-banner01"]];
+        }
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [btn setTag:100+i];
         [btn setFrame:imageView.frame];

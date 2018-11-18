@@ -45,18 +45,21 @@
 {
     [CommonHUD showHUD];
     DIF_WeakSelf(self)
-    [DIF_CommonHttpAdapter httpRequestPostGetCustomAddressWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+    [DIF_CommonHttpAdapter httpRequestGetAddressWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
         DIF_StrongSelf
         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
         {
             [CommonHUD hideHUD];
-            NSDictionary *dataDic = responseModel[@"data"][0];
-            [strongSelf.nameLab setText:dataDic[@"name"]];
-            [strongSelf.phoneTF setText:dataDic[@"phone"]];
-            [strongSelf.provinceTF setText:dataDic[@"province"]];
-            [strongSelf.cityTF setText:dataDic[@"city"]];
-            [strongSelf.countyTF setText:dataDic[@"area"]];
-            [strongSelf.addressInfoTF setText:dataDic[@"addressInfo"]];
+            if ([responseModel[@"data"] count] > 0)
+            {
+                NSDictionary *dataDic = responseModel[@"data"][0];
+                [strongSelf.nameLab setText:dataDic[@"name"]];
+                [strongSelf.phoneTF setText:dataDic[@"phone"]];
+                [strongSelf.provinceTF setText:dataDic[@"province"]];
+                [strongSelf.cityTF setText:dataDic[@"city"]];
+                [strongSelf.countyTF setText:dataDic[@"area"]];
+                [strongSelf.addressInfoTF setText:dataDic[@"addressInfo"]];
+            }
         }
         else
         {
