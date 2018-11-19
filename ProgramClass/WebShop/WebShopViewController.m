@@ -8,6 +8,8 @@
 
 #import "WebShopViewController.h"
 #import "WebShopBaseView.h"
+#import "ShopTypeListViewController.h"
+#import "WebShopDetailViewController.h"
 
 @interface WebShopViewController () <UITextFieldDelegate>
 
@@ -47,7 +49,27 @@
         DIF_WeakSelf(self)
         [m_BaseView setSelectBlock:^(NSIndexPath *indexPath, id model) {
             DIF_StrongSelf
-            [strongSelf loadViewController:@"ShopTypeListViewController" hidesBottomBarWhenPushed:YES];
+            if (indexPath.section == 0 && indexPath.row == 7)
+            {
+                [strongSelf loadViewController:@"MyOrderViewController" hidesBottomBarWhenPushed:NO];
+            }
+            else if (indexPath.section == 1)
+            {
+                NSArray<NSDictionary *> *recommendGoodsList = strongSelf->m_BaseView.allDataDic[@"list"][@"recommendGoodsList"];
+                WebShopDetailViewController *vc = [strongSelf loadViewController:@"WebShopDetailViewController" hidesBottomBarWhenPushed:NO];
+                vc.shopDetailDic = recommendGoodsList[indexPath.row];
+            }
+            else if (indexPath.section == 2)
+            {
+                NSArray<NSDictionary *> *recommendGoodsList = strongSelf->m_BaseView.allDataDic[@"list"][@"recommendGoodsList"];
+                WebShopDetailViewController *vc = [strongSelf loadViewController:@"WebShopDetailViewController" hidesBottomBarWhenPushed:NO];
+                vc.shopDetailDic = recommendGoodsList[indexPath.row];
+            }
+            else
+            {
+                ShopTypeListViewController *vc = [strongSelf loadViewController:@"ShopTypeListViewController" hidesBottomBarWhenPushed:YES];
+                [vc setHttpType:indexPath.row];
+            }
         }];
     }
     [self httpRequestGetShopData];

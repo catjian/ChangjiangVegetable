@@ -84,6 +84,25 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 4)
+    {
+        DIF_WeakSelf(self)
+        UIAlertController *alertCon = [CommonAlertView showAlertViewWithTitle:@"提示" Message:@"确认退出当前账号" NormalButton:@"退出" CancelButton:@"取消" NormalHander:^(UIAlertAction *action) {
+            if (action == UIAlertViewStyleDefault)
+            {
+                DIF_StrongSelf
+                [strongSelf.navigationController popToRootViewControllerAnimated:YES];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    DIF_CommonCurrentUser.accessToken = nil;
+                    DIF_CommonCurrentUser.refreshToken = nil;
+                    DIF_CommonHttpAdapter.access_token = DIF_CommonCurrentUser.accessToken;
+                    DIF_CommonHttpAdapter.refresh_token = DIF_CommonCurrentUser.refreshToken;
+                    [DIF_APPDELEGATE loadLoginViewController];
+                });
+            }
+        }];
+        [self presentViewController:alertCon animated:YES completion:nil];
+    }
 }
 
 @end

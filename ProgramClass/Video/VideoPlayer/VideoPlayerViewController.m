@@ -43,6 +43,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [m_BaseView.playerCon pause];
+    [m_BaseView.playerCon stop];
     [m_BaseView.playerCon dismiss];
     [super viewWillDisappear:animated];
 }

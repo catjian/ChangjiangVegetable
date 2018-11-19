@@ -8,9 +8,16 @@
 
 #import "BaseViewController.h"
 
+typedef NS_ENUM(NSUInteger, ShopTypeListViewController_HttpType) {
+    ShopTypeListViewController_HttpType_Goodscount = 0,
+    ShopTypeListViewController_HttpType_Order = 7,     
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ShopTypeListViewController : BaseViewController
+
+@property (nonatomic) ShopTypeListViewController_HttpType httpType;
 
 @end
 

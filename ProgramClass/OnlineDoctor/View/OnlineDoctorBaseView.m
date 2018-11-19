@@ -108,13 +108,14 @@
     NSDictionary *dic = self.articleList[indexPath.row];
     [cell.iconView sd_setImageWithURL:[NSURL URLWithString:dic[@"userPortraitUrl"]]];
     [cell.nameLab setText:dic[@"userName"]];
-    [cell.dateLab setText:dic[@"createDate"]];
+    [cell.dateLab setText:dic[@"createTime"]];
     NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",[dic[@"watchNum"] intValue]]];
     [placeholder attatchImage:[UIImage imageNamed:@"浏览"]
                    imageFrame:CGRectMake(0, 0, 20, 11)
                         Range:NSMakeRange(0, 0)];
     [cell.readNumLab setAttributedText:placeholder];
-    [cell.titleLab setText:dic[@"articleDetail"]];
+    [cell.titleLab setText:dic[@"title"]];
+    [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:dic[@"image"]]];
     if ([dic[@"articleImgUrlList"] count] > 0)
     {
         [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:[dic[@"articleImgUrlList"] objectAtIndex:0]]];

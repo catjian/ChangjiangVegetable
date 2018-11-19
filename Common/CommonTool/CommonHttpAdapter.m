@@ -255,6 +255,14 @@ static CommonHttpAdapter *comHttp = nil;
                       {
                           block(ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS,responseObject);
                       }
+                      else if ([responseObject[@"code"] integerValue] == 401)
+                      {
+                          DIF_CommonCurrentUser.accessToken = nil;
+                          DIF_CommonCurrentUser.refreshToken = nil;
+                          DIF_CommonHttpAdapter.access_token = DIF_CommonCurrentUser.accessToken;
+                          DIF_CommonHttpAdapter.refresh_token = DIF_CommonCurrentUser.refreshToken;
+                          [DIF_APPDELEGATE loadLoginViewController];
+                      }
                       else
                       {
                           block(ENUM_COMMONHTTP_RESPONSE_TYPE_FAULSE,responseObject);
@@ -317,6 +325,14 @@ static CommonHttpAdapter *comHttp = nil;
                       if ([responseObject[@"code"] integerValue] == 200)
                       {
                           block(ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS,responseObject);
+                      }
+                      else if ([responseObject[@"code"] integerValue] == 401)
+                      {
+                          DIF_CommonCurrentUser.accessToken = nil;
+                          DIF_CommonCurrentUser.refreshToken = nil;
+                          DIF_CommonHttpAdapter.access_token = DIF_CommonCurrentUser.accessToken;
+                          DIF_CommonHttpAdapter.refresh_token = DIF_CommonCurrentUser.refreshToken;
+                          [DIF_APPDELEGATE loadLoginViewController];
                       }
                       else
                       {
@@ -397,6 +413,14 @@ static CommonHttpAdapter *comHttp = nil;
                       if ([responseObject[@"code"] integerValue] == 200)
                       {
                           block(ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS,responseObject);
+                      }
+                      else if ([responseObject[@"code"] integerValue] == 401)
+                      {
+                          DIF_CommonCurrentUser.accessToken = nil;
+                          DIF_CommonCurrentUser.refreshToken = nil;
+                          DIF_CommonHttpAdapter.access_token = DIF_CommonCurrentUser.accessToken;
+                          DIF_CommonHttpAdapter.refresh_token = DIF_CommonCurrentUser.refreshToken;
+                          [DIF_APPDELEGATE loadLoginViewController];
                       }
                       else
                       {
@@ -1129,8 +1153,21 @@ static CommonHttpAdapter *comHttp = nil;
                           ResponseBlock:(CommonHttpResponseBlock)successBlock
                             FailedBlcok:(CommonHttpResponseFailed)failedBlock
 {
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"size":@"10"}];
+    if (!page)
+    {
+        [params setObject:@"1" forKey:@"page"];
+    }
+    if (evaluate_status)
+    {
+        [params setObject:evaluate_status forKey:@"evaluate_status"];
+    }
+    if (order_status)
+    {
+        [params setObject:order_status forKey:@"order_status"];
+    }
     [self HttpGetRequestWithCommand:@"/yangtze_veg/order/list"
-                         parameters:@{@"page":page,@"evaluate_status":evaluate_status,@"order_status":order_status}
+                         parameters:params
                       ResponseBlock:successBlock
                         FailedBlcok:failedBlock];
 }

@@ -102,21 +102,25 @@
 {
     [CommonHUD showHUD];
     DIF_WeakSelf(self)
-    [DIF_CommonHttpAdapter httpRequestPostGetOrderListWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
-        DIF_StrongSelf
-        if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
-        {
-            [CommonHUD hideHUD];
-            strongSelf.orderList = responseModel[@"data"][@"list"];
-            [strongSelf->m_ContentView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
-        }
-        else
-        {
-            [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
-        }
-    } FailedBlcok:^(NSError *error) {
-        [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
-    }];
+    [DIF_CommonHttpAdapter
+     httpRequestGetOrderListWithPage:nil
+     EvaluateStatus:nil
+     OrderStatus:nil
+     ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+         DIF_StrongSelf
+         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
+         {
+             [CommonHUD hideHUD];
+             strongSelf.orderList = responseModel[@"data"][@"list"];
+             [strongSelf->m_ContentView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+         }
+         else
+         {
+             [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
+         }
+     } FailedBlcok:^(NSError *error) {
+         [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
+     }];
 }
 
 

@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 #import "RootBaseView.h"
 #import "SpecialNewsDetailViewController.h"
+#import "WebShopDetailViewController.h"
 
 @interface RootViewController () <UITextFieldDelegate>
 
@@ -88,10 +89,16 @@
                     break;
                 case 2:
                 {
+                    NSArray<NSDictionary *> *recommendGoodsList = strongSelf->m_BaseView.allDataDic[@"list"][@"newGoodsList"];
+                    WebShopDetailViewController *vc = [strongSelf loadViewController:@"WebShopDetailViewController" hidesBottomBarWhenPushed:NO];
+                    vc.shopDetailDic = recommendGoodsList[indexPath.row];
                 }
                     break;
                 case 3:
                 {
+                    NSArray<NSDictionary *> *recommendGoodsList = strongSelf->m_BaseView.allDataDic[@"list"][@"discountGoodsList"];
+                    WebShopDetailViewController *vc = [strongSelf loadViewController:@"WebShopDetailViewController" hidesBottomBarWhenPushed:NO];
+                    vc.shopDetailDic = recommendGoodsList[indexPath.row];
                 }
                     break;
                 case 4:
@@ -141,6 +148,7 @@
     [m_SearchTextField setFont:DIF_UIFONTOFSIZE(14)];
     [m_SearchTextField setDelegate:self];
     [m_SearchTextField setClearButtonMode:UITextFieldViewModeUnlessEditing|UITextFieldViewModeWhileEditing];
+    [m_SearchTextField setReturnKeyType:UIReturnKeySearch];
     [backView addSubview:m_SearchTextField];
     
     NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:@"  输入关键字进行搜索"];
@@ -170,6 +178,12 @@
 }
 
 #pragma mark - UITextField Delegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [m_SearchTextField resignFirstResponder];
+    return YES;
+}
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {

@@ -104,11 +104,6 @@
 		7FA8A4E0217A33F2000BB44A /* AJTapDetectingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A26A217A33F0000BB44A /* AJTapDetectingView.m */; };
 		7FA8A4E1217A33F2000BB44A /* CommonSelectOneLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A26D217A33F0000BB44A /* CommonSelectOneLineView.m */; };
 		7FA8A4E2217A33F2000BB44A /* CommonSelectOneLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A26F217A33F0000BB44A /* CommonSelectOneLineViewController.m */; };
-		7FA8A4E3217A33F2000BB44A /* IMCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA8A271217A33F1000BB44A /* IMCore.framework */; };
-		7FA8A4E4217A33F2000BB44A /* ImSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA8A272217A33F1000BB44A /* ImSDK.framework */; };
-		7FA8A4E5217A33F2000BB44A /* IMSDKBugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA8A273217A33F1000BB44A /* IMSDKBugly.framework */; };
-		7FA8A4E6217A33F3000BB44A /* QALSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA8A274217A33F1000BB44A /* QALSDK.framework */; };
-		7FA8A4E7217A33F3000BB44A /* TLSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA8A275217A33F1000BB44A /* TLSSDK.framework */; };
 		7FA8A4E8217A33F3000BB44A /* CustomerServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A279217A33F1000BB44A /* CustomerServerViewController.m */; };
 		7FA8A4E9217A33F3000BB44A /* popRec_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A27C217A33F1000BB44A /* popRec_1.png */; };
 		7FA8A4EA217A33F3000BB44A /* popRec_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A27D217A33F1000BB44A /* popRec_2.png */; };
@@ -212,6 +207,12 @@
 		7FF62ED0217CCDF6009190F0 /* WebShowBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF62ECF217CCDF6009190F0 /* WebShowBaseView.m */; };
 		7FF62ED5217CD053009190F0 /* MySetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF62ED4217CD053009190F0 /* MySetViewController.m */; };
 		7FF62EDB217CD107009190F0 /* MySetBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF62EDA217CD107009190F0 /* MySetBaseView.m */; };
+		82C5EB1B21A16B870019C40A /* ImSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C5EB1621A16B870019C40A /* ImSDK.framework */; };
+		82C5EB1C21A16B870019C40A /* TLSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C5EB1721A16B870019C40A /* TLSSDK.framework */; };
+		82C5EB1D21A16B870019C40A /* IMCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C5EB1821A16B870019C40A /* IMCore.framework */; };
+		82C5EB1E21A16B870019C40A /* QALSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C5EB1921A16B870019C40A /* QALSDK.framework */; };
+		82C5EB1F21A16B870019C40A /* IMSDKBugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C5EB1A21A16B870019C40A /* IMSDKBugly.framework */; };
+		82CD23E721A3054200D2C933 /* WebShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CD23E621A3054200D2C933 /* WebShopDetailViewController.m */; };
 		DEB4C4DEA6479C08B2E2D6A1 /* libPods-ChangjiangVegetable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F67650A765ABE6A6A98F6240 /* libPods-ChangjiangVegetable.a */; };
 /* End PBXBuildFile section */
 
@@ -401,11 +402,6 @@
 		7FA8A26D217A33F0000BB44A /* CommonSelectOneLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonSelectOneLineView.m; sourceTree = "<group>"; };
 		7FA8A26E217A33F0000BB44A /* CommonSelectOneLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonSelectOneLineViewController.h; sourceTree = "<group>"; };
 		7FA8A26F217A33F0000BB44A /* CommonSelectOneLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonSelectOneLineViewController.m; sourceTree = "<group>"; };
-		7FA8A271217A33F1000BB44A /* IMCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IMCore.framework; sourceTree = "<group>"; };
-		7FA8A272217A33F1000BB44A /* ImSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ImSDK.framework; sourceTree = "<group>"; };
-		7FA8A273217A33F1000BB44A /* IMSDKBugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IMSDKBugly.framework; sourceTree = "<group>"; };
-		7FA8A274217A33F1000BB44A /* QALSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QALSDK.framework; sourceTree = "<group>"; };
-		7FA8A275217A33F1000BB44A /* TLSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TLSSDK.framework; sourceTree = "<group>"; };
 		7FA8A278217A33F1000BB44A /* CustomerServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerServerViewController.h; sourceTree = "<group>"; };
 		7FA8A279217A33F1000BB44A /* CustomerServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerServerViewController.m; sourceTree = "<group>"; };
 		7FA8A27C217A33F1000BB44A /* popRec_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popRec_1.png; sourceTree = "<group>"; };
@@ -590,6 +586,13 @@
 		7FF62ED4217CD053009190F0 /* MySetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySetViewController.m; sourceTree = "<group>"; };
 		7FF62ED9217CD107009190F0 /* MySetBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySetBaseView.h; sourceTree = "<group>"; };
 		7FF62EDA217CD107009190F0 /* MySetBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySetBaseView.m; sourceTree = "<group>"; };
+		82C5EB1621A16B870019C40A /* ImSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ImSDK.framework; sourceTree = "<group>"; };
+		82C5EB1721A16B870019C40A /* TLSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TLSSDK.framework; sourceTree = "<group>"; };
+		82C5EB1821A16B870019C40A /* IMCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IMCore.framework; sourceTree = "<group>"; };
+		82C5EB1921A16B870019C40A /* QALSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QALSDK.framework; sourceTree = "<group>"; };
+		82C5EB1A21A16B870019C40A /* IMSDKBugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IMSDKBugly.framework; sourceTree = "<group>"; };
+		82CD23E521A3054200D2C933 /* WebShopDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebShopDetailViewController.h; sourceTree = "<group>"; };
+		82CD23E621A3054200D2C933 /* WebShopDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebShopDetailViewController.m; sourceTree = "<group>"; };
 		99E98EBC22CB25E4618E866A /* Pods-ChangjiangVegetable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChangjiangVegetable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChangjiangVegetable/Pods-ChangjiangVegetable.debug.xcconfig"; sourceTree = "<group>"; };
 		F67650A765ABE6A6A98F6240 /* libPods-ChangjiangVegetable.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChangjiangVegetable.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -599,12 +602,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82C5EB1C21A16B870019C40A /* TLSSDK.framework in Frameworks */,
+				82C5EB1F21A16B870019C40A /* IMSDKBugly.framework in Frameworks */,
 				DEB4C4DEA6479C08B2E2D6A1 /* libPods-ChangjiangVegetable.a in Frameworks */,
-				7FA8A4E3217A33F2000BB44A /* IMCore.framework in Frameworks */,
-				7FA8A4E4217A33F2000BB44A /* ImSDK.framework in Frameworks */,
-				7FA8A4E7217A33F3000BB44A /* TLSSDK.framework in Frameworks */,
-				7FA8A4E6217A33F3000BB44A /* QALSDK.framework in Frameworks */,
-				7FA8A4E5217A33F2000BB44A /* IMSDKBugly.framework in Frameworks */,
+				82C5EB1B21A16B870019C40A /* ImSDK.framework in Frameworks */,
+				82C5EB1E21A16B870019C40A /* QALSDK.framework in Frameworks */,
+				82C5EB1D21A16B870019C40A /* IMCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,6 +696,8 @@
 				7FF62EC4217CCD43009190F0 /* View */,
 				7FF62EC5217CCD56009190F0 /* WebShopViewController.h */,
 				7FF62EC6217CCD56009190F0 /* WebShopViewController.m */,
+				82CD23E521A3054200D2C933 /* WebShopDetailViewController.h */,
+				82CD23E621A3054200D2C933 /* WebShopDetailViewController.m */,
 			);
 			path = WebShop;
 			sourceTree = "<group>";
@@ -777,10 +782,10 @@
 		7F88DAF7217A0D550081DF97 = {
 			isa = PBXGroup;
 			children = (
+				82C5EB1521A16B870019C40A /* IMSDK */,
 				7FA8A469217A33F2000BB44A /* BaseClass */,
 				7FA8A478217A33F2000BB44A /* Category */,
 				7FA8A214217A33F0000BB44A /* Common */,
-				7FA8A270217A33F1000BB44A /* IMSDK */,
 				7FA8A276217A33F1000BB44A /* ProgramClass */,
 				7F88DB02217A0D550081DF97 /* ChangjiangVegetable */,
 				7F88DB01217A0D550081DF97 /* Products */,
@@ -1043,18 +1048,6 @@
 				7FA8A26F217A33F0000BB44A /* CommonSelectOneLineViewController.m */,
 			);
 			path = CommonSelectOneLIne;
-			sourceTree = "<group>";
-		};
-		7FA8A270217A33F1000BB44A /* IMSDK */ = {
-			isa = PBXGroup;
-			children = (
-				7FA8A271217A33F1000BB44A /* IMCore.framework */,
-				7FA8A272217A33F1000BB44A /* ImSDK.framework */,
-				7FA8A273217A33F1000BB44A /* IMSDKBugly.framework */,
-				7FA8A274217A33F1000BB44A /* QALSDK.framework */,
-				7FA8A275217A33F1000BB44A /* TLSSDK.framework */,
-			);
-			path = IMSDK;
 			sourceTree = "<group>";
 		};
 		7FA8A276217A33F1000BB44A /* ProgramClass */ = {
@@ -1487,6 +1480,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		82C5EB1521A16B870019C40A /* IMSDK */ = {
+			isa = PBXGroup;
+			children = (
+				82C5EB1621A16B870019C40A /* ImSDK.framework */,
+				82C5EB1721A16B870019C40A /* TLSSDK.framework */,
+				82C5EB1821A16B870019C40A /* IMCore.framework */,
+				82C5EB1921A16B870019C40A /* QALSDK.framework */,
+				82C5EB1A21A16B870019C40A /* IMSDKBugly.framework */,
+			);
+			path = IMSDK;
+			sourceTree = "<group>";
+		};
 		9D50ACA4FFCEDB5D95A96B52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1732,6 +1737,7 @@
 				7FA8A4D3217A33F2000BB44A /* CommonPopShareView.m in Sources */,
 				7FA1F0F0218F563B00E020A8 /* CommonHeaderPageListView.m in Sources */,
 				7FEE8E78217CE87300ECF9AA /* MySetTableViewCell.m in Sources */,
+				82CD23E721A3054200D2C933 /* WebShopDetailViewController.m in Sources */,
 				7F6E2617218617BB004D9CE7 /* VideoPlayerViewController.m in Sources */,
 				7FF62ECA217CCD81009190F0 /* WebShopBaseView.m in Sources */,
 				7F2E84A8217ADC9A00C92C8C /* VideoListBaseView.m in Sources */,

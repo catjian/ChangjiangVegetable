@@ -141,6 +141,7 @@
 - (void)loadLoginViewController
 {
     [CommonHUD hideHUD];
+    [(BaseViewController *)[(BaseNavigationViewController *)self.baseTB.viewControllers[self.baseTB.selectedIndex] visibleViewController] loadViewController:@"LoginViewController" hidesBottomBarWhenPushed:NO];
 }
 
 #pragma mark - Location
