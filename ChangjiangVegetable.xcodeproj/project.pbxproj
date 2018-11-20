@@ -213,6 +213,7 @@
 		82C5EB1E21A16B870019C40A /* QALSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C5EB1921A16B870019C40A /* QALSDK.framework */; };
 		82C5EB1F21A16B870019C40A /* IMSDKBugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C5EB1A21A16B870019C40A /* IMSDKBugly.framework */; };
 		82CD23E721A3054200D2C933 /* WebShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CD23E621A3054200D2C933 /* WebShopDetailViewController.m */; };
+		82F4088E21A47287003BC6AE /* NSURL+Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F4088D21A47287003BC6AE /* NSURL+Encoding.m */; };
 		DEB4C4DEA6479C08B2E2D6A1 /* libPods-ChangjiangVegetable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F67650A765ABE6A6A98F6240 /* libPods-ChangjiangVegetable.a */; };
 /* End PBXBuildFile section */
 
@@ -593,6 +594,8 @@
 		82C5EB1A21A16B870019C40A /* IMSDKBugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IMSDKBugly.framework; sourceTree = "<group>"; };
 		82CD23E521A3054200D2C933 /* WebShopDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebShopDetailViewController.h; sourceTree = "<group>"; };
 		82CD23E621A3054200D2C933 /* WebShopDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebShopDetailViewController.m; sourceTree = "<group>"; };
+		82F4088C21A47287003BC6AE /* NSURL+Encoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURL+Encoding.h"; sourceTree = "<group>"; };
+		82F4088D21A47287003BC6AE /* NSURL+Encoding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Encoding.m"; sourceTree = "<group>"; };
 		99E98EBC22CB25E4618E866A /* Pods-ChangjiangVegetable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChangjiangVegetable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChangjiangVegetable/Pods-ChangjiangVegetable.debug.xcconfig"; sourceTree = "<group>"; };
 		F67650A765ABE6A6A98F6240 /* libPods-ChangjiangVegetable.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChangjiangVegetable.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1343,6 +1346,8 @@
 				7FA8A4B6217A33F2000BB44A /* UIView+SDAutoLayout.m */,
 				7FA8A4B7217A33F2000BB44A /* UIViewExt.h */,
 				7FA8A4B8217A33F2000BB44A /* UIViewExt.m */,
+				82F4088C21A47287003BC6AE /* NSURL+Encoding.h */,
+				82F4088D21A47287003BC6AE /* NSURL+Encoding.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1729,6 +1734,7 @@
 				7FD4D61F217F77A0007DA159 /* WebShopLeftOnePictureViewCell.m in Sources */,
 				7FA8A5E0217A33F3000BB44A /* NSString+GetWeekDay.m in Sources */,
 				7FA8A5F2217A33F3000BB44A /* UIView+CornerSquare.m in Sources */,
+				82F4088E21A47287003BC6AE /* NSURL+Encoding.m in Sources */,
 				7FF62ED5217CD053009190F0 /* MySetViewController.m in Sources */,
 				7FA8A5CC217A33F3000BB44A /* SpecialNewsViewMoreImageCell.m in Sources */,
 				7F8B6A0B218228CB00F08519 /* RegisterSetPwdViewController.m in Sources */,

@@ -188,6 +188,11 @@ static NSString * const BaseUrl = @"http://139.159.239.153";
                                          ResponseBlock:(CommonHttpResponseBlock)successBlock
                                            FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
+#pragma mark - 查看在线问诊(专家)详情
+- (void)httpRequestGetRemoteDiagnosisDetailWithArticleId:(NSString *)articleId
+                                           ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
 #pragma mark - 在线问诊 获取问诊的回帖信息
 - (void)httpRequestGetOnlineDoctorArticleListWithIndePage:(NSString *)indePage
                                             ResponseBlock:(CommonHttpResponseBlock)successBlock

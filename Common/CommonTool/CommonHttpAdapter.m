@@ -923,8 +923,18 @@ static CommonHttpAdapter *comHttp = nil;
                                          ResponseBlock:(CommonHttpResponseBlock)successBlock
                                            FailedBlcok:(CommonHttpResponseFailed)failedBlock
 {
-    
-    [self HttpGetRequestWithCommand:[@"/angtze_veg/remoteDiagnosis/getComment/" stringByAppendingString:articleId]
+    [self HttpGetRequestWithCommand:[@"/yangtze_veg/remoteDiagnosis/getComment/" stringByAppendingString:articleId]
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+#pragma mark - 查看在线问诊(专家)详情
+- (void)httpRequestGetRemoteDiagnosisDetailWithArticleId:(NSString *)articleId
+                                           ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:[@"/yangtze_veg/remoteDiagnosis/getDetail/" stringByAppendingString:articleId]
                          parameters:nil
                       ResponseBlock:successBlock
                         FailedBlcok:failedBlock];
