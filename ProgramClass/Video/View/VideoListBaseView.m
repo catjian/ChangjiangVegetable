@@ -35,23 +35,23 @@
     {
         [titles addObject:dic[@"menuName"]];
     }
-    CommonPageControlView *pageView = [[CommonPageControlView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH-DIF_PX(34), DIF_PX(40))
+//    CommonPageControlView *pageView = [[CommonPageControlView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH-DIF_PX(34), DIF_PX(40))
+//                                                                            titles:titles
+//                                                                          oneWidth:(DIF_SCREEN_WIDTH-34)/4-12];
+    CommonPageControlView *pageView = [[CommonPageControlView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(40))
                                                                             titles:titles
-                                                                          oneWidth:(DIF_SCREEN_WIDTH-34)/4-12];
+                                                                          oneWidth:(DIF_SCREEN_WIDTH)/4-12];
     [self addSubview:pageView];
-    DIF_WeakSelf(self)
-    [pageView setSelectBlock:^(NSInteger page) {
-        DIF_StrongSelf
-    }];
+    [pageView setSelectBlock:self.pageSelectBlock];
     
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setFrame:CGRectMake(pageView.right+DIF_PX(6), 0, DIF_PX(22), DIF_PX(40))];
-    [btn setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
-//    [btn setTitle:@"E" forState:UIControlStateNormal];
-    [btn setImage:[UIImage imageNamed:@"菜单"] forState:UIControlStateNormal];
-    [btn setTitleColor:DIF_HEXCOLOR(@"808080") forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(pageControlSelectChannelButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:btn];
+//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [btn setFrame:CGRectMake(pageView.right+DIF_PX(6), 0, DIF_PX(22), DIF_PX(40))];
+//    [btn setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
+////    [btn setTitle:@"E" forState:UIControlStateNormal];
+//    [btn setImage:[UIImage imageNamed:@"菜单"] forState:UIControlStateNormal];
+//    [btn setTitleColor:DIF_HEXCOLOR(@"808080") forState:UIControlStateNormal];
+//    [btn addTarget:self action:@selector(pageControlSelectChannelButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
+//    [self addSubview:btn];
     [self createCollectionView];
 }
 
@@ -99,9 +99,9 @@
     switch (section)
     {
         case 0:
-            return list&&list[@"hotVideoList"]?[list[@"hotVideoList"] count]:0;
+            return list&&list[@"hotData"]?[list[@"hotData"] count]:0;
         default:
-            return list&&list[@"newVideoList"]?[list[@"newVideoList"] count]:0;
+            return list&&list[@"newData"]?[list[@"newData"] count]:0;
     }
 }
 
@@ -111,9 +111,20 @@
     [m_ContentView registerClass:[VideoListViewCell class] forCellWithReuseIdentifier:cellIdentifier];
     VideoListViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     NSDictionary *list = self.allDataDic[@"list"];
-    NSArray *videoList = list[indexPath.section == 0?@"hotVideoList":@"newVideoList"];
+    NSArray *videoList = list[indexPath.section == 0?@"hotData":@"newData"];
     NSDictionary *videoDic = videoList[indexPath.row];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:videoDic[@"videoFirstFrameUrl"]]];
+    dispatch_async(dispatch_queue_create("com.getVideoPreViewImage.queue", NULL), ^{
+        UIImage *image = [CommonTool getVideoPreViewImage:videoDic[@"videoFirstFrameUrl"]];
+        while (1)
+        {
+            if (image)
+                break;
+            sleep(1);
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [cell.imageView setImage:image];
+        });
+    });
     [cell.titleLab setText:videoDic[@"title"]];
     NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",[videoDic[@"watchNum"] intValue]]];
     [placeholder attatchImage:[UIImage imageNamed:@"浏览"]
@@ -187,6 +198,7 @@
                     [btn setTitleColor:DIF_HEXCOLOR(@"333333") forState:UIControlStateNormal];
                     [btn.titleLabel setFont:DIF_UIFONTOFSIZE(15)];
                     [btn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+                    [btn setTag:888+indexPath.section];
                     [btn addTarget:self action:@selector(headerViewMoreButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
                     [contentView addSubview:btn];
                 }
@@ -232,7 +244,7 @@
                     [contentView addSubview:titleImage];
                     
                     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(titleImage.right+2, headerImageView.bottom, contentView.width-38-12-40, DIF_PX(60))];
-                    [title setText:@"新品上新"];
+                    [title setText:@"最新视频"];
                     [title setFont:DIF_UIFONTOFSIZE(18)];
                     [title setTextColor:DIF_HEXCOLOR(@"fc7940")];
                     [contentView addSubview:title];
@@ -244,6 +256,8 @@
                     [btn setTitle:@"更多" forState:UIControlStateNormal];
                     [btn setTitleColor:DIF_HEXCOLOR(@"333333") forState:UIControlStateNormal];
                     [btn.titleLabel setFont:DIF_UIFONTOFSIZE(15)];
+                    [btn setTag:888+indexPath.section];
+                    [btn addTarget:self action:@selector(headerViewMoreButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
                     [btn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
                     [contentView addSubview:btn];
                 }

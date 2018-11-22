@@ -10,10 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^OnlineDoctorBaseViewSelectDoctorBlock)(NSInteger index);
+
 @interface OnlineDoctorBaseView : UIView <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, copy, readwrite) tableViewHeaderRefreshBlock refreshBlock;
 @property (nonatomic, copy, readwrite) tableViewLoadMoreBlock loadMoreBlock;
+@property (nonatomic, copy, readwrite) OnlineDoctorBaseViewSelectDoctorBlock selectDoctorBlock;
 @property (nonatomic, strong) NSDictionary *doctorDic;
 @property (nonatomic, strong) NSArray *articleList;
 

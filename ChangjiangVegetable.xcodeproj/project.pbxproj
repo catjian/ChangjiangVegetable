@@ -207,6 +207,8 @@
 		7FF62ED0217CCDF6009190F0 /* WebShowBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF62ECF217CCDF6009190F0 /* WebShowBaseView.m */; };
 		7FF62ED5217CD053009190F0 /* MySetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF62ED4217CD053009190F0 /* MySetViewController.m */; };
 		7FF62EDB217CD107009190F0 /* MySetBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF62EDA217CD107009190F0 /* MySetBaseView.m */; };
+		82800ACD21A6F81000135ACA /* OnlineDoctorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82800ACC21A6F81000135ACA /* OnlineDoctorDetailViewController.m */; };
+		82800AD121A7080000135ACA /* HtmlContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82800ACF21A7080000135ACA /* HtmlContentViewController.m */; };
 		82C5EB1B21A16B870019C40A /* ImSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C5EB1621A16B870019C40A /* ImSDK.framework */; };
 		82C5EB1C21A16B870019C40A /* TLSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C5EB1721A16B870019C40A /* TLSSDK.framework */; };
 		82C5EB1D21A16B870019C40A /* IMCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C5EB1821A16B870019C40A /* IMCore.framework */; };
@@ -587,6 +589,10 @@
 		7FF62ED4217CD053009190F0 /* MySetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySetViewController.m; sourceTree = "<group>"; };
 		7FF62ED9217CD107009190F0 /* MySetBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySetBaseView.h; sourceTree = "<group>"; };
 		7FF62EDA217CD107009190F0 /* MySetBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySetBaseView.m; sourceTree = "<group>"; };
+		82800ACB21A6F81000135ACA /* OnlineDoctorDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnlineDoctorDetailViewController.h; sourceTree = "<group>"; };
+		82800ACC21A6F81000135ACA /* OnlineDoctorDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnlineDoctorDetailViewController.m; sourceTree = "<group>"; };
+		82800ACE21A7080000135ACA /* HtmlContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HtmlContentViewController.h; sourceTree = "<group>"; };
+		82800ACF21A7080000135ACA /* HtmlContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HtmlContentViewController.m; sourceTree = "<group>"; };
 		82C5EB1621A16B870019C40A /* ImSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ImSDK.framework; sourceTree = "<group>"; };
 		82C5EB1721A16B870019C40A /* TLSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TLSSDK.framework; sourceTree = "<group>"; };
 		82C5EB1821A16B870019C40A /* IMCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IMCore.framework; sourceTree = "<group>"; };
@@ -823,6 +829,8 @@
 		7F8B69E721820A2900F08519 /* HotInformation */ = {
 			isa = PBXGroup;
 			children = (
+				82800ACE21A7080000135ACA /* HtmlContentViewController.h */,
+				82800ACF21A7080000135ACA /* HtmlContentViewController.m */,
 				7F8B69E821820A2900F08519 /* View */,
 				7F8B69E921820A3700F08519 /* HotInformationViewController.h */,
 				7F8B69EA21820A3700F08519 /* HotInformationViewController.m */,
@@ -1358,6 +1366,8 @@
 				7FB0495E2193314D00EFB0B2 /* View */,
 				7FB0495B2193314A00EFB0B2 /* OnlineDoctorViewController.h */,
 				7FB0495C2193314A00EFB0B2 /* OnlineDoctorViewController.m */,
+				82800ACB21A6F81000135ACA /* OnlineDoctorDetailViewController.h */,
+				82800ACC21A6F81000135ACA /* OnlineDoctorDetailViewController.m */,
 			);
 			path = OnlineDoctor;
 			sourceTree = "<group>";
@@ -1706,6 +1716,7 @@
 				7FA8A5DB217A33F3000BB44A /* NSString+AppendingString.m in Sources */,
 				7FA8A4B9217A33F2000BB44A /* CommonCurrentUser.m in Sources */,
 				7FBF21872191E9E600CCBA42 /* MyOrderViewCell.m in Sources */,
+				82800AD121A7080000135ACA /* HtmlContentViewController.m in Sources */,
 				7FA8A4C3217A33F2000BB44A /* CommonImage.m in Sources */,
 				7FA8A5EF217A33F3000BB44A /* UITabbar+badge.m in Sources */,
 				7FA8A4C0217A33F2000BB44A /* CommonHttpAdapter.m in Sources */,
@@ -1771,6 +1782,7 @@
 				7FA8A5C1217A33F3000BB44A /* RootViewLoanCell.m in Sources */,
 				7F8B6A1121822B6900F08519 /* ForgetPasswordViewController.m in Sources */,
 				7FBF21802191E80200CCBA42 /* SubscribeViewCell.m in Sources */,
+				82800ACD21A6F81000135ACA /* OnlineDoctorDetailViewController.m in Sources */,
 				7FA8A4FE217A33F3000BB44A /* IMReciveViewCell.m in Sources */,
 				7FA8A5D9217A33F3000BB44A /* NSObject+Null.m in Sources */,
 				7F35914D2191F5CF008562CC /* ShopTypeListViewCell.m in Sources */,

@@ -226,7 +226,18 @@
             [m_ContentView registerClass:[RootVideoViewCell class] forCellWithReuseIdentifier:cellIdentifier];
             RootVideoViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
             NSArray<NSDictionary *> *newVideoList = list[@"newVideoList"];
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:newVideoList[indexPath.row][@"image"]]];
+            dispatch_async(dispatch_queue_create("com.getVideoPreViewImage.queue", NULL), ^{
+                UIImage *image = [CommonTool getVideoPreViewImage:newVideoList[indexPath.row][@"image"]];
+                while (1)
+                {
+                    if (image)
+                        break;
+                    sleep(1);
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [cell.imageView setImage:image];
+                });
+            });
             [cell.titleLab setText:newVideoList[indexPath.row][@"title"]];
             return cell;
         }
@@ -365,6 +376,8 @@
                     [btn setTitleColor:DIF_HEXCOLOR(@"333333") forState:UIControlStateNormal];
                     [btn.titleLabel setFont:DIF_UIFONTOFSIZE(15)];
                     [btn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+                    [btn setTag:indexPath.section+888];
+                    [btn addTarget:self action:@selector(headerViewMoreButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
                     [contentView addSubview:btn];
                 }
             }
@@ -395,6 +408,7 @@
                     [btn setTitleColor:DIF_HEXCOLOR(@"333333") forState:UIControlStateNormal];
                     [btn.titleLabel setFont:DIF_UIFONTOFSIZE(15)];
                     [btn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+                    [btn setTag:indexPath.section+888];
                     [btn addTarget:self action:@selector(headerViewMoreButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
                     [contentView addSubview:btn];
                 }
@@ -406,6 +420,10 @@
 
 - (void)headerViewMoreButtonEvent:(UIButton *)btn
 {
+    if(self.headerBlock)
+    {
+        self.headerBlock(btn.tag-888);
+    }
 }
 
 #pragma mark - UICollecrtionViewDelegate

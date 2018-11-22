@@ -14,9 +14,11 @@
 #import "RootOnlyPictureCell.h"
 #import "RootVideoViewCell.h"
 
+typedef void(^RootBaseViewHeaderMoreSelectBlock)(NSInteger);
 @interface RootBaseView : UIView
 
 @property (nonatomic, copy) tableViewSelectRowAtIndexPathBlock selectBlock;
+@property (nonatomic, copy) RootBaseViewHeaderMoreSelectBlock headerBlock;
 
 @property (nonatomic, strong) NSDictionary *allDataDic;
 

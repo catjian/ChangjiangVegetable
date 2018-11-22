@@ -178,6 +178,11 @@ static NSString * const BaseUrl = @"http://139.159.239.153";
                                     ResponseBlock:(CommonHttpResponseBlock)successBlock
                                       FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
+#pragma mark - 根据菜单ID获取资讯列表
+- (void)httpRequestGetTradeInfoDetailWithTopicId:(NSString *)menuId
+                                   ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                     FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
 #pragma mark - 远程问诊
 #pragma mark - 获取在线问诊的头部两部分数据
 - (void)httpRequestGetOnlineDoctorDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
@@ -299,20 +304,31 @@ static NSString * const BaseUrl = @"http://139.159.239.153";
 
 
 
+#pragma mark - 视频接口
+#pragma mark - 查询视频栏目
+- (void)httpRequestGetVideoMenuListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                         FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
+#pragma mark - 查询视频首页
+- (void)httpRequestGetVideoDataByMenuIdWithMenuId:(NSString *)menuId
+                                    ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                      FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
-#pragma mark - 获取视频数据
-- (void)httpRequestGetVideoDataByMenuIdWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 获取热门推荐视频列表
+- (void)httpRequestPostGetHotVideoListWithMenuId:(NSString *)menuId
+                                  ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 获取热门推荐视频列表
+- (void)httpRequestPostGetNewVideoListWithMenuId:(NSString *)menuId
+                                  ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
 
 
 #pragma mark - 获取网展页面数据
 - (void)httpRequestGetOnlineDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                       FailedBlcok:(CommonHttpResponseFailed)failedBlock;
-
-#pragma mark - 获取热门推荐视频列表
-- (void)httpRequestPostGeHotVideoListWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                                           FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
 #pragma mark - 获取我要读刊界面的Banner
 - (void)httpRequestGetReadBookBannerWithResponseBlock:(CommonHttpResponseBlock)successBlock

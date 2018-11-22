@@ -8,6 +8,7 @@
 
 #import "OnlineDoctorViewController.h"
 #import "OnlineDoctorBaseView.h"
+#import "OnlineDoctorDetailViewController.h"
 
 @interface OnlineDoctorViewController () <UITextFieldDelegate>
 
@@ -54,6 +55,11 @@
             [strongSelf httpRequestPostgGetOnlineDoctorArticleList:page+1];
         }];
         [m_BaseView createCollectionView];
+        [m_BaseView setSelectDoctorBlock:^(NSInteger index) {
+            DIF_StrongSelf
+            OnlineDoctorDetailViewController *vc = [strongSelf loadViewController:@"OnlineDoctorDetailViewController"];
+            [vc loadDoctorDetail:strongSelf->m_BaseView.doctorDic[@"doctorList"][index]];
+        }];
     }
 }
 

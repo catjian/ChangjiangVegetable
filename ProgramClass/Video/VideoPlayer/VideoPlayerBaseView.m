@@ -28,10 +28,28 @@
         CGFloat bottomOffset = [self createVideoPlayerView];
         bottomOffset = [self createSharedViewWithBelowBottom:bottomOffset];
         bottomOffset = [self createNewsContentViewWithBelowBottom:bottomOffset];
-        [self createMoreViewWithBelowBottom:bottomOffset];
         [m_ScrollView setContentSize:CGSizeMake(m_ScrollView.width, m_MoreView.bottom)];
     }
     return self;
+}
+
+- (void)setVideoDic:(NSDictionary *)videoDic
+{
+    _videoDic = videoDic;
+    NSString *videoPath = videoDic[@"videoPath"];
+    if (!videoPath)
+        videoPath = videoDic[@"videoFirstFrameUrl"];
+    [self.playerCon setContentURL:[NSURL URLWithString:videoPath]];
+    [m_TitelView setText:videoDic[@"title"]];
+    [m_DetailView setText:videoDic[@"title"]];
+    [m_DateLab setText:videoDic[@"updateTime"]];
+}
+
+- (void)setVideoList:(NSArray *)videoList
+{
+    _videoList = videoList;
+    [self createMoreViewWithBelowBottom:m_NewsView.bottom];
+    [m_ScrollView setContentSize:CGSizeMake(m_ScrollView.width, m_MoreView.bottom+50)];
 }
 
 - (CGFloat)createVideoPlayerView
@@ -105,7 +123,7 @@
     [m_DetailView setEditable:NO];
     [m_DetailView setTintColor:DIF_HEXCOLOR(@"666666")];
     [m_DetailView setFont:DIF_DIFONTOFSIZE(14)];
-    [m_DetailView setText:@"农村种农村种植露地辣椒，这位农民的高产方法，值得学习发展。植露地辣椒，这位农民的高产方法，值得学习发展。植露地辣椒，这位农民的高产方法，值得学习发展。植露地辣椒，这位农民的高产方法，值得学习发展。"];
+    [m_DetailView setText:@""];
     [m_NewsView addSubview:m_DetailView];
     
     m_DateLab = [[UILabel alloc] initWithFrame:CGRectMake(m_DetailView.left, m_DetailView.bottom+DIF_PX(12), m_DetailView.width, DIF_PX(20))];
@@ -138,24 +156,36 @@
     [moreVideos setPagingEnabled:NO];
     [m_MoreView addSubview:moreVideos];
     
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < self.videoList.count; i++)
     {
-        UIView *videoView = [self createMoreVideoViewWithURLString:@"https://free.modao.cc/uploads3/images/2527/25278364/raw_1537249493.jpeg"
-                                                          TitleStr:@"农村种植露地"];
+        NSDictionary *dic = self.videoList[i];
+        UIView *videoView = [self createMoreVideoViewWithURLString:dic[@"image"]
+                                                          TitleStr:dic[@"title"] index:i];
         [videoView setLeft:i*DIF_PX(112)];
         [moreVideos addSubview:videoView];
     }
     [moreVideos setContentSize:CGSizeMake(DIF_PX(112*10), DIF_PX(80))];
 }
 
-- (UIView *)createMoreVideoViewWithURLString:(NSString *)urlString TitleStr:(NSString *)titleStr
+- (UIView *)createMoreVideoViewWithURLString:(NSString *)urlString TitleStr:(NSString *)titleStr index:(NSInteger)index
 {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DIF_PX(112), DIF_PX(80))];
     [view setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, DIF_PX(102), DIF_PX(58))];
     [imageView.layer setCornerRadius:5];
     [imageView.layer setMasksToBounds:YES];
-    [imageView sd_setImageWithURL:[NSURL URLWithString:urlString]];
+    dispatch_async(dispatch_queue_create("com.getVideoPreViewImage.queue", NULL), ^{
+        UIImage *image = [CommonTool getVideoPreViewImage:urlString];
+        while (1)
+        {
+            if (image)
+                break;
+            sleep(1);
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [imageView setImage:image];
+        });
+    });
     [view addSubview:imageView];
     
     UIImageView *playView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, DIF_PX(30), DIF_PX(30))];
@@ -170,7 +200,21 @@
     [titleLab setText:titleStr];
     [view addSubview:titleLab];
     
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setFrame:imageView.frame];
+    [btn setTag:9990+index];
+    [btn addTarget:self action:@selector(moreVideoButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:btn];
+    
     return view;
+}
+
+- (void)moreVideoButtonEvent:(UIButton *)btn
+{
+    if(self.moreBlock)
+    {
+        self.moreBlock(btn.tag-9990);
+    }
 }
 
 @end

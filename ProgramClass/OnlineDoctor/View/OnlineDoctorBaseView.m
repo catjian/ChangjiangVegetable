@@ -53,11 +53,21 @@
         [name setTextAlignment:NSTextAlignmentCenter];
         [name setFont:DIF_DIFONTOFSIZE(14)];
         [name setText:dic[@"doctorName"]];
+        [btn setTag:9990+i];
         [scrollView addSubview:name];
         [scrollView addSubview:btn];
+        [btn addTarget:self action:@selector(selectDoctorButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
     }
     [scrollView setContentSize:CGSizeMake(DIF_PX(58+12)*[self.doctorDic[@"doctorList"] count], DIF_PX(112))];
     return backView;
+}
+
+- (void)selectDoctorButtonEvent:(UIButton *)btn
+{
+    if(self.selectDoctorBlock)
+    {
+        self.selectDoctorBlock(btn.tag-9990);
+    }
 }
 
 - (void)createCollectionView
@@ -106,27 +116,26 @@
 {
     OnlineDoctorViewCell *cell = [OnlineDoctorViewCell cellClassName:@"OnlineDoctorViewCell" InTableView:tableView forContenteMode:nil];
     NSDictionary *dic = self.articleList[indexPath.row];
-    [cell.iconView sd_setImageWithURL:[NSURL URLWithString:dic[@"userPortraitUrl"]]];
-    [cell.nameLab setText:dic[@"userName"]];
+    [cell.iconView sd_setImageWithURL:[NSURL URLWithString:dic[@"image"]]];
+    [cell.nameLab setText:dic[@"createByName"]];
     [cell.dateLab setText:dic[@"createTime"]];
-    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",[dic[@"watchNum"] intValue]]];
+    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",[dic[@"readNumber"] intValue]]];
     [placeholder attatchImage:[UIImage imageNamed:@"浏览"]
                    imageFrame:CGRectMake(0, 0, 20, 11)
                         Range:NSMakeRange(0, 0)];
     [cell.readNumLab setAttributedText:placeholder];
     [cell.titleLab setText:dic[@"title"]];
-    [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:dic[@"image"]]];
-    if ([dic[@"articleImgUrlList"] count] > 0)
+    if (dic[@"image"])
     {
-        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:[dic[@"articleImgUrlList"] objectAtIndex:0]]];
+        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:dic[@"image"]]];
     }
-    if ([dic[@"articleImgUrlList"] count] > 1)
+    if (dic[@"image2"])
     {
-        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:[dic[@"articleImgUrlList"] objectAtIndex:1]]];
+        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:dic[@"image2"]]];
     }
-    if ([dic[@"articleImgUrlList"] count] > 2)
+    if (dic[@"image3"])
     {
-        [cell.imageView3 sd_setImageWithURL:[NSURL URLWithString:[dic[@"articleImgUrlList"] objectAtIndex:2]]];
+        [cell.imageView3 sd_setImageWithURL:[NSURL URLWithString:dic[@"image3"]]];
     }
     return cell;
 }

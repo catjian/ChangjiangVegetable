@@ -8,6 +8,8 @@
 
 #import "VideoListViewController.h"
 #import "VideoListBaseView.h"
+#import "HotVideoListViewController.h"
+#import "VideoPlayerViewController.h"
 
 @interface VideoListViewController () <UITextFieldDelegate>
 
@@ -19,6 +21,7 @@
     UIView *m_SearchView;
     UITextField *m_SearchTextField;
     NSArray *m_Articleclassify;
+    NSString *m_ChannelID;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -54,17 +57,44 @@
                     switch (indexPath.row)
                     {
                         case -1:
-                            [strongSelf loadViewController:@"HotVideoListViewController" hidesBottomBarWhenPushed:NO];
+                        {
+                            HotVideoListViewController *vc = [strongSelf loadViewController:@"HotVideoListViewController" hidesBottomBarWhenPushed:NO];
+                            vc.menuId = strongSelf->m_ChannelID;
+                            vc.titleStr = @"热门推荐";
+                        }
                             break;
-                            
                         default:
-                            [strongSelf loadViewController:@"VideoPlayerViewController" hidesBottomBarWhenPushed:NO];
+                        {
+                            VideoPlayerViewController *vc = [strongSelf loadViewController:@"VideoPlayerViewController" hidesBottomBarWhenPushed:NO];
+                            NSArray<NSDictionary *> *newVideoList = strongSelf->m_BaseView.allDataDic[@"list"][@"hotData"];
+                            vc.videoDic = newVideoList[indexPath.row];
+                            vc.videoList = newVideoList;
+                        }
                             break;
                     }
                 }
                     break;
                 default:
-                    [strongSelf loadViewController:@"VideoPlayerViewController" hidesBottomBarWhenPushed:NO];
+                {
+                    switch (indexPath.row)
+                    {
+                        case -1:
+                        {
+                            HotVideoListViewController *vc = [strongSelf loadViewController:@"HotVideoListViewController" hidesBottomBarWhenPushed:NO];
+                            vc.menuId = strongSelf->m_ChannelID;
+                            vc.titleStr = @"最新视频";
+                        }
+                            break;
+                        default:
+                        {
+                            VideoPlayerViewController *vc = [strongSelf loadViewController:@"VideoPlayerViewController" hidesBottomBarWhenPushed:NO];
+                            NSArray<NSDictionary *> *newVideoList = strongSelf->m_BaseView.allDataDic[@"list"][@"newData"];
+                            vc.videoDic = newVideoList[indexPath.row];
+                            vc.videoList = newVideoList;
+                        }
+                            break;
+                    }
+                }
                     break;
             }
         }];
@@ -79,6 +109,11 @@
                 [dic setObject:channelDic[@"menuName"] forKey:[@(i) stringValue]];
             }
             vc.channelData = dic;
+        }];
+        [m_BaseView setPageSelectBlock:^(NSInteger page) {
+            DIF_StrongSelf
+            NSDictionary *channelDic = strongSelf->m_BaseView.channelArray[page];
+            [strongSelf httpRequestGetVideoDataByMenuId:channelDic[@"menuId"]];
         }];
     }
     [self httpRequestGetMenuList];
@@ -169,13 +204,13 @@
 {
     [CommonHUD showHUD];
     DIF_WeakSelf(self)
-    [DIF_CommonHttpAdapter httpRequestGetMenuListWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+    [DIF_CommonHttpAdapter httpRequestGetVideoMenuListWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
         {
             DIF_StrongSelf
             [CommonHUD hideHUD];
             [strongSelf->m_BaseView setChannelArray:responseModel[@"data"]];
-            [strongSelf httpRequestGetVideoDataByMenuId];
+            [strongSelf httpRequestGetVideoDataByMenuId:responseModel[@"data"][0][@"menuId"]];
         }
         else
         {
@@ -186,11 +221,13 @@
     }];
 }
 
-- (void)httpRequestGetVideoDataByMenuId
+- (void)httpRequestGetVideoDataByMenuId:(NSString *)menuId
 {
+    m_ChannelID = menuId;
     [CommonHUD showHUD];
     DIF_WeakSelf(self)
-    [DIF_CommonHttpAdapter httpRequestGetVideoDataByMenuIdWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+    [DIF_CommonHttpAdapter httpRequestGetVideoDataByMenuIdWithMenuId:menuId
+                                                       ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
         {
             DIF_StrongSelf

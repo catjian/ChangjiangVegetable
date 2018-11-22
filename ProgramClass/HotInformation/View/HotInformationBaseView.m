@@ -36,21 +36,24 @@
     {
         [titles addObject:dic[@"menuName"]];
     }
+//    CommonPageControlView *pageView = [[CommonPageControlView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH-DIF_PX(34), DIF_PX(40))
+//                                                                            titles:titles
+//                                                                          oneWidth:(DIF_SCREEN_WIDTH-34)/4-12];
     CommonPageControlView *pageView = [[CommonPageControlView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH-DIF_PX(34), DIF_PX(40))
                                                                             titles:titles
-                                                                          oneWidth:(DIF_SCREEN_WIDTH-34)/4-12];
+                                                                          oneWidth:(DIF_SCREEN_WIDTH)/4-12];
     [self addSubview:pageView];
     DIF_WeakSelf(self)
     [pageView setSelectBlock:self.pageSelectBlock];
     
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
-    [btn setFrame:CGRectMake(pageView.right+DIF_PX(6), 0, DIF_PX(22), DIF_PX(40))];
-    [btn setImage:[UIImage imageNamed:@"菜单"] forState:UIControlStateNormal];
-//    [btn setTitle:@"E" forState:UIControlStateNormal];
-    [btn setTitleColor:DIF_HEXCOLOR(@"808080") forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(pageControlSelectChannelButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:btn];
+//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [btn setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
+//    [btn setFrame:CGRectMake(pageView.right+DIF_PX(6), 0, DIF_PX(22), DIF_PX(40))];
+//    [btn setImage:[UIImage imageNamed:@"菜单"] forState:UIControlStateNormal];
+////    [btn setTitle:@"E" forState:UIControlStateNormal];
+//    [btn setTitleColor:DIF_HEXCOLOR(@"808080") forState:UIControlStateNormal];
+//    [btn addTarget:self action:@selector(pageControlSelectChannelButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
+//    [self addSubview:btn];
 }
 
 - (void)pageControlSelectChannelButtonEvent:(UIButton *)btn
@@ -158,6 +161,12 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.selectBlock)
+    {
+        NSArray *videoList = self.allDataDic[@"list"];
+        NSDictionary *videoDic = videoList[indexPath.row];
+        self.selectBlock(indexPath, videoDic);
+    }
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout

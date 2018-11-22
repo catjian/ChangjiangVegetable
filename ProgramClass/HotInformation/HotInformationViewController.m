@@ -8,6 +8,7 @@
 
 #import "HotInformationViewController.h"
 #import "HotInformationBaseView.h"
+#import "HtmlContentViewController.h"
 
 @interface HotInformationViewController () <UITextFieldDelegate>
 
@@ -64,8 +65,14 @@
             }
             vc.channelData = dic;
         }];
+        [m_BaseView setSelectBlock:^(NSIndexPath *indexPath, id model) {
+            DIF_StrongSelf
+            HtmlContentViewController *vc = [strongSelf loadViewController:@"HtmlContentViewController"];
+            vc.tradeId = [NSString stringWithFormat:@"%@", model[@"topicId"]];
+            vc.tradeInfo = model;
+        }];
+        [self httpRequestGetMenuList];
     }
-    [self httpRequestGetMenuList];
 }
 
 #pragma mark - Search Event Object

@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVAsset.h>
+#import <AVFoundation/AVAssetImageGenerator.h>
+#import <AVFoundation/AVTime.h>
 
 @interface CommonTool : NSObject
 
@@ -33,5 +36,7 @@
 + (NSString *)writeToLoactionFile:(NSString *)content FileName:(NSString *)fileName;
 
 + (id)dictionaryWithJsonString:(NSString *)jsonString;
+
++ (UIImage*) getVideoPreViewImage:(NSString *)path;
 
 @end

@@ -259,4 +259,20 @@
     return jsonRsp;
 }
 
+// 获取视频第一帧
++ (UIImage*) getVideoPreViewImage:(NSString *)path
+{
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:[NSURL URLWithString:path] options:nil];
+    AVAssetImageGenerator *assetGen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    
+    assetGen.appliesPreferredTrackTransform = YES;
+    CMTime time = CMTimeMakeWithSeconds(0.0, 600);
+    NSError *error = nil;
+    CMTime actualTime;
+    CGImageRef image = [assetGen copyCGImageAtTime:time actualTime:&actualTime error:&error];
+    UIImage *videoImage = [[UIImage alloc] initWithCGImage:image];
+    CGImageRelease(image);
+    return videoImage;
+}
+
 @end

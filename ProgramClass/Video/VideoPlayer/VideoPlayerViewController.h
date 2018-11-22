@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VideoPlayerViewController : BaseViewController
 
+@property (nonatomic, strong) NSDictionary *videoDic;
+@property (nonatomic, strong) NSArray *videoList;
+
 @end
 
 NS_ASSUME_NONNULL_END

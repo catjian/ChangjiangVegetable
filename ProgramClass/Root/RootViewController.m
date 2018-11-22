@@ -10,6 +10,8 @@
 #import "RootBaseView.h"
 #import "SpecialNewsDetailViewController.h"
 #import "WebShopDetailViewController.h"
+#import "VideoPlayerViewController.h"
+#import "HtmlContentViewController.h"
 
 @interface RootViewController () <UITextFieldDelegate>
 
@@ -122,20 +124,39 @@
                     break;
                 case 4:
                 {
+                    HtmlContentViewController *vc = [strongSelf loadViewController:@"HtmlContentViewController"];
+                    NSArray<NSDictionary *> *hotTopicsList = strongSelf->m_BaseView.allDataDic[@"list"][@"hotTopicsList"];
+                    vc.tradeId = [NSString stringWithFormat:@"%@", hotTopicsList[indexPath.row][@"contentId"]];
+                    vc.tradeInfo = hotTopicsList[indexPath.row];
                 }
                     break;
                 case 5:
                 {
-                    [strongSelf loadViewController:@"VideoPlayerViewController" hidesBottomBarWhenPushed:NO];
+                    VideoPlayerViewController *vc = [strongSelf loadViewController:@"VideoPlayerViewController" hidesBottomBarWhenPushed:NO];
+                    NSArray<NSDictionary *> *newVideoList = strongSelf->m_BaseView.allDataDic[@"list"][@"newVideoList"];
+                    vc.videoDic = newVideoList[indexPath.row];
+                    vc.videoList = newVideoList;
                 }
                 default:
                     break;
             }
         }];
+        [m_BaseView setHeaderBlock:^(NSInteger index) {
+            DIF_StrongSelf
+            if(index == 4)
+            {
+                [strongSelf loadViewController:@"HotInformationViewController" hidesBottomBarWhenPushed:NO];
+            }
+            else
+            {
+                [DIF_TabBar setSelectedIndex:1];
+            }
+        }];
     }
     if(DIF_CommonHttpAdapter.access_token)
     {
-        [self httpRequestGetMainData];
+        if (m_BaseView.allDataDic.count <= 0)
+            [self httpRequestGetMainData];
     }
     else
     {

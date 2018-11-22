@@ -907,6 +907,17 @@ static CommonHttpAdapter *comHttp = nil;
                         FailedBlcok:failedBlock];
 }
 
+#pragma mark - 根据菜单ID获取资讯列表
+- (void)httpRequestGetTradeInfoDetailWithTopicId:(NSString *)topicId
+                                  ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:[@"/yangtze_veg/tradeInfo/getDetail/" stringByAppendingString:topicId]
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
 #pragma mark - 远程问诊
 #pragma mark - 获取在线问诊的头部两部分数据
 - (void)httpRequestGetOnlineDoctorDataWithResponseBlock:(CommonHttpResponseBlock)successBlock
@@ -1193,22 +1204,52 @@ static CommonHttpAdapter *comHttp = nil;
 
 
 
-
-
-
-
-
-
-
-#pragma mark - 获取视频数据
-- (void)httpRequestGetVideoDataByMenuIdWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock
+#pragma mark - 视频接口
+#pragma mark - 查询视频栏目
+- (void)httpRequestGetVideoMenuListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                         FailedBlcok:(CommonHttpResponseFailed)failedBlock
 {
-    [self HttpGetRequestWithCommand:@"getVideoDataByMenuId"
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/video/getMenuList"
                          parameters:nil
                       ResponseBlock:successBlock
                         FailedBlcok:failedBlock];
 }
+
+#pragma mark - 查询视频首页
+- (void)httpRequestGetVideoDataByMenuIdWithMenuId:(NSString *)menuId
+                                    ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                      FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/video/getVideoList"
+                         parameters:@{@"menuId":menuId}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+
+#pragma mark - 获取热门推荐视频列表
+- (void)httpRequestPostGetHotVideoListWithMenuId:(NSString *)menuId
+                                  ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/video/getHotVideoList"
+                          parameters:@{@"menuId":menuId,@"indexPage":@"1",@"pageSize":@"10"}
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 获取最新推荐视频列表
+- (void)httpRequestPostGetNewVideoListWithMenuId:(NSString *)menuId
+                                   ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                     FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/video/getNewVideoList"
+                          parameters:@{@"menuId":menuId,@"indexPage":@"1",@"pageSize":@"10"}
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+
 
 
 
@@ -1220,16 +1261,6 @@ static CommonHttpAdapter *comHttp = nil;
                          parameters:nil
                       ResponseBlock:successBlock
                         FailedBlcok:failedBlock];
-}
-
-#pragma mark - 获取热门推荐视频列表
-- (void)httpRequestPostGeHotVideoListWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                                           FailedBlcok:(CommonHttpResponseFailed)failedBlock
-{
-    [self HttpPostRequestWithCommand:@"geHotVideoList"
-                          parameters:nil
-                       ResponseBlock:successBlock
-                         FailedBlcok:failedBlock];
 }
 
 #pragma mark - 获取我要读刊界面的Banner

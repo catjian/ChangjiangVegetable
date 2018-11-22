@@ -12,6 +12,7 @@ typedef void(^VideoListBaseViewSelectChannelBlock)(void);
 
 @interface VideoListBaseView : UIView 
 
+@property (nonatomic, copy) CommonPageControlViewSelectBlock pageSelectBlock;
 @property (nonatomic, copy) VideoListBaseViewSelectChannelBlock selectChannelBlock;
 @property (nonatomic, copy) tableViewSelectRowAtIndexPathBlock selectBlock;
 @property (nonatomic, strong) NSDictionary *allDataDic;

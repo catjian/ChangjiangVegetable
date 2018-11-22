@@ -10,8 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^VideoPlayerBaseViewSelectMoreViewBlock)(NSInteger tag);
+
 @interface VideoPlayerBaseView : UIView
 
+@property (nonatomic, copy) VideoPlayerBaseViewSelectMoreViewBlock moreBlock;
+@property (nonatomic, strong) NSDictionary *videoDic;
+@property (nonatomic, strong) NSArray *videoList;
 @property(nonatomic, strong) KRVideoPlayerController *playerCon;
 @end
 
