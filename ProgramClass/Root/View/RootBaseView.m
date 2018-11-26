@@ -201,8 +201,8 @@
             [m_ContentView registerClass:[RootViewHotCell class] forCellWithReuseIdentifier:cellIdentifier];
             RootViewHotCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
             NSArray<NSDictionary *> *discountGoodsList = list[@"discountGoodsList"];
-            [cell.titleLab setText:discountGoodsList[indexPath.row][@"discountTitle"]];
-            [cell.detailLab setText:discountGoodsList[indexPath.row][@"discountSubTtitle"]];
+            [cell.titleLab setText:discountGoodsList[indexPath.row][@"name"]];
+            [cell.detailLab setText:discountGoodsList[indexPath.row][@"goods_brief"]];
             [cell.imageView sd_setImageWithURL:[NSURL URLWithString:discountGoodsList[indexPath.row][@"primary_pic_url"]]];
             return cell;
         }
@@ -216,7 +216,7 @@
             [cell.titleLab setText:hotTopicsList[indexPath.row][@"title"]];
             NSString *date = [CommonDate dateToString:[NSDate dateWithTimeIntervalSince1970:[hotTopicsList[indexPath.row][@"createDate"] integerValue]/1000]
                                               Formate:@"yyyy年MM月dd日"];
-            [cell.detailLab setText:[NSString stringWithFormat:@"%@    阅读量：%d@",date,[hotTopicsList[indexPath.row][@"readNums"] intValue]]];
+            [cell.detailLab setText:[NSString stringWithFormat:@"%@    阅读量：%d",date,[hotTopicsList[indexPath.row][@"readNums"] intValue]]];
             return cell;
         }
             break;

@@ -27,4 +27,6 @@ pod 'UMCShare/Social/ReducedSina'
 
 pod 'KRVideoPlayer'
 
+pod 'CocoaLumberjack'
+
 end

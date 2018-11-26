@@ -16,6 +16,7 @@
 @implementation VideoListBaseView
 {
     BaseCollectionView *m_ContentView;
+    CommonPageControlView *m_PageView;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -30,29 +31,32 @@
 
 - (void)createPageController
 {
-    NSMutableArray *titles = [NSMutableArray array];
-    for (NSDictionary *dic in self.channelArray)
+    if(!m_PageView)
     {
-        [titles addObject:dic[@"menuName"]];
+        NSMutableArray *titles = [NSMutableArray array];
+        for (NSDictionary *dic in self.channelArray)
+        {
+            [titles addObject:dic[@"menuName"]];
+        }
+    //    CommonPageControlView *pageView = [[CommonPageControlView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH-DIF_PX(34), DIF_PX(40))
+    //                                                                            titles:titles
+    //                                                                          oneWidth:(DIF_SCREEN_WIDTH-34)/4-12];
+        m_PageView = [[CommonPageControlView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(40))
+                                                                                titles:titles
+                                                                              oneWidth:(DIF_SCREEN_WIDTH)/4-12];
+        [self addSubview:m_PageView];
+        [m_PageView setSelectBlock:self.pageSelectBlock];
+        
+    //    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    //    [btn setFrame:CGRectMake(pageView.right+DIF_PX(6), 0, DIF_PX(22), DIF_PX(40))];
+    //    [btn setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
+    ////    [btn setTitle:@"E" forState:UIControlStateNormal];
+    //    [btn setImage:[UIImage imageNamed:@"菜单"] forState:UIControlStateNormal];
+    //    [btn setTitleColor:DIF_HEXCOLOR(@"808080") forState:UIControlStateNormal];
+    //    [btn addTarget:self action:@selector(pageControlSelectChannelButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
+    //    [self addSubview:btn];
+        [self createCollectionView];
     }
-//    CommonPageControlView *pageView = [[CommonPageControlView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH-DIF_PX(34), DIF_PX(40))
-//                                                                            titles:titles
-//                                                                          oneWidth:(DIF_SCREEN_WIDTH-34)/4-12];
-    CommonPageControlView *pageView = [[CommonPageControlView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(40))
-                                                                            titles:titles
-                                                                          oneWidth:(DIF_SCREEN_WIDTH)/4-12];
-    [self addSubview:pageView];
-    [pageView setSelectBlock:self.pageSelectBlock];
-    
-//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [btn setFrame:CGRectMake(pageView.right+DIF_PX(6), 0, DIF_PX(22), DIF_PX(40))];
-//    [btn setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
-////    [btn setTitle:@"E" forState:UIControlStateNormal];
-//    [btn setImage:[UIImage imageNamed:@"菜单"] forState:UIControlStateNormal];
-//    [btn setTitleColor:DIF_HEXCOLOR(@"808080") forState:UIControlStateNormal];
-//    [btn addTarget:self action:@selector(pageControlSelectChannelButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
-//    [self addSubview:btn];
-    [self createCollectionView];
 }
 
 - (void)pageControlSelectChannelButtonEvent:(UIButton *)btn

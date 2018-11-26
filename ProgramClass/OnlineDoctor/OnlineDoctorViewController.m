@@ -66,6 +66,8 @@
 - (void)rightBarButtonItemAction:(UIButton *)btn
 {
     [self.view endEditing:YES];
+    [m_SearchTextField resignFirstResponder];
+    [self loadViewController:@"OnlineDoctorEditQuestionViewController"];
 }
 
 
@@ -168,7 +170,16 @@
          {
              DIF_StrongSelf
              [CommonHUD hideHUD];
-             [strongSelf->m_BaseView setArticleList:responseModel[@"data"][@"list"]];
+             if(page == 1)
+             {
+                 [strongSelf->m_BaseView setArticleList:responseModel[@"data"][@"list"]];
+             }
+             else
+             {
+                 NSMutableArray *resultArr = [NSMutableArray arrayWithArray:strongSelf->m_BaseView.articleList];
+                 [resultArr addObjectsFromArray:responseModel[@"data"][@"list"]];
+                 [strongSelf->m_BaseView setArticleList:resultArr];
+             }
              [strongSelf->m_BaseView endRefresh];
          }
          else

@@ -209,12 +209,15 @@
 		7FF62EDB217CD107009190F0 /* MySetBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF62EDA217CD107009190F0 /* MySetBaseView.m */; };
 		82800ACD21A6F81000135ACA /* OnlineDoctorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82800ACC21A6F81000135ACA /* OnlineDoctorDetailViewController.m */; };
 		82800AD121A7080000135ACA /* HtmlContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82800ACF21A7080000135ACA /* HtmlContentViewController.m */; };
+		8288CABF21AC5891009B93A4 /* richTextEditor.html in Resources */ = {isa = PBXBuildFile; fileRef = 8288CABE21AC5891009B93A4 /* richTextEditor.html */; };
 		82C5EB1B21A16B870019C40A /* ImSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C5EB1621A16B870019C40A /* ImSDK.framework */; };
 		82C5EB1C21A16B870019C40A /* TLSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C5EB1721A16B870019C40A /* TLSSDK.framework */; };
 		82C5EB1D21A16B870019C40A /* IMCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C5EB1821A16B870019C40A /* IMCore.framework */; };
 		82C5EB1E21A16B870019C40A /* QALSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C5EB1921A16B870019C40A /* QALSDK.framework */; };
 		82C5EB1F21A16B870019C40A /* IMSDKBugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C5EB1A21A16B870019C40A /* IMSDKBugly.framework */; };
 		82CD23E721A3054200D2C933 /* WebShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CD23E621A3054200D2C933 /* WebShopDetailViewController.m */; };
+		82EB724121AC464E005A541D /* OnlineDoctorEditQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82EB723F21AC464E005A541D /* OnlineDoctorEditQuestionViewController.m */; };
+		82EB724221AC464E005A541D /* OnlineDoctorEditQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82EB724021AC464E005A541D /* OnlineDoctorEditQuestionViewController.xib */; };
 		82F4088E21A47287003BC6AE /* NSURL+Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F4088D21A47287003BC6AE /* NSURL+Encoding.m */; };
 		DEB4C4DEA6479C08B2E2D6A1 /* libPods-ChangjiangVegetable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F67650A765ABE6A6A98F6240 /* libPods-ChangjiangVegetable.a */; };
 /* End PBXBuildFile section */
@@ -593,6 +596,8 @@
 		82800ACC21A6F81000135ACA /* OnlineDoctorDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnlineDoctorDetailViewController.m; sourceTree = "<group>"; };
 		82800ACE21A7080000135ACA /* HtmlContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HtmlContentViewController.h; sourceTree = "<group>"; };
 		82800ACF21A7080000135ACA /* HtmlContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HtmlContentViewController.m; sourceTree = "<group>"; };
+		8288CAB621AC50FB009B93A4 /* libCocoaLumberjack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCocoaLumberjack.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8288CABE21AC5891009B93A4 /* richTextEditor.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = richTextEditor.html; sourceTree = "<group>"; };
 		82C5EB1621A16B870019C40A /* ImSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ImSDK.framework; sourceTree = "<group>"; };
 		82C5EB1721A16B870019C40A /* TLSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TLSSDK.framework; sourceTree = "<group>"; };
 		82C5EB1821A16B870019C40A /* IMCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IMCore.framework; sourceTree = "<group>"; };
@@ -600,6 +605,9 @@
 		82C5EB1A21A16B870019C40A /* IMSDKBugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IMSDKBugly.framework; sourceTree = "<group>"; };
 		82CD23E521A3054200D2C933 /* WebShopDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebShopDetailViewController.h; sourceTree = "<group>"; };
 		82CD23E621A3054200D2C933 /* WebShopDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebShopDetailViewController.m; sourceTree = "<group>"; };
+		82EB723E21AC464E005A541D /* OnlineDoctorEditQuestionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnlineDoctorEditQuestionViewController.h; sourceTree = "<group>"; };
+		82EB723F21AC464E005A541D /* OnlineDoctorEditQuestionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnlineDoctorEditQuestionViewController.m; sourceTree = "<group>"; };
+		82EB724021AC464E005A541D /* OnlineDoctorEditQuestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnlineDoctorEditQuestionViewController.xib; sourceTree = "<group>"; };
 		82F4088C21A47287003BC6AE /* NSURL+Encoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURL+Encoding.h"; sourceTree = "<group>"; };
 		82F4088D21A47287003BC6AE /* NSURL+Encoding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Encoding.m"; sourceTree = "<group>"; };
 		99E98EBC22CB25E4618E866A /* Pods-ChangjiangVegetable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChangjiangVegetable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChangjiangVegetable/Pods-ChangjiangVegetable.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1368,6 +1376,10 @@
 				7FB0495C2193314A00EFB0B2 /* OnlineDoctorViewController.m */,
 				82800ACB21A6F81000135ACA /* OnlineDoctorDetailViewController.h */,
 				82800ACC21A6F81000135ACA /* OnlineDoctorDetailViewController.m */,
+				82EB723E21AC464E005A541D /* OnlineDoctorEditQuestionViewController.h */,
+				82EB723F21AC464E005A541D /* OnlineDoctorEditQuestionViewController.m */,
+				82EB724021AC464E005A541D /* OnlineDoctorEditQuestionViewController.xib */,
+				8288CABE21AC5891009B93A4 /* richTextEditor.html */,
 			);
 			path = OnlineDoctor;
 			sourceTree = "<group>";
@@ -1510,6 +1522,7 @@
 		9D50ACA4FFCEDB5D95A96B52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8288CAB621AC50FB009B93A4 /* libCocoaLumberjack.a */,
 				F67650A765ABE6A6A98F6240 /* libPods-ChangjiangVegetable.a */,
 			);
 			name = Frameworks;
@@ -1590,6 +1603,7 @@
 				7FA8A4ED217A33F3000BB44A /* popRec_5.png in Resources */,
 				7FA1F0ED218F52A400E020A8 /* PayInputDetailViewController.xib in Resources */,
 				7F8B6A0C218228CB00F08519 /* RegisterSetPwdViewController.xib in Resources */,
+				8288CABF21AC5891009B93A4 /* richTextEditor.html in Resources */,
 				7FA8A4EC217A33F3000BB44A /* popRec_4.png in Resources */,
 				7FC2CB252190A2E100BD4E0D /* AddressAddViewController.xib in Resources */,
 				7FA8A4F1217A33F3000BB44A /* popRec_9.png in Resources */,
@@ -1599,6 +1613,7 @@
 				7F88DB10217A0D550081DF97 /* LaunchScreen.storyboard in Resources */,
 				7F8B6A1221822B6900F08519 /* ForgetPasswordViewController.xib in Resources */,
 				7FA8A4F4217A33F3000BB44A /* popSend_3.png in Resources */,
+				82EB724221AC464E005A541D /* OnlineDoctorEditQuestionViewController.xib in Resources */,
 				7FA8A4F5217A33F3000BB44A /* popSend_4.png in Resources */,
 				7F3A05F421908C1900F76E25 /* PayInputContinueViewController.xib in Resources */,
 				7FA8A4EB217A33F3000BB44A /* popRec_3.png in Resources */,
@@ -1751,6 +1766,7 @@
 				7F8B6A0B218228CB00F08519 /* RegisterSetPwdViewController.m in Sources */,
 				7FA8A5DE217A33F3000BB44A /* NSString+Extension_NSString.m in Sources */,
 				7FA8A4DC217A33F2000BB44A /* CustomRoundButton.m in Sources */,
+				82EB724121AC464E005A541D /* OnlineDoctorEditQuestionViewController.m in Sources */,
 				7FA8A4D3217A33F2000BB44A /* CommonPopShareView.m in Sources */,
 				7FA1F0F0218F563B00E020A8 /* CommonHeaderPageListView.m in Sources */,
 				7FEE8E78217CE87300ECF9AA /* MySetTableViewCell.m in Sources */,
@@ -1975,6 +1991,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 99E98EBC22CB25E4618E866A /* Pods-ChangjiangVegetable.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FS645WBRSS;
@@ -2002,6 +2019,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 460720354A36434ACA672A13 /* Pods-ChangjiangVegetable.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FS645WBRSS;

@@ -120,7 +120,7 @@
         [cell.titleLab setText:videoDic[@"title"]];
 //        NSString *date = [CommonDate dateToString:[NSDate dateWithTimeIntervalSince1970:[videoDic[@"createDate"] integerValue]/1000]
 //                                          Formate:@"yyyy年MM月dd日"];
-        [cell.detailLab setText:[NSString stringWithFormat:@"%@    阅读量：%d@",videoDic[@"createDate"],[videoDic[@"readNum"] intValue]]];
+        [cell.detailLab setText:[NSString stringWithFormat:@"%@    阅读量：%d",videoDic[@"createDate"],[videoDic[@"readNum"] intValue]]];
         return cell;
     }
     else
@@ -138,11 +138,11 @@
         {
             NSString *date = [CommonDate dateToString:[NSDate dateWithTimeIntervalSince1970:[videoDic[@"createDate"] integerValue]/1000]
                                               Formate:@"yyyy年MM月dd日"];
-            [cell.detailLab setText:[NSString stringWithFormat:@"%@    阅读量：%d@",date,[videoDic[@"readNum"] intValue]]];
+            [cell.detailLab setText:[NSString stringWithFormat:@"%@    阅读量：%d",date,[videoDic[@"readNum"] intValue]]];
         }
         else
         {
-            [cell.detailLab setText:[NSString stringWithFormat:@"%@    阅读量：%d@",videoDic[@"createDate"],[videoDic[@"readNum"] intValue]]];
+            [cell.detailLab setText:[NSString stringWithFormat:@"%@    阅读量：%d",videoDic[@"createDate"],[videoDic[@"readNum"] intValue]]];
         }
         return cell;
     }

@@ -24,12 +24,16 @@
         [self.titleLab setTextColor:DIF_HEXCOLOR(@"#FC7940")];
         [self.titleLab setFont:DIF_DIFONTOFSIZE(14)];
         [self.titleLab setTextAlignment:NSTextAlignmentCenter];
+        [self.titleLab setLineBreakMode:NSLineBreakByClipping];
+        [self.titleLab setNumberOfLines:1];
         [grayView addSubview:self.titleLab];
         
         self.detailLab = [[UILabel alloc] initWithFrame:CGRectMake(self.titleLab.left, self.titleLab.bottom, self.titleLab.width, DIF_PX(20))];
         [self.detailLab setTextColor:DIF_HEXCOLOR(@"#666666")];
         [self.detailLab setFont:DIF_DIFONTOFSIZE(12)];
         [self.detailLab setTextAlignment:NSTextAlignmentCenter];
+        [self.detailLab setLineBreakMode:NSLineBreakByClipping];
+        [self.detailLab setNumberOfLines:1];
         [grayView addSubview:self.detailLab];
         
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.detailLab.bottom+DIF_PX(5), DIF_PX(74), DIF_PX(68))];
