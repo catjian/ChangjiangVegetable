@@ -178,10 +178,49 @@ static NSString * const BaseUrl = @"http://139.159.239.153";
                                     ResponseBlock:(CommonHttpResponseBlock)successBlock
                                       FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
-#pragma mark - 根据菜单ID获取资讯列表
-- (void)httpRequestGetTradeInfoDetailWithTopicId:(NSString *)menuId
-                                   ResponseBlock:(CommonHttpResponseBlock)successBlock
-                                     FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - 公共接口
+#pragma mark - 获取信息详情
+- (void)httpRequestGetPublicDetailWithTopicId:(NSString *)articleId
+                                ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                  FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 获取评论信息 /yangtze_veg/public/getComment/{articleId}
+- (void)httpRequestGetPublicCommentWithTopicId:(NSString *)articleId
+                                        PageNo:(NSString *)pageNo
+                                      PageSize:(NSString *)pageSize
+                                 ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                   FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 文章(列表)点赞/取消点赞 /yangtze_veg/public/like 状态(1点赞，-1取消点赞)
+- (void)httpRequestGetPublicLikeWithTopicId:(NSString *)articleId
+                                     Status:(NSString *)status
+                              ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark -/yangtze_veg/public/addCollect 添加收藏/取消收藏
+- (void)httpRequestPublicAddCollectWithTopicId:(NSString *)articleId
+                                        Status:(NSString *)status
+                                 ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                   FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - /yangtze_veg/public/goods/addCollect 商品添加收藏/取消收藏
+- (void)httpRequestPublicGoodsAddCollectWithTopicId:(NSString *)goodsId
+                                          ProductId:(NSString *)productId
+                                             Status:(NSString *)status
+                                      ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                        FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - /yangtze_veg/public/saveComment/{articleId} 发评论
+- (void)httpRequestPublicSaveCommentWithTopicId:(NSString *)articleId
+                                        comment:(NSDictionary *)comment
+                                  ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - /yangtze_veg/public/vendor/addCollect 店铺添加收藏/取消收藏
+- (void)httpRequestPublicVendorAddCollectWithTopicId:(NSString *)vendorId
+                                              Status:(NSString *)status
+                                       ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                         FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
 #pragma mark - 远程问诊
 #pragma mark - 获取在线问诊的头部两部分数据

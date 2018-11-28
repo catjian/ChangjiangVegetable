@@ -232,7 +232,6 @@ static CommonHttpAdapter *comHttp = nil;
     {
         command = [command stringByAppendingFormat:@"?%@",[self parametersToString:parms]];
     }
-    DebugLog(@"command = %@",command);
     NSMutableURLRequest *request =
     [self reWrteCreateHttpRequstWithMethod:@"GET"
                                  URLString:[command stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]
@@ -245,6 +244,7 @@ static CommonHttpAdapter *comHttp = nil;
                                        }
                                    }];
     
+    DebugLog(@"command = %@",request.URL.absoluteString);
     [self httpRequest:request
              progress:nil
               success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -303,7 +303,6 @@ static CommonHttpAdapter *comHttp = nil;
         NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         DebugLog(@"parameters = %@",jsonStr);
     }
-    DebugLog(@"command = %@",command);
     NSMutableURLRequest *request =
     [self reWrteCreateHttpRequstWithMethod:@"POST"
                                  URLString:[command stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]
@@ -316,6 +315,77 @@ static CommonHttpAdapter *comHttp = nil;
                                        }
                                    }];
     
+    DebugLog(@"command = %@",request.URL.absoluteString);
+    [self httpRequest:request
+             progress:nil
+              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                  DebugLog(@"responseObject = %@",responseObject);
+                  if (block)
+                  {
+                      if ([responseObject[@"code"] integerValue] == 200)
+                      {
+                          block(ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS,responseObject);
+                      }
+                      else if ([responseObject[@"code"] integerValue] == 401)
+                      {
+                          DIF_CommonCurrentUser.accessToken = nil;
+                          DIF_CommonCurrentUser.refreshToken = nil;
+                          DIF_CommonHttpAdapter.access_token = DIF_CommonCurrentUser.accessToken;
+                          DIF_CommonHttpAdapter.refresh_token = DIF_CommonCurrentUser.refreshToken;
+                          [DIF_APPDELEGATE loadLoginViewController];
+                      }
+                      else
+                      {
+                          block(ENUM_COMMONHTTP_RESPONSE_TYPE_FAULSE,responseObject);
+                      }
+                  }
+              }
+              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                  DebugLog(@"error = %@",error);
+                  if (failedBlock)
+                  {
+                      failedBlock(error);
+                  }
+              }];
+}
+
+#pragma mark - Post请求
+- (void)HttpPostBodyRequestWithCommand:(NSString *)command
+                            parameters:(NSDictionary *)parms
+                         ResponseBlock:(CommonHttpResponseBlock)block
+                           FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    if (![self connectedToNetwork])
+    {
+        block?block(ENUM_COMMONHTTP_RESPONSE_TYPE_FAULSE,@{@"message":DIF_HTTP_NOT_HAVE_NETWORK}):nil;
+        return;
+    }
+    if (!command)
+    {
+        block?block(ENUM_COMMONHTTP_RESPONSE_TYPE_FAULSE,@{@"message":DIF_HTTP_REQUEST_PARMS_NULL}):nil;
+        return;
+    }
+    if (parms != nil)
+    {
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parms
+                                                           options:NSJSONWritingPrettyPrinted error:nil];
+        // NSData转为NSString
+        NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        DebugLog(@"parameters = %@",jsonStr);
+    }
+    NSMutableURLRequest *request =
+    [self reWrteCreateHttpRequstWithMethod:@"POST"
+                                 URLString:[command stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]
+                                parameters:parms
+                                   failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                       DebugLog(@"error = %@",error);
+                                       if (failedBlock)
+                                       {
+                                           failedBlock(error);
+                                       }
+                                   }];
+    
+    DebugLog(@"command = %@",request.URL.absoluteString);
     [self httpRequest:request
              progress:nil
               success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -555,7 +625,7 @@ static CommonHttpAdapter *comHttp = nil;
     NSError *serializationError = nil;
     NSMutableURLRequest *request = [httpSessionManager.requestSerializer
                                     multipartFormRequestWithMethod:@"POST"
-                                    URLString:[[NSURL URLWithString:@"/file" relativeToURL:httpSessionManager.baseURL] absoluteString]
+                                    URLString:[[NSURL URLWithString:@"/yangtze_veg/upload/upload" relativeToURL:httpSessionManager.baseURL] absoluteString]
                                     parameters:nil
                                     constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
                                         NSData *imageData = UIImageJPEGRepresentation(image, 1);
@@ -872,6 +942,7 @@ static CommonHttpAdapter *comHttp = nil;
                          FailedBlcok:failedBlock];
 }
 
+
 #pragma mark - 资讯接口
 #pragma mark - 获取关注的菜单列表
 - (void)httpRequestGetMenuListWithResponseBlock:(CommonHttpResponseBlock)successBlock
@@ -909,13 +980,99 @@ static CommonHttpAdapter *comHttp = nil;
 
 #pragma mark - 根据菜单ID获取资讯列表
 - (void)httpRequestGetTradeInfoDetailWithTopicId:(NSString *)topicId
-                                  ResponseBlock:(CommonHttpResponseBlock)successBlock
-                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock
+                                   ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                     FailedBlcok:(CommonHttpResponseFailed)failedBlock
 {
     [self HttpGetRequestWithCommand:[@"/yangtze_veg/tradeInfo/getDetail/" stringByAppendingString:topicId]
                          parameters:nil
                       ResponseBlock:successBlock
                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - 公共接口
+#pragma mark - 获取信息详情
+- (void)httpRequestGetPublicDetailWithTopicId:(NSString *)articleId
+                                ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                  FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:[@"/yangtze_veg/public/getDetail/" stringByAppendingString:articleId]
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+#pragma mark - 获取评论信息 /yangtze_veg/public/getComment/{articleId}
+- (void)httpRequestGetPublicCommentWithTopicId:(NSString *)articleId
+                                        PageNo:(NSString *)pageNo
+                                      PageSize:(NSString *)pageSize
+                                 ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                   FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:[@"/yangtze_veg/public/getComment/" stringByAppendingString:articleId]
+                         parameters:@{@"pageNo":pageNo, @"pageSize":pageSize}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+#pragma mark - 文章(列表)点赞/取消点赞 /yangtze_veg/public/like 状态(1点赞，-1取消点赞)
+- (void)httpRequestGetPublicLikeWithTopicId:(NSString *)articleId
+                                     Status:(NSString *)status
+                              ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/public/like"
+                         parameters:@{@"articleId":articleId, @"status":status}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+#pragma mark -/yangtze_veg/public/addCollect 添加收藏/取消收藏
+- (void)httpRequestPublicAddCollectWithTopicId:(NSString *)articleId
+                                        Status:(NSString *)status
+                                 ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                   FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostRequestWithCommand:@"/yangtze_veg/public/addCollect"
+                          parameters:@{@"articleId":articleId, @"status":status}
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - /yangtze_veg/public/goods/addCollect 商品添加收藏/取消收藏
+- (void)httpRequestPublicGoodsAddCollectWithTopicId:(NSString *)goodsId
+                                          ProductId:(NSString *)productId
+                                             Status:(NSString *)status
+                                      ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                        FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostRequestWithCommand:@"/yangtze_veg/public/goods/addCollect"
+                          parameters:@{@"goodsId":goodsId, @"productId":productId}
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+
+#pragma mark - /yangtze_veg/public/saveComment/{articleId} 发评论
+- (void)httpRequestPublicSaveCommentWithTopicId:(NSString *)articleId
+                                        comment:(NSDictionary *)comment
+                                  ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostBodyRequestWithCommand:[@"/yangtze_veg/public/saveComment/" stringByAppendingString:articleId]
+                              parameters:comment
+                           ResponseBlock:successBlock
+                             FailedBlcok:failedBlock];
+}
+
+#pragma mark - /yangtze_veg/public/vendor/addCollect 店铺添加收藏/取消收藏
+- (void)httpRequestPublicVendorAddCollectWithTopicId:(NSString *)vendorId
+                                              Status:(NSString *)status
+                                       ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                         FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostRequestWithCommand:@"/yangtze_veg/public/vendor/addCollect"
+                          parameters:@{@"vendorId":vendorId, @"status":status}
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
 }
 
 #pragma mark - 远程问诊

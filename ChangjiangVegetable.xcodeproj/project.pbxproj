@@ -125,7 +125,6 @@
 		7FA8A4FA217A33F3000BB44A /* popSend_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8A28E217A33F1000BB44A /* popSend_9.png */; };
 		7FA8A4FB217A33F3000BB44A /* TIMManagerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A290217A33F1000BB44A /* TIMManagerObject.m */; };
 		7FA8A4FC217A33F3000BB44A /* IMContentShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A293217A33F1000BB44A /* IMContentShowView.m */; };
-		7FA8A4FD217A33F3000BB44A /* IMInpuerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A295217A33F1000BB44A /* IMInpuerView.m */; };
 		7FA8A4FE217A33F3000BB44A /* IMReciveViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A297217A33F1000BB44A /* IMReciveViewCell.m */; };
 		7FA8A4FF217A33F3000BB44A /* IMSendViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A299217A33F1000BB44A /* IMSendViewCell.m */; };
 		7FA8A500217A33F3000BB44A /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8A29D217A33F1000BB44A /* ModifyPasswordViewController.m */; };
@@ -207,6 +206,11 @@
 		7FF62ED0217CCDF6009190F0 /* WebShowBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF62ECF217CCDF6009190F0 /* WebShowBaseView.m */; };
 		7FF62ED5217CD053009190F0 /* MySetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF62ED4217CD053009190F0 /* MySetViewController.m */; };
 		7FF62EDB217CD107009190F0 /* MySetBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF62EDA217CD107009190F0 /* MySetBaseView.m */; };
+		8217EF7A21AED78300081572 /* HotHtmlDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8217EF7821AED78300081572 /* HotHtmlDetailViewController.m */; };
+		8217EF7B21AED78300081572 /* HotHtmlDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8217EF7921AED78300081572 /* HotHtmlDetailViewController.xib */; };
+		8217EF7E21AED91E00081572 /* NSString+HtmlToAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 8217EF7D21AED91E00081572 /* NSString+HtmlToAttributedString.m */; };
+		8217EF8121AF01A100081572 /* IMInpuerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8217EF8021AF01A100081572 /* IMInpuerView.m */; };
+		8217EF8421AF126900081572 /* AllCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8217EF8321AF126900081572 /* AllCommentViewController.m */; };
 		82800ACD21A6F81000135ACA /* OnlineDoctorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82800ACC21A6F81000135ACA /* OnlineDoctorDetailViewController.m */; };
 		82800AD121A7080000135ACA /* HtmlContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82800ACF21A7080000135ACA /* HtmlContentViewController.m */; };
 		8288CABF21AC5891009B93A4 /* richTextEditor.html in Resources */ = {isa = PBXBuildFile; fileRef = 8288CABE21AC5891009B93A4 /* richTextEditor.html */; };
@@ -432,8 +436,6 @@
 		7FA8A290217A33F1000BB44A /* TIMManagerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIMManagerObject.m; sourceTree = "<group>"; };
 		7FA8A292217A33F1000BB44A /* IMContentShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMContentShowView.h; sourceTree = "<group>"; };
 		7FA8A293217A33F1000BB44A /* IMContentShowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMContentShowView.m; sourceTree = "<group>"; };
-		7FA8A294217A33F1000BB44A /* IMInpuerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMInpuerView.h; sourceTree = "<group>"; };
-		7FA8A295217A33F1000BB44A /* IMInpuerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMInpuerView.m; sourceTree = "<group>"; };
 		7FA8A296217A33F1000BB44A /* IMReciveViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMReciveViewCell.h; sourceTree = "<group>"; };
 		7FA8A297217A33F1000BB44A /* IMReciveViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMReciveViewCell.m; sourceTree = "<group>"; };
 		7FA8A298217A33F1000BB44A /* IMSendViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSendViewCell.h; sourceTree = "<group>"; };
@@ -592,6 +594,15 @@
 		7FF62ED4217CD053009190F0 /* MySetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySetViewController.m; sourceTree = "<group>"; };
 		7FF62ED9217CD107009190F0 /* MySetBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySetBaseView.h; sourceTree = "<group>"; };
 		7FF62EDA217CD107009190F0 /* MySetBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySetBaseView.m; sourceTree = "<group>"; };
+		8217EF7721AED78300081572 /* HotHtmlDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotHtmlDetailViewController.h; sourceTree = "<group>"; };
+		8217EF7821AED78300081572 /* HotHtmlDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotHtmlDetailViewController.m; sourceTree = "<group>"; };
+		8217EF7921AED78300081572 /* HotHtmlDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotHtmlDetailViewController.xib; sourceTree = "<group>"; };
+		8217EF7C21AED91E00081572 /* NSString+HtmlToAttributedString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+HtmlToAttributedString.h"; sourceTree = "<group>"; };
+		8217EF7D21AED91E00081572 /* NSString+HtmlToAttributedString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+HtmlToAttributedString.m"; sourceTree = "<group>"; };
+		8217EF7F21AF01A100081572 /* IMInpuerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IMInpuerView.h; path = ../../HotInformation/IMInpuerView.h; sourceTree = "<group>"; };
+		8217EF8021AF01A100081572 /* IMInpuerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IMInpuerView.m; path = ../../HotInformation/IMInpuerView.m; sourceTree = "<group>"; };
+		8217EF8221AF126900081572 /* AllCommentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllCommentViewController.h; sourceTree = "<group>"; };
+		8217EF8321AF126900081572 /* AllCommentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllCommentViewController.m; sourceTree = "<group>"; };
 		82800ACB21A6F81000135ACA /* OnlineDoctorDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnlineDoctorDetailViewController.h; sourceTree = "<group>"; };
 		82800ACC21A6F81000135ACA /* OnlineDoctorDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnlineDoctorDetailViewController.m; sourceTree = "<group>"; };
 		82800ACE21A7080000135ACA /* HtmlContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HtmlContentViewController.h; sourceTree = "<group>"; };
@@ -842,6 +853,11 @@
 				7F8B69E821820A2900F08519 /* View */,
 				7F8B69E921820A3700F08519 /* HotInformationViewController.h */,
 				7F8B69EA21820A3700F08519 /* HotInformationViewController.m */,
+				8217EF7721AED78300081572 /* HotHtmlDetailViewController.h */,
+				8217EF7821AED78300081572 /* HotHtmlDetailViewController.m */,
+				8217EF7921AED78300081572 /* HotHtmlDetailViewController.xib */,
+				8217EF8221AF126900081572 /* AllCommentViewController.h */,
+				8217EF8321AF126900081572 /* AllCommentViewController.m */,
 			);
 			path = HotInformation;
 			sourceTree = "<group>";
@@ -1151,8 +1167,8 @@
 			children = (
 				7FA8A292217A33F1000BB44A /* IMContentShowView.h */,
 				7FA8A293217A33F1000BB44A /* IMContentShowView.m */,
-				7FA8A294217A33F1000BB44A /* IMInpuerView.h */,
-				7FA8A295217A33F1000BB44A /* IMInpuerView.m */,
+				8217EF7F21AF01A100081572 /* IMInpuerView.h */,
+				8217EF8021AF01A100081572 /* IMInpuerView.m */,
 				7FA8A296217A33F1000BB44A /* IMReciveViewCell.h */,
 				7FA8A297217A33F1000BB44A /* IMReciveViewCell.m */,
 				7FA8A298217A33F1000BB44A /* IMSendViewCell.h */,
@@ -1364,6 +1380,8 @@
 				7FA8A4B8217A33F2000BB44A /* UIViewExt.m */,
 				82F4088C21A47287003BC6AE /* NSURL+Encoding.h */,
 				82F4088D21A47287003BC6AE /* NSURL+Encoding.m */,
+				8217EF7C21AED91E00081572 /* NSString+HtmlToAttributedString.h */,
+				8217EF7D21AED91E00081572 /* NSString+HtmlToAttributedString.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1630,6 +1648,7 @@
 				7FA8A4DA217A33F2000BB44A /* del_btn@2x.png in Resources */,
 				7FA8A4F7217A33F3000BB44A /* popSend_6.png in Resources */,
 				7FA8A4DB217A33F2000BB44A /* del_btn@3x.png in Resources */,
+				8217EF7B21AED78300081572 /* HotHtmlDetailViewController.xib in Resources */,
 				7FC2CB2A2190A53B00BD4E0D /* AboutOurViewController.xib in Resources */,
 				7FA8A4F9217A33F3000BB44A /* popSend_8.png in Resources */,
 				7FA8A501217A33F3000BB44A /* ModifyPasswordViewController.xib in Resources */,
@@ -1726,6 +1745,7 @@
 				7FA8A5D8217A33F3000BB44A /* NSNumber+AppendingString.m in Sources */,
 				7FA8A5E1217A33F3000BB44A /* NSString+MD5.m in Sources */,
 				7F8B69EB21820A3700F08519 /* HotInformationViewController.m in Sources */,
+				8217EF8421AF126900081572 /* AllCommentViewController.m in Sources */,
 				7FA8A5D6217A33F3000BB44A /* NSDictionary+Null.m in Sources */,
 				7FF62ECD217CCDD4009190F0 /* WebShowViewController.m in Sources */,
 				7FA8A5DB217A33F3000BB44A /* NSString+AppendingString.m in Sources */,
@@ -1746,6 +1766,7 @@
 				7F8B6A062182266C00F08519 /* RegisterViewController.m in Sources */,
 				7FA8A4FC217A33F3000BB44A /* IMContentShowView.m in Sources */,
 				7FA8A5D2217A33F3000BB44A /* BaseTableView.m in Sources */,
+				8217EF7E21AED91E00081572 /* NSString+HtmlToAttributedString.m in Sources */,
 				7FA8A5E5217A33F3000BB44A /* UIAlertController+CustomAlert.m in Sources */,
 				7FA80F88217F7B7000CD213F /* WebShopTwoPictureViewCell.m in Sources */,
 				7FA8A4BD217A33F2000BB44A /* CommonAnimation.m in Sources */,
@@ -1756,6 +1777,7 @@
 				7FA8A4D7217A33F2000BB44A /* CommonShowControlPictureCollectionView.m in Sources */,
 				7FA8A4CA217A33F2000BB44A /* CommonBottomPopView.m in Sources */,
 				7F827CDB218B5D67007ACEC3 /* ShopCartBaseView.m in Sources */,
+				8217EF7A21AED78300081572 /* HotHtmlDetailViewController.m in Sources */,
 				7FA8A5E7217A33F3000BB44A /* UIButton+ImageTitleStyle.m in Sources */,
 				7FD4D61F217F77A0007DA159 /* WebShopLeftOnePictureViewCell.m in Sources */,
 				7FA8A5E0217A33F3000BB44A /* NSString+GetWeekDay.m in Sources */,
@@ -1769,6 +1791,7 @@
 				82EB724121AC464E005A541D /* OnlineDoctorEditQuestionViewController.m in Sources */,
 				7FA8A4D3217A33F2000BB44A /* CommonPopShareView.m in Sources */,
 				7FA1F0F0218F563B00E020A8 /* CommonHeaderPageListView.m in Sources */,
+				8217EF8121AF01A100081572 /* IMInpuerView.m in Sources */,
 				7FEE8E78217CE87300ECF9AA /* MySetTableViewCell.m in Sources */,
 				82CD23E721A3054200D2C933 /* WebShopDetailViewController.m in Sources */,
 				7F6E2617218617BB004D9CE7 /* VideoPlayerViewController.m in Sources */,
@@ -1819,7 +1842,6 @@
 				7FA8A5EE217A33F3000BB44A /* UILabel+CallPhoneExtension.m in Sources */,
 				7F3A05F321908C1900F76E25 /* PayInputContinueViewController.m in Sources */,
 				7FA8A4CC217A33F2000BB44A /* CommonContentSubView.m in Sources */,
-				7FA8A4FD217A33F3000BB44A /* IMInpuerView.m in Sources */,
 				7FA8A5CD217A33F3000BB44A /* SpecialNewsViewTextCell.m in Sources */,
 				7FA8A5CA217A33F3000BB44A /* SpecialNewsBaseView.m in Sources */,
 				7F2236C72184C988000792C0 /* SettingViewCell.m in Sources */,

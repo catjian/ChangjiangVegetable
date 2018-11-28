@@ -126,7 +126,7 @@
                 {
                     HtmlContentViewController *vc = [strongSelf loadViewController:@"HtmlContentViewController"];
                     NSArray<NSDictionary *> *hotTopicsList = strongSelf->m_BaseView.allDataDic[@"list"][@"hotTopicsList"];
-                    vc.tradeId = [NSString stringWithFormat:@"%@", hotTopicsList[indexPath.row][@"contentId"]];
+                    vc.tradeId = [NSString stringWithFormat:@"%@", hotTopicsList[indexPath.row][@"id"]];
                     vc.tradeInfo = hotTopicsList[indexPath.row];
                 }
                     break;
@@ -218,6 +218,11 @@
 }
 
 #pragma mark - UITextField Delegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{    
+    [m_SearchTextField resignFirstResponder];
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HotHtmlDetailViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zfo-RY-2qH">
+                    <rect key="frame" x="0.0" y="10" width="375" height="667"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vob-Ns-3kl">
+                            <rect key="frame" x="6" y="0.0" width="42" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="2xa-V6-qyw"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8e-zV-lAM">
+                            <rect key="frame" x="8" y="61" width="42" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="vob-Ns-3kl" secondAttribute="trailing" constant="6" id="Dw9-iC-a0U"/>
+                        <constraint firstAttribute="bottom" secondItem="vob-Ns-3kl" secondAttribute="bottom" constant="627" id="Wik-Xr-LUO"/>
+                        <constraint firstItem="vob-Ns-3kl" firstAttribute="top" secondItem="Zfo-RY-2qH" secondAttribute="top" id="qGg-x7-QIc"/>
+                        <constraint firstItem="vob-Ns-3kl" firstAttribute="leading" secondItem="Zfo-RY-2qH" secondAttribute="leading" constant="6" id="za8-qz-Fae"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Zfo-RY-2qH" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="688-QB-ji9"/>
+                <constraint firstItem="Zfo-RY-2qH" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="MBa-EB-8Gn"/>
+                <constraint firstItem="Zfo-RY-2qH" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="PyM-j1-UNv"/>
+                <constraint firstItem="Zfo-RY-2qH" firstAttribute="centerY" secondItem="Q5M-cg-NOt" secondAttribute="centerY" id="xsG-29-UYc"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="-316" y="89"/>
+        </view>
+    </objects>
+</document>

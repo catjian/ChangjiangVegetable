@@ -64,6 +64,7 @@
 #import "NSString+GBK.h"
 #import "UIView+CornerSquare.h"
 #import "UITabbar+badge.h"
+#import "NSString+HtmlToAttributedString.h"
 
 #import "CommonCurrentUser.h"
 

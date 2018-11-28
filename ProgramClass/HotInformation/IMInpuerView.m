@@ -1,9 +1,9 @@
 //
 //  IMInpuerView.m
-//  SuperBroker
+//  ChangjiangVegetable
 //
-//  Created by zhang_jian on 2018/8/2.
-//  Copyright © 2018年 zhangjian. All rights reserved.
+//  Created by zhang_jian on 2018/11/29.
+//  Copyright © 2018 jian zhang. All rights reserved.
 //
 
 #import "IMInpuerView.h"
@@ -23,7 +23,7 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        [self setBackgroundColor:DIF_HEXCOLOR(@"dedede")];
+        [self setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
         [self createInputView];
         
         m_SendBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -49,16 +49,16 @@
                                   }
                               }];
         m_HideNotification = [[NSNotificationCenter defaultCenter]
-                           addObserverForName:UIKeyboardWillShowNotification
-                           object:nil
-                           queue:[NSOperationQueue mainQueue]
-                           usingBlock:^(NSNotification * _Nonnull note) {
-                               DIF_StrongSelf
-                               if (strongSelf.editBlock)
-                               {
-                                   strongSelf.editBlock(NO,note);
-                               }
-                           }];
+                              addObserverForName:UIKeyboardWillShowNotification
+                              object:nil
+                              queue:[NSOperationQueue mainQueue]
+                              usingBlock:^(NSNotification * _Nonnull note) {
+                                  DIF_StrongSelf
+                                  if (strongSelf.editBlock)
+                                  {
+                                      strongSelf.editBlock(NO,note);
+                                  }
+                              }];
     }
     return self;
 }
@@ -97,9 +97,9 @@
             contentStr = [textView.text stringByAppendingString:replacementText];
         }
         CGRect attrsRect = [contentStr boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 9999)
-                                               options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-                                            attributes:@{NSFontAttributeName : DIF_DIFONTOFSIZE(15)}
-                                               context:nil];
+                                                    options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                                 attributes:@{NSFontAttributeName : DIF_DIFONTOFSIZE(15)}
+                                                    context:nil];
         CGFloat maxWidht = textView.width;
         int lineNum = ceil(attrsRect.size.width / maxWidht);
         lineNum = lineNum >= 3? 3:lineNum;
@@ -131,6 +131,22 @@
         self.sendBlock(m_TextView.text);
         m_TextView.text = nil;
     }
+}
+
+- (void)HideSendButton:(BOOL)isHidden
+{
+    [m_SendBtn setHidden:isHidden];
+}
+
+- (void)setInputWidth:(CGFloat)width
+{
+    [m_InputBackView setWidth:width-7*2];
+    [m_TextView setWidth:m_InputBackView.width-18];
+}
+
+- (void)setPlaceholderString:(NSString *)placeholderString
+{
+    [m_TextView setPlaceholder:placeholderString];
 }
 
 @end
