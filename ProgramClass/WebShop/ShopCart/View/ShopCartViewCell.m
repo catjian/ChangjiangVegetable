@@ -92,22 +92,22 @@
     NSInteger count = m_CountLab.text.integerValue;
     count = count-1<0?0:count-1;
     [m_CountLab setText:[@(count) stringValue]];
-    [m_MoneyLab setText:[NSString stringWithFormat:@"￥%.2f", [m_DetailDic[@"Price"] floatValue]*count]];
+    [m_MoneyLab setText:[NSString stringWithFormat:@"￥%.2f", [m_DetailDic[@"retail_price"] floatValue]*count]];
     if(self.countBlock)
     {
-        self.countBlock(count, [m_DetailDic[@"Price"] floatValue]*count);
+        self.countBlock(count, [m_DetailDic[@"retail_price"] floatValue]*count);
     }
 }
 
 - (void)plusButtonEvent:(UIButton *)btn
 {
-    NSInteger count = m_CountLab.text.integerValue;
-    count++;
+    NSInteger count = [m_DetailDic[@"number"] integerValue];
+    ++count;
     [m_CountLab setText:[@(count) stringValue]];
-    [m_MoneyLab setText:[NSString stringWithFormat:@"￥%.2f", [m_DetailDic[@"Price"] floatValue]*count]];
+    [m_MoneyLab setText:[NSString stringWithFormat:@"￥%.2f", [m_DetailDic[@"retail_price"] floatValue]*count]];
     if(self.countBlock)
     {
-        self.countBlock(count, [m_DetailDic[@"Price"] floatValue]*count);
+        self.countBlock(count, [m_DetailDic[@"retail_price"] floatValue]*count);
     }
 }
 
@@ -115,10 +115,10 @@
 {
     m_DetailDic = model;
     [m_SelectBtn setSelected:[m_DetailDic[@"selected"] boolValue]];
-    [m_ImageView setImage:[UIImage imageNamed:m_DetailDic[@"imageName"]]];
-    [m_TitleLab setText:m_DetailDic[@"name"]];
-    [m_MoneyLab setText:[NSString stringWithFormat:@"￥%@", m_DetailDic[@"money"]]];
-    [m_CountLab setText:m_DetailDic[@"count"]];
+    [m_ImageView sd_setImageWithURL:[NSURL URLWithString:m_DetailDic[@"list_pic_url"]]];
+    [m_TitleLab setText:m_DetailDic[@"goods_name"]];
+    [m_MoneyLab setText:[NSString stringWithFormat:@"￥%@", m_DetailDic[@"retail_price"]]];
+    [m_CountLab setText:[NSString stringWithFormat:@"￥%@", m_DetailDic[@"number"]]];
 }
 
 @end

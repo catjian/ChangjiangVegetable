@@ -14,6 +14,7 @@ typedef void(^OnlineDoctorBaseViewSelectDoctorBlock)(NSInteger index);
 
 @interface OnlineDoctorBaseView : UIView <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, copy, readwrite) tableViewSelectRowAtIndexPathBlock selectBlock;
 @property (nonatomic, copy, readwrite) tableViewHeaderRefreshBlock refreshBlock;
 @property (nonatomic, copy, readwrite) tableViewLoadMoreBlock loadMoreBlock;
 @property (nonatomic, copy, readwrite) OnlineDoctorBaseViewSelectDoctorBlock selectDoctorBlock;

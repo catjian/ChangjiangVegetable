@@ -11,8 +11,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^ShopCartBaseViewUpdateBlock)(void);
+
 @interface ShopCartBaseView : UIView <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, copy) ShopCartBaseViewUpdateBlock updateBlock;
 @property (nonatomic, strong) NSMutableArray<NSDictionary *> *dataArr;
 @property (nonatomic) CGFloat allMoneyNum;
 

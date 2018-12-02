@@ -131,11 +131,11 @@
             [m_ContentView registerClass:[WebShopOnePictureMoneyViewCell class] forCellWithReuseIdentifier:cellIdentifier];
             WebShopOnePictureMoneyViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
             NSArray<NSDictionary *> *hotGoodsList = list[@"hotGoodsList"];
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:hotGoodsList[indexPath.row][@"goodsImgUrl"]]];
-            [cell.titleLab setText:hotGoodsList[indexPath.row][@"goodsName2"]];
-            [cell.moneyLab setText:[NSString stringWithFormat:@"￥ %@",hotGoodsList[indexPath.row][@"goodsPrice"]]];
-            [cell.selfOperated setHidden:![hotGoodsList[indexPath.row][@"selfOperated"] boolValue]];
-            [cell.Shipping setHidden:![hotGoodsList[indexPath.row][@"Shipping"] boolValue]];
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:hotGoodsList[indexPath.row][@"primary_pic_url"]]];
+            [cell.titleLab setText:hotGoodsList[indexPath.row][@"name"]];
+            [cell.moneyLab setText:[NSString stringWithFormat:@"￥ %@",hotGoodsList[indexPath.row][@"retail_price"]]];
+            [cell.selfOperated setHidden:NO];//![hotGoodsList[indexPath.row][@"selfOperated"] boolValue]];
+            [cell.Shipping setHidden:NO];//![hotGoodsList[indexPath.row][@"Shipping"] boolValue]];
             [cell.Shipping setLeft:cell.selfOperated.right+DIF_PX(12)];
             if (cell.selfOperated.hidden)
             {

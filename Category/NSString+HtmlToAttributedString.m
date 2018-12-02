@@ -56,4 +56,34 @@
     return html;
 }
 
+- (NSString *)utf8ToUnicode:(NSString *)string
+{
+    NSUInteger length = [string length];
+    NSMutableString *str = [NSMutableString stringWithCapacity:0];
+    for (int i = 0;i < length; i++)
+    {    
+        if ([[string substringWithRange:NSMakeRange(i, 1)] isEqualToString:@"<"] ||
+            [[string substringWithRange:NSMakeRange(i, 1)] isEqualToString:@">"] ||
+            [[string substringWithRange:NSMakeRange(i, 1)] isEqualToString:@"="])
+        {
+            NSMutableString *s = [NSMutableString stringWithCapacity:0];
+            // 中文和字符
+            [s appendFormat:@"\\u%x",[string characterAtIndex:i]];
+            // 不足位数补0 否则解码不成功
+            if(s.length == 4) {
+                [s insertString:@"00" atIndex:2];
+            } else if (s.length == 5) {
+                [s insertString:@"0" atIndex:2];
+            }
+            [str appendFormat:@"%@", s];
+        }
+        else
+        {
+            [str appendFormat:@"%@", [string substringWithRange:NSMakeRange(i, 1)]];
+        }
+    }
+    return str;
+    
+}
+
 @end

@@ -9,9 +9,8 @@
 #import "RootViewController.h"
 #import "RootBaseView.h"
 #import "SpecialNewsDetailViewController.h"
-#import "WebShopDetailViewController.h"
+#import "WebShopDetailXIBViewController.h"
 #import "VideoPlayerViewController.h"
-#import "HtmlContentViewController.h"
 
 @interface RootViewController () <UITextFieldDelegate>
 
@@ -111,14 +110,14 @@
                 case 2:
                 {
                     NSArray<NSDictionary *> *recommendGoodsList = strongSelf->m_BaseView.allDataDic[@"list"][@"newGoodsList"];
-                    WebShopDetailViewController *vc = [strongSelf loadViewController:@"WebShopDetailViewController" hidesBottomBarWhenPushed:NO];
+                    WebShopDetailXIBViewController *vc = [strongSelf loadViewController:@"WebShopDetailXIBViewController" hidesBottomBarWhenPushed:NO];
                     vc.shopDetailDic = recommendGoodsList[indexPath.row];
                 }
                     break;
                 case 3:
                 {
                     NSArray<NSDictionary *> *recommendGoodsList = strongSelf->m_BaseView.allDataDic[@"list"][@"discountGoodsList"];
-                    WebShopDetailViewController *vc = [strongSelf loadViewController:@"WebShopDetailViewController" hidesBottomBarWhenPushed:NO];
+                    WebShopDetailXIBViewController *vc = [strongSelf loadViewController:@"WebShopDetailXIBViewController" hidesBottomBarWhenPushed:NO];
                     vc.shopDetailDic = recommendGoodsList[indexPath.row];
                 }
                     break;

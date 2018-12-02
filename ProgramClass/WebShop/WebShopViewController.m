@@ -9,7 +9,7 @@
 #import "WebShopViewController.h"
 #import "WebShopBaseView.h"
 #import "ShopTypeListViewController.h"
-#import "WebShopDetailViewController.h"
+#import "WebShopDetailXIBViewController.h"
 
 @interface WebShopViewController () <UITextFieldDelegate>
 
@@ -27,6 +27,7 @@
 {
     [super viewWillAppear:animated];
     DIF_ShowTabBarAnimation(YES);
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)viewDidLoad
@@ -55,20 +56,21 @@
             }
             else if (indexPath.section == 1)
             {
-                NSArray<NSDictionary *> *recommendGoodsList = strongSelf->m_BaseView.allDataDic[@"list"][@"recommendGoodsList"];
-                WebShopDetailViewController *vc = [strongSelf loadViewController:@"WebShopDetailViewController" hidesBottomBarWhenPushed:NO];
+                NSArray<NSDictionary *> *recommendGoodsList = strongSelf->m_BaseView.allDataDic[@"list"][@"recommendShopList"];
+                WebShopDetailXIBViewController *vc = [strongSelf loadViewController:@"WebShopDetailXIBViewController" hidesBottomBarWhenPushed:NO];
                 vc.shopDetailDic = recommendGoodsList[indexPath.row];
             }
             else if (indexPath.section == 2)
             {
                 NSArray<NSDictionary *> *recommendGoodsList = strongSelf->m_BaseView.allDataDic[@"list"][@"recommendGoodsList"];
-                WebShopDetailViewController *vc = [strongSelf loadViewController:@"WebShopDetailViewController" hidesBottomBarWhenPushed:NO];
+                WebShopDetailXIBViewController *vc = [strongSelf loadViewController:@"WebShopDetailXIBViewController" hidesBottomBarWhenPushed:NO];
                 vc.shopDetailDic = recommendGoodsList[indexPath.row];
             }
             else
             {
-                ShopTypeListViewController *vc = [strongSelf loadViewController:@"ShopTypeListViewController" hidesBottomBarWhenPushed:YES];
-                [vc setHttpType:indexPath.row];
+                NSArray<NSDictionary *> *recommendGoodsList = strongSelf->m_BaseView.allDataDic[@"list"][@"hotGoodsList"];
+                WebShopDetailXIBViewController *vc = [strongSelf loadViewController:@"WebShopDetailXIBViewController" hidesBottomBarWhenPushed:NO];
+                vc.shopDetailDic = recommendGoodsList[indexPath.row];
             }
         }];
     }

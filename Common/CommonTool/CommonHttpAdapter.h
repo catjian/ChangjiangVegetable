@@ -203,6 +203,7 @@ static NSString * const BaseUrl = @"http://139.159.239.153";
                                  ResponseBlock:(CommonHttpResponseBlock)successBlock
                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
+#pragma mark - 商品相关
 #pragma mark - /yangtze_veg/public/goods/addCollect 商品添加收藏/取消收藏
 - (void)httpRequestPublicGoodsAddCollectWithTopicId:(NSString *)goodsId
                                           ProductId:(NSString *)productId
@@ -221,6 +222,25 @@ static NSString * const BaseUrl = @"http://139.159.239.153";
                                               Status:(NSString *)status
                                        ResponseBlock:(CommonHttpResponseBlock)successBlock
                                          FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - 购物车
+#pragma mark - /yangtze_veg/cart/add 添加商品到购物车
+- (void)httpRequestCartAddWithTopicId:(NSString *)goodsId
+                            ProductId:(NSString *)productId
+                               Number:(NSString *)number
+                        ResponseBlock:(CommonHttpResponseBlock)successBlock
+                          FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - /yangtze_veg/cart/getCart 获取购物车中的数据
+- (void)httpRequestGetCartWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - /yangtze_veg/cart/goodscount 获取购物车商品的总件件数
+- (void)httpRequestGetCartGoodscountWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                          FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - /yangtze_veg/cart/update 更新指定的购物车信息
+- (void)httpRequestCartUpdateWithCartList:(NSArray *)cartList
+                            ResponseBlock:(CommonHttpResponseBlock)successBlock
+                              FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
 
 #pragma mark - 远程问诊
 #pragma mark - 获取在线问诊的头部两部分数据
@@ -242,11 +262,23 @@ static NSString * const BaseUrl = @"http://139.159.239.153";
                                             ResponseBlock:(CommonHttpResponseBlock)successBlock
                                               FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
+#pragma mark - /yangtze_veg/remoteDiagnosis/saveComment/{articleId} 发评论
+- (void)httpRequestRemoteDiagnosisSaveCommentWithTopicId:(NSString *)articleId
+                                                 comment:(NSDictionary *)comment
+                                           ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+#pragma mark - /yangtze_veg/remoteDiagnosis/publish 发布问诊
+- (void)httpRequestRemoteDiagnosisPublishWithTopicId:(NSString *)articleId
+                                             comment:(NSDictionary *)comment
+                                       ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                         FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
 #pragma mark - 商品相关
 #pragma mark - 获取分类下的商品
 - (void)httpRequestGetGoodsCategoryWithCategoryId:(NSString *)categoryId
-                            ResponseBlock:(CommonHttpResponseBlock)successBlock
-                              FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+                                    ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                      FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 #pragma mark - 在售的商品总数
 - (void)httpRequestGetGoodsCountaWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                        FailedBlcok:(CommonHttpResponseFailed)failedBlock;
@@ -270,18 +302,18 @@ static NSString * const BaseUrl = @"http://139.159.239.153";
                                      FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 #pragma mark - 商品首页
 - (void)httpRequestGetGoodsIndexWithResponseBlock:(CommonHttpResponseBlock)successBlock
-                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+                                      FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 #pragma mark - 获取商品列表
 - (void)httpRequestGetGoodsListWithCategoryId:(NSString *)categoryId
-                                         BrandId:(NSString *)brandId
-                                           IsHot:(NSString *)isHot
-                                           IsNew:(NSString *)isNew
-                                           Order:(NSString *)order
-                                            Page:(NSString *)page
-                                         KeyWord:(NSString *)key
+                                      BrandId:(NSString *)brandId
+                                        IsHot:(NSString *)isHot
+                                        IsNew:(NSString *)isNew
+                                        Order:(NSString *)order
+                                         Page:(NSString *)page
+                                      KeyWord:(NSString *)key
                                          Sort:(NSString *)sort
-                                   ResponseBlock:(CommonHttpResponseBlock)successBlock
-                                     FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+                                ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                  FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 #pragma mark - 新品首发
 - (void)httpRequestGetGoodsNewWithResponseBlock:(CommonHttpResponseBlock)successBlock
                                     FailedBlcok:(CommonHttpResponseFailed)failedBlock;
@@ -321,8 +353,8 @@ static NSString * const BaseUrl = @"http://139.159.239.153";
                                   FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 #pragma mark - 获取订单详情
 - (void)httpRequestGetOrderDetailWithOrderId:(NSString *)orderId
-                                ResponseBlock:(CommonHttpResponseBlock)successBlock
-                                  FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+                               ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                 FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 #pragma mark - 获取订单物流
 - (void)httpRequestGetLogisticsWithShippingCode:(NSString *)shippingCode
                                      ShippingNo:(NSString *)shippingNo
@@ -354,15 +386,28 @@ static NSString * const BaseUrl = @"http://139.159.239.153";
                                       FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
 #pragma mark - 获取热门推荐视频列表
-- (void)httpRequestPostGetHotVideoListWithMenuId:(NSString *)menuId
-                                  ResponseBlock:(CommonHttpResponseBlock)successBlock
-                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+- (void)httpRequestGetHotVideoListWithMenuId:(NSString *)menuId
+                               ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                 FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
 #pragma mark - 获取热门推荐视频列表
-- (void)httpRequestPostGetNewVideoListWithMenuId:(NSString *)menuId
-                                  ResponseBlock:(CommonHttpResponseBlock)successBlock
-                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+- (void)httpRequestGetNewVideoListWithMenuId:(NSString *)menuId
+                               ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                 FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
+#pragma mark - /yangtze_veg/video/info/{videoId} 查询视频详情
+- (void)httpRequestGetVideoInfoWithTopicId:(NSString *)videoId
+                             ResponseBlock:(CommonHttpResponseBlock)successBlock
+                               FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+
+
+#pragma mark - /yangtze_veg/tradeInfo/getList 供求信息列表数据
+- (void)httpRequestTradeInfoGetListWithMenuId:(NSString *)menuId
+                                ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                  FailedBlcok:(CommonHttpResponseFailed)failedBlock;
+#pragma mark - /yangtze_veg/tradeInfo/getMenuList 获取供求信息菜单
+- (void)httpRequestTradeInfoGetMenuListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
 
 #pragma mark - 获取网展页面数据
@@ -407,4 +452,5 @@ static NSString * const BaseUrl = @"http://139.159.239.153";
                                            FailedBlcok:(CommonHttpResponseFailed)failedBlock;
 
 @end
+
 

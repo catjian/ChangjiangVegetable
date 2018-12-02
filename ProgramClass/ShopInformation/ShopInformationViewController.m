@@ -20,6 +20,7 @@
     BaseTableView *m_ContentView;
     UIView *m_SearchView;
     UITextField *m_SearchTextField;
+    NSArray *m_MenuList;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -42,21 +43,20 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self createPageController];
+    [self httpRequestTradeInfoGetMenuList];
     [self createCollectionView];
-    [self httpRequestPostGetSupportInfoList];
 }
 
 - (void)rightBarButtonItemAction:(UIButton *)btn
 {
     [self.view endEditing:YES];
-    [self loadViewController:@"ShopCartViewController" hidesBottomBarWhenPushed:YES isNowPush:YES];
+//    [self loadViewController:@"ShopCartViewController" hidesBottomBarWhenPushed:YES isNowPush:YES];
 }
 
-- (void)createPageController
+- (void)createPageController:(NSArray *)titleArr
 {
-    NSArray *titleArr = @[@"我要买",@"我要卖"];
     UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DIF_SCREEN_WIDTH, DIF_PX(32))];
+    [backView setTag:887];
     [backView setBackgroundColor:DIF_HEXCOLOR(@"ffffff")];
     [self.view addSubview:backView];
     for (int i = 0; i < titleArr.count; i++)
@@ -64,13 +64,28 @@
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [btn setFrame:CGRectMake(i*(DIF_SCREEN_WIDTH/2), 0, DIF_SCREEN_WIDTH/2, DIF_PX(32))];
         [btn setBackgroundColor:DIF_HEXCOLOR(@"")];
-        [btn setTitle:titleArr[i] forState:UIControlStateNormal];
+        [btn setTitle:titleArr[i][@"menuName"] forState:UIControlStateNormal];
         [btn setTitleColor:DIF_HEXCOLOR(@"101010") forState:UIControlStateNormal];
         [btn setTitleColor:DIF_HEXCOLOR(@"ffae1c") forState:UIControlStateHighlighted];
         [btn setTitleColor:DIF_HEXCOLOR(@"ffae1c") forState:UIControlStateSelected];
         [btn.titleLabel setFont:DIF_DIFONTOFSIZE(16)];
+        if (i == 0) btn.selected = YES;
+        [btn setTag:888+i];
+        [btn addTarget:self action:@selector(buyOrShopButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
         [backView addSubview:btn];
     }
+}
+
+- (void)buyOrShopButtonEvent:(UIButton *)btn
+{
+    UIView *backView = [self.view viewWithTag:887];
+    for (int i =0; i < m_MenuList.count; i++)
+    {
+        UIButton *subBtn = [backView viewWithTag:888+i];
+        [subBtn setSelected:NO];
+    }
+    [btn setSelected:YES];
+    [self httpRequestTradeInfoGetListWithMenuId:[NSString stringWithFormat:@"%@",m_MenuList[btn.tag-888][@"menuId"]]];
 }
 
 - (void)createCollectionView
@@ -180,25 +195,51 @@
 
 #pragma mark - Http Request
 
-- (void)httpRequestPostGetSupportInfoList
+- (void)httpRequestTradeInfoGetMenuList
 {
     [CommonHUD showHUD];
     DIF_WeakSelf(self)
-    [DIF_CommonHttpAdapter httpRequestPostGetSupportInfoListWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
-        DIF_StrongSelf
-        if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
-        {
-            [CommonHUD hideHUD];
-            strongSelf.supportInfoList = responseModel[@"data"][@"list"];
-            [strongSelf->m_ContentView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
-        }
-        else
-        {
-            [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
-        }
-    } FailedBlcok:^(NSError *error) {
-        [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
-    }];
+    [DIF_CommonHttpAdapter
+     httpRequestTradeInfoGetMenuListWithResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+         DIF_StrongSelf
+         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
+         {
+             [CommonHUD hideHUD];
+             strongSelf->m_MenuList = responseModel[@"data"];
+             [strongSelf createPageController:strongSelf->m_MenuList];
+             [strongSelf->m_ContentView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+             [strongSelf httpRequestTradeInfoGetListWithMenuId:[NSString stringWithFormat:@"%@",responseModel[@"data"][0][@"menuId"]]];
+         }
+         else
+         {
+             [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
+         }
+     } FailedBlcok:^(NSError *error) {
+         [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
+     }];
+}
+
+- (void)httpRequestTradeInfoGetListWithMenuId:(NSString *)menuId
+{
+    [CommonHUD showHUD];
+    DIF_WeakSelf(self)
+    [DIF_CommonHttpAdapter
+     httpRequestTradeInfoGetListWithMenuId:menuId
+     ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+         DIF_StrongSelf
+         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
+         {
+             [CommonHUD hideHUD];
+             strongSelf.supportInfoList = responseModel[@"data"][@"list"];
+             [strongSelf->m_ContentView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+         }
+         else
+         {
+             [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
+         }
+     } FailedBlcok:^(NSError *error) {
+         [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
+     }];
 }
 
 @end

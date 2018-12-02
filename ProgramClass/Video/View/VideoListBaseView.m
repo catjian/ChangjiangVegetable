@@ -116,19 +116,8 @@
     VideoListViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     NSDictionary *list = self.allDataDic[@"list"];
     NSArray *videoList = list[indexPath.section == 0?@"hotData":@"newData"];
-    NSDictionary *videoDic = videoList[indexPath.row];
-    dispatch_async(dispatch_queue_create("com.getVideoPreViewImage.queue", NULL), ^{
-        UIImage *image = [CommonTool getVideoPreViewImage:videoDic[@"videoFirstFrameUrl"]];
-        while (1)
-        {
-            if (image)
-                break;
-            sleep(1);
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [cell.imageView setImage:image];
-        });
-    });
+    NSDictionary *videoDic = videoList[indexPath.row];    
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:videoDic[@"videoFirstFrameUrl"]]];
     [cell.titleLab setText:videoDic[@"title"]];
     NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",[videoDic[@"watchNum"] intValue]]];
     [placeholder attatchImage:[UIImage imageNamed:@"浏览"]

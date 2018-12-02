@@ -226,18 +226,25 @@
             [m_ContentView registerClass:[RootVideoViewCell class] forCellWithReuseIdentifier:cellIdentifier];
             RootVideoViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
             NSArray<NSDictionary *> *newVideoList = list[@"newVideoList"];
-            dispatch_async(dispatch_queue_create("com.getVideoPreViewImage.queue", NULL), ^{
-                UIImage *image = [CommonTool getVideoPreViewImage:newVideoList[indexPath.row][@"image"]];
-                while (1)
-                {
-                    if (image)
-                        break;
-                    sleep(1);
-                }
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [cell.imageView setImage:image];
+            if (newVideoList[indexPath.row][@"image"])
+            {
+                [cell.imageView sd_setImageWithURL:[NSURL URLWithString:newVideoList[indexPath.row][@"image"]]];
+            }
+            else
+            {
+                dispatch_async(dispatch_queue_create("com.getVideoPreViewImage.queue", NULL), ^{
+                    UIImage *image = [CommonTool getVideoPreViewImage:newVideoList[indexPath.row][@"videoPath"]];
+                    while (1)
+                    {
+                        if (image)
+                            break;
+                        sleep(1);
+                    }
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [cell.imageView setImage:image];
+                    });
                 });
-            });
+            }
             [cell.titleLab setText:newVideoList[indexPath.row][@"title"]];
             return cell;
         }
@@ -454,7 +461,7 @@
         case 2:
         {
             CGFloat widht = (m_ContentView.width)/2;
-            return CGSizeMake(widht, DIF_PX(116));
+            return CGSizeMake(widht, DIF_PX(120));
         }
         case 3:
         {

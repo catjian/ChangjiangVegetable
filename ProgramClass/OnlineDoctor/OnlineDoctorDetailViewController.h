@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface OnlineDoctorDetailViewController : BaseViewController
 
+@property (nonatomic, strong) NSString *tradeId;
 - (void)loadDoctorDetail:(NSDictionary *)detail;
 
 @end

@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="contentView" destination="0hO-UT-sN2" id="XWc-wx-Wde"/>
                 <outlet property="editWebView" destination="1QI-vR-hFx" id="mQJ-3g-dWN"/>
+                <outlet property="titleTF" destination="myB-cq-kvF" id="oNK-Yb-NE4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

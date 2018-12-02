@@ -60,6 +60,12 @@
             OnlineDoctorDetailViewController *vc = [strongSelf loadViewController:@"OnlineDoctorDetailViewController"];
             [vc loadDoctorDetail:strongSelf->m_BaseView.doctorDic[@"doctorList"][index]];
         }];
+        [m_BaseView setSelectBlock:^(NSIndexPath *indexPath, id model) {
+            DIF_StrongSelf
+            HtmlContentViewController *vc = [strongSelf loadViewController:@"HtmlContentViewController"];
+            vc.tradeId = [NSString stringWithFormat:@"%@", model[@"id"]];
+            vc.tradeInfo = model;
+        }];
     }
 }
 
@@ -67,7 +73,8 @@
 {
     [self.view endEditing:YES];
     [m_SearchTextField resignFirstResponder];
-    [self loadViewController:@"OnlineDoctorEditQuestionViewController"];
+//    [self loadViewController:@"OnlineDoctorEditQuestionViewController"];
+    [self loadViewController:@"OnlineDoctorEditHtmlViewController"];
 }
 
 

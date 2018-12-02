@@ -21,15 +21,15 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        self.dataArr = [NSMutableArray arrayWithArray:@[@{@"selected":@(NO),@"count":@"1",@"Price":@"50",
-                                                          @"name":@"枝纯水果胡萝卜 袋装136g",
-                                                          @"money":@"50.00", @"imageName":@"normalUserIcon"},
-                                                        @{@"selected":@(NO),@"count":@"1",@"Price":@"100",
-                                                          @"name":@"枝纯水果胡萝卜 袋装136g",
-                                                          @"money":@"100.00", @"imageName":@"normalUserIcon"},
-                                                        @{@"selected":@(NO),@"count":@"2",@"Price":@"20",
-                                                          @"name":@"枝纯水果胡萝卜 袋装136g",
-                                                          @"money":@"40.00", @"imageName":@"normalUserIcon"}]];
+//        self.dataArr = [NSMutableArray arrayWithArray:@[@{@"selected":@(NO),@"count":@"1",@"Price":@"50",
+//                                                          @"name":@"枝纯水果胡萝卜 袋装136g",
+//                                                          @"money":@"50.00", @"imageName":@"normalUserIcon"},
+//                                                        @{@"selected":@(NO),@"count":@"1",@"Price":@"100",
+//                                                          @"name":@"枝纯水果胡萝卜 袋装136g",
+//                                                          @"money":@"100.00", @"imageName":@"normalUserIcon"},
+//                                                        @{@"selected":@(NO),@"count":@"2",@"Price":@"20",
+//                                                          @"name":@"枝纯水果胡萝卜 袋装136g",
+//                                                          @"money":@"40.00", @"imageName":@"normalUserIcon"}]];
         
         
         m_TableView = [[BaseTableView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height-DIF_PX(50)) style:UITableViewStylePlain];
@@ -106,6 +106,12 @@
     [m_AllMoney setAttributedText:moneyStr];
 }
 
+- (void)setDataArr:(NSMutableArray<NSDictionary *> *)dataArr
+{
+    _dataArr = dataArr;
+    [m_TableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+}
+
 #pragma mark - UITableView Delegate & DataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -124,7 +130,7 @@
     ShopCartViewCell *cell = [ShopCartViewCell cellClassName:@"ShopCartViewCell" InTableView:tableView forContenteMode:self.dataArr[indexPath.row]];
     if ([self.dataArr[indexPath.row][@"selected"] boolValue])
     {
-        self.allMoneyNum += [self.dataArr[indexPath.row][@"money"] floatValue];
+        self.allMoneyNum += [self.dataArr[indexPath.row][@"retail_price"] floatValue] * [self.dataArr[indexPath.row][@"number"] integerValue];
     }
     DIF_WeakSelf(self)
     [cell setSelectBlock:^(BOOL isSelected) {
@@ -132,11 +138,11 @@
         if (!isSelected)
         {
             strongSelf->m_SelectAllBtn.selected = NO;
-            strongSelf.allMoneyNum -= [strongSelf.dataArr[indexPath.row][@"money"] floatValue];
+            strongSelf.allMoneyNum -= [strongSelf.dataArr[indexPath.row][@"retail_price"] floatValue] * [strongSelf.dataArr[indexPath.row][@"number"] integerValue];
         }
         else
         {
-            strongSelf.allMoneyNum += [strongSelf.dataArr[indexPath.row][@"money"] floatValue];
+            strongSelf.allMoneyNum += [strongSelf.dataArr[indexPath.row][@"retail_price"] floatValue] * [strongSelf.dataArr[indexPath.row][@"number"] integerValue];
         }
         
         NSMutableDictionary *detailDic = [NSMutableDictionary dictionaryWithDictionary:strongSelf.dataArr[indexPath.row]];
@@ -155,11 +161,18 @@
     }];
     [cell setCountBlock:^(NSInteger count, CGFloat money) {
         DIF_StrongSelf
-        strongSelf.allMoneyNum -= [strongSelf.dataArr[indexPath.row][@"money"] floatValue];
+        if ([strongSelf.dataArr[indexPath.row][@"selected"] boolValue])
+        {
+            strongSelf.allMoneyNum -= [strongSelf.dataArr[indexPath.row][@"retail_price"] floatValue] * [strongSelf.dataArr[indexPath.row][@"number"] integerValue];
+            strongSelf.allMoneyNum += money;
+        }
         NSMutableDictionary *detailDic = [NSMutableDictionary dictionaryWithDictionary:strongSelf.dataArr[indexPath.row]];
-        [detailDic setObject:[@(money) stringValue] forKey:@"money"];
+        [detailDic setObject:[@(count) stringValue] forKey:@"number"];
         [strongSelf.dataArr replaceObjectAtIndex:indexPath.row withObject:detailDic];
-        strongSelf.allMoneyNum += [strongSelf.dataArr[indexPath.row][@"money"] floatValue];
+        if (strongSelf.updateBlock)
+        {
+            strongSelf.updateBlock();
+        }
     }];
     return cell;
 }

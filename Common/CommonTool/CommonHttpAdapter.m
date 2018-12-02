@@ -636,6 +636,7 @@ static CommonHttpAdapter *comHttp = nil;
                                         [formData appendPartWithFileData:imageData name:@"file" fileName:fileName mimeType:@"multipart/form-data"];
                                     }
                                     error:&serializationError];
+    
     if (serializationError)
     {
 #pragma clang diagnostic push
@@ -645,6 +646,10 @@ static CommonHttpAdapter *comHttp = nil;
         });
 #pragma clang diagnostic pop
         return nil;
+    }
+    if (self.access_token && self.access_token.length > 0)
+    {
+        [request setValue:self.access_token forHTTPHeaderField:@"Authorization"];
     }
     
     NSURLSessionDataTask *task =
@@ -868,25 +873,25 @@ static CommonHttpAdapter *comHttp = nil;
 
 /**
  更新用户资料
-
+ 
  @param params {
-                     "avatar": "string",
-                     "birthday": "2018-11-18T13:44:57.955Z",
-                     "gender": 0,
-                     "id": 0,
-                     "last_login_ip": "string",
-                     "last_login_time": "2018-11-18T13:44:57.955Z",
-                     "mobile": "string",
-                     "nickname": "string",
-                     "password": "string",
-                     "register_ip": "string",
-                     "register_time": "2018-11-18T13:44:57.955Z",
-                     "userLevel": "string",
-                     "userScore": 0,
-                     "user_level_id": 0,
-                     "username": "string",
-                     "weixin_openid": "string"
-                }
+ "avatar": "string",
+ "birthday": "2018-11-18T13:44:57.955Z",
+ "gender": 0,
+ "id": 0,
+ "last_login_ip": "string",
+ "last_login_time": "2018-11-18T13:44:57.955Z",
+ "mobile": "string",
+ "nickname": "string",
+ "password": "string",
+ "register_ip": "string",
+ "register_time": "2018-11-18T13:44:57.955Z",
+ "userLevel": "string",
+ "userScore": 0,
+ "user_level_id": 0,
+ "username": "string",
+ "weixin_openid": "string"
+ }
  @param successBlock suc
  @param failedBlock fail
  */
@@ -1008,7 +1013,7 @@ static CommonHttpAdapter *comHttp = nil;
                                  ResponseBlock:(CommonHttpResponseBlock)successBlock
                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock
 {
-    [self HttpGetRequestWithCommand:[@"/yangtze_veg/public/getComment/" stringByAppendingString:articleId]
+    [self HttpGetRequestWithCommand:[@"/yangtze_veg/public/getComment/" stringByAppendingString:[@(articleId.intValue) stringValue]]
                          parameters:@{@"pageNo":pageNo, @"pageSize":pageSize}
                       ResponseBlock:successBlock
                         FailedBlcok:failedBlock];
@@ -1038,6 +1043,7 @@ static CommonHttpAdapter *comHttp = nil;
                          FailedBlcok:failedBlock];
 }
 
+#pragma mark - 商品相关
 #pragma mark - /yangtze_veg/public/goods/addCollect 商品添加收藏/取消收藏
 - (void)httpRequestPublicGoodsAddCollectWithTopicId:(NSString *)goodsId
                                           ProductId:(NSString *)productId
@@ -1046,7 +1052,7 @@ static CommonHttpAdapter *comHttp = nil;
                                         FailedBlcok:(CommonHttpResponseFailed)failedBlock
 {
     [self HttpPostRequestWithCommand:@"/yangtze_veg/public/goods/addCollect"
-                          parameters:@{@"goodsId":goodsId, @"productId":productId}
+                          parameters:@{@"goodsId":goodsId, @"productId":productId,@"status":status}
                        ResponseBlock:successBlock
                          FailedBlcok:failedBlock];
 }
@@ -1073,6 +1079,48 @@ static CommonHttpAdapter *comHttp = nil;
                           parameters:@{@"vendorId":vendorId, @"status":status}
                        ResponseBlock:successBlock
                          FailedBlcok:failedBlock];
+}
+
+#pragma mark - 购物车
+#pragma mark - /yangtze_veg/cart/add 添加商品到购物车
+- (void)httpRequestCartAddWithTopicId:(NSString *)goodsId
+                            ProductId:(NSString *)productId
+                               Number:(NSString *)number
+                        ResponseBlock:(CommonHttpResponseBlock)successBlock
+                          FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostRequestWithCommand:@"/yangtze_veg/cart/add"
+                          parameters:@{@"goodsId":goodsId, @"productId":productId,@"number":number}
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+#pragma mark - /yangtze_veg/cart/getCart 获取购物车中的数据
+- (void)httpRequestGetCartWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/cart/getCart"
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - /yangtze_veg/cart/goodscount 获取购物车商品的总件件数
+- (void)httpRequestGetCartGoodscountWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                          FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/cart/goodscount"
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+#pragma mark - /yangtze_veg/cart/update 更新指定的购物车信息
+- (void)httpRequestCartUpdateWithCartList:(NSArray *)cartList
+                            ResponseBlock:(CommonHttpResponseBlock)successBlock
+                              FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostBodyRequestWithCommand:@"/yangtze_veg/cart/update"
+                              parameters:cartList
+                           ResponseBlock:successBlock
+                             FailedBlcok:failedBlock];
 }
 
 #pragma mark - 远程问诊
@@ -1119,6 +1167,30 @@ static CommonHttpAdapter *comHttp = nil;
                         FailedBlcok:failedBlock];
 }
 
+#pragma mark - /yangtze_veg/remoteDiagnosis/saveComment/{articleId} 发评论
+- (void)httpRequestRemoteDiagnosisSaveCommentWithTopicId:(NSString *)articleId
+                                                 comment:(NSDictionary *)comment
+                                           ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostBodyRequestWithCommand:[@"/yangtze_veg/remoteDiagnosis/saveComment/" stringByAppendingString:articleId]
+                              parameters:comment
+                           ResponseBlock:successBlock
+                             FailedBlcok:failedBlock];
+}
+
+#pragma mark - /yangtze_veg/remoteDiagnosis/publish 发布问诊
+- (void)httpRequestRemoteDiagnosisPublishWithTopicId:(NSString *)articleId
+                                             comment:(NSDictionary *)comment
+                                       ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                         FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpPostBodyRequestWithCommand:@"/yangtze_veg/remoteDiagnosis/publish/"
+                              parameters:comment
+                           ResponseBlock:successBlock
+                             FailedBlcok:failedBlock];
+}
+
 #pragma mark - 商品相关
 #pragma mark - 获取分类下的商品
 - (void)httpRequestGetGoodsCategoryWithCategoryId:(NSString *)categoryId
@@ -1145,7 +1217,7 @@ static CommonHttpAdapter *comHttp = nil;
                             FailedBlcok:(CommonHttpResponseFailed)failedBlock
 {
     [self HttpGetRequestWithCommand:@"/yangtze_veg/goods/detail"
-                         parameters:@{@"goodId":goodId,@"referrer":referrer}
+                         parameters:@{@"id":goodId}
                       ResponseBlock:successBlock
                         FailedBlcok:failedBlock];
 }
@@ -1385,28 +1457,59 @@ static CommonHttpAdapter *comHttp = nil;
 
 
 #pragma mark - 获取热门推荐视频列表
-- (void)httpRequestPostGetHotVideoListWithMenuId:(NSString *)menuId
-                                  ResponseBlock:(CommonHttpResponseBlock)successBlock
-                                    FailedBlcok:(CommonHttpResponseFailed)failedBlock
+- (void)httpRequestGetHotVideoListWithMenuId:(NSString *)menuId
+                               ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                 FailedBlcok:(CommonHttpResponseFailed)failedBlock
 {
     [self HttpGetRequestWithCommand:@"/yangtze_veg/video/getHotVideoList"
-                          parameters:@{@"menuId":menuId,@"indexPage":@"1",@"pageSize":@"10"}
-                       ResponseBlock:successBlock
-                         FailedBlcok:failedBlock];
+                         parameters:@{@"menuId":menuId,@"indexPage":@"1",@"pageSize":@"10"}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
 }
 
 #pragma mark - 获取最新推荐视频列表
-- (void)httpRequestPostGetNewVideoListWithMenuId:(NSString *)menuId
-                                   ResponseBlock:(CommonHttpResponseBlock)successBlock
-                                     FailedBlcok:(CommonHttpResponseFailed)failedBlock
+- (void)httpRequestGetNewVideoListWithMenuId:(NSString *)menuId
+                               ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                 FailedBlcok:(CommonHttpResponseFailed)failedBlock
 {
     [self HttpGetRequestWithCommand:@"/yangtze_veg/video/getNewVideoList"
-                          parameters:@{@"menuId":menuId,@"indexPage":@"1",@"pageSize":@"10"}
-                       ResponseBlock:successBlock
-                         FailedBlcok:failedBlock];
+                         parameters:@{@"menuId":menuId,@"indexPage":@"1",@"pageSize":@"10"}
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
+
+#pragma mark - /yangtze_veg/video/info/{videoId} 查询视频详情
+- (void)httpRequestGetVideoInfoWithTopicId:(NSString *)videoId
+                             ResponseBlock:(CommonHttpResponseBlock)successBlock
+                               FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:[@"/yangtze_veg/video/info/" stringByAppendingString:[@(videoId.integerValue) stringValue]]
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
 }
 
 
+#pragma mark - 供求信息 Api Trade Info Controller
+#pragma mark - /yangtze_veg/tradeInfo/getList 供求信息列表数据
+- (void)httpRequestTradeInfoGetListWithMenuId:(NSString *)menuId
+                                ResponseBlock:(CommonHttpResponseBlock)successBlock
+                                  FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/tradeInfo/getList"
+                         parameters:@{@"menuId":menuId,@"sort":@"-1",@"page":@"1",@"pageSize":@"30"}
+                       ResponseBlock:successBlock
+                         FailedBlcok:failedBlock];
+}
+#pragma mark - /yangtze_veg/tradeInfo/getMenuList 获取供求信息菜单
+- (void)httpRequestTradeInfoGetMenuListWithResponseBlock:(CommonHttpResponseBlock)successBlock
+                                             FailedBlcok:(CommonHttpResponseFailed)failedBlock
+{
+    [self HttpGetRequestWithCommand:@"/yangtze_veg/tradeInfo/getMenuList"
+                         parameters:nil
+                      ResponseBlock:successBlock
+                        FailedBlcok:failedBlock];
+}
 
 
 
@@ -1523,4 +1626,6 @@ static CommonHttpAdapter *comHttp = nil;
 
 
 @end
+
+
 

@@ -91,21 +91,21 @@
 - (void)loadData:(NSDictionary *)model
 {
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:model[@"userPortraitUrl"]]];
-    [self.imgView sd_setImageWithURL:[NSURL URLWithString:model[@"imgUrl"]]];
-    [self.nameLab setText:model[@"userName"]];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:model[@"image"]]];
+    [self.nameLab setText:model[@"createByName"]];
     [self.titleLab setText:model[@"title"]];
     [self.detailLab setText:model[@"content"]];
-    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",[model[@"watchNum"] intValue]]];
+    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",[model[@"readNumber"] intValue]]];
     [placeholder attatchImage:[UIImage imageNamed:@"浏览"]
                    imageFrame:CGRectMake(0, 0, 20, 11)
                         Range:NSMakeRange(0, 0)];
     [self.readNumLab setAttributedText:placeholder];
-    placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",[model[@"feedbackNum"] intValue]]];
+    placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",[model[@"commentNumber"] intValue]]];
     [placeholder attatchImage:[UIImage imageNamed:@"消息"]
                    imageFrame:CGRectMake(0, -(self.iconView.height-18)/2, 18, 18)
                         Range:NSMakeRange(0, 0)];
     [self.commentNumLab setAttributedText:placeholder];
-    placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",[model[@"likeNum"] intValue]]];
+    placeholder = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d",[model[@"likeNumber"] intValue]]];
     [placeholder attatchImage:[UIImage imageNamed:@"点赞3"]
                    imageFrame:CGRectMake(0, -2, 16, 16)
                         Range:NSMakeRange(0, 0)];

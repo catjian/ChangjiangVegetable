@@ -66,6 +66,36 @@
 {
     m_Detail = detail;
     [self setNavTarBarTitle:detail[@"doctorName"]];
+    [self httpRequestGetDetail];
 }
+
+#pragma mark - httpRequest
+
+- (void)httpRequestGetDetail
+{
+    [CommonHUD showHUD];
+    DIF_WeakSelf(self)
+    [DIF_CommonHttpAdapter
+     httpRequestGetPublicDetailWithTopicId:[NSString stringWithFormat:@"%@",m_Detail[@"articleId"]]
+     ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
+         if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
+         {
+             DIF_StrongSelf
+             [CommonHUD hideHUD];
+             [strongSelf->m_ImageView sd_setImageWithURL:[NSURL URLWithString:responseModel[@"data"][@"image"]]];
+             NSString *htmlStr = responseModel[@"data"][@"content"];
+             NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[htmlStr dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+             [strongSelf->m_TextView setAttributedText:attributedString];
+         }
+         else
+         {
+             [CommonHUD delayShowHUDWithMessage:responseModel[@"msg"]];
+         }
+     }
+     FailedBlcok:^(NSError *error) {
+         [CommonHUD delayShowHUDWithMessage:DIF_HTTP_REQUEST_URL_NULL];
+     }];
+}
+
 
 @end

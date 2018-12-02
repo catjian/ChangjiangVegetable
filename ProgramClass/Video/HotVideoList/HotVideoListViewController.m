@@ -66,7 +66,7 @@
     [CommonHUD showHUD];
     DIF_WeakSelf(self)
     [DIF_CommonHttpAdapter
-     httpRequestPostGetHotVideoListWithMenuId:self.menuId
+     httpRequestGetHotVideoListWithMenuId:self.menuId
      ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
          if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
          {
@@ -88,7 +88,7 @@
     [CommonHUD showHUD];
     DIF_WeakSelf(self)
     [DIF_CommonHttpAdapter
-     httpRequestPostGetNewVideoListWithMenuId:self.menuId
+     httpRequestGetNewVideoListWithMenuId:self.menuId
      ResponseBlock:^(ENUM_COMMONHTTP_RESPONSE_TYPE type, id responseModel) {
          if (type == ENUM_COMMONHTTP_RESPONSE_TYPE_SUCCESS)
          {

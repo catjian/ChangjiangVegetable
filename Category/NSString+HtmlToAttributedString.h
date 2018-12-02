@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *)filterHTML;
 
+
+- (NSString *)utf8ToUnicode:(NSString *)string;
+
 @end
 
 NS_ASSUME_NONNULL_END

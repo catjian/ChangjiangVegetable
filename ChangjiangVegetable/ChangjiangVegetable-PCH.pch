@@ -122,4 +122,7 @@
 #import "WebShowViewController.h"
 #import "MySetViewController.h"
 
+#import "HtmlContentViewController.h"
+#import "AllCommentViewController.h"
+
 #endif /* ChangjiangVegetable_PrefixHeader_pch */

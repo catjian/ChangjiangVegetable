@@ -8,7 +8,6 @@
 
 #import "HotInformationViewController.h"
 #import "HotInformationBaseView.h"
-#import "HtmlContentViewController.h"
 
 @interface HotInformationViewController () <UITextFieldDelegate>
 
